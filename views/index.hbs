@@ -2,17 +2,27 @@
     ================================================== -->
 
 {{# each contents }}
-        <div class="thumbnail">
-            <div class="caption">
-                <h3>{{ this.title }}</h3>
-                <br>
-                <small> {{ this.author}} </small>
-                <br>
-                <p class="description">{{ this.description }}</p>
-            </div>
-        </div>
+<div class="thumbnail">
+    <div class="caption">
+        <h3>{{ this.title }}</h3>
+        <br>
+        <small> {{ this.author}} </small>
+        <br>
+        <p class="description">{{ this.description }}</p>
+    </div>
+</div>
 {{/each}}
-  <!--//////////////////////////////////// -->
+<!--//////////////////////////////////// -->
+<div>
+    <h1>TESTTTTT</h1>
+    <button id="search" type="search" placeholder="Search Craig's Jobs">BUTTON TEST</button>
+    {{#if data}}
+    <h1>{{data}}</h1>
+    {{else}}
+    <h1>DIDNT WORK</h1>
+    {{/if}}
+
+</div>
 
 
 <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/Gondi.jpg"
@@ -655,3 +665,5 @@
     </div> <!-- end contact-content -->
 
 </section> <!-- end s-contact -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/listing.js"></script>

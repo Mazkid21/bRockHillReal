@@ -16,6 +16,30 @@
     <link rel="stylesheet" href="css/card.css">
     <script src="js/card.js"></script>
 </head>
+
+<div>
+
+    <h1>TESTTTTT</h1>
+    <button id="search" type="search" placeholder="Search Craig's Jobs">BUTTON TEST</button>
+
+    <div id="cat-list-template">
+        <script type="text/x-handlebars-template" id="image-template">
+<div>
+  {{#each property }}
+<p>{{this.UnparsedAddress}}</p>
+   <br>
+     <p>>{{Directions}}</p>
+     <br>
+     <img src="{{this.Media.0.MediaURL}}" alt="">
+  {{/each}}
+  </div>
+</script>
+
+    </div>
+
+</div>
+
+
 <section id='works' class="s-works">
 
     <div class="intro-wrap">
@@ -29,26 +53,26 @@
 
     </div> <!-- end intro-wrap -->
 
+
     <div class="row works-content">
         <div class="col-full masonry-wrap">
             <div class="masonry">
-
+                {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
                     <div class="item-folio">
-
                         <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent1.jpg" class="thumb-link" title="Shutterbug"
-                                data-size="1050x700">
-                                <img src="{{property.0.Media.0.MediaURL}}" alt="">
+
+                            <a href="{{this.MediaURL}}" class="thumb-link" title="Shutterbug" data-size="1050x700">
+                                <img src="{{this.Media.0.MediaURL}}" alt="">
                             </a>
                         </div>
 
                         <div class="item-folio__text">
                             <h3 class="item-folio__title">
-                                {{property.0.UnparsedAddress}}
+                                {{this.UnparsedAddress}}
                             </h3>
                             <p class="item-folio__cat">
-                                {{property.0.Directions}}
+                                {{this.Directions}}
                             </p>
                         </div>
 
@@ -62,167 +86,7 @@
 
                     </div>
                 </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent2.jpg" class="thumb-link" title="Woodcraft"
-                                data-size="1050x700">
-                                <img src="{{property.1.Media.0.MediaURL}}"
-                                    {{!--srcset="images/portfolio/recentWorks/recent2.jpg 1x, images/portfolio/recentWorks/recent2.jpg 2x" --}}
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                {{property.1.UnparsedAddress}}
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{property.1.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent3.jpg" class="thumb-link" title="The Beetle Car"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent3.jpg" srcset="images/portfolio/recentWorks/recent3.jpg 1x, images/portfolio/recentWorks/recent3.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 3
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{property.2.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent4.jpg" class="thumb-link" title="Grow Green"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent4.jpg" srcset="images/portfolio/recentWorks/recent4.jpg 1x, images/portfolio/recentWorks/recent4.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 4
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{property.3.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent5.jpg" class="thumb-link" title="Guitarist"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent5.jpg" srcset="images/portfolio/recentWorks/recent5.jpg 1x, images/portfolio/recentWorks/recent5.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 5
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{property.4.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent6.jpg" class="thumb-link" title="Palmeira"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent6.jpg" srcset="images/portfolio/recentWorks/recent6.jpg 1x, images/portfolio/recentWorks/recent6.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 6
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{property.5.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
-                                dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
+                {{/each}}
 
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->
@@ -232,9 +96,9 @@
 
 {{!-- //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////// --}}
+{{!-- CARD FOR LISTINGS --}}
 
-
-
+{{!--
 <div id="make-3D-space">
     <div id="product-card">
         <div id="product-front">
@@ -287,6 +151,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/listing.js"></script>

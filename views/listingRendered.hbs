@@ -1,5 +1,12 @@
-{{#if data}}
-<h1>{{data.Directions}}</h1>
-{{else}}
-<h1>DIDNT WORK</h1>
-{{/if}}
+<h1>HIIIIII</h1>
+
+<p>{{property.minPrice}}</p>
+<div>
+    {{#each property }}
+    <p>{{this.UnparsedAddress}}</p>
+    <br>
+    <p>>{{Directions}}</p>
+    <br>
+    <img src="{{this.Media.0.MediaURL}}" alt="">
+    {{/each}}
+</div>

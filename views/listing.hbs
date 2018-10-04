@@ -53,6 +53,36 @@
 
     </div> <!-- end intro-wrap -->
 
+    <form action="/listing/poop" method="post">
+        <div/div> </div> <div class="col-sm-12">
+            <label> Price: </label>
+            <input id="minPrice" type="number" class="col-sm-2" name="minPrice" placeholder="MIN PRICE"></input>
+            <input id="maxPrice" type="number" class="col-sm-2" name="maxPrice" placeholder="Max PRICE"></input>
+        </div>
+        <div class="col-sm-3">
+            <label>Bedrooms:</label>
+            <div class="input-number">
+                <input id="numBed" type="number" name="numBed" placeholder="quantity" value="{{numBed}}" min="1" max="10" />
+                <div class="input-number__controls">
+                    <span class="input-number__increase"><i class="stack-up-open"></i></span>
+                    <span class="input-number__decrease"><i class="stack-down-open"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label>Bathrooms:</label>
+            <div class="input-number">
+                <input id="numBath" type="number" name="numBath" placeholder="quantity" value="{{numBath}}" min="1" max="5" />
+                <div class="input-number__controls">
+                    <span class="input-number__increase"><i class="stack-up-open"></i></span>
+                    <span class="input-number__decrease"><i class="stack-down-open"></i></span>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Send message" />
+
+    </form>
+
 
     <div class="row works-content">
         <div class="col-full masonry-wrap">

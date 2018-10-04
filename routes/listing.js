@@ -15,7 +15,7 @@ router.post('/poop', function (req, res) {
     method: 'GET',
     url: 'https://sparkapi.com/Reso/OData/Property',
     qs: {
-      '$filter': 'City eq \'Aspen\' and MlsStatus eq \'Active\' and ListPrice eq' + response.minPrice,
+      '$filter': 'MlsStatus eq \'Active\' and ListPrice le ' + response.maxPrice + 'and ListPrice ge' + response.minPrice + 'and Zoning eq \'Residential\'',
       '$expand': 'CustomFields,Media',
       '$orderby': 'ListPrice desc',
       '$count': 'true'

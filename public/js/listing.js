@@ -1,4 +1,3 @@
-var property = {};
 $(function () {
     // var source = $("#search-results").append();
     // var dataTemplate = Handlebars.compile(source);

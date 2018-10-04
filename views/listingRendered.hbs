@@ -1,5 +1,15 @@
-{{#if data}}
-<h1>{{data.Directions}}</h1>
-{{else}}
-<h1>DIDNT WORK</h1>
-{{/if}}
+<div id="cat-list-template">
+    <script type="text/x-handlebars-template" id="image-template">
+                        <div>
+                        {{#each property }}
+                        <p>{{this.UnparsedAddress}}</p>
+                        <br>
+                            <p>>{{Directions}}</p>
+                            <br>
+                            <img src="{{this.Media.0.MediaURL}}" alt="">
+                        {{/each}}
+                        </div>
+                    </script>
+
+</div>
+<script src="/js/listing.js"></script>

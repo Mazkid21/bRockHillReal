@@ -64,6 +64,7 @@ app.use(function (req, res, next) {
 //express use routes
 app.use('/', homeRoute);
 app.use('/listing', listingRoute);
+app.use('/listing/search/refinded', listingRoute);
 app.use('/signup', signUpRoute);
 app.use('/login', loginRoute);
 

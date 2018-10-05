@@ -10,12 +10,16 @@ router.post('/poop', function (req, res) {
     numBed: req.body.numBed,
     numBath: req.body.numBath
   };
+
+  var minPriceURLstring = 'and ListPrice ge ' + response.minPrice;
+  ///IF STATMENT HERE THAT CHECKS IF THE RESPONSE DATA IS THERE
+  console.log(minPriceURLstring);
   console.log(response.minPrice + ": this is the min price that the api call is getting as a header");
   var options = {
     method: 'GET',
     url: 'https://sparkapi.com/Reso/OData/Property',
     qs: {
-      '$filter': 'MlsStatus eq \'Active\' and ListPrice le ' + response.maxPrice + 'and ListPrice ge' + response.minPrice + 'and Zoning eq \'Residential\'',
+      '$filter': 'MlsStatus eq \'Active\' and ListPrice le ' + response.maxPrice + 'and ListPrice ge ' + response.minPrice + 'and BedroomsTotal ge ' + response.numBed + 'and BathroomsTotalInteger ge ' + response.numBath + 'and Zoning eq \'Residential\'',
       '$expand': 'CustomFields,Media',
       '$orderby': 'ListPrice desc',
       '$count': 'true'

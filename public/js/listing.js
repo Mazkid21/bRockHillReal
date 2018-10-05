@@ -18,7 +18,7 @@ $(function () {
         $.ajax({
             method: 'get',
             dataType: "text",
-            url: '/listing/search',
+            url: '/search',
             success: function (data) {
                 console.log('poooooooop' + data);
                 var placeHolder = $("#cat-list-template");

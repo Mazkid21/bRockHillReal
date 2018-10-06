@@ -53,6 +53,9 @@
     <div class="row works-content">
         <div class="col-full masonry-wrap">
             <div class="masonry">
+                {{#if error}}
+                <h1>ERRRORRR</h1>
+                {{else}}
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
                     <div class="item-folio">
@@ -83,7 +86,7 @@
                     </div>
                 </div> <!-- end masonry__brick -->
                 {{/each}}
-
+                {{/if}}
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->
     </div> <!-- end works-content -->

@@ -17,32 +17,9 @@
     <script src="js/card.js"></script>
 </head>
 
-<div>
-
-    <h1>TESTTTTT</h1>
-    <button id="search" type="search" placeholder="Search Craig's Jobs">BUTTON TEST</button>
-
-    <div id="cat-list-template">
-        <script type="text/x-handlebars-template" id="image-template">
-<div>
-  {{#each property }}
-<p>{{this.UnparsedAddress}}</p>
-   <br>
-     <p>>{{Directions}}</p>
-     <br>
-     <img src="{{this.Media.0.MediaURL}}" alt="">
-  {{/each}}
-  </div>
-</script>
-
-    </div>
-
-</div>
-
-
 <section id='works' class="s-works">
 
-    <div class="intro-wrap">
+    <div class="intro-wrap" style="padding: 15rem 0 10rem;">
 
         <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
             <div class="col-full">
@@ -52,9 +29,9 @@
         </div> <!-- end section-header -->
 
     </div> <!-- end intro-wrap -->
-    <div>
+    <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
         <form action="/search" method="post">
-            <div/div> </div> <div class="col-sm-12">
+            <div class="col-sm-12">
                 <label> Price: </label>
                 <input id="minPrice" type="number" class="col-sm-2" name="minPrice" placeholder="MIN PRICE"></input>
                 <input id="maxPrice" type="number" class="col-sm-2" name="maxPrice" placeholder="Max PRICE"></input>

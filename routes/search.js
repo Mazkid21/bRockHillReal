@@ -285,8 +285,10 @@ router.post('/', function (req, res, poop) {
     }
 
     requests(options, function (data) {
+
         console.log(data + " this is data from back end");
         console.log(JSON.stringify(options.qs) + "these are the url options");
+        console.log(data.value + " this is data.value from back end");
         var propertyData = data;
 
         if (data === false) {
@@ -297,7 +299,9 @@ router.post('/', function (req, res, poop) {
             });
         } else {
             res.render('listingRendered', {
-                property: data
+                property: data.value,
+                propertyCount: data["@odata.count"],
+                nextLink: data["@odata.nextLink"]
             });
         }
     });
@@ -338,7 +342,7 @@ function requests(options, callback) {
             results = false;
             callback(results);
         } else {
-            propertyStuff = body.value;
+            propertyStuff = body;
 
             // for (var i = 0; i < results.length; i++) {
             //   console.log(i + "this is the index nimbers ");

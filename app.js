@@ -32,7 +32,9 @@ app.engine(
   '.hbs',
   exphbs({
     extname: '.hbs',
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir: __dirname + '/views/partials/'
   })
 );
 app.set('view engine', '.hbs');
@@ -48,9 +50,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS'
-}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -69,7 +69,7 @@ app.use('/lsiting/poop', listingRoute)
 app.use('/signup', signUpRoute);
 app.use('/login', loginRoute);
 app.use('/search', searchRoute);
-app.use('/search/:id', searchRoute);
+// app.use('/search/:id', singleListingroute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

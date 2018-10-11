@@ -19,6 +19,7 @@ var listingRoute = require('./routes/listing');
 var signUpRoute = require('./routes/signup');
 var loginRoute = require('./routes/login');
 var searchRoute = require('./routes/search');
+var singleListingroute = require('./routes/listingSingle');
 var app = express();
 
 mongoose.connect('mongodb://localhost/bRockHillTestApp', {
@@ -68,6 +69,7 @@ app.use('/lsiting/poop', listingRoute)
 app.use('/signup', signUpRoute);
 app.use('/login', loginRoute);
 app.use('/search', searchRoute);
+app.use('/search/:id', searchRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

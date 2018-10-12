@@ -321,7 +321,8 @@ router.get('/:id', (req, res) => {
         method: 'GET',
         url: 'https://sparkapi.com/Reso/OData/Property',
         qs: {
-            '$filter': `ListingKey eq \'${ListingKey}\'`
+            '$filter': `ListingKey eq \'${ListingKey}\'`,
+            '$expand': 'CustomFields,Media'
         },
         headers: {
             'x-sparkapi-user-agent': 'BrittanieRockhill',
@@ -331,25 +332,25 @@ router.get('/:id', (req, res) => {
     };
 
     console.log(JSON.stringify(options));
-    request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-        var resultsArray = [];
-        body = JSON.parse(body);
+    requests(options, function (data) {
 
-        // logic used to compare search results with the input from user
-        if (!body.value) {
-            results = false;
+        console.log(data + " this is data from back end");
+        console.log(JSON.stringify(options.qs) + "these are the url options");
+        console.log(JSON.stringify(data.value) + " this is data.value from back end");
+        var propertyData = data;
+
+        if (data === false) {
+            console.log("errrrrooorr");
+
             res.render('listingRendered', {
                 error: "no listings found"
             });
-
         } else {
-            console.log(JSON.stringify(body.value) + " this is the body ");
             res.render('listingSingle', {
-                property: body
-            });
-            return;
+                property: data.value,
 
+
+            });
         }
     });
 });

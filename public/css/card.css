@@ -1,4 +1,4 @@
-/* Generals resets and unimportant stuff */
+/* Generals resets and unimportant stuff
 * {
     margin: 0px;
     padding: 0px;
@@ -26,7 +26,7 @@ body {
 }
 
 /* --- Product Card ---- */
-#make-3D-space {
+/* #make-3D-space {
     position: relative;
     perspective: 800px;
     width: 500px;
@@ -521,4 +521,4 @@ div.shadow {
     -ms-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
-}
+} */

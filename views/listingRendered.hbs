@@ -49,13 +49,16 @@
 
     </form>
     <div class="row works-content">
+
+
         <div class="col-full masonry-wrap">
             <div class="masonry">
+
                 {{#if error}}
                 <h1>ERRRORRR</h1>
                 {{else}}
-                <h5>{{propertyCount}}</h5>
-                <a href="{{nextLink}}">NextPage</a>
+
+
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
                     <div class="">
@@ -91,7 +94,13 @@
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->
     </div> <!-- end works-content -->
-
+    <div class="nextPage-container">
+        <h5>{{propertyCount}}</h5>
+        <form action="/search/next" method="post">
+            <input name="nextLink" value={{nextLink}} style="display:none;" />
+            <input type="submit" value="Next Page">
+        </form>
+    </div>
 </section> <!-- end s-works -->
 
 {{!-- //////////////////////////////////////////////////////////

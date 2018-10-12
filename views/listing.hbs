@@ -66,13 +66,19 @@
     <div class="row works-content">
         <div class="col-full masonry-wrap">
             <div class="masonry">
+                {{#if error}}
+                <h1>ERRRORRR</h1>
+                {{else}}
+
+
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
+                    <div class="">
                         <div class="item-folio__thumb">
 
-                            <a href="{{this.MediaURL}}" class="thumb-link" title="Shutterbug" data-size="1050x700">
-                                <img src="{{this.Media.0.MediaURL}}" alt="">
+                            <a href="/search/{{this.ListingKey}}">
+                                <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
+                                    alt="">
                             </a>
                         </div>
 
@@ -85,7 +91,7 @@
                             </p>
                         </div>
 
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                        <a href="" class="item-folio__project-link" title="Project link">
                             <i class="icon-link"></i>
                         </a>
 
@@ -96,7 +102,7 @@
                     </div>
                 </div> <!-- end masonry__brick -->
                 {{/each}}
-
+                {{/if}}
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->
     </div> <!-- end works-content -->

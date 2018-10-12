@@ -355,6 +355,49 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.post('/next', (req, res) => {
+    let nextLink = req.body.nextLink;
+    console.log(nextLink);
+    var options = {
+        method: 'GET',
+        url: nextLink,
+        qs: {
+
+            '$expand': 'CustomFields,Media'
+        },
+        headers: {
+            'x-sparkapi-user-agent': 'BrittanieRockhill',
+            accept: 'application/json',
+            authorization: process.env.API_KEY
+        }
+    };
+
+    console.log(JSON.stringify(options));
+    requests(options, function (data) {
+
+        console.log(data + " this is data from back end");
+        console.log(JSON.stringify(options.qs) + "these are the url options");
+        // console.log(JSON.stringify(data.value) + " this is data.value from back end");
+        var propertyData = data;
+
+        if (data === false) {
+            console.log("errrrrooorr");
+
+            res.render('listingRendered', {
+                error: "no listings found"
+            });
+        } else {
+            res.render('listingRendered', {
+                property: data.value,
+                propertyCount: data["@odata.count"],
+                nextLink: data["@odata.nextLink"],
+
+
+            });
+        }
+    });
+})
+
 
 // function setApiOptions(options, callback) {
 //     if (req.body.maxPrice) {

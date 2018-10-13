@@ -18,114 +18,666 @@
 </head>
 {{#each property}}
 
-<div class="chicago">
-    <div class="container" style="background:url({{this.Media.0.MediaURL}});">
-        <div class="city-title">Chicago</div>
-        <hr />
-        <div class="city-weather-temperature" id="city-weather-temperature"></div>
-        <div class="city-weather-description" id="city-weather-description">
 
-        </div>
+<section class="stage">
 
-        <img src="http://openweathermap.org/img/w/01d.png" alt="weather-icon" class="city-weather-icon" id="city-weather-icon" />
+    <img src="{{this.Media.0.MediaURL}}" alt="">
 
 
-        <div class="content">
-
-            <nav>
-                <ul>
-                    <li><a href="#">Hotels</a></li>
-                    <li><a href="#">Places</a></li>
-                    <li><a href="#">Restaurants</a></li>
-                    <li class="selected"><a href="#">Offices</a></li>
-                </ul>
-            </nav>
-
-            <div class="nav-info clearfix" id="offices">
-                <div class="one-half">
-                    <div class="info" id="offices">
-                        <div class="company-name">Mintel Group Ltd</div>
-                        <div class="address">{{this.UnparsedAddress}}</div>
-                        <div class="phone">+1 123 654 987 36</div>
-                    </div> <!-- end info -->
-                </div> <!-- end one-half -->
-
-                <div class="one-half">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office1.png" alt="office 1" />
-
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office2.png" alt="office 2" />
-
-                </div> <!-- end one-half -->
-
-            </div> <!-- end nav-info #offices-->
-
-            <div class="nav-info clearfix hide" id="restaurants">
-                <div class="one-half">
-                    <div class="info" id="offices">
-                        <div class="company-name">Restaurant Ltd</div>
-                        <div class="address">123 E. Licoln Dr., Suite 9874, Chicago</div>
-                        <div class="phone">+1 564 232 4853 </div>
-                    </div> <!-- end info -->
-                </div> <!-- end one-half -->
-
-                <div class="one-half">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office1.png" alt="office 1" />
-
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office2.png" alt="office 2" />
-
-                </div> <!-- end one-half -->
-
-            </div> <!-- end nav-info #restaurants-->
-
-            <div class="nav-info clearfix hide" id="places">
-                <div class="one-half">
-                    <div class="info" id="offices">
-                        <div class="company-name">Places</div>
-                        <div class="address">874 North Street, Suite 2200, Chicago</div>
-                        <div class="phone">+1 905 265 9876 </div>
-                    </div> <!-- end info -->
-                </div> <!-- end one-half -->
-
-                <div class="one-half">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office1.png" alt="office 1" />
-
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office2.png" alt="office 2" />
-
-                </div> <!-- end one-half -->
-
-            </div> <!-- end nav-info #places-->
-
-            <div class="nav-info clearfix hide" id="hotels">
-                <div class="one-half">
-                    <div class="info" id="offices">
-                        <div class="company-name">Hotels Ltd</div>
-                        <div class="address">890 Marina Blvd, Suite 9412, Chicago</div>
-                        <div class="phone">+1 416 874 9874 </div>
-                    </div> <!-- end info -->
-                </div> <!-- end one-half -->
-
-                <div class="one-half">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office1.png" alt="office 1" />
-
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office2.png" alt="office 2" />
-
-                </div> <!-- end one-half -->
-
-            </div> <!-- end nav-info #hotels-->
-
-            <div class="nav-info-behind clearfix">
-
-            </div> <!-- end nav-info-behind-->
-
-        </div> <!-- end content -->
-
-    </div> <!-- end container -->
-
-</div> <!-- end chicago -->
+</section>
 
 
 
 {{/each}}
+
+
+
+
+
+
+<main>
+
+    <div class="inner">
+
+        <h1>
+            Ore 07
+        </h1>
+
+        <p class="intro">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu pretium.
+            Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in&nbsp;faucibus.
+        </p>
+
+        <form id="config-form" class="" action="" method="">
+
+
+            <!-- options wrapper -->
+            <div class="config-options-wrapper" id="">
+
+
+
+
+
+
+
+
+
+                <h3>
+                    Customize &amp; Order
+                </h3>
+
+
+
+
+
+
+
+
+                <!-- Case -->
+
+                <h2>
+                    <span>
+                        Case
+                        <a class="info js-trigger-modal" data-modal-source="modal-content-case">
+                            info.
+                        </a>
+                    </span>
+                </h2>
+
+                <ul class="options " id="">
+                </ul>
+                <!-- Crown -->
+                <h2>
+                    <span>
+                        Crown
+                        <a class="info js-trigger-modal" data-modal-source="modal-content-crown">
+                            info.
+                        </a>
+                    </span>
+                </h2>
+                <ul class="options " id="">
+                </ul>
+                <!-- Dial -->
+                <h2>
+                    <span>
+                        Dial
+                        <a class="info js-trigger-modal" data-modal-source="modal-content-dial">
+                            info.
+                        </a>
+                    </span>
+                </h2>
+                <ul class="options " id="">
+                    <!-- Row 1 -->
+                </ul>
+
+                <!-- Hands -->
+
+                <h2>
+                    <span>
+                        Hands
+                        <a class="info js-trigger-modal" data-modal-source="modal-content-hands">
+                            info.
+                        </a>
+                    </span>
+                </h2>
+
+                <ul class="options " id="">
+                </ul>
+                <!-- Band -->
+
+                <h2>
+                    <span>
+                        Band
+                        <a class="info js-trigger-modal" data-modal-source="modal-content-band">
+                            info.
+                        </a>
+                    </span>
+                </h2>
+
+                <ul class="options " id="">
+
+                </ul>
+
+                <h2>
+                    <span>
+                        Crystal
+                        <a class="info js-trigger-modal" data-modal-source="modal-content-crystal">
+                            info.
+                        </a>
+                    </span>
+                </h2>
+
+                <ul class="options list-crystal " id="">
+
+
+                </ul>
+
+            </div>
+            <!-- / end options wrapper -->
+
+
+
+
+
+
+
+            <a href="#" class="bttn order js-trigger">
+                Place An Order
+            </a>
+
+
+
+
+
+
+
+        </form>
+
+    </div>
+
+</main>
+
+
+
+
+
+<!-- modal -->
+<section class="modal">
+
+    <!-- modal content wrapper -->
+    <div id="modal-content" class="modal-content ">
+
+
+        <!-- modal wrapper is empty
+        hidden content lower in the doc
+        is injected into this wrapper
+        -->
+
+
+    </div>
+    <!-- / modal content wrapper -->
+
+
+    <!-- Overlay layer -
+        using an element for this
+        so its easily clickable -->
+    <div class="overlay"></div>
+
+
+</section>
+<!-- / modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- hidden content - use for modal content, etc. -->
+<div class="hidden">
+
+
+
+
+
+
+
+
+
+
+    <!-- hidden content for modals, etc., goes here -->
+
+
+
+
+
+
+
+
+
+    <!-- modal content, Case -->
+    <div class="modal-content-case">
+
+        <div class="modal-content-inner faux-table case ">
+
+
+            <!-- bottom row -->
+            <div class="row top">
+                <div class="cell">
+
+                    <a class="bttn-close dismiss-modal">
+                        Back
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <!-- flex row -->
+            <div class="row">
+                <div class="cell">
+
+                    <div class="content">
+
+                        <h2>
+                            ORE 07 /
+                        </h2>
+
+                        <h1>
+                            Case
+                        </h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu
+                            pretium. Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in faucibus
+                            orci luctus et ultrices posuere&nbsp;cubilia.
+                        </p>
+
+                        <p>
+                            Quisque maximus porttitor ultrices. Etiam eu massa eu risus dignissim viverra et at ex.
+                            Mauris facilisis sit amet est in hendrerit. Ut ut nunc erat. Nulla sit amet tincidunt orci.
+                            Duis mollis leo orci, et consequat arcu pretium vel. Proin at lacinia&nbsp;libero.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bottom row -->
+            <div class="row bottom">
+                <div class="cell">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- / modal content, Case  -->
+
+
+
+
+
+
+
+
+
+    <!-- modal content, Crown -->
+    <div class="modal-content-crown">
+
+        <div class="modal-content-inner faux-table crown ">
+
+
+            <!-- bottom row -->
+            <div class="row top">
+                <div class="cell">
+
+                    <a href="#" class="bttn-close dismiss-modal">
+                        Back
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <!-- flex row -->
+            <div class="row">
+                <div class="cell">
+
+                    <div class="content">
+
+                        <h2>
+                            ORE 07 /
+                        </h2>
+
+                        <h1>
+                            Crown
+                        </h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu
+                            pretium. Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in faucibus
+                            orci luctus et ultrices posuere&nbsp;cubilia.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bottom row -->
+            <div class="row bottom">
+                <div class="cell">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- / modal content, Crown  -->
+
+
+
+
+
+
+
+
+
+    <!-- modal content, Dial -->
+    <div class="modal-content-dial">
+
+        <div class="modal-content-inner faux-table dial ">
+
+
+            <!-- bottom row -->
+            <div class="row top">
+                <div class="cell">
+
+                    <a href="#" class="bttn-close dismiss-modal">
+                        Back
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <!-- flex row -->
+            <div class="row">
+                <div class="cell">
+
+                    <div class="content">
+
+                        <h2>
+                            ORE 07 /
+                        </h2>
+
+                        <h1>
+                            Dial
+                        </h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu
+                            pretium. Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in faucibus
+                            orci luctus et ultrices posuere&nbsp;cubilia.
+                        </p>
+
+                        <p>
+                            Quisque maximus porttitor ultrices. Etiam eu massa eu risus dignissim viverra et at ex.
+                            Mauris facilisis sit amet est in hendrerit. Ut ut nunc erat. Nulla sit amet tincidunt orci.
+                            Duis mollis leo orci, et consequat arcu pretium vel. Proin at lacinia&nbsp;libero.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bottom row -->
+            <div class="row bottom">
+                <div class="cell">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- / modal content, Dial  -->
+
+
+
+
+
+
+
+
+
+    <!-- modal content, Hands -->
+    <div class="modal-content-hands">
+
+        <div class="modal-content-inner faux-table hands ">
+
+
+            <!-- bottom row -->
+            <div class="row top">
+                <div class="cell">
+
+                    <a href="#" class="bttn-close dismiss-modal">
+                        Back
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <!-- flex row -->
+            <div class="row">
+                <div class="cell">
+
+                    <div class="content">
+
+                        <h2>
+                            ORE 07 /
+                        </h2>
+
+                        <h1>
+                            Hands
+                        </h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu
+                            pretium. Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in faucibus
+                            orci luctus et ultrices posuere&nbsp;cubilia.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bottom row -->
+            <div class="row bottom">
+                <div class="cell">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- / modal content, Hands  -->
+
+
+
+
+
+
+
+
+
+    <!-- modal content, Band -->
+    <div class="modal-content-band">
+
+        <div class="modal-content-inner faux-table band ">
+
+
+            <!-- bottom row -->
+            <div class="row top">
+                <div class="cell">
+
+                    <a href="#" class="bttn-close dismiss-modal">
+                        Back
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <!-- flex row -->
+            <div class="row">
+                <div class="cell">
+
+                    <div class="content">
+
+                        <h2>
+                            ORE 07 /
+                        </h2>
+
+                        <h1>
+                            Band
+                        </h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu
+                            pretium. Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in faucibus
+                            orci luctus et ultrices posuere&nbsp;cubilia.
+                        </p>
+
+                        <p>
+                            Quisque maximus porttitor ultrices. Etiam eu massa eu risus dignissim viverra et at ex.
+                            Mauris facilisis sit amet est in hendrerit. Ut ut nunc erat. Nulla sit amet tincidunt orci.
+                            Duis mollis leo orci, et consequat arcu pretium vel. Proin at lacinia&nbsp;libero.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bottom row -->
+            <div class="row bottom">
+                <div class="cell">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- / modal content, Band  -->
+
+
+
+
+
+
+
+
+
+    <!-- modal content, Crystal -->
+    <div class="modal-content-crystal">
+
+        <div class="modal-content-inner faux-table crystal ">
+
+
+            <!-- bottom row -->
+            <div class="row top">
+                <div class="cell">
+
+                    <a href="#" class="bttn-close dismiss-modal">
+                        Back
+                    </a>
+
+                </div>
+            </div>
+
+
+
+            <!-- flex row -->
+            <div class="row">
+                <div class="cell">
+
+                    <div class="content">
+
+                        <h2>
+                            ORE 07 /
+                        </h2>
+
+                        <h1>
+                            Crystal
+                        </h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum sed arcu eu
+                            pretium. Suspendisse efficitur tincidunt felis. Vestibulum ante ipsum primis in faucibus
+                            orci luctus et ultrices posuere&nbsp;cubilia.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- bottom row -->
+            <div class="row bottom">
+                <div class="cell">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- / modal content, Crystal  -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<!-- / hidden content -->
+
+
+
+
+
+
+
 
 
 

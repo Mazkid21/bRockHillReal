@@ -1,38 +1,96 @@
-// weather api
-$(document).ready(function () {
+// /* Config. Render Sync w/ Stage
+//     --------------------------------------*/
+// function config_render() {
 
-    $.ajax({
+//     $('#config-form input[type=radio]').on('change', function (e) {
 
-        url: "http://api.openweathermap.org/data/2.5/weather?q=aspen,usa&units=imperial&APPID=4573c189d467ca1814c1c10000060792",
-        dataType: "json",
-        type: "GET",
+//         e.preventDefault();
 
-        success: function (json) {
-            console.log(json);
-            var temp = json.main.temp;
-            $('#city-weather-temperature').html(temp + '° F');
-            $('#city-weather-description').html(json.weather[0].description);
-            $('img#city-weather-icon').attr('src', 'http://openweathermap.org/img/w/' + json.weather[0].icon + '.png');
-        },
-        error: function (xhr, status, errorThrown) {
-            //do something if there was an error. Right now it will just show the default values in the html
-        }
-    });
+//         // grab the 'name' attribute value for the new selection
+//         var input_name = $(this).attr("name");
 
-    // Nav toggle content
-    $("nav ul li a").on("click", function () {
+//         // convert the name to a data attribute for use with the stage
+//         var stage_match_attr = "data-" + input_name;
 
-        var $this = $(this);
-        var target = $this.text().toLowerCase();
+//         // grab the value of the data-stage-name attribute for the new selection
+//         var selected_option = $(this).attr("data-stage-name");
 
-        //update nav selected
-        $this.parent().addClass('selected').siblings().removeClass('selected');
+//         // set the stage view to reflect the new selection by updating the
+//         // stage's data attribute value that corresponds with the new selection
+//         $('#watch-comp').attr(stage_match_attr, selected_option);
+
+//     });
+
+// }
+// config_render();
 
 
-        //show and hide appropriate content based on selection
-        $('#' + target).fadeIn('slow').removeClass('hide').siblings().not('nav').not('.nav-info-behind').hide();
 
 
-        return false;
-    });
-});
+
+
+
+
+// /* Order Button
+//     --------------------------------------*/
+// function order_bttn() {
+
+//     $('.bttn.order.js-trigger').on('click', function (e) {
+
+//         e.preventDefault();
+
+//         // Submit the form here, from clicking the order button
+
+//     });
+
+// }
+// order_bttn();
+
+
+
+
+
+
+
+
+
+
+// /* Toggle Modal
+//     --------------------------------------*/
+// function toggle_modal() {
+
+//     // when any button/link is clicked that has
+//     // the class 'js-trigger-modal'...
+//     $('.js-trigger-modal').on("click", function (e) {
+
+//         // prevent the <a> element's default behavior
+//         e.preventDefault();
+
+//         // get the value for the 'data-modal-source'
+//         // attribute for the element clicked
+//         var modal_content_source = $(this).data('modal-source');
+
+//         // match the value above with the corresponding
+//         // content modal wrapper, and then get the HTML
+//         var modal_inner_content = $('div[class=' + modal_content_source + ']').html();
+
+//         // insert the HTML from above into the modal wrapper
+//         $('#modal-content').html('').append(modal_inner_content);
+
+//         // show the modal — add class to the body to reveal
+//         // and prevent the body from scrolling while modal is open
+//         $('body').addClass('show-modal noscroll');
+
+//     });
+
+//     // close the modal when a 'dismiss' element
+//     // or the overlay is clicked
+//     $('body').on('click', '.dismiss-modal, .modal .overlay', function (e) {
+//         // remove the class on the body that shows the modal
+//         // and remove the class preventing the body from scrolling
+//         e.preventDefault();
+//         $("body").removeClass("show-modal noscroll");
+//     });
+
+// }
+// toggle_modal();

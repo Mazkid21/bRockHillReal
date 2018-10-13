@@ -1,11 +1,38 @@
+// weather api
 $(document).ready(function () {
 
+    $.ajax({
 
-    $(function () {
-        $('.wrapper').click(function () {
-            $('.content').toggleClass('open');
-            $(this).toggleClass('open');
-        });
+        url: "http://api.openweathermap.org/data/2.5/weather?q=aspen,usa&units=imperial&APPID=4573c189d467ca1814c1c10000060792",
+        dataType: "json",
+        type: "GET",
 
+        success: function (json) {
+            console.log(json);
+            var temp = json.main.temp;
+            $('#city-weather-temperature').html(temp + '° F');
+            $('#city-weather-description').html(json.weather[0].description);
+            $('img#city-weather-icon').attr('src', 'http://openweathermap.org/img/w/' + json.weather[0].icon + '.png');
+        },
+        error: function (xhr, status, errorThrown) {
+            //do something if there was an error. Right now it will just show the default values in the html
+        }
+    });
+
+    // Nav toggle content
+    $("nav ul li a").on("click", function () {
+
+        var $this = $(this);
+        var target = $this.text().toLowerCase();
+
+        //update nav selected
+        $this.parent().addClass('selected').siblings().removeClass('selected');
+
+
+        //show and hide appropriate content based on selection
+        $('#' + target).fadeIn('slow').removeClass('hide').siblings().not('nav').not('.nav-info-behind').hide();
+
+
+        return false;
     });
 });

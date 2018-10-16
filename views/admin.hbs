@@ -85,7 +85,7 @@ button:hover {
 <h1>ADMIN PAGE</h1>
 <section class="insert">
     <h3>Insert Data</h3>
-    <form action="/rentals/insert" method="post">
+    <form action="/admin/insert" method="post">
         <div class="input">
             <label for="title">Title</label>
             <input type="text" id="title" name="title">
@@ -103,7 +103,6 @@ button:hover {
 </section>
 <section class="get">
     <h3>Get Data</h3>
-    <a href="/rentals">LOAD DATA</a>
     <div>
         <h1>{{items.title}}</h1>
         {{# each items }}
@@ -118,7 +117,7 @@ button:hover {
 </section>
 <section class="update">
     <h3>Update Data</h3>
-    <form action="/rentals/update" method="post">
+    <form action="/admin/update" method="post">
         <div class="input">
             <label for="id">ID</label>
             <input type="text" id="id" name="id">
@@ -141,7 +140,7 @@ button:hover {
 </section>
 <section class="delete">
     <h3>Delete Data</h3>
-    <form action="/rentals/delete" method="post">
+    <form action="/admin/delete" method="post">
         <div class="input">
             <label for="id">ID</label>
             <input type="text" id="id" name="id">

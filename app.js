@@ -93,7 +93,7 @@ app.use('/login', loginRoute);
 app.use('/logout', logOutRoute);
 app.use('/search', searchRoute);
 app.use('/rentals', rentalRoute);
-app.use('/rentals/get-data', rentalRoute);
+// app.use('/rentals/get-data', rentalRoute);
 app.use('/admin', admin);
 // app.use('/admin/signup', admin);
 // app.use('/admin/login', admin);

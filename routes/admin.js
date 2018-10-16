@@ -1,34 +1,97 @@
 var express = require('express');
-var router = express.Router();
-// Parses information from POST
-var bodyParser = require('body-parser');
-// Used to manipulate POST methods
-var methodOverride = require('method-override');
+var request = require('request');
 var passport = require("passport");
-var usersController = require('../controllers/users');
+var MongoClient = require('mongodb').MongoClient;
+var objectId = require('mongodb').ObjectID;
 
 
-function authenticatedUser(req, res, next) {
-    //if the user is authenticated, then we continue the executionl
-    if (req.isAuthenticated()) return next();
-
-    //otherwise the request is always redirected to the homepage
-    res.redirect('/');
-}
+var url = "mongodb://localhost/bRockHillLive";
 
 
-router.route('/signup')
-    .get(usersController.getSignup)
-    .post(usersController.postSignup)
+var router = express.Router();
 
-router.route('/login')
-    .get(usersController.getLogin)
-    .post(usersController.postLogin)
 
-router.route("/logout")
-    .get(usersController.getLogout)
 
-router.route("/secret")
-    .get(authenticatedUser, usersController.secret);
+router.get('/', (req, res, next) => {
 
-module.exports = router
+    if (req.isAuthenticated()) {
+
+        var resultsArray = [];
+        MongoClient.connect(url, (err, db) => {
+            var cursor = db.collection('test');
+            cursor.find({}).toArray((err, results) => {
+                res.render('rentals', {
+                    items: results
+                });
+            });
+        });
+
+    } else {
+        res.redirect('/login');
+
+    }
+
+
+});
+
+
+
+router.post('/insert', (req, res, next) => {
+
+    var item = {
+        title: req.body.title,
+        content: req.body.content,
+        author: req.body.author
+    };
+
+    MongoClient.connect(url, (err, db) => {
+
+        db.collection('test').insertOne(item, (err, result) => {
+            console.log(item + ': item inserted');
+            db.close();
+        });
+    });
+    res.redirect('/rentals');
+
+
+});
+
+router.post('/update', (req, res, next) => {
+    var item = {
+        title: req.body.title,
+        content: req.body.content,
+        author: req.body.author
+    };
+    var id = req.body.id;
+    MongoClient.connect(url, (err, db) => {
+
+        db.collection('test').updateOne({
+            "_id": objectId(id)
+        }, {
+            $set: item
+        }, (err, result) => {
+            console.log(item + ': item updated');
+            db.close();
+        });
+    });
+    res.redirect('/rentals');
+
+});
+
+router.post('/delete', (req, res, next) => {
+    var id = req.body.id;
+    MongoClient.connect(url, (err, db) => {
+
+        db.collection('test').deleteOne({
+            "_id": objectId(id)
+        }, (err, result) => {
+            console.log(': item updated');
+            db.close();
+        });
+    });
+    res.redirect('/rentals');
+});
+
+
+
+module.exports = router;

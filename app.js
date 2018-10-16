@@ -19,6 +19,7 @@ var assert = require('assert');
 var homeRoute = require('./routes/index');
 var listingRoute = require('./routes/listing');
 var signUpRoute = require('./routes/signup');
+var logOutRoute = require('./routes/logout');
 var loginRoute = require('./routes/login');
 var searchRoute = require('./routes/search');
 var rentalRoute = require('./routes/rental');
@@ -31,9 +32,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 mongoose.connect('mongodb://localhost/bRockHillLive');
-app.use(session({
-  secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS'
-}));
+// app.use(session({
+//   secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS'
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -87,16 +88,17 @@ app.use(function (req, res, next) {
 app.use('/', homeRoute);
 app.use('/listing', listingRoute);
 app.use('/lsiting/poop', listingRoute);
-// app.use('/signup', signUpRoute);
+app.use('/signup', signUpRoute);
 app.use('/login', loginRoute);
+app.use('/logout', logOutRoute);
 app.use('/search', searchRoute);
 app.use('/rentals', rentalRoute);
 app.use('/rentals/get-data', rentalRoute);
 app.use('/admin', admin);
-app.use('/admin/signup', admin);
-app.use('/admin/login', admin);
-app.use('/admin/logout', admin);
-app.use('/admin/secret', admin);
+// app.use('/admin/signup', admin);
+// app.use('/admin/login', admin);
+// app.use('/admin/logout', admin);
+// app.use('/admin/secret', admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

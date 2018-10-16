@@ -1,7 +1,91 @@
-<h1>MONGODB - EXERCISE</h1>
+<style>
+    body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+section {
+  float: left;
+  background: #bdc3c7;
+  padding: 10px;
+  margin: 30px;
+  width: 300px;
+  box-shadow: 3px 3px 1px #34495e;
+  min-height: 400px;
+}
+
+section:first-of-type {
+  margin-left: 0;
+}
+
+section:last-of-type {
+  margin-right: 0;
+}
+
+section h3 {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.insert {
+  background: #2ecc71;
+}
+
+.get {
+  background: #ecf0f1;
+}
+
+.update {
+  background: #3498db;
+}
+
+.delete {
+  background: #e74c3c;
+}
+
+.input label {
+  display: block;
+  font-weight: bold;
+  padding: 2px 0;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+button {
+  margin-top: 10px;
+  border: none;
+  box-shadow: 1px 1px 1px #34495e;
+  border-radius: 0;
+  background: #ecf0f1;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #bdc3c7;
+}
+
+.item {
+  margin: 10px 0;
+  padding: 5px;
+  background: #95a5a6;
+  border: 1px solid black;
+}
+
+</style>
+<h1>SECRET PAGE</h1>
+
+
+<h1>ADMIN PAGE</h1>
 <section class="insert">
     <h3>Insert Data</h3>
-    <form action="/insert" method="post">
+    <form action="/rentals/insert" method="post">
         <div class="input">
             <label for="title">Title</label>
             <input type="text" id="title" name="title">
@@ -19,8 +103,9 @@
 </section>
 <section class="get">
     <h3>Get Data</h3>
-    <a href="/get-data">LOAD DATA</a>
+    <a href="/rentals">LOAD DATA</a>
     <div>
+        <h1>{{items.title}}</h1>
         {{# each items }}
         <article class="item">
             <div>Title: {{ this.title }}</div>
@@ -33,7 +118,7 @@
 </section>
 <section class="update">
     <h3>Update Data</h3>
-    <form action="/update" method="post">
+    <form action="/rentals/update" method="post">
         <div class="input">
             <label for="id">ID</label>
             <input type="text" id="id" name="id">
@@ -56,7 +141,7 @@
 </section>
 <section class="delete">
     <h3>Delete Data</h3>
-    <form action="/delete" method="post">
+    <form action="/rentals/delete" method="post">
         <div class="input">
             <label for="id">ID</label>
             <input type="text" id="id" name="id">

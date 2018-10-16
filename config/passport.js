@@ -1,4 +1,3 @@
-var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
@@ -35,7 +34,7 @@ module.exports = function (passport) {
         //create it
         var newUser = new User();
         newUser.local.email = email;
-        newUser.local.password = newUser.encrypt(password);
+        newUser.local.password = newUser.hash(password);
 
         newUser.save(function (err) {
           if (err) throw err;

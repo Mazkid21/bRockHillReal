@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
         MongoClient.connect(url, (err, db) => {
             var cursor = db.collection('test');
             cursor.find({}).toArray((err, results) => {
-                res.render('rentals', {
+                res.render('admin', {
                     items: results
                 });
             });

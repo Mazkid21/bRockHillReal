@@ -32,9 +32,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 mongoose.connect('mongodb://localhost/bRockHillLive');
-// app.use(session({
-//   secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS'
-// }));
+app.use(session({
+  secret: 'YOU ARE AN ADMIN'
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

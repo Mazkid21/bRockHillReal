@@ -1,10 +1,9 @@
 <h2>Login</h2>
 <div class="message">
     {{#if message}}
-    <h5>{{this}}</h5>
+    <h5>{{this.message}}</h5>
     {{/if}}
 </div>
-
 <form method="post" action="/login">
     <div class="form-group">
         <label for="email">Email</label>

@@ -11,7 +11,8 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require("passport");
 var flash = require('connect-flash', 'req-flash');
-
+var mongo = require('mongodb');
+var assert = require('assert');
 
 //Routes....dont forget to add to app.use() below
 var homeRoute = require('./routes/index');
@@ -19,11 +20,9 @@ var listingRoute = require('./routes/listing');
 var signUpRoute = require('./routes/signup');
 var loginRoute = require('./routes/login');
 var searchRoute = require('./routes/search');
+var rentalRoute = require('./routes/rental');
 var app = express();
 
-mongoose.connect('mongodb://localhost/bRockHillTestApp', {
-  useNewUrlParser: true
-});
 
 // view engine setup
 //EXPRESS (app) START TEMPLTING ENGINE (handlebars)
@@ -64,11 +63,12 @@ app.use(function (req, res, next) {
 //express use routes
 app.use('/', homeRoute);
 app.use('/listing', listingRoute);
-app.use('/lsiting/poop', listingRoute)
+app.use('/lsiting/poop', listingRoute);
 app.use('/signup', signUpRoute);
 app.use('/login', loginRoute);
 app.use('/search', searchRoute);
-
+app.use('/rentals', rentalRoute);
+app.use('/rentals/get-data', rentalRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

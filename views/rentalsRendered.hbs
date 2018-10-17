@@ -103,6 +103,21 @@
     </div>
 </section> <!-- end s-works -->
 
+
+
+{{!-- DB rentals --}}
+<div>
+    <h1>{{items.title}}</h1>
+    {{# each items }}
+    <article class="item">
+        <div>Title: {{ this.title }}</div>
+        <div>Content: {{ this.content }}</div>
+        <div>Author: {{ this.author }}</div>
+        <div>ID: {{ this._id }}</div>
+    </article>
+    {{/each}}
+</div>
+
 {{!-- //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////// --}}
 {{!-- CARD FOR LISTINGS --}}

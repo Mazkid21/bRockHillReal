@@ -1,10 +1,14 @@
 var express = require('express');
 var request = require('request');
+var MongoClient = require('mongodb').MongoClient;
+
+
+var url = "mongodb://localhost/bRockHillLive";
 var router = express.Router();
 
 router.get('/', function (req, res) {
     res.render('rentalsRendered');
-})
+});
 
 router.post('/', function (req, res, poop) {
     response = {
@@ -298,11 +302,18 @@ router.post('/', function (req, res, poop) {
                 error: "no listings found"
             });
         } else {
-            res.render('rentalsRendered', {
-                property: data.value,
-                propertyCount: data["@odata.count"],
-                nextLink: data["@odata.nextLink"],
+            MongoClient.connect(url, (err, db) => {
+                var cursor = db.collection('test');
+                cursor.find({}).toArray((err, results) => {
+                    res.render('rentalsRendered', {
+                        property: data.value,
+                        propertyCount: data["@odata.count"],
+                        nextLink: data["@odata.nextLink"],
+                        items: results
 
+
+                    });
+                });
             });
         }
     });
@@ -387,13 +398,23 @@ router.post('/next', (req, res) => {
                 error: "no listings found"
             });
         } else {
-            res.render('rentalsRendered', {
-                property: data.value,
-                propertyCount: data["@odata.count"],
-                nextLink: data["@odata.nextLink"],
+            MongoClient.connect(url, (err, db) => {
+                var cursor = db.collection('test');
+                cursor.find({}).toArray((err, results) => {
+                    res.render('rentalsRendered', {
+                        property: data.value,
+                        propertyCount: data["@odata.count"],
+                        nextLink: data["@odata.nextLink"],
+                        items: results
 
 
+                    });
+                });
             });
+
+
+
+
         }
     });
 })

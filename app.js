@@ -23,6 +23,7 @@ var logOutRoute = require('./routes/logout');
 var loginRoute = require('./routes/login');
 var searchRoute = require('./routes/search');
 var rentalRoute = require('./routes/rental');
+var rentalSearchRoute = require('./routes/rentalSearch');
 var admin = require('./routes/admin');
 var app = express();
 
@@ -87,18 +88,14 @@ app.use(function (req, res, next) {
 //express use routes
 app.use('/', homeRoute);
 app.use('/listing', listingRoute);
-app.use('/lsiting/poop', listingRoute);
 app.use('/signup', signUpRoute);
 app.use('/login', loginRoute);
 app.use('/logout', logOutRoute);
 app.use('/search', searchRoute);
 app.use('/rentals', rentalRoute);
-// app.use('/rentals/get-data', rentalRoute);
+app.use('/rentals-search', rentalSearchRoute);
 app.use('/admin', admin);
-// app.use('/admin/signup', admin);
-// app.use('/admin/login', admin);
-// app.use('/admin/logout', admin);
-// app.use('/admin/secret', admin);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

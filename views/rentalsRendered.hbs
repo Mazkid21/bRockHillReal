@@ -1,0 +1,166 @@
+{{!-- {{#each property}}
+
+<p>{{@index}}. {{this.Directions}}</p>
+{{/each}}
+
+<h1>{{property.1.Directions}}</h1> --}}
+
+
+
+<!-- works
+    ================================================== -->
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/card.css">
+    <script src="/js/card.js"></script>
+</head>
+
+<section id='works' class="s-works">
+    <form action="/rentals-search" method="post" style="padding-top: 6%;
+    padding-left: 25%;">
+        <div class="col-sm-12">
+            <label> Price: </label>
+            <input id="minPrice" type="number" class="col-sm-2" name="minPrice" placeholder="MIN PRICE"></input>
+            <input id="maxPrice" type="number" class="col-sm-2" name="maxPrice" placeholder="Max PRICE"></input>
+        </div>
+        <div class="col-sm-3">
+            <label>Bedrooms:</label>
+            <div class="input-number">
+                <input id="numBed" type="number" name="numBed" placeholder="quantity" value="{{numBed}}" min="1" max="10" />
+                <div class="input-number__controls">
+                    <span class="input-number__increase"><i class="stack-up-open"></i></span>
+                    <span class="input-number__decrease"><i class="stack-down-open"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label>Bathrooms:</label>
+            <div class="input-number">
+                <input id="numBath" type="number" name="numBath" placeholder="quantity" value="{{numBath}}" min="1" max="5" />
+                <div class="input-number__controls">
+                    <span class="input-number__increase"><i class="stack-up-open"></i></span>
+                    <span class="input-number__decrease"><i class="stack-down-open"></i></span>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Send message" />
+
+    </form>
+    <div class="row works-content">
+
+
+        <div class="col-full masonry-wrap">
+            <div class="masonry">
+
+                {{#if error}}
+                <h1>ERRRORRR</h1>
+                {{else}}
+
+
+                {{#each property}}
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="">
+                        <div class="item-folio__thumb">
+
+                            <a href="/rentals-search/{{this.ListingKey}}">
+                                <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
+                                    alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{this.UnparsedAddress}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{this.Directions}}
+                            </p>
+                        </div>
+
+                        <a href="" class="item-folio__project-link" title="Project link">
+                            <i class="icon-link"></i>
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>fwfwef</p>
+                        </div>
+
+                    </div>
+                </div> <!-- end masonry__brick -->
+                {{/each}}
+                {{/if}}
+            </div> <!-- end masonry -->
+        </div> <!-- end col-full -->
+    </div> <!-- end works-content -->
+    <div class="nextPage-container">
+        <h5>{{propertyCount}}</h5>
+        <form action="/rentals-search/next" method="post">
+            <input name="nextLink" value={{nextLink}} style="display:none;" />
+            <input type="submit" value="Next Page">
+        </form>
+    </div>
+</section> <!-- end s-works -->
+
+{{!-- //////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////// --}}
+{{!-- CARD FOR LISTINGS --}}
+
+{{!--
+<div id="make-3D-space">
+    <div id="product-card">
+        <div id="product-front">
+            <div class="shadow"></div>
+            <img src="{{property.0.Media.0.MediaURL}}" alt="" />
+            <div class="image_overlay"></div>
+            <div id="view_details">View property</div>
+            <div class="stats">
+                <div class="stats-container">
+                    <span class="product_price">{{property.0.ListPrice}}</span>
+                    <span class="product_name">{{property.0.UnparsedAddress}}</span>
+                    <p>Men'
+                        s running shirt</p>
+                    <div class="product-options">
+                        <strong>SIZES</strong>
+                        <span>XS, S, M, L, XL, XXL</span>
+                        <strong>COLORS</strong>
+                        <div class="colors">
+                            <div class="c-blue"><span></span></div>
+                            <div class="c-red"><span></span></div>
+                            <div class="c-white"><span></span></div>
+                            <div class="c-green"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="product-back">
+            <div class="shadow"></div>
+            <div id="carousel">
+                <ul>
+                    <li><img src="{{property.0.Media.1.MediaURL}}" alt="" /></li>
+                    <li><img src="{{property.0.Media.2.MediaURL}}" alt="" /></li>
+                    <li><img src="{{property.0.Media.3.MediaURL}}" alt="" /></li>
+                </ul>
+                <div class="arrows-perspective">
+                    <div class="carouselPrev">
+                        <div class="y"></div>
+                        <div class="x"></div>
+                    </div>
+                    <div class="carouselNext">
+                        <div class="y"></div>
+                        <div class="x"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="flip-back">
+                <div id="cy"></div>
+                <div id="cx"></div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/listing.js"></script>

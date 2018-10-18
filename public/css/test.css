@@ -1,0 +1,143 @@
+/* demo css */
+
+html,
+body {
+    background: #fefefe;
+    color: #212121;
+}
+
+a {
+    color: inherit;
+}
+
+dl {
+    max-width: 640px;
+    list-style: none;
+    margin: 0 auto;
+    width: 100%;
+}
+
+dt {
+    /*     padding: 20px 0 0; */
+    float: left;
+    width: 100%;
+}
+
+dd {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    clear: left;
+    float: left;
+    margin: 0 auto;
+    /*     resize: horizontal;
+    overflow: hidden; */
+}
+
+aside {
+    background-color: rgba(0, 0, 0, 0.03);
+    width: 100%;
+    border-radius: 2px;
+    position: relative;
+    float: left;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .11), 0 1px 2px rgba(0, 0, 0, .22)
+}
+
+aside+aside {
+    margin-top: 20px;
+}
+
+.media {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* .card {
+    width: 50%;
+} */
+
+.image,
+.details {
+    width: 100%;
+    float: left;
+}
+
+.card .image {
+    border-radius: 3px 3px 0 0;
+}
+
+.list .image {
+    border-radius: 3px 0 0 3px;
+}
+
+.details {
+    color: #757575;
+    font-size: .8em;
+    padding: 1em;
+    width: calc(100% - 2em);
+}
+
+.grid .details {
+    padding: 1em 0;
+    width: 100%;
+}
+
+.link {
+    display: inline-block;
+}
+
+.link .title {
+    font-size: inherit;
+}
+
+.link .details {
+    width: initial;
+}
+
+.title {
+    font-size: 1.25em;
+    color: #212121;
+}
+
+.title a {
+    color: #212121;
+}
+
+.details>* {
+    margin: .4em 0
+}
+
+.list {
+    display: flex;
+}
+
+.list .image {
+    width: 25%;
+}
+
+.list .image+.details {
+    width: calc(75% - 2em);
+}
+
+.list .details p:first-of-type {
+    margin-top: 0;
+}
+
+.credit {
+    text-transform: uppercase;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid .item {
+    margin: .4em;
+    width: calc(33.33% - .8em);
+}
+
+/* .grid .item:last-of-type {
+    flex-grow: 1;
+} */

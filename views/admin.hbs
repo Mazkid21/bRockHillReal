@@ -126,6 +126,10 @@ button:hover {
             <label for="photoURL1">Photo URL 1</label>
             <input type="text" id="photoURL1" name="photoURL1">
         </div>
+        <div class="input">
+            <label for="customURL">Custom URL</label>
+            <input type="text" id="customURL" name="customURL">
+        </div>
         <button type="submit">INSERT</button>
     </form>
 </section>
@@ -146,6 +150,7 @@ button:hover {
             <div>MONTHLY RATES:{{this.monthlyRates}}</div>
             <div>PHOTO URL: {{this.photoURL1}}</div>
             <div>ID: {{ this._id }}</div>
+            <div>CUSTOMURL: {{this.customURL}}</div>
         </article>
         {{/each}}
     </div>
@@ -196,6 +201,10 @@ button:hover {
         <div class="input">
             <label for="photoURL1">Photo URL 1</label>
             <input type="text" id="photoURL1" name="photoURL1">
+        </div>
+        <div class="input">
+            <label for="customURL">Custom URL</label>
+            <input type="text" id="customURL" name="customURL">
         </div>
         <button type="submit">UPDATE</button>
     </form>

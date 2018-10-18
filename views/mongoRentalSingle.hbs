@@ -1,0 +1,73 @@
+{{!-- {{#each property}}
+
+<p>{{@index}}. {{this.Directions}}</p>
+{{/each}}
+
+<h1>{{property.1.Directions}}</h1> --}}
+
+
+
+<!-- works
+    ================================================== -->
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/card2.css">
+    <script src="/js/card.js"></script>
+</head>
+
+
+<section id='works' class="s-works">
+    <form action="/rentals-search" method="post" style="padding-top: 6%;
+    padding-left: 25%;">
+        <div class="col-sm-12">
+            <label> Price: </label>
+            <input id="minPrice" type="number" class="col-sm-2" name="minPrice" placeholder="MIN PRICE"></input>
+            <input id="maxPrice" type="number" class="col-sm-2" name="maxPrice" placeholder="Max PRICE"></input>
+        </div>
+        <div class="col-sm-3">
+            <label>Bedrooms:</label>
+            <div class="input-number">
+                <input id="numBed" type="number" name="numBed" placeholder="quantity" value="{{numBed}}" min="1" max="10" />
+                <div class="input-number__controls">
+                    <span class="input-number__increase"><i class="stack-up-open"></i></span>
+                    <span class="input-number__decrease"><i class="stack-down-open"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label>Bathrooms:</label>
+            <div class="input-number">
+                <input id="numBath" type="number" name="numBath" placeholder="quantity" value="{{numBath}}" min="1" max="5" />
+                <div class="input-number__controls">
+                    <span class="input-number__increase"><i class="stack-up-open"></i></span>
+                    <span class="input-number__decrease"><i class="stack-down-open"></i></span>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Send message" />
+
+    </form>
+    <h1>DB RENTAL </h1>
+    {{#each items}}
+    <div> TITLE:{{this.title}} </div>
+    <div>DESCRIPTION:{{this.description}}</div>
+    <div>NUM BEDS:{{this.numBeds}}</div>
+    <div>NUM BATHS:{{this.numBaths}}</div>
+    <div>SQUARE FEET:{{this.squareFeet}}</div>
+    <div>ACRES:{{this.acres}}</div>
+    <div>LISTING FEATURES:{{this.listingFeatures}}</div>
+    <div>NIGHT RATES:{{this.nightRates}}</div>
+    <div>MONTHLY RATES:{{this.monthlyRates}}</div>
+    <div><img src="{{this.photoURL1}}" alt=""></div>
+    <div>ID: {{ this._id }}</div>
+    {{/each}}
+
+
+
+</section> <!-- end s-works -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

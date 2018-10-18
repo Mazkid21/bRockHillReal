@@ -24,6 +24,7 @@ var loginRoute = require('./routes/login');
 var searchRoute = require('./routes/search');
 var rentalRoute = require('./routes/rental');
 var rentalSearchRoute = require('./routes/rentalSearch');
+var mongoRenatlSingle = require('./routes/mongoRentalSingle');
 var admin = require('./routes/admin');
 var app = express();
 
@@ -94,6 +95,7 @@ app.use('/logout', logOutRoute);
 app.use('/search', searchRoute);
 app.use('/rentals', rentalRoute);
 app.use('/rentals-search', rentalSearchRoute);
+app.use('/custom', mongoRenatlSingle);
 app.use('/admin', admin);
 
 

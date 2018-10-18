@@ -49,6 +49,7 @@ router.post('/insert', (req, res, next) => {
         nightRates: req.body.nightRates,
         monthlyRates: req.body.monthlyRates,
         photoURL1: req.body.photoURL1,
+        customURL: req.body.customURL
     };
 
     MongoClient.connect(url, (err, db) => {
@@ -73,7 +74,8 @@ router.post('/update', (req, res, next) => {
         acres: req.body.acres,
         listingFeatures: req.body.listingFeatures,
         nightRates: req.body.nightRates,
-        monthlyRates: req.body.monthlyRates
+        monthlyRates: req.body.monthlyRates,
+        customURL: req.body.customURL
     };
     var id = req.body.id;
     MongoClient.connect(url, (err, db) => {

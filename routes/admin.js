@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 
         var resultsArray = [];
         MongoClient.connect(url, (err, db) => {
-            var cursor = db.collection('test');
+            var cursor = db.collection('rentals');
             cursor.find({}).toArray((err, results) => {
                 res.render('admin', {
                     items: results
@@ -40,18 +40,25 @@ router.post('/insert', (req, res, next) => {
 
     var item = {
         title: req.body.title,
-        content: req.body.content,
-        author: req.body.author
+        description: req.body.description,
+        numBeds: req.body.numBeds,
+        numBaths: req.body.numBaths,
+        squareFeet: req.body.squareFeet,
+        acres: req.body.acres,
+        listingFeatures: req.body.listingFeatures,
+        nightRates: req.body.nightRates,
+        monthlyRates: req.body.monthlyRates,
+        photoURL1: req.body.photoURL1,
     };
 
     MongoClient.connect(url, (err, db) => {
 
-        db.collection('test').insertOne(item, (err, result) => {
+        db.collection('rentals').insertOne(item, (err, result) => {
             console.log(item + ': item inserted');
             db.close();
         });
     });
-    res.redirect('/rentals');
+    res.redirect('/admin');
 
 
 });
@@ -59,13 +66,19 @@ router.post('/insert', (req, res, next) => {
 router.post('/update', (req, res, next) => {
     var item = {
         title: req.body.title,
-        content: req.body.content,
-        author: req.body.author
+        description: req.body.description,
+        numBeds: req.body.numBeds,
+        numBaths: req.body.numBaths,
+        squareFeet: req.body.squareFeet,
+        acres: req.body.acres,
+        listingFeatures: req.body.listingFeatures,
+        nightRates: req.body.nightRates,
+        monthlyRates: req.body.monthlyRates
     };
     var id = req.body.id;
     MongoClient.connect(url, (err, db) => {
 
-        db.collection('test').updateOne({
+        db.collection('rentals').updateOne({
             "_id": objectId(id)
         }, {
             $set: item
@@ -74,7 +87,7 @@ router.post('/update', (req, res, next) => {
             db.close();
         });
     });
-    res.redirect('/rentals');
+    res.redirect('/admin');
 
 });
 
@@ -82,14 +95,14 @@ router.post('/delete', (req, res, next) => {
     var id = req.body.id;
     MongoClient.connect(url, (err, db) => {
 
-        db.collection('test').deleteOne({
+        db.collection('rentals').deleteOne({
             "_id": objectId(id)
         }, (err, result) => {
             console.log(': item updated');
             db.close();
         });
     });
-    res.redirect('/rentals');
+    res.redirect('/admin');
 });
 
 

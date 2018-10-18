@@ -25,6 +25,9 @@
             <div class="col-full">
                 <h3 class="subhead">Recent RENTALS</h3>
                 <h1 class="display-2 display-2--light">We love what we do, check out some of our latest RENTALS</h1>
+                <a href="/rentals" class="listingOption btn btn--stroke">
+                    CHECK OUT RENTALS
+                </a>
             </div>
         </div> <!-- end section-header -->
 
@@ -123,9 +126,16 @@
     <h1>{{items.title}}</h1>
     {{# each items }}
     <article class="item">
-        <div>Title: {{ this.title }}</div>
-        <div>Content: {{ this.content }}</div>
-        <div>Author: {{ this.author }}</div>
+        <div> TITLE:{{this.title}} </div>
+        <div>DESCRIPTION:{{this.description}}</div>
+        <div>NUM BEDS:{{this.numBeds}}</div>
+        <div>NUM BATHS:{{this.numBaths}}</div>
+        <div>SQUARE FEET:{{this.squareFeet}}</div>
+        <div>ACRES:{{this.acres}}</div>
+        <div>LISTING FEATURES:{{this.listingFeatures}}</div>
+        <div>NIGHT RATES:{{this.nightRates}}</div>
+        <div>MONTHLY RATES:{{this.monthlyRates}}</div>
+        <div><img src="{{this.photoURL1}}" alt=""></div>
         <div>ID: {{ this._id }}</div>
     </article>
     {{/each}}

@@ -36,7 +36,7 @@ router.get('/', (req, res, next) => {
         var propertyData = data;
         var resultsArray = [];
         MongoClient.connect(url, (err, db) => {
-            var cursor = db.collection('test');
+            var cursor = db.collection('rentals');
             cursor.find({}).toArray((err, results) => {
                 res.render('rentals', {
                     property: data,

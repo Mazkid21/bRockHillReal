@@ -3879,3 +3879,16 @@ footer .row {
 
 
 /*# sourceMappingURL=main.css.map */
+.listingOption {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    margin: 1.5rem 1.5rem 0 0;
+    letter-spacing: .25rem;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.listingOption :hover {
+    background: #FFFFFF !important;
+    color: #000000;
+}

@@ -11,31 +11,6 @@ var url = "mongodb://localhost/bRockHillLive";
 var router = express.Router();
 
 
-
-router.get('/', (req, res, next) => {
-
-    if (req.isAuthenticated()) {
-
-        var resultsArray = [];
-        MongoClient.connect(url, (err, db) => {
-            var cursor = db.collection('rentals');
-            cursor.find({}).toArray((err, results) => {
-                res.render('admin', {
-                    items: results
-                });
-            });
-        });
-
-    } else {
-        res.redirect('/login');
-
-    }
-
-
-});
-
-
-
 router.post('/insert', (req, res, next) => {
 
     var item = {
@@ -106,6 +81,33 @@ router.post('/delete', (req, res, next) => {
     });
     res.redirect('/admin');
 });
+
+
+
+router.get('/', (req, res, next) => {
+
+    if (req.isAuthenticated()) {
+
+        var resultsArray = [];
+        MongoClient.connect(url, (err, db) => {
+            var cursor = db.collection('rentals');
+            cursor.find({}).toArray((err, results) => {
+                res.render('admin', {
+                    items: results
+                });
+            });
+        });
+
+    } else {
+        res.redirect('/login');
+
+    }
+
+
+});
+
+
+
 
 
 

@@ -73,39 +73,6 @@
                 <h1>ERRRORRR</h1>
                 {{else}}
 
-
-                {{#each property}}
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="">
-                        <div class="item-folio__thumb">
-
-                            <a href="/rentals-search/{{this.ListingKey}}">
-                                <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                {{this.UnparsedAddress}}
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{this.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>fwfwef</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick MLS API RENTALS -->
-                {{/each}}
-                {{/if}}
                 {{!-- MONGO RENTALS --}}
                 {{#each items}}
                 <div class="masonry__brick" data-aos="fade-up">
@@ -139,6 +106,39 @@
                     </div>
                 </div> <!-- end masonry__brick MONGO REANTLS-->
                 {{/each}}
+                {{#each property}}
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="">
+                        <div class="item-folio__thumb">
+
+                            <a href="/rentals-search/{{this.ListingKey}}">
+                                <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
+                                    alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{this.UnparsedAddress}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{this.Directions}}
+                            </p>
+                        </div>
+
+                        <a href="" class="item-folio__project-link" title="Project link">
+                            <i class="icon-link"></i>
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>fwfwef</p>
+                        </div>
+
+                    </div>
+                </div> <!-- end masonry__brick MLS API RENTALS -->
+                {{/each}}
+                {{/if}}
+
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->
     </div> <!-- end works-content -->
@@ -150,27 +150,3 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="/js/listing.js"></script>
-
-<hr>
-
-
-
-<div>
-    <h1>{{items.title}}</h1>
-    {{# each items }}
-    <article class="item">
-        <div> TITLE:{{this.title}} </div>
-        <div>DESCRIPTION:{{this.description}}</div>
-        <div>NUM BEDS:{{this.numBeds}}</div>
-        <div>NUM BATHS:{{this.numBaths}}</div>
-        <div>SQUARE FEET:{{this.squareFeet}}</div>
-        <div>ACRES:{{this.acres}}</div>
-        <div>LISTING FEATURES:{{this.listingFeatures}}</div>
-        <div>NIGHT RATES:{{this.nightRates}}</div>
-        <div>MONTHLY RATES:{{this.monthlyRates}}</div>
-        <div><img src="{{this.photoURL1}}" alt=""></div>
-        <div>ID: {{ this._id }}</div>
-        <div>CUSTOM URL: {{this.customURL}}</div>
-    </article>
-    {{/each}}
-</div>

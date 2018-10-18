@@ -303,7 +303,7 @@ router.post('/', function (req, res, poop) {
             });
         } else {
             MongoClient.connect(url, (err, db) => {
-                var cursor = db.collection('test');
+                var cursor = db.collection('rentals');
                 cursor.find({}).toArray((err, results) => {
                     res.render('rentalsRendered', {
                         property: data.value,

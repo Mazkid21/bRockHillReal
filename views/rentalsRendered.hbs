@@ -58,6 +58,40 @@
                 <h1>ERRRORRR</h1>
                 {{else}}
 
+                {{!-- MONGO RENTALS --}}
+                {{#each items}}
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="">
+                        <div class="item-folio__thumb">
+
+                            <a href="/custom/{{this.customURL}}">
+                                <img src="{{this.photoURL1}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
+                                    alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{this.description}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                Number Beds
+                                {{this.numBeds}}
+                            </p>
+                        </div>
+
+                        <a href="" class="item-folio__project-link" title="Project link">
+                            <i class="icon-link"></i>
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>fwfwef</p>
+                        </div>
+
+                    </div>
+                </div> <!-- end masonry__brick MONGO REANTLS-->
+                {{/each}}
+
 
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
@@ -103,79 +137,6 @@
     </div>
 </section> <!-- end s-works -->
 
-
-
-{{!-- DB rentals --}}
-<div>
-    <h1>{{items.title}}</h1>
-    {{# each items }}
-    <article class="item">
-        <div>Title: {{ this.title }}</div>
-        <div>Content: {{ this.content }}</div>
-        <div>Author: {{ this.author }}</div>
-        <div>ID: {{ this._id }}</div>
-    </article>
-    {{/each}}
-</div>
-
-{{!-- //////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////// --}}
-{{!-- CARD FOR LISTINGS --}}
-
-{{!--
-<div id="make-3D-space">
-    <div id="product-card">
-        <div id="product-front">
-            <div class="shadow"></div>
-            <img src="{{property.0.Media.0.MediaURL}}" alt="" />
-            <div class="image_overlay"></div>
-            <div id="view_details">View property</div>
-            <div class="stats">
-                <div class="stats-container">
-                    <span class="product_price">{{property.0.ListPrice}}</span>
-                    <span class="product_name">{{property.0.UnparsedAddress}}</span>
-                    <p>Men'
-                        s running shirt</p>
-                    <div class="product-options">
-                        <strong>SIZES</strong>
-                        <span>XS, S, M, L, XL, XXL</span>
-                        <strong>COLORS</strong>
-                        <div class="colors">
-                            <div class="c-blue"><span></span></div>
-                            <div class="c-red"><span></span></div>
-                            <div class="c-white"><span></span></div>
-                            <div class="c-green"><span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="product-back">
-            <div class="shadow"></div>
-            <div id="carousel">
-                <ul>
-                    <li><img src="{{property.0.Media.1.MediaURL}}" alt="" /></li>
-                    <li><img src="{{property.0.Media.2.MediaURL}}" alt="" /></li>
-                    <li><img src="{{property.0.Media.3.MediaURL}}" alt="" /></li>
-                </ul>
-                <div class="arrows-perspective">
-                    <div class="carouselPrev">
-                        <div class="y"></div>
-                        <div class="x"></div>
-                    </div>
-                    <div class="carouselNext">
-                        <div class="y"></div>
-                        <div class="x"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="flip-back">
-                <div id="cy"></div>
-                <div id="cx"></div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="/js/listing.js"></script>

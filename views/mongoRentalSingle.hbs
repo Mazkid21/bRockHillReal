@@ -121,6 +121,7 @@ h1 { margin:150px auto; text-align:center;}
                         mi blandit. Praesent porttitor sollicitudin nisln </a> </div>
             </div>
         </div>
+<<<<<<< HEAD
         <!-- Slider -->
     </div>
     <!-- My box for the slider -->
@@ -160,3 +161,30 @@ h1 { margin:150px auto; text-align:center;}
 </body>
 
 </html>
+=======
+        <input type="submit" value="Send message" />
+
+    </form>
+    <h1>DB RENTAL </h1>
+    {{#each items}}
+    <div> TITLE:{{this.title}} </div>
+    <div>DESCRIPTION:{{this.description}}</div>
+    <div>NUM BEDS:{{this.numBeds}}</div>
+    <div>NUM BATHS:{{this.numBaths}}</div>
+    <div>SQUARE FEET:{{this.squareFeet}}</div>
+    <div>ACRES:{{this.acres}}</div>
+    <div>LISTING FEATURES:{{this.listingFeatures}}</div>
+    <div>NIGHT RATES:{{this.nightRates}}</div>
+    <div>MONTHLY RATES:{{this.monthlyRates}}</div>
+    <div><img src="{{this.photoURL1}}" alt=""></div>
+    <div>ID: {{ this._id }}</div>
+    {{/each}}
+
+
+
+</section> <!-- end s-works -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+>>>>>>> parent of 787a80b... added more image links for db rentals

@@ -13,6 +13,7 @@
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/hover.css">
     <link rel="stylesheet" href="/css/card.css">
     <script src="/js/card.js"></script>
 </head>
@@ -49,11 +50,8 @@
 
     </form>
     <div class="row works-content">
-
-
         <div class="col-full masonry-wrap">
             <div class="masonry">
-
                 {{#if error}}
                 <h1>ERRRORRR</h1>
                 {{else}}
@@ -61,32 +59,29 @@
 
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
-                    <div class="">
-                        <div class="item-folio__thumb">
-
-                            <a href="/search/{{this.ListingKey}}">
-                                <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
-                                    alt="">
-                            </a>
+                    <div class="item-folio__thumb">
+                        {{!-- hover card --}}
+                        <div class="content">
+                            <div class="grid">
+                                <figure class="effect-zoe">
+                                    <a href="/search/{{this.ListingKey}}">
+                                        <img src="{{this.Media.0.MediaURL}}" alt="img25" />
+                                    </a>
+                                    <figcaption>
+                                        <div class="small-container">
+                                            <h2 style="flex: 2 0 0; font-size:2vw;">{{this.StreetNumber}},
+                                                {{this.StreetName}}
+                                                {{this.StreetSuffix}}</h2>
+                                            <p class="icon-links" style="flex: 1 0 0; font-size:2vw;">
+                                                &#36;{{this.ListPrice}}
+                                            </p>
+                                            <hr>
+                                            <p style="font-size:.9vw;">{{this.PublicRemarks}}</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
                         </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                {{this.UnparsedAddress}}
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{this.Directions}}
-                            </p>
-                        </div>
-
-                        <a href="" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>fwfwef</p>
-                        </div>
-
                     </div>
                 </div> <!-- end masonry__brick -->
                 {{/each}}

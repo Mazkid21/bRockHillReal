@@ -13,7 +13,7 @@
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="/css/card.css">
     <script src="js/card.js"></script>
 </head>
 
@@ -107,34 +107,27 @@
                 </div> <!-- end masonry__brick MONGO REANTLS-->
                 {{/each}}
                 {{#each property}}
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="">
-                        <div class="item-folio__thumb">
+                <div class="masonry__brick card" data-aos="fade-up">
 
-                            <a href="/rentals-search/{{this.ListingKey}}">
-                                <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
-                                    alt="">
-                            </a>
-                        </div>
 
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                {{this.UnparsedAddress}}
-                            </h3>
-                            <p class="item-folio__cat">
-                                {{this.Directions}}
-                            </p>
-                        </div>
+                    <div class="item-folio__thumb front">
 
-                        <a href="" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
+                        <a href="/rentals-search/{{this.ListingKey}}">
+                            <img src="{{this.Media.0.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700"
+                                alt="">
                         </a>
-
-                        <div class="item-folio__caption">
-                            <p>fwfwef</p>
-                        </div>
-
                     </div>
+
+                    <div class="back">
+                        <p>backkk</p>
+                    </div>
+
+
+
+
+
+
+
                 </div> <!-- end masonry__brick MLS API RENTALS -->
                 {{/each}}
                 {{/if}}

@@ -69,23 +69,20 @@
                         {{!-- hover card --}}
                         <div class="content">
                             <div class="grid">
-                                <figure class="effect-zoe">
-                                    <a href="/search/{{this.ListingKey}}">
+                                <div class="view view-third">
+                                    <a>
                                         <img src="{{this.Media.0.MediaURL}}" alt="img25" />
                                     </a>
-                                    <figcaption>
-                                        <div class="small-container">
-                                            <h2 style="flex: 2 0 0; font-size:2vw;">{{this.StreetNumber}},
-                                                {{this.StreetName}}
-                                                {{this.StreetSuffix}}</h2>
-                                            <p class="icon-links" style="flex: 1 0 0; font-size:2vw;">
-                                                &#36;{{this.ListPrice}}
-                                            </p>
-                                            <hr>
-                                            <p style="font-size:.9vw;">{{this.PublicRemarks}}</p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
+                                    <div class="mask">
+                                        <p>{{this.StreetNumber}},
+                                            {{this.StreetName}}
+                                            {{this.StreetSuffix}}</p>
+                                        <p>
+                                            &#36;{{this.ListPrice}}
+                                            <a href="/search/{{this.ListingKey}}" class="info">Read More</a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

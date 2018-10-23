@@ -55,8 +55,43 @@
                 {{#if error}}
                 <h1>ERRRORRR</h1>
                 {{else}}
-
-
+                {{!-- MONGO RENTALS --}}
+                {{#each items}}
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio__thumb">
+                        {{!-- hover card --}}
+                        <div class="content">
+                            <div class="grid">
+                                <figure class="effect-zoe">
+                                    <a href="/custom/{{this.customURL}}">
+                                        <img src="{{this.photoURL1}}" alt="img25" />
+                                    </a>
+                                    <figcaption>
+                                        <div class="fig-left">
+                                            <div class="fig-left-top">
+                                                <p>{{this.customURL}}</p>
+                                            </div>
+                                            <div class="fig-left-bottom">
+                                                <hr>
+                                                <p> {{this.numBeds}} Bedrooms |
+                                                    Bathroooms | SF
+                                                </p>
+                                                <a href="/custom/{{this.customURL}}" role="button" class="btn btn-outline light tiny white-hover">Details</a>
+                                            </div>
+                                        </div>
+                                        <div class="fig-right">
+                                            <p>
+                                                {{this.monthlyRates}}
+                                            </p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end masonry__brick FOR MONGO RENTALS -->
+                {{/each}}
+                {{!-- MLS RENTALS --}}
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
                     <div class="item-folio__thumb">
@@ -68,22 +103,43 @@
                                         <img src="{{this.Media.0.MediaURL}}" alt="img25" />
                                     </a>
                                     <figcaption>
-                                        <div class="small-container">
-                                            <h2 style="flex: 2 0 0; font-size:2vw;">{{this.StreetNumber}},
-                                                {{this.StreetName}}
-                                                {{this.StreetSuffix}}</h2>
-                                            <p class="icon-links" style="flex: 1 0 0; font-size:2vw;">
+                                        <div class="fig-left">
+                                            <div class="fig-left-top">
+                                                <p>{{this.StreetNumber}},
+                                                    {{this.StreetName}}
+                                                    {{this.StreetSuffix}}</p>
+                                            </div>
+                                            <div class="fig-left-bottom">
+                                                <hr>
+                                                <p> {{this.BedroomsTotal}} Bedrooms |
+                                                    Bathroooms {{#if
+                                                    this.BathroomsFull}}
+                                                    Full:
+                                                    {{this.BathroomsFull}},
+                                                    {{/if}}
+                                                    {{#if this.BathroomsHalf}}
+                                                    Half:
+                                                    {{this.BathroomsHalf}}
+                                                    {{/if}}
+                                                    {{#if this.BathroomsThreeQuater}}
+                                                    Three Quarter:
+                                                    , {{this.BathroomsThreeQuater}}
+                                                    {{/if}} | {{this.LivingArea}} SF
+                                                </p>
+                                                <a href="/rentals-search/{{this.ListingKey}}" role="button" class="btn btn-outline light tiny white-hover">Details</a>
+                                            </div>
+                                        </div>
+                                        <div class="fig-right">
+                                            <p>
                                                 &#36;{{this.ListPrice}}
                                             </p>
-                                            <hr>
-                                            <p style="font-size:.9vw;">{{this.PublicRemarks}}</p>
                                         </div>
                                     </figcaption>
                                 </figure>
                             </div>
                         </div>
                     </div>
-                </div> <!-- end masonry__brick -->
+                </div> <!-- end masonry__brick FOR MLS RENTALS -->
                 {{/each}}
                 {{/if}}
             </div> <!-- end masonry -->

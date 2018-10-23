@@ -61,28 +61,51 @@
                 {{#if error}}
                 <h1>ERRRORRR</h1>
                 {{else}}
-
-
                 {{#each property}}
                 <div class="masonry__brick" data-aos="fade-up">
                     <div class="item-folio__thumb">
                         {{!-- hover card --}}
                         <div class="content">
                             <div class="grid">
-                                <div class="view view-third">
-                                    <a>
+                                <figure class="effect-zoe">
+                                    <a href="/rentals-search/{{this.ListingKey}}">
                                         <img src="{{this.Media.0.MediaURL}}" alt="img25" />
                                     </a>
-                                    <div class="mask">
-                                        <p>{{this.StreetNumber}},
-                                            {{this.StreetName}}
-                                            {{this.StreetSuffix}}</p>
-                                        <p>
-                                            &#36;{{this.ListPrice}}
-                                            <a href="/search/{{this.ListingKey}}" class="info">Read More</a>
-                                    </div>
-                                </div>
+                                    <figcaption>
+                                        <div class="fig-left">
+                                            <div class="fig-left-top">
+                                                <p>{{this.StreetNumber}},
+                                                    {{this.StreetName}}
+                                                    {{this.StreetSuffix}}</p>
+                                            </div>
 
+                                            <div class="fig-left-bottom">
+                                                <hr>
+                                                <p> {{this.BedroomsTotal}} Bedrooms |
+                                                    Bathroooms {{#if
+                                                    this.BathroomsFull}}
+                                                    Full:
+                                                    {{this.BathroomsFull}},
+                                                    {{/if}}
+                                                    {{#if this.BathroomsHalf}}
+                                                    Half:
+                                                    {{this.BathroomsHalf}}
+                                                    {{/if}}
+                                                    {{#if this.BathroomsThreeQuater}}
+                                                    Three Quarter:
+                                                    , {{this.BathroomsThreeQuater}}
+                                                    {{/if}} | {{this.LivingArea}} SF
+                                                </p>
+                                                <a href="/rentals-search/{{this.ListingKey}}" role="button" class="btn btn-outline light tiny white-hover">Details</a>
+                                            </div>
+                                        </div>
+                                        <div class="fig-right">
+                                            <p>
+                                                &#36;{{this.ListPrice}}
+                                            </p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
                     </div>

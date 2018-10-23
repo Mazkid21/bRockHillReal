@@ -375,11 +375,8 @@ mark {
 
 hr {
     border: solid rgb(54, 188, 209);
-    width: 120%;
+    width: 140%;
     border-width: 1px 0 0;
-    clear: both;
-    margin: 2.4rem 0 1.5rem;
-    height: 0;
 }
 
 

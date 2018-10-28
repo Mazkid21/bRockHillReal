@@ -1,0 +1,141 @@
+/* Defaults */
+:root {
+    --purple: #4C3686;
+    --pink: #E759BE;
+    --fontColor: #A7ACB5;
+    --gray: #F5F6FA;
+    --white: #FFFFFF;
+    --boxShadow: #D9D9D9;
+    --lightBlue: #00C9F3;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+body {
+    margin: 0px;
+
+    --webkit-font-smoothing: antialiased;
+    font-weight: normal;
+    text-rendering: optimizelegibility;
+    text-shadow: none;
+}
+
+h1,
+h2 {
+    font-weight: normal;
+    text-shadow: none;
+}
+
+.boxShadow {
+    box-shadow: 0px 5px 10px 1px var(--boxShadow);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+hr {
+    width: 90%;
+    height: 1px;
+    background-color: var(--gray);
+    border: none;
+}
+
+
+
+header {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#mainInformation {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#homeInformation {
+    height: 700px;
+    width: 30%;
+    border-radius: 4px;
+    background-color: var(--white);
+}
+
+#homeInformationImage {
+    height: 200px;
+
+    background-size: cover;
+}
+
+.stats {
+    height: 45px;
+}
+
+.stats p:first-of-type {
+    font-size: 12px;
+    color: var(--fontColor);
+}
+
+#chartInformation {
+    height: 700px;
+    width: 60%;
+    background-color: var(--white);
+    border-radius: 4px;
+}
+
+#caps {
+    font-size: 12px;
+    color: var(--fontColor);
+}
+
+#tag {
+    font-size: 12px;
+    background-color: var(--lightBlue);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 24px;
+}
+
+
+@media screen and (max-width: 930px) {
+    section {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #homeInformation {
+        width: 95%;
+        margin: 16px 0px;
+    }
+
+    #chartInformation {
+        width: 95%;
+        margin: 32px 0px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav i {
+        padding: 0 8px;
+    }
+}

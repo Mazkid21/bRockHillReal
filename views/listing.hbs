@@ -26,8 +26,10 @@
         <form action="/search" method="post">
             <div class="col-sm-12">
                 <label> Price: </label>
-                <input id="minPrice" type="number" class="col-sm-2" name="minPrice" placeholder="MIN PRICE"></input>
-                <input id="maxPrice" type="number" class="col-sm-2" name="maxPrice" placeholder="Max PRICE"></input>
+                <input id="minPrice" type="range" class="col-sm-2" name="minPrice" min="100" max="300000" step="50"
+                    placeholder="MIN PRICE"></input>
+                <input id="maxPrice" type="range" class="col-sm-2" name="maxPrice" min="100" max="300000" step="50"
+                    placeholder="Max PRICE"></input>
             </div>
             <div class="col-sm-3">
                 <label>Bedrooms:</label>

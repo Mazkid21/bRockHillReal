@@ -27,6 +27,7 @@ var rentalSearchRoute = require('./routes/rentalSearch');
 var mongoRenatlSingle = require('./routes/mongoRentalSingle');
 var videosRoute = require('./routes/videos');
 var admin = require('./routes/admin');
+var vidAdmin = require('./routes/adminVid');
 var app = express();
 
 
@@ -99,6 +100,8 @@ app.use('/rentals-search', rentalSearchRoute);
 app.use('/custom', mongoRenatlSingle);
 app.use('/videos', videosRoute);
 app.use('/admin', admin);
+app.use('/admin/video', vidAdmin);
+
 
 
 // catch 404 and forward to error handler

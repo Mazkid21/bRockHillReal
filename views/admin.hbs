@@ -83,6 +83,9 @@ button:hover {
 
 
 <h1>ADMIN PAGE</h1>
+<a href="/admin/video">
+    <button>VIDEO</button>
+</a>
 <section class="insert">
     <h3>Insert Data</h3>
     <form action="/admin/insert" method="post">
@@ -441,29 +444,6 @@ button:hover {
         <div class="input">
             <label for="id">ID</label>
             <input type="text" id="id" name="id">
-        </div>
-        <button type="submit">DELETE</button>
-    </form>
-</section>
-
-<section>
-    <h3>video</h3>
-    <form action="/admin/insert-videos" method="post">
-        <div class="input">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title">
-        </div>
-        <div class="input">
-            <label for="description">Description</label>
-            <input type="text" id="description" name="description">
-        </div>
-        <div class="input">
-            <label for="imgURL">img url</label>
-            <input type="text" id="imgURL" name="imgURL">
-        </div>
-        <div class="input">
-            <label for="videoURL">video url</label>
-            <input type="text" id="videoURL" name="videoURL">
         </div>
         <button type="submit">DELETE</button>
     </form>

@@ -1,3 +1,12 @@
+footer {
+    background-color: #111111;
+}
+
+footer .row {
+    margin: 0 auto;
+}
+
+
 .section-header {
     text-align: center;
     margin: 0 auto;

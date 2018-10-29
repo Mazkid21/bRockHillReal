@@ -14,6 +14,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/singleUnit.css">
     <script src="/js/slider.js"></script>
 </head>
 
@@ -32,59 +33,114 @@
             {{/each}}
         </div>
     </div>
+    <main>
 
-    <h2>{{this.Directions}}</h2>
-    <p>{{this.PublicRemarks}}</p>
-    <p>{{this.ListPrice}}</p>
-    <p>{{this.LivingArea}}</p>
-    <p>{{this.BedroomsTotal}}</p>
-    <ul>
-        <h5>Bathrooms</h5>
-        {{#if this.BathroomsFull}}
-        <p>Full</p>
-        <li>{{this.BathroomsFull}}</li>
-        {{/if}}
-        {{#if this.BathroomsHalf}}
-        <p>Half</p>
-        <li>{{this.BathroomsHalf}}</li>
-        {{/if}}
-        {{#if this.BathroomsThreeQuater}}
-        <p>Three Quarter</p>
-        <li>{{this.BathroomsThreeQuater}}</li>
-        {{/if}}
-    </ul>
+        <header>
+
+            <h2>{{this.StreetNumber}} {{this.StreetName}} {{this.StreetSuffix}}</h2>
+
+        </header>
+
+        <section class="flex flex-around">
+
+            <div class="boxShadow" id="homeInformation">
+
+                <div id="homeInformationImage" style="background:url('{{this.Media.0.MediaURL}}'); background-size: cover;"></div>
+
+
+
+                <div class="flex-center flex-between container">
+
+                    <div>
+
+                        <h2>{{this.ListPrice}}</h2>
+
+                        <span id="caps">2 YEAR LEASE REQUIRED</span>
+
+                    </div>
+
+                    <div>
+
+                        <span id="tag">LEASED</span>
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="flex-center flex-between stats container">
+                    <p>Square Feet</p>
+                    <p>{{this.LivingArea}}</p>
+                </div>
+
+                <hr>
+
+                <div class="flex-center flex-between stats container">
+                    <p>Bedrooms</p>
+                    <p>{{this.BedroomsTotal}}</p>
+                </div>
+
+                <hr>
+
+                <div class="flex-center flex-between stats container">
+                    <p>Bathrooms</p>
+                    <p>{{#if this.BathroomsFull}}
+                        {{this.BathroomsFull}}
+                        Full
+                        {{/if}}
+                        {{#if this.BathroomsHalf}}
+                        {{this.BathroomsHalf}}
+                        Half
+                        {{/if}}
+                        {{#if this.BathroomsThreeQuater}}
+                        {{this.BathroomsThreeQuater}}
+                        Three Quarter
+                        {{/if}}
+                </div>
+
+                <hr>
+
+                <div class="flex-center flex-between stats container">
+                    <p>Pets</p>
+                    {{#if this.PetsAllowed}}
+                    <p>{{this.PetsAllowed}}</p>
+                    {{else}}
+                    <p>No</p>
+                    {{/if}}
+
+                </div>
+
+                <hr>
+
+                <div class="flex-center flex-between stats container">
+                    <p>Parking</p>
+                    <p>Private Carport</p>
+                </div>
+
+            </div>
+
+            <div class="" id="chartInformation">
+
+                <div id="chartOne">
+                    <h5>{{this.TaxLegalDescription}}</h5>
+                    <p>{{this.PublicRemarks}}</p>
+                </div>
+            </div>
+
+            <div id="chartTwo"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
     {{/each}}
 
 
 
-
-
-    {{!-- <h2>{{this.Directions}}</h2>
-    <p>{{this.PublicRemarks}}</p>
-    <p>${{this.ListPrice}}</p>
-    <p>{{this.LivingArea}}</p>
-    <p>{{this.BedroomsTotal}}</p>
-    <ul>
-        <h5>Bathrooms</h5>
-        {{#if this.BathroomsFull}}
-        <p>Full</p>
-        <li>{{this.BathroomsFull}}</li>
-        {{/if}}
-        {{#if this.BathroomsHalf}}
-        <p>Half</p>
-        <li>{{this.BathroomsHalf}}</li>
-        {{/if}}
-        {{#if this.BathroomsThreeQuater}}
-        <p>Three Quarter</p>
-        <li>{{this.BathroomsThreeQuater}}</li>
-        {{/if}}
-    </ul>
-    {{#each Media}}
-    <img src="{{this.MediaURL}}" class=" thumb-link" title="Shutterbug" data-size="1050x700" alt="">
-    {{/each}}
-    {{/each}}
-
-    <h5></h5> --}}
 
 </section> <!-- end s-works -->
 

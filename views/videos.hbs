@@ -26,18 +26,18 @@
         <h1 class="section-header">Video Gallery</h1>
         <div class="section-header-underline"></div>
         <div class="video-gallery">
+            {{#each videos}}
             <div class="gallery-item">
-                <img src="https://img.youtube.com/vi/G5_TvZhKeto/maxresdefault.jpg" alt="Editor Reel" />
+                <img src="{{this.imgURL}}" alt="Editor Reel" />
                 <div class="gallery-item-caption">
                     <div>
-                        <h2>Editor <span>Reel</span></h2>
-                        <p>Personal highlights of work</p>
+                        <h2> {{this.title}}</h2>
+                        <p>{{this.description}}</p>
                     </div>
-                    <a class="video" data-video="https://www.youtube.com/embed/G5_TvZhKeto" data-toggle="modal"
-                        data-target="#videoModal"></a>
+                    <a class="video" data-video="{{this.videoURL}}" data-toggle="modal" data-target="#videoModal"></a>
                 </div>
             </div>
-
+            {{/each}}
         </div>
     </div>
     {{!-- MODAL --}}

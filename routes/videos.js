@@ -1,19 +1,27 @@
 var express = require('express');
 var request = require('request');
-var Content = require('../models/content');
+
+var MongoClient = require('mongodb').MongoClient;
 var router = express.Router();
 
+var url = "mongodb://localhost/bRockHillLive";
+
+
+var router = express.Router();
 
 /* GET home page. */
 
 router.get('/', function (req, res, next) {
-    res.render('videos');
-    // Content.find(function (err, content) {
-    //   res.render('index', {
-    //     title: 'Node Project',
-    //     contents: content
-    //   });
-    // });
+
+    MongoClient.connect(url, (err, db) => {
+        var cursor = db.collection('video');
+        cursor.find({}).toArray((err, results) => {
+            console.log(results);
+            res.render('videos', {
+                videos: results
+            });
+        });
+    });
 });
 
 

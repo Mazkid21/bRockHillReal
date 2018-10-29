@@ -132,6 +132,27 @@ router.post('/delete', (req, res, next) => {
     res.redirect('/admin');
 });
 
+router.post('/insert-videos', (req, res, next) => {
+
+    var video = {
+        title: req.body.title,
+        description: req.body.description,
+        imgURL: req.body.imgURL,
+        videoURL: req.body.videoURL,
+
+    };
+
+    MongoClient.connect(url, (err, db) => {
+
+        db.collection('video').insertOne(video, (err, result) => {
+            console.log(video + ': item inserted');
+            db.close();
+        });
+    });
+    res.redirect('/admin');
+
+
+});
 
 
 router.get('/', (req, res, next) => {
@@ -140,7 +161,7 @@ router.get('/', (req, res, next) => {
 
         var resultsArray = [];
         MongoClient.connect(url, (err, db) => {
-            var cursor = db.collection('rentals');
+            var cursor = db.collection('rentals', 'video');
             cursor.find({}).toArray((err, results) => {
                 res.render('admin', {
                     items: results

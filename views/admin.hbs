@@ -237,7 +237,7 @@ button:hover {
     <h3>Get Data</h3>
     <div>
         <h1>{{items.title}}</h1>
-        {{# each items }}
+        {{#each items }}
         <article class="item">
             <div> TITLE:{{this.title}} </div>
             <div>DESCRIPTION:{{this.description}}</div>
@@ -275,6 +275,7 @@ button:hover {
             <div>PHOTO URL24: {{this.photoURL25}}</div>
             <div>ID: {{ this._id }}</div>
             <div>CUSTOMURL: {{this.customURL}}</div>
+            <div>VIDEO URL: {{this.videoURL}}</div>
         </article>
         {{/each}}
     </div>
@@ -440,6 +441,29 @@ button:hover {
         <div class="input">
             <label for="id">ID</label>
             <input type="text" id="id" name="id">
+        </div>
+        <button type="submit">DELETE</button>
+    </form>
+</section>
+
+<section>
+    <h3>video</h3>
+    <form action="/admin/insert-videos" method="post">
+        <div class="input">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="input">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description">
+        </div>
+        <div class="input">
+            <label for="imgURL">img url</label>
+            <input type="text" id="imgURL" name="imgURL">
+        </div>
+        <div class="input">
+            <label for="videoURL">video url</label>
+            <input type="text" id="videoURL" name="videoURL">
         </div>
         <button type="submit">DELETE</button>
     </form>

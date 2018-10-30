@@ -3,8 +3,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/hover.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/card.css">
-    <script src="js/card.js"></script>
+    <link rel="stylesheet" href="css/slider.css">
+    <script src="js/slider.js"></script>
 </head>
 
 <section id='works' class="s-works">
@@ -26,11 +26,16 @@
         <form action="/rentals-search" method="post">
             <div class="col-sm-12">
                 <label> Price: </label>
+                <section class="range-slider">
+                    <span class="rangeValues"></span>
+                    <input id="sliderMin" value="1000" min="1000" max="100000" name="minPrice" step="100" type="range">
+                    <input id="sliderMax" value="100000000" min="100000" max="100000000" name="maxPrice" step="100"
+                        type="range">
+                </section>
 
-                <input id="minPrice" type="range" class="col-sm-2" name="minPrice" min="100" max="30000" step="50"
-                    placeholder="MIN PRICE"></input>
-                <input id="maxPrice" type="range" class="col-sm-2" name="maxPrice" min="100" max="30000" step="50"
-                    placeholder="Max PRICE"></input>
+                {{!-- <input id="minPrice" type="range" class="col-sm-2" min="100" max="30000" step="50" placeholder="MIN PRICE"></input>
+                <input id="maxPrice" type="range" class="col-sm-2" min="100" max="30000" step="50" placeholder="Max PRICE"></input>
+                --}}
             </div>
             <div class="col-sm-3">
                 <label>Bedrooms:</label>

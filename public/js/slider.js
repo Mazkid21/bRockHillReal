@@ -1,28 +1,31 @@
-$(document).ready(function () {
-    var photonumber = 0;
-    var totalphotos = $('.gallerythumbs a').length;
-    $('.gallerythumbs a').click(function () {
-        var gallerypic = $(this).attr("href");
-        $('.gallery-big img').attr('src', gallerypic);
-        photonumber = $('.gallerythumbs a').index(this);
-        return false;
-    });
-    $('.gallery-big a').click(function () {
+function getVals() {
+    // Get slider values
+    var parent = this.parentNode;
+    var slides = parent.getElementsByTagName("input");
+    var slide1 = parseFloat(slides[0].value);
+    var slide2 = parseFloat(slides[1].value);
+    // Neither slider will clip the other, so make sure we determine which is larger
+    if (slide1 > slide2) {
+        var tmp = slide2;
+        slide2 = slide1;
+        slide1 = tmp;
+    }
 
-        if ($(this).hasClass('gallery-prev')) {
-            photonumber = photonumber - 1;
-            if (photonumber < 0) {
-                photonumber = totalphotos - 1;
-            }
-        } else {
-            photonumber = photonumber + 1;
-            if (photonumber == totalphotos) {
-                photonumber = 0;
+    var displayElement = parent.getElementsByClassName("rangeValues")[0];
+    displayElement.innerHTML = "&#36;" + slide1 + " - " + "&#36;" + slide2;
+}
+
+window.onload = function () {
+    // Initialize Sliders
+    var sliderSections = document.getElementsByClassName("range-slider");
+    for (var x = 0; x < sliderSections.length; x++) {
+        var sliders = sliderSections[x].getElementsByTagName("input");
+        for (var y = 0; y < sliders.length; y++) {
+            if (sliders[y].type === "range") {
+                sliders[y].oninput = getVals;
+                // Manually trigger event first time to display values
+                sliders[y].oninput();
             }
         }
-        var gallerypic = $('.gallerythumbs a:eq(' + photonumber + ')').attr("href");
-        $('.gallery-big img').attr('src', gallerypic);
-        return false;
-    });
-
-});
+    }
+}

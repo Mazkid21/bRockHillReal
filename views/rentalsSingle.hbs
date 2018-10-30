@@ -1,28 +1,24 @@
-{{!-- {{#each property}}
-
-<p>{{@index}}. {{this.Directions}}</p>
-{{/each}}
-
-<h1>{{property.1.Directions}}</h1> --}}
-
-
-
-<!-- works
-    ================================================== -->
-
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/slider.css">
     <link rel="stylesheet" href="/css/singleUnit.css">
     <script src="/js/slider.js"></script>
+    <script src="/js/singleListingGallery.js"></script>
 </head>
-
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+    }
+</style>
 
 <section id='works' class="s-works">
     {{#each property}}
     <div class="imagegallery">
-
         <div class="gallery-big"><img class="gallery-img" src="{{this.Media.0.MediaURL}}">
             <div class="gallerypager"><a href="#" class="gallery-prev"><span>Prev</span></a> <a href="#" class="gallery-next"><span>Next</span></a>
             </div>
@@ -34,55 +30,32 @@
         </div>
     </div>
     <main>
-
         <header>
-
             <h2>{{this.StreetNumber}} {{this.StreetName}} {{this.StreetSuffix}}</h2>
-
         </header>
-
         <section class="flex flex-around">
-
             <div class="boxShadow" id="homeInformation">
-
                 <div id="homeInformationImage" style="background:url('{{this.Media.0.MediaURL}}'); background-size: cover;"></div>
-
-
-
                 <div class="flex-center flex-between container">
-
                     <div>
-
                         <h2>{{this.ListPrice}}</h2>
-
                         <span id="caps">2 YEAR LEASE REQUIRED</span>
-
                     </div>
-
                     <div>
-
                         <span id="tag">LEASED</span>
-
                     </div>
-
                 </div>
-
                 <br>
-
                 <div class="flex-center flex-between stats container">
                     <p>Square Feet</p>
                     <p>{{this.LivingArea}}</p>
                 </div>
-
                 <hr>
-
                 <div class="flex-center flex-between stats container">
                     <p>Bedrooms</p>
                     <p>{{this.BedroomsTotal}}</p>
                 </div>
-
                 <hr>
-
                 <div class="flex-center flex-between stats container">
                     <p>Bathrooms</p>
                     <p>{{#if this.BathroomsFull}}
@@ -98,9 +71,7 @@
                         Three Quarter
                         {{/if}}
                 </div>
-
                 <hr>
-
                 <div class="flex-center flex-between stats container">
                     <p>Pets</p>
                     {{#if this.PetsAllowed}}
@@ -108,99 +79,55 @@
                     {{else}}
                     <p>No</p>
                     {{/if}}
-
                 </div>
-
                 <hr>
-
                 <div class="flex-center flex-between stats container">
-                    <p>Parking</p>
-                    <p>Private Carport</p>
+                    <p>Property Condition </p>
+                    <p>{{this.PropertyCondition}}</p>
                 </div>
-
             </div>
-
-            <div class="" id="chartInformation">
-
+            <div class="boxShadow" id="chartInformation">
                 <div id="chartOne">
                     <h5>{{this.TaxLegalDescription}}</h5>
                     <p>{{this.PublicRemarks}}</p>
+                    <p>Year Built: {{this.YearBuilt}}</p>
+                    <p id="googleCoordinates" style="display: none">{{this.Location.coordinates}}</p>
                 </div>
             </div>
-
             <div id="chartTwo"></div>
-
             </div>
-
         </section>
-
     </main>
-
-
     {{/each}}
+    <h3>Google Maps </h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
 
-
-
-
+    <script>
+        var coordinates = document.getElementById('googleCoordinates').innerHTML.trim().split(',');
+        var long = parseFloat(coordinates[0]);
+        var lat = parseFloat(coordinates[1]);
+        // Initialize and add the map
+        // Initialize and add the map
+        console.log(lat);
+        console.log(long);
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: lat, lng: long };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 15, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFXJkYOxxDT3jU1jb5DorpO5rWrPrD-o&callback=initMap">
+    </script>
 </section> <!-- end s-works -->
-
-{{!-- //////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////// --}}
-{{!-- CARD FOR LISTINGS --}}
-
-{{!--
-<div id="make-3D-space">
-    <div id="product-card">
-        <div id="product-front">
-            <div class="shadow"></div>
-            <img src="{{property.0.Media.0.MediaURL}}" alt="" />
-            <div class="image_overlay"></div>
-            <div id="view_details">View property</div>
-            <div class="stats">
-                <div class="stats-container">
-                    <span class="product_price">{{property.0.ListPrice}}</span>
-                    <span class="product_name">{{property.0.UnparsedAddress}}</span>
-                    <p>Men'
-                        s running shirt</p>
-                    <div class="product-options">
-                        <strong>SIZES</strong>
-                        <span>XS, S, M, L, XL, XXL</span>
-                        <strong>COLORS</strong>
-                        <div class="colors">
-                            <div class="c-blue"><span></span></div>
-                            <div class="c-red"><span></span></div>
-                            <div class="c-white"><span></span></div>
-                            <div class="c-green"><span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="product-back">
-            <div class="shadow"></div>
-            <div id="carousel">
-                <ul>
-                    <li><img src="{{property.0.Media.1.MediaURL}}" alt="" /></li>
-                    <li><img src="{{property.0.Media.2.MediaURL}}" alt="" /></li>
-                    <li><img src="{{property.0.Media.3.MediaURL}}" alt="" /></li>
-                </ul>
-                <div class="arrows-perspective">
-                    <div class="carouselPrev">
-                        <div class="y"></div>
-                        <div class="x"></div>
-                    </div>
-                    <div class="carouselNext">
-                        <div class="y"></div>
-                        <div class="x"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="flip-back">
-                <div id="cy"></div>
-                <div id="cx"></div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

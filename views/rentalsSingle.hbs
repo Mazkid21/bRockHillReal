@@ -9,10 +9,17 @@
 <style>
     /* Set the size of the div element that contains the map */
     #map {
+
+        position: relative;
+        overflow: hidden;
         height: 400px;
-        /* The height is 400 pixels */
-        width: 100%;
-        /* The width is the width of the web page */
+        width: 94%;
+
+        margin-right: 1.2em;
+        /* margin-top: 3em; */
+        border-radius: 4px;
+        margin: 60px auto;
+        margin-left: 1.2em;
     }
 </style>
 
@@ -38,11 +45,11 @@
                 <div id="homeInformationImage" style="background:url('{{this.Media.0.MediaURL}}'); background-size: cover;"></div>
                 <div class="flex-center flex-between container">
                     <div>
-                        <h2>{{this.ListPrice}}</h2>
+                        <h2>${{this.ListPrice}}</h2>
                         <span id="caps">2 YEAR LEASE REQUIRED</span>
                     </div>
                     <div>
-                        <span id="tag">LEASED</span>
+                        <span id="tag">RENTAL</span>
                     </div>
                 </div>
                 <br>
@@ -99,9 +106,8 @@
         </section>
     </main>
     {{/each}}
-    <h3>Google Maps </h3>
     <!--The div element for the map -->
-    <div id="map"></div>
+    <div class="boxShadow" id="map"></div>
 
     <script>
         var coordinates = document.getElementById('googleCoordinates').innerHTML.trim().split(',');

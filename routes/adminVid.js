@@ -13,14 +13,11 @@ var router = express.Router();
 
 
 router.post('/update-videos', (req, res, next) => {
-    var video = {
-        title: req.body.title,
-        description: req.body.description,
-        imgURL: req.body.imgURL,
-        videoURL: req.body.videoURL,
-
-    };
-
+    var video = {};
+    if (req.body.title) video.title = req.body.title;
+    if (req.body.description) video.description = req.body.description;
+    if (req.body.imgURL) video.imgURL = req.body.imgURL;
+    if (req.body.videoURL) video.videoURL = req.body.videoURL;
     var id = req.body.id;
     MongoClient.connect(url, (err, db) => {
 

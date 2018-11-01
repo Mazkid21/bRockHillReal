@@ -62,7 +62,7 @@ hr {
 }
 
 #chartOne {
-    padding: 5px 5px;
+    padding: 0 5px;
 }
 
 
@@ -79,7 +79,7 @@ header {
 
 #homeInformation {
     height: 700px;
-    width: 30%;
+    width: 25%;
     border-radius: 4px;
     background-color: var(--white);
 }
@@ -101,7 +101,7 @@ header {
 
 #chartInformation {
     height: 700px;
-    width: 60%;
+    width: 75%;
     background-color: var(--white);
     border-radius: 4px;
     overflow: auto;

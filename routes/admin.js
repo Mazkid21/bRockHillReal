@@ -122,7 +122,9 @@ router.post('/update', (req, res, next) => {
     if (req.body.flyerImgURL10) item.flyerImgURL10 = req.body.flyerImgURL10;
     if (req.body.customURL) item.customURL = req.body.customURL;
 
+
     var id = req.body.id;
+    console.log(id);
     MongoClient.connect(url, (err, db) => {
 
         db.collection('rentals').updateOne({
@@ -173,6 +175,30 @@ router.post('/delete', (req, res, next) => {
 
 
 // });
+router.get('/:id', (req, res) => {
+
+    var id = req.params.id;
+    if (req.isAuthenticated()) {
+
+        var resultsArray = [];
+        MongoClient.connect(url, (err, db) => {
+            var cursor = db.collection('rentals');
+            cursor.find({
+                "_id": objectId(id)
+            }).toArray((err, results) => {
+                res.render('adminOne', {
+                    items: results
+                });
+            });
+        });
+
+    } else {
+        res.redirect('/login');
+
+    }
+
+
+});
 
 
 router.get('/', (req, res, next) => {
@@ -181,7 +207,7 @@ router.get('/', (req, res, next) => {
 
         var resultsArray = [];
         MongoClient.connect(url, (err, db) => {
-            var cursor = db.collection('rentals', 'video');
+            var cursor = db.collection('rentals');
             cursor.find({}).toArray((err, results) => {
                 res.render('admin', {
                     items: results

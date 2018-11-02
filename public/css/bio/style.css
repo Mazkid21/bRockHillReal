@@ -141,7 +141,7 @@ body {
     z-index: -1;
     width: 100%;
     height: 100%;
-    background-image: url(/images/headshot.jpg);
+    background-image: url(/images/bRockhill.jpg);
     background-size: cover;
     background-position: center top;
 }
@@ -153,11 +153,7 @@ body {
     top: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(-30deg,
-        rgba(42, 84, 245, 0.5) 0%,
-        rgba(42, 84, 245, 0.5) 40%,
-        transparent 60%,
-        transparent 100%);
+    background: linear-gradient(0deg, #3333336b 0%, #3333336b 1%, transparent 60%, transparent 100%);
 
 }
 

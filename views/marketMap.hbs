@@ -1,0 +1,506 @@
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/singleUnit.css">
+    <script src="/js/slider.js"></script>
+    <script src="/js/singleListingGallery.js"></script>
+</head>
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+        width: 94%;
+
+        margin-right: 1.2em;
+        /* margin-top: 3em; */
+        border-radius: 4px;
+        margin: 60px auto;
+        margin-left: 1.2em;
+    }
+
+    .gm-style .gm-style-iw {
+        background-color: #252525 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 120px !important;
+        padding-top: 10px;
+        display: inline-block !important;
+        text-align: center;
+    }
+
+    /*style the p tag*/
+    .gm-style .gm-style-iw #google-popup p {
+        padding: 10px;
+    }
+
+
+    /*style the arrow*/
+    .gm-style div div div div div div div div {
+
+        color: #fff;
+        font-size: 16px;
+    }
+
+    /* END GOOGLE MAPS */
+
+    /* START CODEPEN MAP */
+
+
+    .interactive-map {
+        display: block;
+        width: 100%;
+        margin: 2% auto;
+        max-width: 1200px;
+        max-height: 800px;
+        overflow: unset;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    .interactive-map>img {
+        vertical-align: top;
+        position: relative;
+        width: 97%;
+        border-radius: 10px;
+    }
+
+    .map-point i {
+        font-size: 2.2vw;
+        color: #b92020;
+    }
+
+    .map-point img,
+    .map-point span {
+        cursor: pointer;
+        outline: none;
+        z-index: 2;
+        position: absolute;
+    }
+
+    .map-point {
+        transition: opacity .25s ease-in-out;
+        -moz-transition: opacity .25s ease-in-out;
+        -webkit-transition: opacity .25s ease-in-out;
+    }
+
+
+    /* Tooltip CSS Start */
+
+    .tooltip {
+        display: block;
+        position: absolute;
+        z-index: 0;
+    }
+
+
+    /* Gap filler */
+
+    .tooltip-item::after {
+        content: '';
+        position: absolute;
+        width: 360px;
+        height: 20px;
+        bottom: 100%;
+        left: 50%;
+        pointer-events: none;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .tooltip:hover .tooltip-item::after {
+        pointer-events: auto;
+    }
+
+
+    /* Tooltip */
+
+    .tooltip-content {
+        position: absolute;
+        width: 256px;
+        left: -28%;
+        margin: 0 0 20px -114px;
+        bottom: 100%;
+        text-align: left;
+        font-size: 0.765em;
+        line-height: 1.4;
+        box-shadow: -5px -5px 15px rgba(48, 54, 61, 0.2);
+        background: #2a3035;
+        opacity: 0;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .tooltip-effect-4 .tooltip-content {
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        -webkit-transform: scale3d(0.7, 0.3, 1);
+        transform: scale3d(0.7, 0.3, 1);
+        -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+        transition: opacity 0.2s, transform 0.2s;
+    }
+
+
+    .tooltip:hover .tooltip-content {
+        pointer-events: auto;
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0);
+        transform: translate3d(10, 0, 0) rotate3d(0, 0, 0, 0);
+    }
+
+    .tooltip:hover {
+        z-index: 9999;
+    }
+
+
+    /* Arrow */
+
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: #2a3035;
+        border-width: 10px;
+        margin-left: -10px;
+        z-index: 99999;
+    }
+
+
+    /* Tooltip content*/
+
+    .tooltip-text {
+        font-size: 1.2em;
+        line-height: 1.35;
+        display: block;
+        font-family: 'Open Sans';
+        text-align: center;
+        padding: 1.31em 1.21em 1.21em 0;
+        color: #fff;
+        position: relative !important;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+
+    .tooltip:hover {
+        z-index: 9999;
+    }
+
+
+    /* Arrow */
+
+    .tooltip-content2::after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: #2a3035;
+        border-width: 10px;
+        margin-left: -10px;
+        z-index: 99999;
+    }
+</style>
+
+<section id='works' class="s-works" style=" padding-top: 23px;">
+
+    <!--The div element for the map -->
+    <div class="boxShadow" id="map"></div>
+    <div class="interactive-map">
+
+        <img src="https://www.alpineproperty.com/images/website/AspenMap.jpg">
+
+
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:3%; right:24%;">
+                <span>
+                    <div class="cover" style="
+    font-size: 2vw;
+    color: #b92020;
+    background-color: white;
+    width: 120px;
+    height: 160px;"></div>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            Central Core<br>
+                            <hr><br>
+                            Number of Current Listings: 102<br>
+                            Number of Sales:64<br>
+                            Average Sale Price:$3,675,771<br>
+                            Average Sale Price to List Ratio:94%<br>
+                            Average Sale Price Per Sq Ft:$1,820<br>
+                            Highest Sale Price:$18,344,736<br>
+                            Lowest Sale Price: $430,000<br>
+
+                        </span>
+                    </span>
+                </span>
+        </div>
+
+
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:69%; right:26%;">
+                <span class="tooltip-item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            East Aspen<br>
+                            <hr><br>
+                            Number of Current Listings: 39 <br>
+                            Number of Sales: 10<br>
+                            Average Sale Price: $5,493,750<br>
+                            Average Sale Price to List Ratio: 92%<br>
+                            Average Sale Price Per Sq Ft: $1,295<br>
+                            Highest Sale Price: $19,000,000<br>
+                            Lowest Sale Price: $2,250,000<br>
+                        </span>
+                    </span>
+                </span>
+        </div>
+
+
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:49%; right:30%;">
+                <span class="tooltip-item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            Smuggler<br>
+                            <hr><br>
+                            Number of Current Listings: 26<br>
+                            Number of Sales: 15<br>
+                            Average Sale Price: $4,659,667<br>
+                            Average Sale Price to List Ratio: 94%<br>
+                            Average Sale Price Per Sq Ft: $1,334<br>
+                            Highest Sale Price: $21,500,000<br>
+                            Lowest Sale Price: $545,000<br>
+                        </span>
+                    </span>
+                </span>
+        </div>
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:50%; right:54%;">
+                <span class="tooltip-item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            West End<br>
+                            <hr><br>
+                            Number of Current Listings: 48<br>
+                            Number of Sales: 26<br>
+                            Average Sale Price:$4,605,494<br>
+                            Average Sale Price to List Ratio:91%<br>
+                            Average Sale Price Per Sq Ft:$1,590<br>
+                            Highest Sale Price:$17,500,000<br>
+                            Lowest Sale Price: $810,000<br>
+
+                        </span>
+                    </span>
+                </span>
+        </div>
+
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:29%; right:48%;">
+                <span class="tooltip-item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            Red Mountain <br>
+                            <hr><br>
+                            Number of Current Listings: 33<br>
+                            Number of Sales:4 <br>
+                            Average Sale Price:$11,325,000<br>
+                            Average Sale Price to List Ratio:94%<br>
+                            Average Sale Price Per Sq Ft:$1,806<br>
+                            Highest Sale Price:$15,200,000<br>
+                            Lowest Sale Price: $4,800,000<br>
+
+                        </span>
+                    </span>
+                </span>
+        </div>
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:61%; right:71%;">
+                <span class="tooltip-item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            West Aspen<br>
+                            <hr><br>
+                            Number of Current Listings: 112<br>
+                            Number of Sales:31<br>
+                            Average Sale Price:$3,451,242<br>
+                            Average Sale Price to List Ratio:92%<br>
+                            Average Sale Price Per Sq Ft:$988<br>
+                            Highest Sale Price:$10,400,000<br>
+                            Lowest Sale Price: $239,000<br>
+
+                        </span>
+                    </span>
+                </span>
+        </div>
+
+        <div class="map-point">
+            <span class="tooltip tooltip-effect-4" style="top:8%; right:75%;">
+                <span class="tooltip-item">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="tooltip-content clearfix">
+                        <span class="tooltip-text">
+                            Mclain Flats & Starwood<br>
+                            <hr><br>
+                            Number of Current Listings: 19<br>
+                            Number of Sales:8<br>
+                            Average Sale Price:$5,981,250<br>
+                            Average Sale Price to List Ratio:89%<br>
+                            Average Sale Price Per Sq Ft:$1,062<br>
+                            Highest Sale Price:$9,025,000<br>
+                            Lowest Sale Price: $2,100,000<br>
+
+                        </span>
+                    </span>
+                </span>
+        </div>
+    </div>
+    <script>
+        //var coordinates = document.getElementById('googleCoordinates').innerHTML.trim().split(',');
+        //var long = parseFloat(coordinates[0]);
+        //var lat = parseFloat(coordinates[1]);
+        // Initialize and add the map
+        // Initialize and add the map
+        //console.log(lat);
+        //console.log(long);
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: { lat: 39.191097, lng: -106.817535 }
+            });
+
+
+
+            var polygons = [
+                { name: "Smuggler<br>", listings: "Current Listings: 26 <br>", sales: "Sales: 15<br>", avgSale: "Avg Sale Price: $4,659,667<br>", priceListRatio: "Average Sale Price to List Ratio: 94%<br>", priceSQF: "Average Sale Price Per SqFt: $1,334<br>", hi: "Highest Sale Price: $21,500,000<br>", low: "Lowest Sale Price: $545,000", coordinates: [{ lat: 39.188946, lng: -106.809764 }, { lat: 39.190777, lng: -106.813584 }, { lat: 39.192268, lng: -106.814070 }, { lat: 39.194229, lng: -106.812857 }, { lat: 39.195719, lng: -106.810371 }, { lat: 39.195377, lng: -106.806247 }, { lat: 39.193108, lng: -106.803276 }, { lat: 39.189335, lng: -106.803943 }] },
+                {
+                    name: "two<br>", listings: "Current Listings: 26<br>", sales: "Sales: 15<br>", avgSale: "Avg Sale Price: $4,659,667<br>", priceListRatio: "Average Sale Price to List Ratio: 94%<br>", priceSQF: "Average Sale Price Per SqFt: $1,334<br>", hi: "Highest Sale Price: $21,500,000<br>", low: "Lowest Sale Price: $545,000", coordinates: [{ lat: 39.187612, lng: -106.828368 }, { lat: 39.187898, lng: -106.835489 }, { lat: 39.182915, lng: -106.832738 }]
+                }
+            ];
+
+            // foreach your polygons
+            for (var i = 0; i < polygons.length; i++) {
+                var item = polygons[i];
+
+                var coors = item["coordinates"];
+                var name = item["name"] + item["listings"] + item["sales"] + item["avgSale"] + item["priceListRation"] + item["priceSQF"] + item["hi"] + item["listings"];
+
+
+
+
+                var Polygon = new google.maps.Polygon({
+                    path: coors,
+                    strokeColor: '#66b3ff',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 5,
+                    editable: false,
+                    fillColor: 'blue',
+                    fillOpacity: 0.5,
+                });
+                Polygon.setMap(map);
+
+                // call function to set window
+                attachPolygonInfoWindow(Polygon, coors, name);
+            }
+
+            var contentString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                'sandstone rock formation in the southern part of the ' +
+                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
+                'south west of the nearest large town, Alice Springs; 450&#160;km ' +
+                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
+                'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
+                'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
+                'Aboriginal people of the area. It has many springs, waterholes, ' +
+                'rock caves and ancient paintings. Uluru is listed as a World ' +
+                'Heritage Site.</p>' +
+                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+                'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
+                '(last visited June 22, 2009).</p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 200
+            });
+
+            var marker = new google.maps.Marker({
+                position: { lat: 39.191097, lng: -106.817535 },
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+
+
+        function attachPolygonInfoWindow(polygon, coors, html) {
+
+            polygon.infoWindow = new google.maps.InfoWindow({
+                content: html
+
+
+            });
+
+            polygon.infoWindow.setPosition(getHighestWindowPosition(coors));
+
+            google.maps.event.addListener(polygon, 'mouseover', function () {
+                polygon.infoWindow.open(map, polygon);
+            });
+            google.maps.event.addListener(polygon, 'mouseout', function () {
+                polygon.infoWindow.close();
+            });
+        }
+
+        // function to get highest position of polygon to show window nice on top
+        function getHighestWindowPosition(coors) {
+
+            var lat = -5000, lng = 0, i = 0, n = coors.length;
+
+            for (; i !== n; ++i) {
+                if (coors[i].lat > lat) {
+                    lat = coors[i].lat;
+                    lng = coors[i].lng;
+                }
+            }
+            return { lat: lat, lng: lng };
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFXJkYOxxDT3jU1jb5DorpO5rWrPrD-o&callback=initMap">
+    </script>
+</section> <!-- end s-works -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

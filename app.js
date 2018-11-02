@@ -28,6 +28,8 @@ var mongoRenatlSingle = require('./routes/mongoRentalSingle');
 var videosRoute = require('./routes/videos');
 var admin = require('./routes/admin');
 var vidAdmin = require('./routes/adminVid');
+var marketMap = require('./routes/marketMap');
+var bio = require('./routes/bio');
 var app = express();
 
 
@@ -101,6 +103,8 @@ app.use('/custom', mongoRenatlSingle);
 app.use('/videos', videosRoute);
 app.use('/admin', admin);
 app.use('/admin/video', vidAdmin);
+app.use('/market-map', marketMap);
+app.use('/bio', bio);
 
 
 

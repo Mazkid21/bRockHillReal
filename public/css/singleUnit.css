@@ -82,6 +82,7 @@ header {
     width: 25%;
     border-radius: 4px;
     background-color: var(--white);
+    margin-right: 10px;
 }
 
 #homeInformationImage {

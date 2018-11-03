@@ -64,14 +64,14 @@ body {
     position: absolute;
     right: 0;
     overflow: scroll;
-    height: 82%;
-    box-shadow: -10px -10px 30px rgba(0, 0, 0, 0.23)
+    height: 100%;
+    /* box-shadow: -10px -10px 30px rgba(0, 0, 0, 0.23); */
 }
 
 @media (max-width : 600px) {
     .left-col-block {
         width: 100%;
-        position: relative;
+
     }
 
     .right-col-block {
@@ -80,6 +80,8 @@ body {
         box-shadow: none;
     }
 }
+
+
 
 /* --------------------
  * Section Background
@@ -220,11 +222,23 @@ body {
     }
 }
 
+@media (max-height : 350px) {
+    .header .content {
+        position: inherit;
+        margin-top: 0px;
+        padding-top: 100px;
+    }
+}
+
 /*-------------------
  * Intro
  *-------------------*/
 
-.intro {}
+.intro {
+    padding-left: 0px;
+    font-size: .9em;
+    padding-right: 0px;
+}
 
 /*-------------------
  * Expertise
@@ -427,4 +441,19 @@ body {
     margin: 0;
     text-align: center;
     top: 65%;
+}
+
+.row.contact-content {
+    margin: 0px 0px;
+}
+
+.section-contact {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 60px;
+}
+
+.row {
+    margin: 0 auto;
 }

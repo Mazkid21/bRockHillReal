@@ -24,7 +24,7 @@
 
 
 
-<section id='works' class="s-works" style=" padding-top: 23px;">
+{{!-- <section id='works' class="s-works" style=" padding-top: 23px;"> --}}
 
     <div id="main-wrapper">
         <div class="columns-block">
@@ -35,11 +35,13 @@
 
                         <p class="lead">Broker Associate</p>
                         <ul class="social-icon">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/casasaspen" target="_blank"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="https://twitter.com/casasaspen" target="_blank"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/brittanie-rockhill-50a35047/" target="_blank"><i
+                                        class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+
                         </ul>
                     </div>
                     <div class="profile-img"></div>
@@ -90,253 +92,127 @@
                         </div>
                     </div>
                 </section>
+                <section></section>
+                <section class="section-contact section-wrapper">
+                    <section id="contact" class="s-contact">
 
+                        <div class="overlay"></div>
+                        <div class="contact__line"></div>
 
-                {{!-- <section class="expertise-wrapper section-wrapper gray-bg">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>Expertise</h2>
-                                </div>
+                        <div class="row section-header">
+                            <div class="col-full">
+                                <h3 class="subhead">Contact Us</h3>
+                                <h1 class="display-2 display-2--light">Reach out for a new project or just say hello</h1>
                             </div>
                         </div>
-                        <!-- .row -->
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Professionally drive</h3>
+                        <div class="row contact-content">
 
-                                    <p>
-                                        Synergistically strategize customer directed resources rather than
-                                        principle.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Seamlessly leverage </h3>
+                            <div class="contact-primary">
 
-                                    <p>
-                                        Quickly repurpose reliable customer service with orthogonal ideas.
-                                        Competently.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- .row -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Interactively incubate</h3>
+                                <h3 class="h6">Send Us A Message</h3>
 
-                                    <p>
-                                        Interactively myocardinate high standards in initiatives rather than
-                                        next-generation.
-                                    </p>
-                                </div>
-                            </div>
+                                <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
+                                    <fieldset>
 
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Globally streamline</h3>
-
-                                    <p>
-                                        Dynamically initiate client-based convergence vis-a-vis performance based.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- .row -->
-                    </div>
-                    <!--.container-fluid-->
-                </section>
-                <!-- .expertise-wrapper -->
-
-                <section class="section-wrapper skills-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>Skills</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <!--.row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="progress-wrapper">
-
-                                    <div class="progress-item">
-                                        <span class="progress-title">Marketing</span>
-
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="62"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 62%"><span class="progress-percent">
-                                                    62%</span>
+                                        <div class="form-field">
+                                            <input name="contactName" type="text" id="contactName" placeholder="Your Name"
+                                                value="" minlength="2" required="" aria-required="true" class="full-width">
+                                        </div>
+                                        <div class="form-field">
+                                            <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email"
+                                                value="" required="" aria-required="true" class="full-width">
+                                        </div>
+                                        <div class="form-field">
+                                            <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject"
+                                                value="" class="full-width">
+                                        </div>
+                                        <div class="form-field">
+                                            <textarea name="contactMessage" id="contactMessage" placeholder="Your Message"
+                                                rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                                        </div>
+                                        <div class="form-field">
+                                            <button class="full-width btn--primary">Submit</button>
+                                            <div class="submit-loader">
+                                                <div class="text-loader">Sending...</div>
+                                                <div class="s-loader">
+                                                    <div class="bounce1"></div>
+                                                    <div class="bounce2"></div>
+                                                    <div class="bounce3"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- .progress -->
+
+                                    </fieldset>
+                                </form>
+
+                                <!-- contact-warning -->
+                                <div class="message-warning">
+                                    Something went wrong. Please try again.
+                                </div>
+
+                                <!-- contact-success -->
+                                <div class="message-success">
+                                    Your message was sent, thank you!<br>
+                                </div>
+
+                            </div> <!-- end contact-primary -->
+
+                            <div class="contact-secondary">
+                                <div class="contact-info">
+
+                                    <h3 class="h6 hide-on-fullwidth">Contact Info</h3>
+
+                                    <div class="cinfo">
+                                        <h5>Where to Find Us</h5>
+                                        <p>
+                                            520 E Durant Ave<br>
+                                            Aspen, CO<br>
+                                            81611
+                                        </p>
                                     </div>
-                                    <!-- .skill-progress -->
 
-
-                                    <div class="progress-item">
-                                        <span class="progress-title">Market Research</span>
-
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="90"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span class="progress-percent">
-                                                    90%</span>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress -->
+                                    <div class="cinfo">
+                                        <h5>Email Us At</h5>
+                                        <p>
+                                            brittanie@brittanierockhill.com
+                                        </p>
                                     </div>
-                                    <!-- /.skill-progress -->
 
-
-                                    <div class="progress-item">
-                                        <span class="progress-title">Organisational Skills</span>
-
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="75"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 75%;"><span class="progress-percent">
-                                                    75%</span>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress -->
+                                    <div class="cinfo">
+                                        <h5>Call Us At</h5>
+                                        <p>
+                                            Office: (970) 366 0891<br>
+                                            Mobile: (970) 366 0891<br>
+                                        </p>
                                     </div>
-                                    <!-- /.skill-progress -->
 
-                                    <div class="progress-item">
-                                        <span class="progress-title">Communtcation Skills</span>
+                                    <ul class="contact-social">
+                                        <li>
+                                            <a href="https://www.facebook.com/casasaspen" target="_blank"><i class="fa fa-facebook"
+                                                    aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://twitter.com/casasaspen" target="_blank"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.google.com/maps/place/Brittanie+Rockhill/@39.1901897,-106.8207657,15z/data=!4m5!3m4!1s0x0:0xb66960ce6a96aada!8m2!3d39.1871309!4d-106.8179828"
+                                                target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.linkedin.com/in/brittanie-rockhill-50a35047/" target="_blank"><i
+                                                    class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                        </li>
+                                    </ul> <!-- end contact-social -->
 
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="55"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 55%;"><span class="progress-percent">
-                                                    55%</span>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress -->
-                                    </div>
-                                    <!-- /.skill-progress -->
-                                    <div class="progress-item">
-                                        <span class="progress-title">Project Management</span>
+                                </div> <!-- end contact-info -->
+                            </div> <!-- end contact-secondary -->
 
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="55"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="progress-percent">
-                                                    80%</span>
-                                            </div>
-                                        </div>
-                                        <!-- .progress -->
-                                    </div>
-                                    <!-- .skill-progress -->
+                        </div> <!-- end contact-content -->
 
-                                </div>
-                                <!-- /.progress-wrapper -->
-                            </div>
-                        </div>
-                        <!--.row -->
-                    </div>
-                    <!-- .container-fluid -->
-                </section>
-                <!-- .skills-wrapper -->
-
-                <section class="section-wrapper section-experience gray-bg">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>Work Experience</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <!--.row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="content-item">
-                                    <small>2015 - Present</small>
-                                    <h3>Head of market research</h3>
-                                    <h4>Computer & Motor Ltd.</h4>
-
-                                    <p>United Kingdom, London</p>
-                                </div>
-                                <!-- .experience-item -->
-                                <div class="content-item">
-                                    <small>2012 - 2015</small>
-                                    <h3>Media Analyst</h3>
-                                    <h4>BizzNiss</h4>
-
-                                    <p>United Kingdom, London</p>
-                                </div>
-                                <!-- .experience-item -->
-                                <div class="content-item">
-                                    <small>2010 - 2012</small>
-                                    <h3>Budget Administrator</h3>
-                                    <h4>Somsom LLC</h4>
-
-                                    <p>United Kingdom, London</p>
-                                </div>
-                                <!-- .experience-item -->
-                            </div>
-                        </div>
-                        <!--.row-->
-                    </div>
-                    <!-- .container-fluid -->
-
-                </section>
-                <!-- .section-experience -->
-
-                <section class="section-wrapper section-education">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>Education</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <!--.row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="content-item">
-                                    <small>2010 - 2012</small>
-                                    <h3>MA Product Design</h3>
-                                    <h4>University of California</h4>
-
-                                    <p>United Kingdom, London</p>
-                                </div>
-                                <!-- .experience-item -->
-                                <div class="content-item">
-                                    <small>2007 - 2010</small>
-                                    <h3>Business marketing course</h3>
-                                    <h4>Royal Academy of Business</h4>
-
-                                    <p>United Kingdom, London</p>
-                                </div>
-                                <!-- .experience-item -->
-                                <div class="content-item">
-                                    <small>2002 - 2006</small>
-                                    <h3>BA (Hons) Design</h3>
-                                    <h4>University of Michigan</h4>
-
-                                    <p>United Kingdom, London</p>
-                                </div>
-                                <!-- .experience-item -->
-                            </div>
-                        </div>
-                        <!--.row-->
-                    </div>
-                    <!-- .container-fluid -->
-
-                </section>
-                <!-- .section-education --> --}}
-
-
-                <section class="section-contact section-wrapper gray-bg">
-                    <div class="container-fluid">
+                    </section> <!-- end s-contact -->
+                    {{!-- <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-title">
@@ -348,13 +224,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <address>
-                                    <strong>Address</strong><br>
-                                    1355 Market Street, Suite 900<br>
-                                    San Francisco, CA 94103
+                                    <strong>Address:</strong><br>
+                                    520 E Durant Ave<br>
+                                    Aspen, CO 81611
                                 </address>
                                 <address>
-                                    <strong>Phone Number</strong><br>
-                                    +61 3 8376 6284
+                                    <strong>Office Number:</strong><br>
+                                    (970) 366 0891<br>
+                                    Mobile: (970) 366 0891<br>
                                 </address>
 
                                 <address>
@@ -403,7 +280,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--.container-fluid-->
                 </section>
                 <!--.section-contact-->
@@ -435,4 +312,4 @@
 
     <!-- Bootstrap -->
     <script src="/js/bio/bootstrap.min.js"></script>
-</section>
+    {{!-- </section> --}}

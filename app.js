@@ -102,7 +102,7 @@ app.use('/rentals-search', rentalSearchRoute);
 app.use('/custom', mongoRenatlSingle);
 app.use('/videos', videosRoute);
 app.use('/admin', admin);
-app.use('/admin/video', vidAdmin);
+app.use('/admin-video', vidAdmin);
 app.use('/market-map', marketMap);
 app.use('/bio', bio);
 

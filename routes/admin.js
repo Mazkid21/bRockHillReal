@@ -178,6 +178,7 @@ router.post('/delete', (req, res, next) => {
 router.get('/:id', (req, res) => {
 
     var id = req.params.id;
+    console.log(objectId(id) + "this is th idd");
     if (req.isAuthenticated()) {
 
         var resultsArray = [];

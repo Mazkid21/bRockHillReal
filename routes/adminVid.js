@@ -30,7 +30,7 @@ router.post('/update-videos', (req, res, next) => {
             db.close();
         });
     });
-    res.redirect('/admin/video');
+    res.redirect('/admin-video');
 
 });
 
@@ -45,7 +45,7 @@ router.post('/delete-videos', (req, res, next) => {
             db.close();
         });
     });
-    res.redirect('/admin/video');
+    res.redirect('/admin-video');
 });
 
 router.post('/insert-videos', (req, res, next) => {
@@ -65,7 +65,7 @@ router.post('/insert-videos', (req, res, next) => {
             db.close();
         });
     });
-    res.redirect('/admin/video');
+    res.redirect('/admin-video');
 
 
 });

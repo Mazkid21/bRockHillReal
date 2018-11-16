@@ -5,6 +5,8 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/card.css">
     <script src="js/card.js"></script>
+    <link rel="stylesheet" href="css/slider.css">
+    <script src="js/slider.js"></script>
 </head>
 
 <section id='works' class="s-works">
@@ -23,37 +25,52 @@
 
     </div> <!-- end intro-wrap -->
     <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
-        <form action="/search" method="post">
-            <div class="col-sm-12">
-                <label> Price: </label>
-                <input id="minPrice" type="range" class="col-sm-2" name="minPrice" min="100" max="300000" step="50"
-                    placeholder="MIN PRICE"></input>
-                <input id="maxPrice" type="range" class="col-sm-2" name="maxPrice" min="100" max="300000" step="50"
-                    placeholder="Max PRICE"></input>
+        <form class="filter-form" action="/search" method="post">
+            <div class="">
+
+                <section class="range-slider">
+                    <label> Price: </label>
+
+                    <div>
+                        <label class="rangeValues"></label>
+                        <input id="sliderMin" value="1000" min="1000" max="100000" name="minPrice" step="100" type="range">
+                        <input id="sliderMax" value="100000000" min="100000" max="100000000" name="maxPrice" step="100"
+                            type="range">
+                    </div>
+                </section>
+
+                {{!-- <input id="minPrice" type="range" class="col-sm-2" min="100" max="30000" step="50" placeholder="MIN PRICE"></input>
+                <input id="maxPrice" type="range" class="col-sm-2" min="100" max="30000" step="50" placeholder="Max PRICE"></input>
+                --}}
             </div>
-            <div class="col-sm-3">
+            <div class="">
                 <label>Bedrooms:</label>
                 <div class="input-number">
-                    <input id="numBed" type="number" name="numBed" placeholder="quantity" value="{{numBed}}" min="1"
-                        max="10" />
+                    <input id="numBed" type="number" name="numBed" value="{{numBed}}" min="1" max="10" />
                     <div class="input-number__controls">
                         <span class="input-number__increase"><i class="stack-up-open"></i></span>
                         <span class="input-number__decrease"><i class="stack-down-open"></i></span>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="">
                 <label>Bathrooms:</label>
                 <div class="input-number">
-                    <input id="numBath" type="number" name="numBath" placeholder="quantity" value="{{numBath}}" min="1"
-                        max="5" />
-                    <div class="input-number__controls">
-                        <span class="input-number__increase"><i class="stack-up-open"></i></span>
-                        <span class="input-number__decrease"><i class="stack-down-open"></i></span>
-                    </div>
+                    <input id="numBath" type="number" name="numBath" value="{{numBath}}" min="1" max="5" />
+
                 </div>
             </div>
-            <input type="submit" value="Send message" />
+            <select name="neighborhood">
+                <option disabled selected value> -- Select a Neighborhood -- </option>
+                <option value="b__30312d43656e7472616c20436f7265">Central Core</option>
+                <option value="b__30312d4561737420417370656e">East Aspen</option>
+                <option value="b__30312d4d634c61696e20466c617473">Mclain Flats</option>
+                <option value="b__30312d526564204d6f756e7461696e">Red Mounain</option>
+                <option value="b__30312d536d7567676c6572">Smuggler</option>
+                <option value="b__30312d5765737420417370656e">West Aspen</option>
+                <option value="b__30312d5765737420456e64">West End</option>
+            </select><input class="filter-form-button" type="submit" value="SEARCH" />
+
 
         </form>
     </div>

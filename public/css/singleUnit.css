@@ -20,6 +20,8 @@
 
 .flex-around {
     justify-content: space-around;
+    padding-top: 7em;
+    padding-bottom: 3em;
 }
 
 .flex-between {
@@ -145,4 +147,89 @@ header {
     nav i {
         padding: 0 8px;
     }
+}
+
+.listing-contact-image {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.listing-contact-image img {
+    border-radius: 50% 50%;
+}
+
+.listing-contact-copy {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.listing-contact-copy h6 {
+    text-align: center;
+    margin: 5px;
+}
+
+
+
+
+.partnerwrap {
+    color: #ffffff;
+}
+
+.partner {
+    position: relative;
+    background-color: #111111;
+    margin: 20px;
+    /* margin-bottom: 20px; */
+    padding: 90px 10px 20px 10px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.2s ease-in-out;
+}
+
+.partner a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.partner p {
+    margin: 0;
+    line-height: 1.5em;
+}
+
+.partner h6 {
+    /* margin: 0 0 10px;
+    color: #ffffff; */
+    color: #ffff;
+    font-size: larger;
+    font-weight: 900;
+    margin: 0;
+}
+
+.partner .portrait {
+    position: absolute;
+    overflow: hidden;
+    top: -80px;
+    left: 50%;
+    margin-left: -80px;
+    background-color: #fff;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.2s ease-in-out;
+}
+
+.partner .portrait img {
+    width: 100%;
+}
+
+.partner .portrait:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.partner:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }

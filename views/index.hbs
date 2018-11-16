@@ -3,7 +3,14 @@
 
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/hover.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/slider.css">
+    <script src="js/slider.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="/js/navOptions.js"></script>
+
 </head>
 
 {{# each contents }}
@@ -241,198 +248,42 @@
     <div class="row works-content">
         <div class="col-full masonry-wrap">
             <div class="masonry">
-
+                {{!-- MONGO RENTALS --}}
+                {{#each items}}
                 <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent1.jpg" class="thumb-link" title="Shutterbug"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent1.jpg" srcset="images/portfolio/recentWorks/recent1.jpg 1x, images/portfolio/recentWorks/recent1.jpg 2x"
-                                    alt="">
-                            </a>
+                    <div class="item-folio__thumb">
+                        {{!-- hover card --}}
+                        <div class="content">
+                            <div class="grid">
+                                <figure class="effect-zoe">
+                                    <a href="/custom/{{this.customURL}}">
+                                        <img src="{{this.photoURL1}}" alt="img25" />
+                                    </a>
+                                    <figcaption>
+                                        <div class="fig-left">
+                                            <div class="fig-left-top">
+                                                <p>{{this.title}}</p>
+                                            </div>
+                                            <div class="fig-left-bottom">
+                                                <hr>
+                                                <p> {{this.numBeds}} Bedrooms |
+                                                    Bathroooms | SF
+                                                </p>
+                                                <a href="/custom/{{this.customURL}}" role="button" class="btn btn-outline light tiny white-hover">Details</a>
+                                            </div>
+                                        </div>
+                                        <div class="fig-right">
+                                            <p>
+                                                {{this.monthlyRates}}
+                                            </p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
                         </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 1
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto
-                                quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
                     </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent2.jpg" class="thumb-link" title="Woodcraft"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent2.jpg" srcset="images/portfolio/recentWorks/recent2.jpg 1x, images/portfolio/recentWorks/recent2.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 2
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto
-                                quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent3.jpg" class="thumb-link" title="The Beetle Car"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent3.jpg" srcset="images/portfolio/recentWorks/recent3.jpg 1x, images/portfolio/recentWorks/recent3.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 3
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto
-                                quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent4.jpg" class="thumb-link" title="Grow Green"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent4.jpg" srcset="images/portfolio/recentWorks/recent4.jpg 1x, images/portfolio/recentWorks/recent4.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 4
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto
-                                quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent5.jpg" class="thumb-link" title="Guitarist"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent5.jpg" srcset="images/portfolio/recentWorks/recent5.jpg 1x, images/portfolio/recentWorks/recent5.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 5
-                            </h3>
-                            <p class="item-folio__cat">
-                                Brading
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto
-                                quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-
-                        <div class="item-folio__thumb">
-                            <a href="images/portfolio/recentWorks/recent6.jpg" class="thumb-link" title="Palmeira"
-                                data-size="1050x700">
-                                <img src="images/portfolio/recentWorks/recent6.jpg" srcset="images/portfolio/recentWorks/recent6.jpg 1x, images/portfolio/recentWorks/recent6.jpg 2x"
-                                    alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                House 6
-                            </h3>
-                            <p class="item-folio__cat">
-                                Branding
-                            </p>
-                        </div>
-
-                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                            <i class="icon-link"></i>
-                        </a>
-
-                        <div class="item-folio__caption">
-                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto
-                                quo.Unde dolorem corrupti neque nisi.</p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
+                </div> <!-- end masonry__brick FOR MONGO RENTALS -->
+                {{/each}}
 
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->

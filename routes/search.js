@@ -12,7 +12,9 @@ router.post('/', function (req, res, poop) {
         maxPrice: req.body.maxPrice,
         numBed: req.body.numBed,
         numBath: req.body.numBath,
+        city: req.body.city,
         neighborhood: req.body.neighborhood
+
     };
 
     var options = {
@@ -393,9 +395,90 @@ router.post('/', function (req, res, poop) {
                 authorization: process.env.API_KEY
             }
         };
+    } else if (response.city && !response.neighborhood && !response.minPrice && !response.maxPrice && !response.numBath && !response.numBed) {
+        options = {
+            method: 'GET',
+            url: 'https://sparkapi.com/Reso/OData/Property',
+            qs: {
+                '$filter': 'MlsStatus eq \'Active\' and City eq ' + '\'' + response.city + '\'' + ' and Zoning eq \'Residential\'',
+                '$expand': 'CustomFields,Media',
+                '$orderby': 'ListPrice desc',
+                '$count': 'true'
+            },
+            headers: {
+                'x-sparkapi-user-agent': 'BrittanieRockhill',
+                accept: 'application/json',
+                authorization: process.env.API_KEY
+            }
+        };
+    } else if (response.city && response.neighborhood && !response.minPrice && !response.maxPrice && !response.numBath && !response.numBed) {
+        options = {
+            method: 'GET',
+            url: 'https://sparkapi.com/Reso/OData/Property',
+            qs: {
+                '$filter': 'MlsStatus eq \'Active\' and City eq ' + '\'' + response.city + '\'' + ' and MLSAreaMinor eq ' + '\'' + response.neighborhood + '\'' + ' and Zoning eq \'Residential\'',
+                '$expand': 'CustomFields,Media',
+                '$orderby': 'ListPrice desc',
+                '$count': 'true'
+            },
+            headers: {
+                'x-sparkapi-user-agent': 'BrittanieRockhill',
+                accept: 'application/json',
+                authorization: process.env.API_KEY
+            }
+        };
+    } else if (response.city && response.neighborhood && response.minPrice && !response.maxPrice && !response.numBath && !response.numBed) {
+        options = {
+            method: 'GET',
+            url: 'https://sparkapi.com/Reso/OData/Property',
+            qs: {
+                '$filter': 'MlsStatus eq \'Active\' and City eq ' + '\'' + response.city + '\'' + ' and MLSAreaMinor eq ' + '\'' + response.neighborhood + '\'' + ' and ListPrice ge ' + response.minPrice + ' and Zoning eq \'Residential\'',
+                '$expand': 'CustomFields,Media',
+                '$orderby': 'ListPrice desc',
+                '$count': 'true'
+            },
+            headers: {
+                'x-sparkapi-user-agent': 'BrittanieRockhill',
+                accept: 'application/json',
+                authorization: process.env.API_KEY
+            }
+        };
+    } else if (response.city && response.neighborhood && response.minPrice && response.maxPrice && !response.numBath && !response.numBed) {
+        options = {
+            method: 'GET',
+            url: 'https://sparkapi.com/Reso/OData/Property',
+            qs: {
+                '$filter': 'MlsStatus eq \'Active\'' + ' and City eq ' + '\'' + response.city + '\'' + ' and MLSAreaMinor eq ' + '\'' + response.neighborhood + '\'' + ' and ListPrice ge ' + response.minPrice + ' and ListPrice le ' + response.maxPrice + ' and Zoning eq \'Residential\'',
+                '$expand': 'CustomFields,Media',
+                '$orderby': 'ListPrice desc',
+                '$count': 'true'
+            },
+            headers: {
+                'x-sparkapi-user-agent': 'BrittanieRockhill',
+                accept: 'application/json',
+                authorization: process.env.API_KEY
+            }
+        };
+    } else if (response.city && response.neighborhood && response.minPrice && response.maxPrice && response.numBath && response.numBed) {
+        options = {
+            method: 'GET',
+            url: 'https://sparkapi.com/Reso/OData/Property',
+            qs: {
+                '$filter': 'MlsStatus eq \'Active\'' + ' and City eq ' + '\'' + response.city + '\'' + ' and MLSAreaMinor eq ' + '\'' + response.neighborhood + '\'' + ' and ListPrice ge ' + response.minPrice + ' and ListPrice le ' + response.maxPrice + ' and BathroomsTotalInteger ge ' + response.numBath + ' and BedroomsTotal ge ' + response.numBed + ' and Zoning eq \'Residential\'',
+                '$expand': 'CustomFields,Media',
+                '$orderby': 'ListPrice desc',
+                '$count': 'true'
+            },
+            headers: {
+                'x-sparkapi-user-agent': 'BrittanieRockhill',
+                accept: 'application/json',
+                authorization: process.env.API_KEY
+            }
+        };
     } else {
         options;
     }
+
 
     requests(options, function (data) {
 
@@ -403,6 +486,7 @@ router.post('/', function (req, res, poop) {
         console.log(JSON.stringify(options.qs) + "these are the url options");
         console.log(data.value + " this is data.value from back end");
         console.log(response.neighborhood + "neighborhood");
+        console.log(response.city + "city");
         console.log(data["@odata.nextLink"]);
         var propertyData = data;
 

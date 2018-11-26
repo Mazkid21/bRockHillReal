@@ -298,19 +298,23 @@ input[type="submit"] {
 
 #numBath {
     margin: 0 auto;
-    border: solid #0d0d0d;
+    /* border: solid #0d0d0d; */
     text-align: right;
-    color: black;
+    /* color: black; */
     font-weight: 800;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.39);
 }
+
 
 #numBed {
     margin: 0 auto;
-    border: solid #0d0d0d;
+    /* border: solid #0d0d0d; */
     text-align: right;
-    color: black;
+    /* color: black; */
     font-weight: 800;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.39);
 }
+
 
 /* display: flex;
 z-index: 1; */

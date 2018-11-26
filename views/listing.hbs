@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/css/hover.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/card.css">
+    <script src="/js/dropdownForm.js"></script>
     <script src="js/card.js"></script>
     <link rel="stylesheet" href="css/slider.css">
     <script src="js/slider.js"></script>
@@ -25,7 +26,7 @@
 
     </div> <!-- end intro-wrap -->
     <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
-        <form class="filter-form" action="/search" method="post">
+        <form id="theform" class="filter-form" action="/search" method="post">
             <div class="">
 
                 <section class="range-slider">
@@ -60,18 +61,25 @@
 
                 </div>
             </div>
-            <select name="neighborhood">
-                <option disabled selected value> -- Select a Neighborhood -- </option>
-                <option value="b__30312d43656e7472616c20436f7265">Central Core</option>
-                <option value="b__30312d4561737420417370656e">East Aspen</option>
-                <option value="b__30312d4d634c61696e20466c617473">Mclain Flats</option>
-                <option value="b__30312d526564204d6f756e7461696e">Red Mounain</option>
-                <option value="b__30312d536d7567676c6572">Smuggler</option>
-                <option value="b__30312d5765737420417370656e">West Aspen</option>
-                <option value="b__30312d5765737420456e64">West End</option>
-            </select><input class="filter-form-button" type="submit" value="SEARCH" />
+            <select name="city" id="type">
+                <option value="city0">--Select an City--</option>
+                <option value="Aspen">Aspen</option>
+                <option value="b__536e6f776d6173732056696c6c616765">Snowmass Village</option>
+                <option value="b__576f6f647920437265656b">Woody Creek</option>
+                <option value="b__4f6c6420536e6f776d617373">Old Snowmass</option>
+                <option value="Basalt">Basalt</option>
+                <option value="Carbondale">Carbondale</option>
+                <option value="Glenwood">Glenwood</option>
+                <option value="Redstone">Redstone</option>
+                <option value="b__4372797374616c2056616c6c6579">Crystal Valley</option>
 
+            </select>
 
+            <select name="neighborhood" id="citySub" style="display: none;">
+                <option value="">-- select neighborhood -- </option>
+            </select>
+
+            <input class="filter-form-button" type="submit" value="SEARCH" />
         </form>
     </div>
     <div class="row works-content">

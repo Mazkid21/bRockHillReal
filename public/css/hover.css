@@ -121,6 +121,8 @@
     margin: 10px 1%;
     cursor: pointer;
     border: 1px solid #848f9121;
+    width: 32em;
+    height: 21em;
     box-shadow: white;
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);

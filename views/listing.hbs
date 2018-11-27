@@ -46,41 +46,105 @@
 
 
         <!-- /******* Search & Filter Section Right Under Nav ********/ -->
-        <div class="search-filter-nav" style="padding-top: 100px;">
-            <form class="search-container" style="flex: 1;">
-                <input type="text" id="search-bar" placeholder="Search Cities..">
-                <div class="search-icon-div"><i class="fas fa-search"></i></div>
-            </form>
-            <div onclick="myFunction()" class="anyPrice-div box-size-nav-u custom-test dropdown dropbutton" style="flex: 1; list-style-type: none;">
-                <div class="dropdown">
-                    <a onclick="myFunction()" class="dropdown dropbutton">Any Price <i class="fas fa-caret-down" style="margin: 0px 4px;"></i></a>
-                    <div id="myDropdown" class="dropdown-content">
-                        <li><a>Any Price</a></li>
-                        <li><a>$250k-$500k</a></li>
-                        <li><a>$500k-$1M</a></li>
-                        <li><a>$1M-$100m</a></li>
+        <form action="/search" method="post" style="padding: 90px;
+    margin: 0 auto;">
+            <div class="search-filter-nav">
+                <div class="search-container" style="flex: 1;">
+                    <input type="text" id="search-bar" placeholder="Search Cities..">
+                    <div class="search-icon-div"><i class="fas fa-search"></i></div>
+                </div>
+
+                <section class="range-slider">
+                    <div>
+                        <label class="rangeValues"></label>
+                        <input id="sliderMin" value="1000" min="1000" max="100000" name="minPrice" step="100" type="range">
+                        <input id="sliderMax" value="100000000" min="100000" max="100000000" name="maxPrice" step="100"
+                            type="range">
+                    </div>
+                </section>
+                <div class="anyPrice-div box-size-nav-u custom-test dropdown dropbutton" style="flex: 1;list-style-type: none;padding-left: 0px;padding-right: 0px;margin-right: 50px;border-top-width: 0px;border-bottom-width: 0px;border-left-width: 0px;border-right-width: 0px;">
+                    <div class="dropdown">
+
+
+                        <select name="city" id="type" style="border: 1px solid #D0CFCE;">
+                            <option value="city0">--Select an City--</option>
+                            <option value="Aspen">Aspen</option>
+                            <option value="b__536e6f776d6173732056696c6c616765">Snowmass Village</option>
+                            <option value="b__576f6f647920437265656b">Woody Creek</option>
+                            <option value="b__4f6c6420536e6f776d617373">Old Snowmass</option>
+                            <option value="Basalt">Basalt</option>
+                            <option value="Carbondale">Carbondale</option>
+                            <option value="Glenwood">Glenwood</option>
+                            <option value="Redstone">Redstone</option>
+                            <option value="b__4372797374616c2056616c6c6579">Crystal Valley</option>
+
+                        </select>
+
+                        <select name="neighborhood" id="citySub" style="display: none; border: 1px solid #D0CFCE;">
+                            <option value="">-- select neighborhood -- </option>
+                        </select>
+
+
                     </div>
                 </div>
-            </div>
 
-            <div class="allBeds-div box-size-nav-u custom-test" style="flex: 1; margin-left: -5px;">
-                All Beds
-                <i class="fas fa-caret-down" style="margin: 0px 4px;"></i>
-            </div>
+                <div class="allBeds-div box-size-nav-u custom-test dropdown dropbutton" style=" margin-left: -5px; flex: 1;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;">
+                    <div class="dropdown">
+                        <select name="numBed" id="type" style="border: 1px solid #D0CFCE;">
+                            <option value="city0">Bedrooms</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9+</option>
 
-            <div class="allhomes-div box-size-nav-uon custom-test" style="flex: 1; padding: 0px 7px;">
-                All Home Types
-                <i class="fas fa-caret-down" style="margin: 0px 4px;"></i>
-            </div>
-            <div class="more-div box-size-nav-uon custom-test" style="flex: 1; margin-left: -5px;">
-                More
-                <i class="fas fa-caret-down" style="margin: 0px 4px;"></i>
-            </div>
+                        </select>
 
-            <div class="saveSearch-div box-size-nav-uon " style="flex: 3; margin: 2px 0px;">
-                <button>
-                    Save Search</button>
-            </div>
+
+                    </div>
+                </div>
+
+                <div class="allhomes-div box-size-nav-uon custom-test" style=" margin-left: -5px; flex: 1;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;">
+                    <div class="dropdown">
+                        <select name="numBath" id="type" style="border: 1px solid #D0CFCE;">
+                            <option value="city0">Bathrooms</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9+</option>
+
+                        </select>
+
+
+                    </div>
+                </div>
+                {{!-- <div class="more-div box-size-nav-uon custom-test" style="flex: 1; margin-left: -5px;">
+                    More
+                    <i class="fas fa-caret-down" style="margin: 0px 4px;"></i>
+                </div> --}}
+
+                <div class="saveSearch-div box-size-nav-uon " style="flex: 3; margin: 2px 0px;">
+                    <button type="submit">
+                        Save Search</button>
+                </div>
+        </form>
         </div>
 
 
@@ -101,12 +165,12 @@
                     <div class="homes-list-platform">
                         {{#each property}}
                         <div class="home-section-1 home-custom">
-
-                            <div class="img-div" style="background: url({{this.Media.0.MediaURL}}) no-repeat center center; height: 178px;
+                            <a href="/search/{{this.ListingKey}}">
+                                <div class="img-div" style="background: url({{this.Media.0.MediaURL}}) no-repeat center center;  height: 25rem;
     background-size: cover;">
 
-                            </div>
-
+                                </div>
+                            </a>
                             <div class="price-div">&#36;{{this.ListPrice}}</div>
                             <div class="bdBaSqft-div">
                                 <i class="fas fa-bed fa-style-on"></i>

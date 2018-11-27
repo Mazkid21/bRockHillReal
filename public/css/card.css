@@ -97,8 +97,9 @@ a:focus {
 .search-filter-nav {
     display: flex;
     flex-wrap: wrap;
-
-    padding: 10px;
+    /* padding-top: 80px;
+    margin-bottom: 100px;
+    padding: 10px; */
 }
 
 
@@ -108,7 +109,7 @@ a:focus {
     max-width: 349px;
     border-radius: 6px;
     margin: 2px;
-
+    max-height: min-content;
 }
 
 
@@ -125,7 +126,7 @@ a:focus {
 input#search-bar {
     margin: 0 auto;
     width: 271px;
-    height: 40px;
+    height: 55px;
     padding: 0 20px;
     font-size: 1rem;
     border: 1px solid #D0CFCE;
@@ -168,7 +169,7 @@ input#search-bar:focus:-ms-placeholder {
     border: 1px solid #D0CFCE;
     position: relative;
     cursor: pointer;
-
+    height: 55px;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     border-top-right-radius: 6px;
@@ -342,8 +343,8 @@ input#search-bar:focus:-ms-placeholder {
 .home-custom {
     flex: 1;
     background-color: #fff;
-    max-height: 292px;
-    min-height: 292px;
+    max-height: 35rem;
+    min-height: 35rem;
     min-width: 228px;
     margin: 8px;
     cursor: pointer;
@@ -721,9 +722,9 @@ https://github.com/kenvantruong/real-estate/blob/master/img-houses/1.png?raw=tru
     display: block;
 }
 
-.dropdown:hover {
-    background-color: #f5f6f7;
-}
+/* .dropdown:hover {
+
+} */
 
 
 .show {

@@ -60,7 +60,8 @@
 
                 <div class="flex-center flex-between container">
                     <div>
-                        <h2 style="margin-top: 0px;">${{this.ListPrice}}</h2>
+                        <h2 id="list-price" style="margin-top: 0px; display: none;">{{this.ListPrice}}</h2>
+                        <h2 id="list-priceComma" style="margin-top: 0px;"></h2>
                         <span id="caps">2 YEAR LEASE REQUIRED</span>
                     </div>
                     <div>
@@ -433,7 +434,15 @@
                 });
             // The marker, positioned at Uluru
             var marker = new google.maps.Marker({ position: uluru, map: map });
+            var theNumber = document.getElementById("list-price").innerHTML;
+            theNumber = Number(theNumber).toLocaleString();
+            console.log(theNumber);
+            var z = document.createElement('p'); // is a node
+            z.innerHTML = "$" + theNumber;
+            document.getElementById("list-priceComma").appendChild(z);
         }
+
+
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads

@@ -37,6 +37,52 @@
     margin: auto;
     }
 
+    /* The location pointed to by the popup tip. */
+      .popup-tip-anchor {
+        height: 0;
+        position: absolute;
+        /* The max width of the info window. */
+        width: 200px;
+      }
+      /* The bubble is anchored above the tip. */
+      .popup-bubble-anchor {
+        position: absolute;
+        width: 100%;
+        bottom: /* TIP_HEIGHT= */ 8px;
+        left: 0;
+      }
+      /* Draw the tip. */
+      .popup-bubble-anchor::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* Center the tip horizontally. */
+        transform: translate(-50%, 0);
+        /* The tip is a https://css-tricks.com/snippets/css/css-triangle/ */
+        width: 0;
+        height: 0;
+        /* The tip is 8px high, and 12px wide. */
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: /* TIP_HEIGHT= */ 8px solid white;
+      }
+      /* The popup bubble itself. */
+      .popup-bubble-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -100%);
+        /* Style the info window. */
+        background-color: white;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: sans-serif;
+        overflow-y: auto;
+        max-height: 60px;
+        box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+      }
+
 </style>
 
     <!-- /******* Navigation Section ********/ -->
@@ -171,7 +217,7 @@
 
                                 </div>
                             </a>
-                            <div class="price-div" style="display: none;">{{this.ListPrice}}</div>
+                            <div class="price-div" style="display: none">{{this.ListPrice}}</div>
                             <div class="price-div-commas"></div>
                             <div class="bdBaSqft-div">
                                 <i class="fas fa-bed fa-style-on"></i>
@@ -382,6 +428,7 @@
             </div>
             <div class="rightside-map-container">
                 <div id="map" class="boxShadow"></div>
+
             </div>
         </div>
 
@@ -579,11 +626,43 @@
         var lat10 = parseFloat(mapPoint10[1]);
         // Initialize and add the map
         // Initialize and add the map
-        console.log(lat);
-        console.log(long);
+
+        var map, popup, Popup;
+
+
         function initMap() {
+
+
+            var center = function (arr) {
+                var minX, maxX, minY, maxY;
+                for (var i = 0; i < arr.length; i++) {
+                    var x = arr[i][0], y = arr[i][1];
+                    minX = (x < minX || minX == null) ? x : minX;
+                    maxX = (x > maxX || maxX == null) ? x : maxX;
+                    minY = (y < minY || minY == null) ? y : minY;
+                    maxY = (y > maxY || maxY == null) ? y : maxY;
+                }
+                return [(minX + maxX) / 2, (minY + maxY) / 2];
+            };
+
+            var coords = [
+                [lat1, long1],
+                [lat2, long2],
+                [lat3, long3],
+                [lat4, long4],
+                [lat5, long5],
+                [lat6, long6],
+                [lat7, long7],
+                [lat8, long8],
+                [lat9, long9],
+                [lat10, long10],
+            ];
+
+            var c = center(coords);
+
+
             // The location of Uluru
-            var uluru = { lat: lat1, lng: long1 };
+            var uluru = { lat: c[0], lng: c[1] };
             var points1 = { lat: lat1, lng: long1 }
             var points2 = { lat: lat2, lng: long2 }
             var points3 = { lat: lat3, lng: long3 }
@@ -594,8 +673,9 @@
             var points8 = { lat: lat8, lng: long8 }
             var points9 = { lat: lat9, lng: long9 }
             var points10 = { lat: lat10, lng: long10 }
+
             // The map, centered at Uluru
-            var map = new google.maps.Map(
+            map = new google.maps.Map(
                 document.getElementById('map'), {
                     zoom: 13, center: uluru, styles: [
                         {
@@ -791,17 +871,9 @@
                 });
 
 
+
             // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({ position: points1, map: map });
-            var marker = new google.maps.Marker({ position: points2, map: map });
-            var marker = new google.maps.Marker({ position: points3, map: map });
-            var marker = new google.maps.Marker({ position: points4, map: map });
-            var marker = new google.maps.Marker({ position: points5, map: map });
-            var marker = new google.maps.Marker({ position: points6, map: map });
-            var marker = new google.maps.Marker({ position: points7, map: map });
-            var marker = new google.maps.Marker({ position: points8, map: map });
-            var marker = new google.maps.Marker({ position: points9, map: map });
-            var marker = new google.maps.Marker({ position: points10, map: map });
+
 
 
             var theNumber = document.getElementsByClassName("price-div");
@@ -809,22 +881,146 @@
 
             for (var i = 0; i < theNumber.length; i++) {
 
-                console.log(theNumber[i].innerHTML);
+
 
                 var price = []
 
                 price = theNumber[i].innerHTML;
 
                 price = Number(price).toLocaleString();
-                console.log(price)
+
 
                 theDivs[i].innerHTML = "$" + price;
 
             }
 
+            var marker = new google.maps.Marker({
+                position: points1, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[0].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
 
+            var marker = new google.maps.Marker({
+                position: points2, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[1].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points3, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[2].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points4, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[3].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points5, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[4].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points6, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[5].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points7, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[6].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points8, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[7].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+            var marker = new google.maps.Marker({
+                position: points9, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[8].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
+
+
+            var marker = new google.maps.Marker({
+                position: points10, map: map, title: 'Hello World!', icon: {
+                    labelOrigin: new google.maps.Point(16, 64),
+                    url: "https://drive.google.com/uc?id=0B3RD6FDNxXbdVXRhZHFnV2xaS1E"
+                }, label: {
+                    text: theDivs[9].innerHTML,
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "13px"
+                }
+            });
 
         }
+
+
+
+
+
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads

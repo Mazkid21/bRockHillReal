@@ -171,7 +171,8 @@
 
                                 </div>
                             </a>
-                            <div class="price-div">&#36;{{this.ListPrice}}</div>
+                            <div class="price-div" style="display: none;">{{this.ListPrice}}</div>
+                            <div class="price-div-commas"></div>
                             <div class="bdBaSqft-div">
                                 <i class="fas fa-bed fa-style-on"></i>
                                 <h6 class="h6-style-on bd-name">{{this.BedroomsTotal}}bd</h6>
@@ -801,6 +802,28 @@
             var marker = new google.maps.Marker({ position: points8, map: map });
             var marker = new google.maps.Marker({ position: points9, map: map });
             var marker = new google.maps.Marker({ position: points10, map: map });
+
+
+            var theNumber = document.getElementsByClassName("price-div");
+            var theDivs = document.getElementsByClassName("price-div-commas");
+
+            for (var i = 0; i < theNumber.length; i++) {
+
+                console.log(theNumber[i].innerHTML);
+
+                var price = []
+
+                price = theNumber[i].innerHTML;
+
+                price = Number(price).toLocaleString();
+                console.log(price)
+
+                theDivs[i].innerHTML = "$" + price;
+
+            }
+
+
+
         }
     </script>
     <!--Load the API from the specified URL

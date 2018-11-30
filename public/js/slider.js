@@ -5,12 +5,13 @@ function getVals() {
     var slide1 = parseFloat(slides[0].value);
     var slide2 = parseFloat(slides[1].value);
     // Neither slider will clip the other, so make sure we determine which is larger
-    if (slide1 > slide2) {
-        var tmp = slide2;
-        slide2 = slide1;
-        slide1 = tmp;
-    }
-
+    // if (slide1 > slide2) {
+    //     var tmp = slide2;
+    //     slide2 = slide1;
+    //     slide1 = tmp;
+    // }
+    slide1 = slide1.toLocaleString(slide1);
+    slide2 = slide2.toLocaleString(slide2);
     var displayElement = parent.getElementsByClassName("rangeValues")[0];
     displayElement.innerHTML = "&#36;" + slide1 + " - " + "&#36;" + slide2;
 }

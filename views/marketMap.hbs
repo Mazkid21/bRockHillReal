@@ -10,41 +10,46 @@
     /* Set the size of the div element that contains the map */
     #map {
 
-        position: relative;
-        overflow: hidden;
-        height: 40em;
-        width: 94%;
-
-        margin-right: 1.2em;
+        position: absolute;
+        overflow: hidden !important;
+        height: 100vh;
+        width: 100vw;
         /* margin-top: 3em; */
         border-radius: 4px;
-        margin: 60px auto;
-        margin-left: 1.2em;
+
+
     }
 
+    /*style the INFO WINDOW */
     .gm-style .gm-style-iw {
         background-color: #252525 !important;
         top: 0 !important;
         left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
+        width: 500px !important;
+        height: 200px !important;
         min-height: 120px !important;
         padding-top: 10px;
-        display: inline-block !important;
+        display: inline-block;
         text-align: center;
+        overflow: auto !important;
+
     }
 
+    .gm-style-iw {}
+
     /*style the p tag*/
-    .gm-style .gm-style-iw #google-popup p {
-        padding: 10px;
-    }
+    .gm-style .gm-style-iw #google-popup p {}
 
 
     /*style the arrow*/
     .gm-style div div div div div div div div {
 
         color: #fff;
-        font-size: 16px;
+
+        font-size: 15px;
+
+        width: 448px;
+
     }
 
     /* END GOOGLE MAPS */
@@ -58,7 +63,7 @@
         margin: 2% auto;
         max-width: 1200px;
         max-height: 800px;
-        overflow: unset;
+
         position: relative;
         border-radius: 10px;
     }
@@ -124,7 +129,7 @@
         position: absolute;
         width: 256px;
         left: -28%;
-        margin: 0 0 20px -114px;
+
         bottom: 100%;
         text-align: left;
         font-size: 0.765em;
@@ -185,7 +190,7 @@
         display: block;
         font-family: 'Open Sans';
         text-align: center;
-        padding: 1.31em 1.21em 1.21em 0;
+
         color: #fff;
         position: relative !important;
     }
@@ -222,6 +227,110 @@
 
     <!--The div element for the map -->
     <div class="boxShadow" id="map"></div>
+    <div style="display: none">
+        {{#each smugglerData1}}
+        <p id="smugglerActiveListings"> {{this.ActiveListings}}</p>
+        <p id="smugglerNewListings"> {{this.NewListings}}</p>
+        <p id="smugglerPendedListings"> {{this.PendedListings}}</p>
+        <p id="smugglerSoldListings"> {{this.SoldListings}}</p>
+        <p id="smugglerActiveListings-dates"> {{this.Dates}}</p>
+        {{/each}}
+
+        {{#each smugglerData2}}
+        <p id="smugglerAbsorbtion"> {{this.AbsorptionRate}}</p>
+        {{/each}}
+
+        {{#each smugglerData3}}
+        <p id="smugglerActiveAvgPrice"> {{this.ActiveAverageListPrice}}</p>
+        <p id="smugglerNewAvgPrice"> {{this.NewAverageListPrice}}</p>
+        <p id="smugglerPendedAvgPrice">{{this.PendedAverageListPrice}}</p>
+        <p id="smugglerSoldAvgPrice">{{this.SoldAverageListPrice}}</p>
+        <p id="smugglerSoldAvgSoldPrice">{{this.SoldAverageSoldPrice}}</p>
+        <p id="smugglerActiveMedianPrice">{{this.ActiveMedianListPrice}}</p>
+        <p id="smugglerNewMedianPrice">{{this.NewMedianListPrice}}</p>
+        <p id="smugglerPendedMedianPrice">{{this.PendedMedianListPrice}}</p>
+        <p id="smugglerSoldMedianPrice">{{this.SoldMedianListPrice}}</p>
+        <p id="smugglerSoldMedianSoldPrice">{{this.SoldMedianSoldPrice}}</p>
+        <p id="">{{/each}}
+
+
+            {{#each smugglerData4}}
+
+            <p id="smugglerSaleToOriginalListPriceRatio"> {{this.SaleToOriginalListPriceRatio}}</p>
+            <p id="sumgglerSaleToListPriceRatio"> {{this.SaleToListPriceRatio}}</p>
+
+            {{/each}}
+
+            {{#each smugglerData5}}
+            <p id="smugglerAverageDom"> {{this.AverageDom}}</p>
+            <p id="smugglerAverageCdom"> {{this.AverageCdom}}</p>
+            {{/each}}
+
+            {{#each smugglerData6}}
+            <p id="smugglerActiveListVolume"> {{this.ActiveListVolume}}</p>
+
+            <p id="smugglerNewListVolume"> {{this.NewListVolume}}</p>
+
+            <p id="smugglerPendedListVolume"> {{this.PendedListVolume}}</p>
+
+            <p id="smugglerSoldListVolume"> {{this.SoldListVolume}}</p>
+
+            <p id="smugglerSoldSaleVolume"> {{this.SoldSaleVolume}}</p>
+
+            {{/each}}
+
+
+            {{#each centralCoreData1}}
+            <p id="centralCoreActiveListings"> {{this.ActiveListings}}</p>
+            <p id="centralCoreNewListings"> {{this.NewListings}}</p>
+            <p id="centralCorePendedListings"> {{this.PendedListings}}</p>
+            <p id="centralCoreSoldListings"> {{this.SoldListings}}</p>
+            <p id="centralCoreActiveListings-dates"> {{this.Dates}}</p>
+            {{/each}}
+
+            {{#each centralCoreData2}}
+            <p id="centralCoreAbsorbtion"> {{this.AbsorptionRate}}</p>
+            {{/each}}
+
+            {{#each centralCoreData3}}
+            <p id="centralCoreActiveAvgPrice"> {{this.ActiveAverageListPrice}}</p>
+            <p id="centralCoreNewAvgPrice"> {{this.NewAverageListPrice}}</p>
+            <p id="centralCorePendedAvgPrice">{{this.PendedAverageListPrice}}</p>
+            <p id="centralCoreSoldAvgPrice">{{this.SoldAverageListPrice}}</p>
+            <p id="centralCoreSoldAvgSoldPrice">{{this.SoldAverageSoldPrice}}</p>
+            <p id="centralCoreActiveMedianPrice">{{this.ActiveMedianListPrice}}</p>
+            <p id="centralCoreNewMedianPrice">{{this.NewMedianListPrice}}</p>
+            <p id="centralCorePendedMedianPrice">{{this.PendedMedianListPrice}}</p>
+            <p id="centralCoreSoldMedianPrice">{{this.SoldMedianListPrice}}</p>
+            <p id="centralCoreSoldMedianSoldPrice">{{this.SoldMedianSoldPrice}}</p>
+            <p id="">{{/each}}
+
+
+                {{#each centralCoreData4}}
+
+                <p id="centralCoreSaleToOriginalListPriceRatio"> {{this.SaleToOriginalListPriceRatio}}</p>
+                <p id="centralCoreSaleToListPriceRatio"> {{this.SaleToListPriceRatio}}</p>
+
+                {{/each}}
+
+                {{#each centralCoreData5}}
+                <p id="centralCoreAverageDom"> {{this.AverageDom}}</p>
+                <p id="centralCoreAverageCdom"> {{this.AverageCdom}}</p>
+                {{/each}}
+
+                {{#each centralCoreData6}}
+                <p id="centralCoreActiveListVolume"> {{this.ActiveListVolume}}</p>
+
+                <p id="centralCoreNewListVolume"> {{this.NewListVolume}}</p>
+
+                <p id="centralCorePendedListVolume"> {{this.PendedListVolume}}</p>
+
+                <p id="centralCoreSoldListVolume"> {{this.SoldListVolume}}</p>
+
+                <p id="centralCoreSoldSaleVolume"> {{this.SoldSaleVolume}}</p>
+
+                {{/each}}
+    </div>
     {{!-- <div class="interactive-map">
 
         <img src="https://www.alpineproperty.com/images/website/AspenMap.jpg">
@@ -582,20 +691,251 @@
             });
 
 
+            var smugglerNewListings = document.getElementById("smugglerNewListings").innerHTML;
+
+            smugglerNewListings = smugglerNewListings.split(",");
+
+            var smugglerPendedListings = document.getElementById("smugglerPendedListings").innerHTML;
+
+            smugglerPendedListings = smugglerPendedListings.split(",");
+
+
+            var smugglerSoldListings = document.getElementById("smugglerSoldListings").innerHTML;
+
+            smugglerSoldListings = smugglerSoldListings.split(",");
+
+
+            var smugglerActiveListings = document.getElementById("smugglerActiveListings").innerHTML;
+
+            smugglerActiveListings = smugglerActiveListings.split(",");
+
+            var smugglerActiveListingsDate = document.getElementById("smugglerActiveListings-dates").innerHTML;
+
+            smugglerActiveListingsDate = smugglerActiveListingsDate.split(",");
+
+            var smugglerAbsorbtion = document.getElementById("smugglerAbsorbtion").innerHTML;
+
+            smugglerAbsorbtion = smugglerAbsorbtion.split(",");
+
+            var smugglerActiveAvgPrice = document.getElementById("smugglerActiveAvgPrice").innerHTML;
+            smugglerActiveAvgPrice = smugglerActiveAvgPrice.split(",");
+            smugglerActiveAvgPrice = Number(smugglerActiveAvgPrice[0]).toLocaleString();
+
+
+            var smugglerNewAvgPrice = document.getElementById("smugglerNewAvgPrice").innerHTML;
+
+            smugglerNewAvgPrice = smugglerNewAvgPrice.split(",");
+            smugglerNewAvgPrice = Number(smugglerNewAvgPrice[0]).toLocaleString();
+
+            var smugglerPendedAvgPrice = document.getElementById("smugglerPendedAvgPrice").innerHTML;
+
+            smugglerPendedAvgPrice = smugglerPendedAvgPrice.split(",");
+            smugglerPendedAvgPrice = Number(smugglerPendedAvgPrice[0]).toLocaleString();
+
+            var smugglerSoldAvgPrice = document.getElementById("smugglerSoldAvgPrice").innerHTML;
+
+            smugglerSoldAvgPrice = smugglerSoldAvgPrice.split(",");
+            smugglerSoldAvgPrice = Number(smugglerSoldAvgPrice[0]).toLocaleString();
+
+            var smugglerSoldAvgSoldPrice = document.getElementById("smugglerSoldAvgSoldPrice").innerHTML;
+
+            smugglerSoldAvgSoldPrice = smugglerSoldAvgSoldPrice.split(",");
+            smugglerSoldAvgSoldPrice = Number(smugglerSoldAvgSoldPrice[0]).toLocaleString();
+
+            var smugglerActiveMedianPrice = document.getElementById("smugglerActiveMedianPrice").innerHTML;
+            smugglerActiveMedianPrice = smugglerActiveMedianPrice.split(",");
+            smugglerActiveMedianPrice = Number(smugglerActiveMedianPrice[0]).toLocaleString();
+
+            var smugglerNewMedianPrice = document.getElementById("smugglerNewMedianPrice").innerHTML;
+
+            smugglerNewMedianPrice = smugglerNewMedianPrice.split(",");
+            smugglerNewMedianPrice = Number(smugglerNewMedianPrice[0]).toLocaleString();
+
+            var smugglerPendedMedianPrice = document.getElementById("smugglerPendedMedianPrice").innerHTML;
+
+            smugglerPendedMedianPrice = smugglerPendedMedianPrice.split(",");
+            smugglerPendedMedianPrice = Number(smugglerPendedMedianPrice[0]).toLocaleString();
+
+            var smugglerSoldMedianPrice = document.getElementById("smugglerSoldMedianPrice").innerHTML;
+
+            smugglerSoldMedianPrice = smugglerSoldMedianPrice.split(",");
+            smugglerSoldMedianPrice = Number(smugglerSoldMedianPrice[0]).toLocaleString();
+
+
+            var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
+
+            smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
+            smugglerSoldMedianSoldPrice = Number(smugglerSoldMedianSoldPrice[0]).toLocaleString();
+
+            /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
+
+              smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
+
+              */
+
+            var smugglerSaleToOriginalListPriceRatio = document.getElementById("smugglerSaleToOriginalListPriceRatio").innerHTML;
+
+            smugglerSaleToOriginalListPriceRatio = smugglerSaleToOriginalListPriceRatio.split(",");
+
+            var sumgglerSaleToListPriceRatio = document.getElementById("sumgglerSaleToListPriceRatio").innerHTML;
+
+            sumgglerSaleToListPriceRatio = sumgglerSaleToListPriceRatio.split(",");
+
+            var smugglerAverageDom = document.getElementById("smugglerAverageDom").innerHTML;
+            smugglerAverageDom = smugglerAverageDom.split(",");
+
+            var smugglerAverageCdom = document.getElementById("smugglerAverageCdom").innerHTML;
+            smugglerAverageCdom = smugglerAverageCdom.split(",");
+
+
+            var smugglerActiveListVolume = document.getElementById("smugglerActiveListVolume").innerHTML;
+            smugglerActiveListVolume = smugglerActiveListVolume.split(",");
+
+            var smugglerNewListVolume = document.getElementById("smugglerNewListVolume").innerHTML;
+            smugglerNewListVolume = smugglerNewListVolume.split(",");
+
+            var smugglerPendedListVolume = document.getElementById("smugglerPendedListVolume").innerHTML;
+            smugglerPendedListVolume = smugglerPendedListVolume.split(",");
+
+            var smugglerSoldListVolume = document.getElementById("smugglerSoldListVolume").innerHTML;
+            smugglerSoldListVolume = smugglerSoldListVolume.split(",");
+
+            var smugglerSoldSaleVolume = document.getElementById("smugglerSoldSaleVolume").innerHTML;
+            smugglerSoldSaleVolume = smugglerSoldSaleVolume.split(",");
+
+
+
+
+
+            var centralCoreNewListings = document.getElementById("centralCoreNewListings").innerHTML;
+
+            centralCoreNewListings = centralCoreNewListings.split(",");
+
+            var centralCorePendedListings = document.getElementById("centralCorePendedListings").innerHTML;
+
+            centralCorePendedListings = centralCorePendedListings.split(",");
+
+
+            var centralCoreSoldListings = document.getElementById("centralCoreSoldListings").innerHTML;
+
+            centralCoreSoldListings = centralCoreSoldListings.split(",");
+
+
+            var centralCoreActiveListings = document.getElementById("centralCoreActiveListings").innerHTML;
+
+            centralCoreActiveListings = centralCoreActiveListings.split(",");
+
+            var centralCoreActiveListingsDate = document.getElementById("centralCoreActiveListings-dates").innerHTML;
+
+            centralCoreActiveListingsDate = centralCoreActiveListingsDate.split(",");
+
+            var centralCoreAbsorbtion = document.getElementById("centralCoreAbsorbtion").innerHTML;
+
+            centralCoreAbsorbtion = centralCoreAbsorbtion.split(",");
+
+            console.log(centralCoreAbsorbtion);
+
+            var centralCoreActiveAvgPrice = document.getElementById("centralCoreActiveAvgPrice").innerHTML;
+            centralCoreActiveAvgPrice = centralCoreActiveAvgPrice.split(",");
+            centralCoreActiveAvgPrice = Number(centralCoreActiveAvgPrice[0]).toLocaleString();
+
+
+            var centralCoreNewAvgPrice = document.getElementById("centralCoreNewAvgPrice").innerHTML;
+
+            centralCoreNewAvgPrice = centralCoreNewAvgPrice.split(",");
+
+            var centralCorePendedAvgPrice = document.getElementById("centralCorePendedAvgPrice").innerHTML;
+
+            centralCorePendedAvgPrice = centralCorePendedAvgPrice.split(",");
+
+            var centralCoreSoldAvgPrice = document.getElementById("centralCoreSoldAvgPrice").innerHTML;
+
+            centralCoreSoldAvgPrice = centralCoreSoldAvgPrice.split(",");
+
+            var centralCoreSoldAvgSoldPrice = document.getElementById("centralCoreSoldAvgSoldPrice").innerHTML;
+
+            centralCoreSoldAvgSoldPrice = centralCoreSoldAvgSoldPrice.split(",");
+
+            var centralCoreActiveMedianPrice = document.getElementById("centralCoreActiveMedianPrice").innerHTML;
+            centralCoreActiveMedianPrice = centralCoreActiveMedianPrice.split(",");
+            centralCoreActiveMedianPrice = Number(centralCoreActiveMedianPrice[0]).toLocaleString();
+
+            var centralCoreNewMedianPrice = document.getElementById("centralCoreNewMedianPrice").innerHTML;
+
+            centralCoreNewMedianPrice = centralCoreNewMedianPrice.split(",");
+
+            var centralCorePendedMedianPrice = document.getElementById("centralCorePendedMedianPrice").innerHTML;
+
+            centralCorePendedMedianPrice = centralCorePendedMedianPrice.split(",");
+
+            var centralCoreSoldMedianPrice = document.getElementById("centralCoreSoldMedianPrice").innerHTML;
+
+            centralCoreSoldMedianPrice = centralCoreSoldMedianPrice.split(",");
+
+
+            var centralCoreSoldMedianSoldPrice = document.getElementById("centralCoreSoldMedianSoldPrice").innerHTML;
+
+            centralCoreSoldMedianSoldPrice = centralCoreSoldMedianSoldPrice.split(",");
+
+            var centralCoreSoldMedianSoldPrice = document.getElementById("centralCoreSoldMedianSoldPrice").innerHTML;
+
+            centralCoreSoldMedianSoldPrice = centralCoreSoldMedianSoldPrice.split(",");
+
+            var centralCoreSaleToOriginalListPriceRatio = document.getElementById("centralCoreSaleToOriginalListPriceRatio").innerHTML;
+
+            centralCoreSaleToOriginalListPriceRatio = centralCoreSaleToOriginalListPriceRatio.split(",");
+
+            var centralCoreSaleToListPriceRatio = document.getElementById("centralCoreSaleToListPriceRatio").innerHTML;
+
+            centralCoreSaleToListPriceRatio = centralCoreSaleToListPriceRatio.split(",");
+
+            var centralCoreAverageDom = document.getElementById("centralCoreAverageDom").innerHTML;
+            centralCoreAverageDom = centralCoreAverageDom.split(",");
+
+            var centralCoreAverageCdom = document.getElementById("centralCoreAverageCdom").innerHTML;
+            centralCoreAverageCdom = centralCoreAverageCdom.split(",");
+
+
+            var centralCoreActiveListVolume = document.getElementById("centralCoreActiveListVolume").innerHTML;
+            centralCoreActiveListVolume = centralCoreActiveListVolume.split(",");
+
+            var centralCoreNewListVolume = document.getElementById("centralCoreNewListVolume").innerHTML;
+            centralCoreNewListVolume = centralCoreNewListVolume.split(",");
+
+            var centralCorePendedListVolume = document.getElementById("centralCorePendedListVolume").innerHTML;
+            centralCorePendedListVolume = centralCorePendedListVolume.split(",");
+
+            var centralCoreSoldListVolume = document.getElementById("centralCoreSoldListVolume").innerHTML;
+            centralCoreSoldListVolume = centralCoreSoldListVolume.split(",");
+
+            var centralCoreSoldSaleVolume = document.getElementById("centralCoreSoldSaleVolume").innerHTML;
+            centralCoreSoldSaleVolume = centralCoreSoldSaleVolume.split(",");
+
+
+
+
 
             var polygons = [
-                { name: "Smuggler<br>", listings: "Current Listings: 26 <br>", sales: "Sales: 15<br>", avgSale: "Avg Sale Price: $4,659,667<br>", priceListRatio: "Average Sale Price to List Ratio: 94%<br>", priceSQF: "Average Sale Price Per SqFt: $1,334<br>", hi: "Highest Sale Price: $21,500,000<br>", low: "Lowest Sale Price: $545,000", coordinates: [{ lat: 39.188946, lng: -106.809764 }, { lat: 39.190777, lng: -106.813584 }, { lat: 39.192268, lng: -106.814070 }, { lat: 39.194229, lng: -106.812857 }, { lat: 39.195719, lng: -106.810371 }, { lat: 39.195377, lng: -106.806247 }, { lat: 39.193108, lng: -106.803276 }, { lat: 39.189335, lng: -106.803943 }] },
                 {
-                    name: "two<br>", listings: "Current Listings: 26<br>", sales: "Sales: 15<br>", avgSale: "Avg Sale Price: $4,659,667<br>", priceListRatio: "Average Sale Price to List Ratio: 94%<br>", priceSQF: "Average Sale Price Per SqFt: $1,334<br>", hi: "Highest Sale Price: $21,500,000<br>", low: "Lowest Sale Price: $545,000", coordinates: [{ lat: 39.187612, lng: -106.828368 }, { lat: 39.187898, lng: -106.835489 }, { lat: 39.182915, lng: -106.832738 }]
+                    name: "Smuggler<br>", dates: "<p>Date:" + smugglerActiveListingsDate[0] + "<br/></p>Inventory<hr>", listings: "Active Listings: " + smugglerActiveListings[0] + "<br>", newListings: "New Listings: " + smugglerNewListings[0] + "<br>", pendingListings: "Pending Listings: " + smugglerPendedListings[0] + "<br>", soldListings: "Sold Listings: " + smugglerSoldListings[0] + "</p>", absorbtionRate: "Absorbtion Rate<hr>" + smugglerAbsorbtion[0], ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price: $" + smugglerActiveAvgPrice, NewAvgPrice: "<br>New Active Average Price: $" + smugglerNewAvgPrice, PendedAvgPrice: "<br>Pended Avg Price: $" + smugglerPendedAvgPrice, SoldAvgPrice: "<br>Avg sold Price: $" + smugglerSoldAvgPrice, SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + smugglerSoldAvgSoldPrice, ActiveMedianPrice: " <br>Active Median Price: $" + smugglerActiveMedianPrice, NewMedianPrice: "<br>New Median Price: $" + smugglerNewMedianPrice, PendedMedianPrice: "<br>PendedMedianPrice: $" + smugglerPendedMedianPrice, SoldMedianPrice: "<br>SoldMedianPrice: $" + smugglerSoldMedianPrice, SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + smugglerSoldMedianSoldPrice, SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + smugglerSaleToOriginalListPriceRatio[0],
+                    SaleToListPriceRatio: " <br>SaleToListPriceRatio" + sumgglerSaleToListPriceRatio[0], AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + smugglerAverageDom[0], AverageCdom: "<br>Average C Day on Market " + smugglerAverageCdom[0],
+                    ActiveListVolume: "<br>ActiveListVolume " + smugglerActiveListVolume[0], NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + smugglerNewListVolume[0], PendedListVolume: "<br>PendedListVolume " + smugglerPendedListVolume[0], SoldListVolume: "<br>SoldListVolume " + smugglerSoldListVolume[0], SoldSaleVolume: "<br>SoldSaleVolume " + smugglerSoldSaleVolume[0], coordinates: [{ lat: 39.19333, lng: -106.79816 }, { lat: 39.19482, lng: -106.79781 }, { lat: 39.19677, lng: -106.79884 }, { lat: 39.19927, lng: -106.80311 }, { lat: 39.19967, lng: -106.80516 }, { lat: 39.19999, lng: -106.80722 }, { lat: 39.19972, lng: -106.80927 }, { lat: 39.19824, lng: -106.81321 }, { lat: 39.1959, lng: - 106.81663 }, { lat: 39.1944, lng: - 106.81632 }, { lat: 39.19289, lng: -106.81618 }, { lat: 39.18977, lng: -106.81171 }, { lat: 39.18982, lng: -106.8024 }, { lat: 39.19228, lng: -106.79869 },
+                    ]
+                },
+                {
+                    name: "Central Core<br>", dates: "<p>Date:" + centralCoreActiveListingsDate[0] + "<br/></p>Inventory<hr>", listings: "Active Listings:" + centralCoreActiveListings[0] + "<br>", newListings: "New Listings:" + centralCoreNewListings[0] + "<br>", pendingListings: "Pending Listings:" + centralCorePendedListings[0] + "<br>", soldListings: "Sold Listings:" + centralCoreSoldListings[0] + "</p>", absorbtionRate: "Absorbtion Rate<hr>" + centralCoreAbsorbtion[0], ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + centralCoreActiveAvgPrice, NewAvgPrice: "<br>New Active Average Price" + centralCoreNewAvgPrice[0], PendedAvgPrice: "<br>Pended Avg Price" + centralCorePendedAvgPrice[0], SoldAvgPrice: "<br>Avg sold Price" + centralCoreSoldAvgPrice[0], SoldAvgSoldPrice: " <br>Sold Avg Sold Price" + centralCoreSoldAvgSoldPrice[0], ActiveMedianPrice: " <br>Active Median Price $" + centralCoreActiveMedianPrice, NewMedianPrice: "<br>New Median Price" + centralCoreNewMedianPrice[0], PendedMedianPrice: "<br>PendedMedianPrice" + centralCorePendedMedianPrice[0], SoldMedianPrice: "<br>SoldMedianPrice" + centralCoreSoldMedianPrice[0], SoldMedianSoldPrice: "<br>Sold Median Sold Price" + centralCoreSoldMedianSoldPrice[0], SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + centralCoreSaleToOriginalListPriceRatio[0],
+                    SaleToListPriceRatio: " <br>SaleToListPriceRatio" + centralCoreSaleToListPriceRatio[0], AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + centralCoreAverageDom[0], AverageCdom: "<br>Average C Day on Market " + centralCoreAverageCdom[0],
+                    ActiveListVolume: "<br>ActiveListVolume " + centralCoreActiveListVolume[0], NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + centralCoreNewListVolume[0], PendedListVolume: "<br>PendedListVolume " + centralCorePendedListVolume[0], SoldListVolume: "<br>SoldListVolume " + centralCoreSoldListVolume[0], SoldSaleVolume: "<br>SoldSaleVolume " + centralCoreSoldSaleVolume[0], coordinates: [{ lat: 39.18834, lng: -106.81163 }, { lat: 39.19025, lng: -106.81446 }, { lat: 39.19156, lng: -106.81873 }, { lat: 39.192, lng: -106.82377 }, { lat: 39.19051, lng: -106.82942 }, { lat: 39.18914, lng: -106.82996 }, { lat: 39.18763, lng: -106.82982 }, { lat: 39.18331, lng: -106.82699 }, { lat: 39.18184, lng: -106.81553 }]
                 }
             ];
+
 
             // foreach your polygons
             for (var i = 0; i < polygons.length; i++) {
                 var item = polygons[i];
 
                 var coors = item["coordinates"];
-                var name = item["name"] + item["listings"] + item["sales"] + item["avgSale"] + item["priceListRation"] + item["priceSQF"] + item["hi"] + item["listings"];
+                var name = item["name"] + item["dates"] + item["listings"] + item["newListings"] + item["pendingListings"] + item["soldListings"] + item["absorbtionRate"] + item["ActiveAvgPrice"] + item["NewAvgPrice"] + item["PendedAvgPrice"] + item["SoldAvgPrice"] + item["SoldAvgSoldPrice"] + item["ActiveMedianPrice"] + item["NewMedianPrice"] + item["PendedMedianPrice"] + item["SoldMedianPrice"] + item["SoldMedianSoldPrice"] + item["SaleToOriginalListPriceRatio"] + item["SaleToListPriceRatio"] + item["AverageDom"] + item["AverageCdom"] + item["ActiveListVolume"] + item["NewListVolume"] + item["PendedListVolume"] + item["SoldListVolume"] + item["SoldSaleVolume"];
 
 
 

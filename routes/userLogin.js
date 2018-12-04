@@ -4,27 +4,23 @@ var request = require('request');
 var router = express.Router();
 var flash = require('connect-flash');
 
-
-// GET /signup
+// GET /login
 router.get('/', (request, response, next) => {
-
-    response.render('signup', {
-        message: "PLEASE SIGN UP"
+    response.render('userLogin', {
+        message: "LOGIN MESSAGE"
     });
 });
 
-// POST /signup
+// POST /login
 router.post('/', (request, response, next) => {
-    //save a new user
-    var signupStrategy = passport.authenticate('local-signup', {
-        successRedirect: '/admin/secret',
-        failureRedirect: '/signup',
+    var localLoginStrategy = passport.authenticate('local-login', {
+        successRedirect: '/users',
+        failureRedirect: '/user-signup',
         failureFlash: true
     });
 
-    return signupStrategy(request, response, next);
+    return localLoginStrategy(request, response, next);
 });
-
 
 
 module.exports = router;

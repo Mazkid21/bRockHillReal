@@ -202,23 +202,30 @@ router.get('/:id', (req, res) => {
 });
 
 
+
+
 router.get('/', (req, res, next) => {
+    // console.log(req.session.passport.user.userGroup);
+
 
     if (req.isAuthenticated()) {
-
-        var resultsArray = [];
-        MongoClient.connect(url, (err, db) => {
-            var cursor = db.collection('rentals');
-            cursor.find({}).toArray((err, results) => {
-                res.render('admin', {
-                    items: results
+        if (req.session.passport.user.userGroup === 'admin') {
+            //route for admin
+            var resultsArray = [];
+            MongoClient.connect(url, (err, db) => {
+                var cursor = db.collection('rentals');
+                cursor.find({}).toArray((err, results) => {
+                    res.render('admin', {
+                        items: results
+                    });
                 });
             });
-        });
-
+        } else {
+            //rote for non-admin
+            res.redirect('/admin-login');
+        }
     } else {
-        res.redirect('/login');
-
+        res.redirect('/admin-login');
     }
 
 

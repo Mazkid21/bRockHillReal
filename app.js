@@ -19,9 +19,11 @@ var assert = require('assert');
 //Routes....dont forget to add to app.use() below
 var homeRoute = require('./routes/index');
 var listingRoute = require('./routes/listing');
-var signUpRoute = require('./routes/signup');
+var adminSignUpRoute = require('./routes/adminSignup');
+var userSignUpRoute = require('./routes/userSignup');
 var logOutRoute = require('./routes/logout');
-var loginRoute = require('./routes/login');
+var userLoginRoute = require('./routes/userLogin');
+var adminLoginRoute = require('./routes/adminLogin');
 var searchRoute = require('./routes/search');
 var rentalRoute = require('./routes/rental');
 var rentalSearchRoute = require('./routes/rentalSearch');
@@ -31,6 +33,7 @@ var admin = require('./routes/admin');
 var vidAdmin = require('./routes/adminVid');
 var marketMap = require('./routes/marketMap');
 var bio = require('./routes/bio');
+var users = require('./routes/users');
 var app = express();
 
 
@@ -39,14 +42,20 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 mongoose.connect('mongodb://localhost/bRockHillLive');
-app.use(session({
-  secret: 'YOU ARE AN ADMIN'
+app.use(require("express-session")({
+  secret: "Rusty is the best and cutest dog in the world",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 3600000 //1 hour
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./config/passport')(passport);
+require('./config/passportAdmin')(passport);
 
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
@@ -84,7 +93,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./config/passport')(passport);
+require('./config/passportAdmin')(passport);
 
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
@@ -94,8 +103,10 @@ app.use(function (req, res, next) {
 //express use routes
 app.use('/', homeRoute);
 app.use('/listing', listingRoute);
-app.use('/signup', signUpRoute);
-app.use('/login', loginRoute);
+app.use('/admin-signup', adminSignUpRoute);
+app.use('/user-signup', userSignUpRoute);
+app.use('/user-login', userLoginRoute);
+app.use('/admin-login', adminLoginRoute);
 app.use('/logout', logOutRoute);
 app.use('/search', searchRoute);
 app.use('/rentals', rentalRoute);
@@ -106,6 +117,8 @@ app.use('/admin', admin);
 app.use('/admin-video', vidAdmin);
 app.use('/market-map', marketMap);
 app.use('/bio', bio);
+app.use('/users', users);
+
 
 
 

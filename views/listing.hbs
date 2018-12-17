@@ -188,7 +188,7 @@
 
                 <div class="saveSearch-div box-size-nav-uon " style="flex: 3; margin: 2px 0px;">
                     <button type="submit">
-                        Save Search</button>
+                        SEARCH</button>
                 </div>
         </form>
         </div>
@@ -217,17 +217,35 @@
 
                                 </div>
                             </a>
-                            <div class="price-div" style="display: none">{{this.ListPrice}}</div>
-                            <div class="price-div-commas"></div>
+                            <div class="price-div" style="display: none">{{this.ListPrice}}
+                            </div>
+                            <div class="price-div-commas">
+
+                            </div>
+
                             <div class="bdBaSqft-div">
                                 <i class="fas fa-bed fa-style-on"></i>
-                                <h6 class="h6-style-on bd-name">{{this.BedroomsTotal}}bd</h6>
-
+                                <h6 class="h6-style-on bd-name">{{this.BedroomsTotal}}bd
+                                </h6>
                                 <i class="fas fa-bath fa-bed-style-on"></i>
                                 <h6 class="h6-bed-style-on ba-name">{{
                                     this.BathroomsFull}}ba</h6>
 
                                 <h6 class="h6-bed-style-on sqft-name">{{this.LivingArea}} sqft</h6>
+                            </div>
+                            <div class="user-save-form">
+                                <form action="/listing/insert" method="post" style="margin-bottom: 0px;font-size: 15px;">
+
+                                    <div class="input">
+                                        <input type="text" id="description" name="description" value="{{this.ListingKey}}"
+                                            style="display: none;" />
+                                    </div>
+
+
+
+                                    <button type="submit" style="    float: right;padding-right: 0px;overflow: hidden;margin-right: 1px;padding-left: 0px;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;border-left-width: 0px;"><i
+                                            class="fa fa-bookmark"></i>Save</button>
+                                </form>
                             </div>
                             <div class="home-address">
                                 <h5 class="addy">

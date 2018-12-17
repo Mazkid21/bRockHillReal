@@ -7,7 +7,7 @@ var flash = require('connect-flash');
 // GET /logout
 router.get('/', (request, response, next) => {
     request.logout();
-    response.redirect('/login');
+    response.redirect('/');
 });
 
 module.exports = router;

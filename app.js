@@ -42,12 +42,13 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 mongoose.connect('mongodb://localhost/bRockHillLive');
-app.use(require("express-session")({
+app.use(session({
   secret: "Rusty is the best and cutest dog in the world",
   resave: false,
   saveUninitialized: false,
   cookie: {
     secure: false,
+    secret: "Rusty is the best and cutest dog in the world",
     maxAge: 3600000 //1 hour
   }
 }));

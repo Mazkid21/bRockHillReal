@@ -6,7 +6,7 @@ var userInfoSchema = new Schema({
 
     title: String,
     authors: String,
-    description: String,
+    description: [String],
     smallThumbnail: String
 
 });

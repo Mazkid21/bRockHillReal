@@ -7,7 +7,10 @@ var User = mongoose.Schema({
     email: String,
     password: String,
   },
-  userInfo: [userInfo.schema]
+  userInfo: [{
+    description: String,
+    other: String
+  }]
 });
 
 User.methods.hash = function (password) {

@@ -1,9 +1,49 @@
 var express = require('express');
 var request = require('request');
+var MongoClient = require('mongodb').MongoClient;
+var objectId = require('mongodb').ObjectID;
+
+
+var url = "mongodb://localhost/bRockHillLive";
+
 var router = express.Router();
+
+
+
+
+
+router.post('/insert', (req, res, next) => {
+
+  var id = req.user._id;
+  console.log(id);
+  var description = req.body.description;
+
+  MongoClient.connect(url, (err, db) => {
+
+    db.collection('users').findOneAndUpdate({
+      "_id": id
+    }, {
+      $push: {
+        userInfo: {
+          "description": description
+
+        } //inserted data is the object to be inserted
+      }
+    }, {
+      upsert: true
+    }, (err, result) => {
+      console.log(JSON.stringify(description) + ': item updated');
+      db.close();
+    });
+  });
+  res.redirect('/users');
+
+
+});
 
 router.get('/', (req, res) => {
   // API HEAD INFO WITH KEY AND SUCH
+
   console.log("hiiii from server");
   var options = {
     method: 'GET',
@@ -23,8 +63,12 @@ router.get('/', (req, res) => {
   onLoadrequests(options, function (data) {
     console.log(data + " this is data from back end");
     var propertyData = data;
+    ///////////////////////////////////
+    var currentUser = req.user;
+    // console.log(req.user._id);
     res.render('listing', {
-      property: data
+      property: data,
+      curentUser: req.user
     });
     // res.send({
     //   property: data

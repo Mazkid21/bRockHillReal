@@ -12,14 +12,14 @@
     /* Set the size of the div element that contains the map */
     #map {
 
-        height: 500px;
+        height: 350px;
         width: 98%;
         margin: auto;
     }
     }
 </style>
 
-<section id='works' class="s-works">
+<section id='works' class="s-works" style="    padding-bottom: 0px;">
     {{#each property}}
     <div class="imagegallery">
         <div class="gallery-big"><img class="gallery-img" src="{{this.Media.0.MediaURL}}">
@@ -33,7 +33,7 @@
         </div>
     </div>
     <main>
-        <section class="flex flex-around">
+        <section class="flex flex-around" style="    padding-bottom: 10px;">
             <div class="boxShadow" id="homeInformation">
 
                 <a href=" #">
@@ -62,10 +62,10 @@
                     <div>
                         <h2 id="list-price" style="margin-top: 0px; display: none;">{{this.ListPrice}}</h2>
                         <h2 id="list-priceComma" style="margin-top: 0px;"></h2>
-                        <span id="caps">2 YEAR LEASE REQUIRED</span>
+                        {{!-- <span id="caps">2 YEAR LEASE REQUIRED</span> --}}
                     </div>
                     <div>
-                        <span id="tag">BUY</span>
+                        {{!-- <span id="tag">BUY</span> --}}
                     </div>
                 </div>
                 <br>
@@ -111,17 +111,18 @@
             </div>
             <div class="boxShadow" id="chartInformation">
                 <div id="chartOne">
-                    <h2>{{this.StreetNumber}} {{this.StreetName}} {{this.StreetSuffix}}</h2>
+                    <h2 style="    margin-top: 0px;">{{this.StreetNumber}} {{this.StreetName}} {{this.StreetSuffix}}</h2>
                     {{this.TaxLegalDescription}}</h5>
                     <p>{{this.PublicRemarks}}</p>
-                    <p>Year Built: {{this.YearBuilt}}</p>
+                    <p style="    margin-bottom: 0px;">Year Built: {{this.YearBuilt}}</p>
                     <p id="googleCoordinates" style="display: none">{{this.Location.coordinates}}</p>
+
+                    <div id="map" class="boxShadow"></div>
                 </div>
             </div>
             <div id="chartTwo"></div>
             </div>
         </section>
-        <div id="map" class="boxShadow"></div>
 
         <div id="modal-container">
             <div class="modal-background">

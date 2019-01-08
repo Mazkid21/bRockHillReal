@@ -1,4 +1,12 @@
-initMap();
+window.onload = function () {
+    if (!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+    initMap();
+};
+
+
 
 function initMap() {
 
@@ -160,1612 +168,513 @@ function initMap() {
     });
 
 
-    var smugglerNewListings = document.getElementById("smugglerNewListings").innerHTML;
-
-    smugglerNewListings = smugglerNewListings.split(",");
-
-    var smugglerPendedListings = document.getElementById("smugglerPendedListings").innerHTML;
-
-    smugglerPendedListings = smugglerPendedListings.split(",");
-
-
-    var smugglerSoldListings = document.getElementById("smugglerSoldListings").innerHTML;
-
-    smugglerSoldListings = smugglerSoldListings.split(",");
-
-
-    var smugglerActiveListings = document.getElementById("smugglerActiveListings").innerHTML;
-
-    smugglerActiveListings = smugglerActiveListings.split(",");
-
     var smugglerActiveListingsDate = document.getElementById("smugglerActiveListings-dates").innerHTML;
-
     smugglerActiveListingsDate = smugglerActiveListingsDate.split(",");
 
-    var smugglerAbsorbtion = document.getElementById("smugglerAbsorbtion").innerHTML;
+    var smugglerActiveListings = document.getElementById("smugglerActiveListings").innerHTML;
+    smugglerActiveListings = smugglerActiveListings.split(",");
 
-    smugglerAbsorbtion = smugglerAbsorbtion.split(",");
+    var smugglerSoldListings = document.getElementById("smugglerSoldListings").innerHTML;
+    smugglerSoldListings = smugglerSoldListings.split(",");
+    smugglerSoldListings = Number(smugglerSoldListings[0]) + Number(smugglerSoldListings[1]) + Number(smugglerSoldListings[2]) + Number(smugglerSoldListings[3]) + Number(smugglerSoldListings[4]) + Number(smugglerSoldListings[5]) + Number(smugglerSoldListings[6]) + Number(smugglerSoldListings[7]) + Number(smugglerSoldListings[8]) + Number(smugglerSoldListings[9]) + Number(smugglerSoldListings[10]) + Number(smugglerSoldListings[11])
+
 
     var smugglerActiveAvgPrice = document.getElementById("smugglerActiveAvgPrice").innerHTML;
     smugglerActiveAvgPrice = smugglerActiveAvgPrice.split(",");
     smugglerActiveAvgPrice = Number(smugglerActiveAvgPrice[0]).toLocaleString();
 
-
-    var smugglerNewAvgPrice = document.getElementById("smugglerNewAvgPrice").innerHTML;
-
-    smugglerNewAvgPrice = smugglerNewAvgPrice.split(",");
-    smugglerNewAvgPrice = Number(smugglerNewAvgPrice[0]).toLocaleString();
-
-    var smugglerPendedAvgPrice = document.getElementById("smugglerPendedAvgPrice").innerHTML;
-
-    smugglerPendedAvgPrice = smugglerPendedAvgPrice.split(",");
-    smugglerPendedAvgPrice = Number(smugglerPendedAvgPrice[0]).toLocaleString();
-
     var smugglerSoldAvgPrice = document.getElementById("smugglerSoldAvgPrice").innerHTML;
-
     smugglerSoldAvgPrice = smugglerSoldAvgPrice.split(",");
-    smugglerSoldAvgPrice = Number(smugglerSoldAvgPrice[0]).toLocaleString();
+    smugglerSoldAvgPrice = Number(smugglerSoldAvgPrice[0]) + Number(smugglerSoldAvgPrice[1]) + Number(smugglerSoldAvgPrice[2]) + Number(smugglerSoldAvgPrice[3]) + Number(smugglerSoldAvgPrice[4]) + Number(smugglerSoldAvgPrice[5]) + Number(smugglerSoldAvgPrice[6]) + Number(smugglerSoldAvgPrice[7]) + Number(smugglerSoldAvgPrice[8]) + Number(smugglerSoldAvgPrice[9]) + Number(smugglerSoldAvgPrice[10]) + Number(smugglerSoldAvgPrice[11]);
+    smugglerSoldAvgPrice = Number(smugglerSoldAvgPrice) / Number(12);
+    smugglerSoldAvgPrice = Number(smugglerSoldAvgPrice).toLocaleString();
 
-    var smugglerSoldAvgSoldPrice = document.getElementById("smugglerSoldAvgSoldPrice").innerHTML;
 
-    smugglerSoldAvgSoldPrice = smugglerSoldAvgSoldPrice.split(",");
-    smugglerSoldAvgSoldPrice = Number(smugglerSoldAvgSoldPrice[0]).toLocaleString();
-
-    var smugglerActiveMedianPrice = document.getElementById("smugglerActiveMedianPrice").innerHTML;
-    smugglerActiveMedianPrice = smugglerActiveMedianPrice.split(",");
-    smugglerActiveMedianPrice = Number(smugglerActiveMedianPrice[0]).toLocaleString();
-
-    var smugglerNewMedianPrice = document.getElementById("smugglerNewMedianPrice").innerHTML;
-
-    smugglerNewMedianPrice = smugglerNewMedianPrice.split(",");
-    smugglerNewMedianPrice = Number(smugglerNewMedianPrice[0]).toLocaleString();
-
-    var smugglerPendedMedianPrice = document.getElementById("smugglerPendedMedianPrice").innerHTML;
-
-    smugglerPendedMedianPrice = smugglerPendedMedianPrice.split(",");
-    smugglerPendedMedianPrice = Number(smugglerPendedMedianPrice[0]).toLocaleString();
 
     var smugglerSoldMedianPrice = document.getElementById("smugglerSoldMedianPrice").innerHTML;
-
     smugglerSoldMedianPrice = smugglerSoldMedianPrice.split(",");
-    smugglerSoldMedianPrice = Number(smugglerSoldMedianPrice[0]).toLocaleString();
-
-
-    var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-    smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-    smugglerSoldMedianSoldPrice = Number(smugglerSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var smugglerSaleToOriginalListPriceRatio = document.getElementById("smugglerSaleToOriginalListPriceRatio").innerHTML;
-
-    smugglerSaleToOriginalListPriceRatio = smugglerSaleToOriginalListPriceRatio.split(",");
-
-    var sumgglerSaleToListPriceRatio = document.getElementById("sumgglerSaleToListPriceRatio").innerHTML;
-
-    sumgglerSaleToListPriceRatio = sumgglerSaleToListPriceRatio.split(",");
+    smugglerSoldMedianPrice = Number(smugglerSoldMedianPrice[0]) + Number(smugglerSoldMedianPrice[1]) + Number(smugglerSoldMedianPrice[2]) + Number(smugglerSoldMedianPrice[3]) + Number(smugglerSoldMedianPrice[4]) + Number(smugglerSoldMedianPrice[5]) + Number(smugglerSoldMedianPrice[6]) + Number(smugglerSoldMedianPrice[7]) + Number(smugglerSoldMedianPrice[8]) + Number(smugglerSoldMedianPrice[9]) + Number(smugglerSoldMedianPrice[10]) + Number(smugglerSoldMedianPrice[11]);
+    smugglerSoldMedianPrice = Number(smugglerSoldMedianPrice) / Number(12);
+    smugglerSoldMedianPrice = Number(smugglerSoldMedianPrice).toLocaleString();
 
     var smugglerAverageDom = document.getElementById("smugglerAverageDom").innerHTML;
     smugglerAverageDom = smugglerAverageDom.split(",");
-
-    var smugglerAverageCdom = document.getElementById("smugglerAverageCdom").innerHTML;
-    smugglerAverageCdom = smugglerAverageCdom.split(",");
-
-
-    var smugglerActiveListVolume = document.getElementById("smugglerActiveListVolume").innerHTML;
-    smugglerActiveListVolume = smugglerActiveListVolume.split(",");
-
-    var smugglerNewListVolume = document.getElementById("smugglerNewListVolume").innerHTML;
-    smugglerNewListVolume = smugglerNewListVolume.split(",");
-
-    var smugglerPendedListVolume = document.getElementById("smugglerPendedListVolume").innerHTML;
-    smugglerPendedListVolume = smugglerPendedListVolume.split(",");
-
-    var smugglerSoldListVolume = document.getElementById("smugglerSoldListVolume").innerHTML;
-    smugglerSoldListVolume = smugglerSoldListVolume.split(",");
-
-    var smugglerSoldSaleVolume = document.getElementById("smugglerSoldSaleVolume").innerHTML;
-    smugglerSoldSaleVolume = smugglerSoldSaleVolume.split(",");
+    smugglerAverageDom = Number(smugglerAverageDom[0]) + Number(smugglerAverageDom[1]) + Number(smugglerAverageDom[2]) + Number(smugglerAverageDom[3]) + Number(smugglerAverageDom[4]) + Number(smugglerAverageDom[5]) + Number(smugglerAverageDom[6]) + Number(smugglerAverageDom[7]) + Number(smugglerAverageDom[8]) + Number(smugglerAverageDom[9]) + Number(smugglerAverageDom[10]) + Number(smugglerAverageDom[11]);
+    smugglerAverageDom = Number(smugglerAverageDom) / Number(12);
 
 
 
-
-
-    var centralCoreNewListings = document.getElementById("centralCoreNewListings").innerHTML;
-
-    centralCoreNewListings = centralCoreNewListings.split(",");
-
-    var centralCorePendedListings = document.getElementById("centralCorePendedListings").innerHTML;
-
-    centralCorePendedListings = centralCorePendedListings.split(",");
-
-
-    var centralCoreSoldListings = document.getElementById("centralCoreSoldListings").innerHTML;
-
-    centralCoreSoldListings = centralCoreSoldListings.split(",");
-
-
-    var centralCoreActiveListings = document.getElementById("centralCoreActiveListings").innerHTML;
-
-    centralCoreActiveListings = centralCoreActiveListings.split(",");
 
     var centralCoreActiveListingsDate = document.getElementById("centralCoreActiveListings-dates").innerHTML;
-
     centralCoreActiveListingsDate = centralCoreActiveListingsDate.split(",");
 
-    var centralCoreAbsorbtion = document.getElementById("centralCoreAbsorbtion").innerHTML;
+    var centralCoreActiveListings = document.getElementById("centralCoreActiveListings").innerHTML;
+    centralCoreActiveListings = centralCoreActiveListings.split(",");
 
-    centralCoreAbsorbtion = centralCoreAbsorbtion.split(",");
+    var centralCoreSoldListings = document.getElementById("centralCoreSoldListings").innerHTML;
+    centralCoreSoldListings = centralCoreSoldListings.split(",");
+    centralCoreSoldListings = Number(centralCoreSoldListings[0]) + Number(centralCoreSoldListings[1]) + Number(centralCoreSoldListings[2]) + Number(centralCoreSoldListings[3]) + Number(centralCoreSoldListings[4]) + Number(centralCoreSoldListings[5]) + Number(centralCoreSoldListings[6]) + Number(centralCoreSoldListings[7]) + Number(centralCoreSoldListings[8]) + Number(centralCoreSoldListings[9]) + Number(centralCoreSoldListings[10]) + Number(centralCoreSoldListings[11])
 
-    console.log(centralCoreAbsorbtion);
 
     var centralCoreActiveAvgPrice = document.getElementById("centralCoreActiveAvgPrice").innerHTML;
     centralCoreActiveAvgPrice = centralCoreActiveAvgPrice.split(",");
     centralCoreActiveAvgPrice = Number(centralCoreActiveAvgPrice[0]).toLocaleString();
 
-
-    var centralCoreNewAvgPrice = document.getElementById("centralCoreNewAvgPrice").innerHTML;
-
-    centralCoreNewAvgPrice = centralCoreNewAvgPrice.split(",");
-
-    var centralCorePendedAvgPrice = document.getElementById("centralCorePendedAvgPrice").innerHTML;
-
-    centralCorePendedAvgPrice = centralCorePendedAvgPrice.split(",");
-
     var centralCoreSoldAvgPrice = document.getElementById("centralCoreSoldAvgPrice").innerHTML;
-
     centralCoreSoldAvgPrice = centralCoreSoldAvgPrice.split(",");
+    centralCoreSoldAvgPrice = Number(centralCoreSoldAvgPrice[0]) + Number(centralCoreSoldAvgPrice[1]) + Number(centralCoreSoldAvgPrice[2]) + Number(centralCoreSoldAvgPrice[3]) + Number(centralCoreSoldAvgPrice[4]) + Number(centralCoreSoldAvgPrice[5]) + Number(centralCoreSoldAvgPrice[6]) + Number(centralCoreSoldAvgPrice[7]) + Number(centralCoreSoldAvgPrice[8]) + Number(centralCoreSoldAvgPrice[9]) + Number(centralCoreSoldAvgPrice[10]) + Number(centralCoreSoldAvgPrice[11]);
+    centralCoreSoldAvgPrice = Number(centralCoreSoldAvgPrice) / Number(12);
+    centralCoreSoldAvgPrice = Number(centralCoreSoldAvgPrice).toLocaleString();
 
-    var centralCoreSoldAvgSoldPrice = document.getElementById("centralCoreSoldAvgSoldPrice").innerHTML;
 
-    centralCoreSoldAvgSoldPrice = centralCoreSoldAvgSoldPrice.split(",");
-
-    var centralCoreActiveMedianPrice = document.getElementById("centralCoreActiveMedianPrice").innerHTML;
-    centralCoreActiveMedianPrice = centralCoreActiveMedianPrice.split(",");
-    centralCoreActiveMedianPrice = Number(centralCoreActiveMedianPrice[0]).toLocaleString();
-
-    var centralCoreNewMedianPrice = document.getElementById("centralCoreNewMedianPrice").innerHTML;
-
-    centralCoreNewMedianPrice = centralCoreNewMedianPrice.split(",");
-
-    var centralCorePendedMedianPrice = document.getElementById("centralCorePendedMedianPrice").innerHTML;
-
-    centralCorePendedMedianPrice = centralCorePendedMedianPrice.split(",");
 
     var centralCoreSoldMedianPrice = document.getElementById("centralCoreSoldMedianPrice").innerHTML;
-
     centralCoreSoldMedianPrice = centralCoreSoldMedianPrice.split(",");
-
-
-    var centralCoreSoldMedianSoldPrice = document.getElementById("centralCoreSoldMedianSoldPrice").innerHTML;
-
-    centralCoreSoldMedianSoldPrice = centralCoreSoldMedianSoldPrice.split(",");
-
-    var centralCoreSoldMedianSoldPrice = document.getElementById("centralCoreSoldMedianSoldPrice").innerHTML;
-
-    centralCoreSoldMedianSoldPrice = centralCoreSoldMedianSoldPrice.split(",");
-
-    var centralCoreSaleToOriginalListPriceRatio = document.getElementById("centralCoreSaleToOriginalListPriceRatio").innerHTML;
-
-    centralCoreSaleToOriginalListPriceRatio = centralCoreSaleToOriginalListPriceRatio.split(",");
-
-    var centralCoreSaleToListPriceRatio = document.getElementById("centralCoreSaleToListPriceRatio").innerHTML;
-
-    centralCoreSaleToListPriceRatio = centralCoreSaleToListPriceRatio.split(",");
+    centralCoreSoldMedianPrice = Number(centralCoreSoldMedianPrice[0]) + Number(centralCoreSoldMedianPrice[1]) + Number(centralCoreSoldMedianPrice[2]) + Number(centralCoreSoldMedianPrice[3]) + Number(centralCoreSoldMedianPrice[4]) + Number(centralCoreSoldMedianPrice[5]) + Number(centralCoreSoldMedianPrice[6]) + Number(centralCoreSoldMedianPrice[7]) + Number(centralCoreSoldMedianPrice[8]) + Number(centralCoreSoldMedianPrice[9]) + Number(centralCoreSoldMedianPrice[10]) + Number(centralCoreSoldMedianPrice[11]);
+    centralCoreSoldMedianPrice = Number(centralCoreSoldMedianPrice) / Number(12);
+    centralCoreSoldMedianPrice = Number(centralCoreSoldMedianPrice).toLocaleString();
 
     var centralCoreAverageDom = document.getElementById("centralCoreAverageDom").innerHTML;
     centralCoreAverageDom = centralCoreAverageDom.split(",");
-
-    var centralCoreAverageCdom = document.getElementById("centralCoreAverageCdom").innerHTML;
-    centralCoreAverageCdom = centralCoreAverageCdom.split(",");
-
-
-    var centralCoreActiveListVolume = document.getElementById("centralCoreActiveListVolume").innerHTML;
-    centralCoreActiveListVolume = centralCoreActiveListVolume.split(",");
-
-    var centralCoreNewListVolume = document.getElementById("centralCoreNewListVolume").innerHTML;
-    centralCoreNewListVolume = centralCoreNewListVolume.split(",");
-
-    var centralCorePendedListVolume = document.getElementById("centralCorePendedListVolume").innerHTML;
-    centralCorePendedListVolume = centralCorePendedListVolume.split(",");
-
-    var centralCoreSoldListVolume = document.getElementById("centralCoreSoldListVolume").innerHTML;
-    centralCoreSoldListVolume = centralCoreSoldListVolume.split(",");
-
-    var centralCoreSoldSaleVolume = document.getElementById("centralCoreSoldSaleVolume").innerHTML;
-    centralCoreSoldSaleVolume = centralCoreSoldSaleVolume.split(",");
+    centralCoreAverageDom = Number(centralCoreAverageDom[0]) + Number(centralCoreAverageDom[1]) + Number(centralCoreAverageDom[2]) + Number(centralCoreAverageDom[3]) + Number(centralCoreAverageDom[4]) + Number(centralCoreAverageDom[5]) + Number(centralCoreAverageDom[6]) + Number(centralCoreAverageDom[7]) + Number(centralCoreAverageDom[8]) + Number(centralCoreAverageDom[9]) + Number(centralCoreAverageDom[10]) + Number(centralCoreAverageDom[11]);
+    centralCoreAverageDom = Number(centralCoreAverageDom) / Number(12);
 
 
 
 
-
-    var westEndNewListings = document.getElementById("westEndNewListings").innerHTML;
-
-    westEndNewListings = westEndNewListings.split(",");
-
-    var westEndPendedListings = document.getElementById("westEndPendedListings").innerHTML;
-
-    westEndPendedListings = westEndPendedListings.split(",");
-
-
-    var westEndSoldListings = document.getElementById("westEndSoldListings").innerHTML;
-
-    westEndSoldListings = westEndSoldListings.split(",");
-
-
-    var westEndActiveListings = document.getElementById("westEndActiveListings").innerHTML;
-
-    westEndActiveListings = westEndActiveListings.split(",");
 
     var westEndActiveListingsDate = document.getElementById("westEndActiveListings-dates").innerHTML;
-
     westEndActiveListingsDate = westEndActiveListingsDate.split(",");
 
-    var westEndAbsorbtion = document.getElementById("westEndAbsorbtion").innerHTML;
+    var westEndActiveListings = document.getElementById("westEndActiveListings").innerHTML;
+    westEndActiveListings = westEndActiveListings.split(",");
 
-    westEndAbsorbtion = westEndAbsorbtion.split(",");
+    var westEndSoldListings = document.getElementById("westEndSoldListings").innerHTML;
+    westEndSoldListings = westEndSoldListings.split(",");
+    westEndSoldListings = Number(westEndSoldListings[0]) + Number(westEndSoldListings[1]) + Number(westEndSoldListings[2]) + Number(westEndSoldListings[3]) + Number(westEndSoldListings[4]) + Number(westEndSoldListings[5]) + Number(westEndSoldListings[6]) + Number(westEndSoldListings[7]) + Number(westEndSoldListings[8]) + Number(westEndSoldListings[9]) + Number(westEndSoldListings[10]) + Number(westEndSoldListings[11])
+
 
     var westEndActiveAvgPrice = document.getElementById("westEndActiveAvgPrice").innerHTML;
     westEndActiveAvgPrice = westEndActiveAvgPrice.split(",");
     westEndActiveAvgPrice = Number(westEndActiveAvgPrice[0]).toLocaleString();
 
-
-    var westEndNewAvgPrice = document.getElementById("westEndNewAvgPrice").innerHTML;
-
-    westEndNewAvgPrice = westEndNewAvgPrice.split(",");
-    westEndNewAvgPrice = Number(westEndNewAvgPrice[0]).toLocaleString();
-
-    var westEndPendedAvgPrice = document.getElementById("westEndPendedAvgPrice").innerHTML;
-
-    westEndPendedAvgPrice = westEndPendedAvgPrice.split(",");
-    westEndPendedAvgPrice = Number(westEndPendedAvgPrice[0]).toLocaleString();
-
     var westEndSoldAvgPrice = document.getElementById("westEndSoldAvgPrice").innerHTML;
-
     westEndSoldAvgPrice = westEndSoldAvgPrice.split(",");
-    westEndSoldAvgPrice = Number(westEndSoldAvgPrice[0]).toLocaleString();
+    westEndSoldAvgPrice = Number(westEndSoldAvgPrice[0]) + Number(westEndSoldAvgPrice[1]) + Number(westEndSoldAvgPrice[2]) + Number(westEndSoldAvgPrice[3]) + Number(westEndSoldAvgPrice[4]) + Number(westEndSoldAvgPrice[5]) + Number(westEndSoldAvgPrice[6]) + Number(westEndSoldAvgPrice[7]) + Number(westEndSoldAvgPrice[8]) + Number(westEndSoldAvgPrice[9]) + Number(westEndSoldAvgPrice[10]) + Number(westEndSoldAvgPrice[11]);
+    westEndSoldAvgPrice = Number(westEndSoldAvgPrice) / Number(12);
+    westEndSoldAvgPrice = Number(westEndSoldAvgPrice).toLocaleString();
 
-    var westEndSoldAvgSoldPrice = document.getElementById("westEndSoldAvgSoldPrice").innerHTML;
 
-    westEndSoldAvgSoldPrice = westEndSoldAvgSoldPrice.split(",");
-    westEndSoldAvgSoldPrice = Number(westEndSoldAvgSoldPrice[0]).toLocaleString();
-
-    var westEndActiveMedianPrice = document.getElementById("westEndActiveMedianPrice").innerHTML;
-    westEndActiveMedianPrice = westEndActiveMedianPrice.split(",");
-    westEndActiveMedianPrice = Number(westEndActiveMedianPrice[0]).toLocaleString();
-
-    var westEndNewMedianPrice = document.getElementById("westEndNewMedianPrice").innerHTML;
-
-    westEndNewMedianPrice = westEndNewMedianPrice.split(",");
-    westEndNewMedianPrice = Number(westEndNewMedianPrice[0]).toLocaleString();
-
-    var westEndPendedMedianPrice = document.getElementById("westEndPendedMedianPrice").innerHTML;
-
-    westEndPendedMedianPrice = westEndPendedMedianPrice.split(",");
-    westEndPendedMedianPrice = Number(westEndPendedMedianPrice[0]).toLocaleString();
 
     var westEndSoldMedianPrice = document.getElementById("westEndSoldMedianPrice").innerHTML;
-
     westEndSoldMedianPrice = westEndSoldMedianPrice.split(",");
-    westEndSoldMedianPrice = Number(westEndSoldMedianPrice[0]).toLocaleString();
-
-
-    var westEndSoldMedianSoldPrice = document.getElementById("westEndSoldMedianSoldPrice").innerHTML;
-
-    westEndSoldMedianSoldPrice = westEndSoldMedianSoldPrice.split(",");
-    westEndSoldMedianSoldPrice = Number(westEndSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var westEndSaleToOriginalListPriceRatio = document.getElementById("westEndSaleToOriginalListPriceRatio").innerHTML;
-
-    westEndSaleToOriginalListPriceRatio = westEndSaleToOriginalListPriceRatio.split(",");
-
-    var westEndSaleToListPriceRatio = document.getElementById("westEndSaleToListPriceRatio").innerHTML;
-
-    westEndSaleToListPriceRatio = westEndSaleToListPriceRatio.split(",");
+    westEndSoldMedianPrice = Number(westEndSoldMedianPrice[0]) + Number(westEndSoldMedianPrice[1]) + Number(westEndSoldMedianPrice[2]) + Number(westEndSoldMedianPrice[3]) + Number(westEndSoldMedianPrice[4]) + Number(westEndSoldMedianPrice[5]) + Number(westEndSoldMedianPrice[6]) + Number(westEndSoldMedianPrice[7]) + Number(westEndSoldMedianPrice[8]) + Number(westEndSoldMedianPrice[9]) + Number(westEndSoldMedianPrice[10]) + Number(westEndSoldMedianPrice[11]);
+    westEndSoldMedianPrice = Number(westEndSoldMedianPrice) / Number(12);
+    westEndSoldMedianPrice = Number(westEndSoldMedianPrice).toLocaleString();
 
     var westEndAverageDom = document.getElementById("westEndAverageDom").innerHTML;
     westEndAverageDom = westEndAverageDom.split(",");
+    westEndAverageDom = Number(westEndAverageDom[0]) + Number(westEndAverageDom[1]) + Number(westEndAverageDom[2]) + Number(westEndAverageDom[3]) + Number(westEndAverageDom[4]) + Number(westEndAverageDom[5]) + Number(westEndAverageDom[6]) + Number(westEndAverageDom[7]) + Number(westEndAverageDom[8]) + Number(westEndAverageDom[9]) + Number(westEndAverageDom[10]) + Number(westEndAverageDom[11]);
+    westEndAverageDom = Number(westEndAverageDom) / Number(12);
 
-    var westEndAverageCdom = document.getElementById("westEndAverageCdom").innerHTML;
-    westEndAverageCdom = westEndAverageCdom.split(",");
-
-
-    var westEndActiveListVolume = document.getElementById("westEndActiveListVolume").innerHTML;
-    westEndActiveListVolume = westEndActiveListVolume.split(",");
-
-    var westEndNewListVolume = document.getElementById("westEndNewListVolume").innerHTML;
-    westEndNewListVolume = westEndNewListVolume.split(",");
-
-    var westEndPendedListVolume = document.getElementById("westEndPendedListVolume").innerHTML;
-    westEndPendedListVolume = westEndPendedListVolume.split(",");
-
-    var westEndSoldListVolume = document.getElementById("westEndSoldListVolume").innerHTML;
-    westEndSoldListVolume = westEndSoldListVolume.split(",");
-
-    var westEndSoldSaleVolume = document.getElementById("westEndSoldSaleVolume").innerHTML;
-    westEndSoldSaleVolume = westEndSoldSaleVolume.split(",");
-
-
-
-
-
-    var eastAspenNewListings = document.getElementById("eastAspenNewListings").innerHTML;
-
-    eastAspenNewListings = eastAspenNewListings.split(",");
-
-    var eastAspenPendedListings = document.getElementById("eastAspenPendedListings").innerHTML;
-
-    eastAspenPendedListings = eastAspenPendedListings.split(",");
-
-
-    var eastAspenSoldListings = document.getElementById("eastAspenSoldListings").innerHTML;
-
-    eastAspenSoldListings = eastAspenSoldListings.split(",");
-
-
-    var eastAspenActiveListings = document.getElementById("eastAspenActiveListings").innerHTML;
-
-    eastAspenActiveListings = eastAspenActiveListings.split(",");
 
     var eastAspenActiveListingsDate = document.getElementById("eastAspenActiveListings-dates").innerHTML;
-
     eastAspenActiveListingsDate = eastAspenActiveListingsDate.split(",");
 
-    var eastAspenAbsorbtion = document.getElementById("eastAspenAbsorbtion").innerHTML;
+    var eastAspenActiveListings = document.getElementById("eastAspenActiveListings").innerHTML;
+    eastAspenActiveListings = eastAspenActiveListings.split(",");
 
-    eastAspenAbsorbtion = eastAspenAbsorbtion.split(",");
+    var eastAspenSoldListings = document.getElementById("eastAspenSoldListings").innerHTML;
+    eastAspenSoldListings = eastAspenSoldListings.split(",");
+    eastAspenSoldListings = Number(eastAspenSoldListings[0]) + Number(eastAspenSoldListings[1]) + Number(eastAspenSoldListings[2]) + Number(eastAspenSoldListings[3]) + Number(eastAspenSoldListings[4]) + Number(eastAspenSoldListings[5]) + Number(eastAspenSoldListings[6]) + Number(eastAspenSoldListings[7]) + Number(eastAspenSoldListings[8]) + Number(eastAspenSoldListings[9]) + Number(eastAspenSoldListings[10]) + Number(eastAspenSoldListings[11])
+
 
     var eastAspenActiveAvgPrice = document.getElementById("eastAspenActiveAvgPrice").innerHTML;
     eastAspenActiveAvgPrice = eastAspenActiveAvgPrice.split(",");
     eastAspenActiveAvgPrice = Number(eastAspenActiveAvgPrice[0]).toLocaleString();
 
-
-    var eastAspenNewAvgPrice = document.getElementById("eastAspenNewAvgPrice").innerHTML;
-
-    eastAspenNewAvgPrice = eastAspenNewAvgPrice.split(",");
-    eastAspenNewAvgPrice = Number(eastAspenNewAvgPrice[0]).toLocaleString();
-
-    var eastAspenPendedAvgPrice = document.getElementById("eastAspenPendedAvgPrice").innerHTML;
-
-    eastAspenPendedAvgPrice = eastAspenPendedAvgPrice.split(",");
-    eastAspenPendedAvgPrice = Number(eastAspenPendedAvgPrice[0]).toLocaleString();
-
     var eastAspenSoldAvgPrice = document.getElementById("eastAspenSoldAvgPrice").innerHTML;
-
     eastAspenSoldAvgPrice = eastAspenSoldAvgPrice.split(",");
-    eastAspenSoldAvgPrice = Number(eastAspenSoldAvgPrice[0]).toLocaleString();
+    eastAspenSoldAvgPrice = Number(eastAspenSoldAvgPrice[0]) + Number(eastAspenSoldAvgPrice[1]) + Number(eastAspenSoldAvgPrice[2]) + Number(eastAspenSoldAvgPrice[3]) + Number(eastAspenSoldAvgPrice[4]) + Number(eastAspenSoldAvgPrice[5]) + Number(eastAspenSoldAvgPrice[6]) + Number(eastAspenSoldAvgPrice[7]) + Number(eastAspenSoldAvgPrice[8]) + Number(eastAspenSoldAvgPrice[9]) + Number(eastAspenSoldAvgPrice[10]) + Number(eastAspenSoldAvgPrice[11]);
+    eastAspenSoldAvgPrice = Number(eastAspenSoldAvgPrice) / Number(12);
+    eastAspenSoldAvgPrice = Number(eastAspenSoldAvgPrice).toLocaleString();
 
-    var eastAspenSoldAvgSoldPrice = document.getElementById("eastAspenSoldAvgSoldPrice").innerHTML;
 
-    eastAspenSoldAvgSoldPrice = eastAspenSoldAvgSoldPrice.split(",");
-    eastAspenSoldAvgSoldPrice = Number(eastAspenSoldAvgSoldPrice[0]).toLocaleString();
-
-    var eastAspenActiveMedianPrice = document.getElementById("eastAspenActiveMedianPrice").innerHTML;
-    eastAspenActiveMedianPrice = eastAspenActiveMedianPrice.split(",");
-    eastAspenActiveMedianPrice = Number(eastAspenActiveMedianPrice[0]).toLocaleString();
-
-    var eastAspenNewMedianPrice = document.getElementById("eastAspenNewMedianPrice").innerHTML;
-
-    eastAspenNewMedianPrice = eastAspenNewMedianPrice.split(",");
-    eastAspenNewMedianPrice = Number(eastAspenNewMedianPrice[0]).toLocaleString();
-
-    var eastAspenPendedMedianPrice = document.getElementById("eastAspenPendedMedianPrice").innerHTML;
-
-    eastAspenPendedMedianPrice = eastAspenPendedMedianPrice.split(",");
-    eastAspenPendedMedianPrice = Number(eastAspenPendedMedianPrice[0]).toLocaleString();
 
     var eastAspenSoldMedianPrice = document.getElementById("eastAspenSoldMedianPrice").innerHTML;
-
     eastAspenSoldMedianPrice = eastAspenSoldMedianPrice.split(",");
-    eastAspenSoldMedianPrice = Number(eastAspenSoldMedianPrice[0]).toLocaleString();
-
-
-    var eastAspenSoldMedianSoldPrice = document.getElementById("eastAspenSoldMedianSoldPrice").innerHTML;
-
-    eastAspenSoldMedianSoldPrice = eastAspenSoldMedianSoldPrice.split(",");
-    eastAspenSoldMedianSoldPrice = Number(eastAspenSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var eastAspenSaleToOriginalListPriceRatio = document.getElementById("eastAspenSaleToOriginalListPriceRatio").innerHTML;
-
-    eastAspenSaleToOriginalListPriceRatio = eastAspenSaleToOriginalListPriceRatio.split(",");
-
-    var eastAspenSaleToListPriceRatio = document.getElementById("eastAspenSaleToListPriceRatio").innerHTML;
-
-    eastAspenSaleToListPriceRatio = eastAspenSaleToListPriceRatio.split(",");
+    eastAspenSoldMedianPrice = Number(eastAspenSoldMedianPrice[0]) + Number(eastAspenSoldMedianPrice[1]) + Number(eastAspenSoldMedianPrice[2]) + Number(eastAspenSoldMedianPrice[3]) + Number(eastAspenSoldMedianPrice[4]) + Number(eastAspenSoldMedianPrice[5]) + Number(eastAspenSoldMedianPrice[6]) + Number(eastAspenSoldMedianPrice[7]) + Number(eastAspenSoldMedianPrice[8]) + Number(eastAspenSoldMedianPrice[9]) + Number(eastAspenSoldMedianPrice[10]) + Number(eastAspenSoldMedianPrice[11]);
+    eastAspenSoldMedianPrice = Number(eastAspenSoldMedianPrice) / Number(12);
+    eastAspenSoldMedianPrice = Number(eastAspenSoldMedianPrice).toLocaleString();
 
     var eastAspenAverageDom = document.getElementById("eastAspenAverageDom").innerHTML;
     eastAspenAverageDom = eastAspenAverageDom.split(",");
-
-    var eastAspenAverageCdom = document.getElementById("eastAspenAverageCdom").innerHTML;
-    eastAspenAverageCdom = eastAspenAverageCdom.split(",");
-
-
-    var eastAspenActiveListVolume = document.getElementById("eastAspenActiveListVolume").innerHTML;
-    eastAspenActiveListVolume = eastAspenActiveListVolume.split(",");
-
-    var eastAspenNewListVolume = document.getElementById("eastAspenNewListVolume").innerHTML;
-    eastAspenNewListVolume = eastAspenNewListVolume.split(",");
-
-    var eastAspenPendedListVolume = document.getElementById("eastAspenPendedListVolume").innerHTML;
-    eastAspenPendedListVolume = eastAspenPendedListVolume.split(",");
-
-    var eastAspenSoldListVolume = document.getElementById("eastAspenSoldListVolume").innerHTML;
-    eastAspenSoldListVolume = eastAspenSoldListVolume.split(",");
-
-    var eastAspenSoldSaleVolume = document.getElementById("eastAspenSoldSaleVolume").innerHTML;
-    eastAspenSoldSaleVolume = eastAspenSoldSaleVolume.split(",");
-
+    eastAspenAverageDom = Number(eastAspenAverageDom[0]) + Number(eastAspenAverageDom[1]) + Number(eastAspenAverageDom[2]) + Number(eastAspenAverageDom[3]) + Number(eastAspenAverageDom[4]) + Number(eastAspenAverageDom[5]) + Number(eastAspenAverageDom[6]) + Number(eastAspenAverageDom[7]) + Number(eastAspenAverageDom[8]) + Number(eastAspenAverageDom[9]) + Number(eastAspenAverageDom[10]) + Number(eastAspenAverageDom[11]);
+    eastAspenAverageDom = Number(eastAspenAverageDom) / Number(12);
     ///////////
 
 
-
-    var redMtnNewListings = document.getElementById("redMtnNewListings").innerHTML;
-
-    redMtnNewListings = redMtnNewListings.split(",");
-
-    var redMtnPendedListings = document.getElementById("redMtnPendedListings").innerHTML;
-
-    redMtnPendedListings = redMtnPendedListings.split(",");
-
-
-    var redMtnSoldListings = document.getElementById("redMtnSoldListings").innerHTML;
-
-    redMtnSoldListings = redMtnSoldListings.split(",");
-
-
-    var redMtnActiveListings = document.getElementById("redMtnActiveListings").innerHTML;
-
-    redMtnActiveListings = redMtnActiveListings.split(",");
-
     var redMtnActiveListingsDate = document.getElementById("redMtnActiveListings-dates").innerHTML;
-
     redMtnActiveListingsDate = redMtnActiveListingsDate.split(",");
 
-    var redMtnAbsorbtion = document.getElementById("redMtnAbsorbtion").innerHTML;
+    var redMtnActiveListings = document.getElementById("redMtnActiveListings").innerHTML;
+    redMtnActiveListings = redMtnActiveListings.split(",");
 
-    redMtnAbsorbtion = redMtnAbsorbtion.split(",");
+    var redMtnSoldListings = document.getElementById("redMtnSoldListings").innerHTML;
+    redMtnSoldListings = redMtnSoldListings.split(",");
+    redMtnSoldListings = Number(redMtnSoldListings[0]) + Number(redMtnSoldListings[1]) + Number(redMtnSoldListings[2]) + Number(redMtnSoldListings[3]) + Number(redMtnSoldListings[4]) + Number(redMtnSoldListings[5]) + Number(redMtnSoldListings[6]) + Number(redMtnSoldListings[7]) + Number(redMtnSoldListings[8]) + Number(redMtnSoldListings[9]) + Number(redMtnSoldListings[10]) + Number(redMtnSoldListings[11])
+
 
     var redMtnActiveAvgPrice = document.getElementById("redMtnActiveAvgPrice").innerHTML;
     redMtnActiveAvgPrice = redMtnActiveAvgPrice.split(",");
     redMtnActiveAvgPrice = Number(redMtnActiveAvgPrice[0]).toLocaleString();
 
-
-    var redMtnNewAvgPrice = document.getElementById("redMtnNewAvgPrice").innerHTML;
-
-    redMtnNewAvgPrice = redMtnNewAvgPrice.split(",");
-    redMtnNewAvgPrice = Number(redMtnNewAvgPrice[0]).toLocaleString();
-
-    var redMtnPendedAvgPrice = document.getElementById("redMtnPendedAvgPrice").innerHTML;
-
-    redMtnPendedAvgPrice = redMtnPendedAvgPrice.split(",");
-    redMtnPendedAvgPrice = Number(redMtnPendedAvgPrice[0]).toLocaleString();
-
     var redMtnSoldAvgPrice = document.getElementById("redMtnSoldAvgPrice").innerHTML;
-
     redMtnSoldAvgPrice = redMtnSoldAvgPrice.split(",");
-    redMtnSoldAvgPrice = Number(redMtnSoldAvgPrice[0]).toLocaleString();
+    redMtnSoldAvgPrice = Number(redMtnSoldAvgPrice[0]) + Number(redMtnSoldAvgPrice[1]) + Number(redMtnSoldAvgPrice[2]) + Number(redMtnSoldAvgPrice[3]) + Number(redMtnSoldAvgPrice[4]) + Number(redMtnSoldAvgPrice[5]) + Number(redMtnSoldAvgPrice[6]) + Number(redMtnSoldAvgPrice[7]) + Number(redMtnSoldAvgPrice[8]) + Number(redMtnSoldAvgPrice[9]) + Number(redMtnSoldAvgPrice[10]) + Number(redMtnSoldAvgPrice[11]);
+    redMtnSoldAvgPrice = Number(redMtnSoldAvgPrice) / Number(12);
+    redMtnSoldAvgPrice = Number(redMtnSoldAvgPrice).toLocaleString();
 
-    var redMtnSoldAvgSoldPrice = document.getElementById("redMtnSoldAvgSoldPrice").innerHTML;
 
-    redMtnSoldAvgSoldPrice = redMtnSoldAvgSoldPrice.split(",");
-    redMtnSoldAvgSoldPrice = Number(redMtnSoldAvgSoldPrice[0]).toLocaleString();
-
-    var redMtnActiveMedianPrice = document.getElementById("redMtnActiveMedianPrice").innerHTML;
-    redMtnActiveMedianPrice = redMtnActiveMedianPrice.split(",");
-    redMtnActiveMedianPrice = Number(redMtnActiveMedianPrice[0]).toLocaleString();
-
-    var redMtnNewMedianPrice = document.getElementById("redMtnNewMedianPrice").innerHTML;
-
-    redMtnNewMedianPrice = redMtnNewMedianPrice.split(",");
-    redMtnNewMedianPrice = Number(redMtnNewMedianPrice[0]).toLocaleString();
-
-    var redMtnPendedMedianPrice = document.getElementById("redMtnPendedMedianPrice").innerHTML;
-
-    redMtnPendedMedianPrice = redMtnPendedMedianPrice.split(",");
-    redMtnPendedMedianPrice = Number(redMtnPendedMedianPrice[0]).toLocaleString();
 
     var redMtnSoldMedianPrice = document.getElementById("redMtnSoldMedianPrice").innerHTML;
-
     redMtnSoldMedianPrice = redMtnSoldMedianPrice.split(",");
-    redMtnSoldMedianPrice = Number(redMtnSoldMedianPrice[0]).toLocaleString();
-
-
-    var redMtnSoldMedianSoldPrice = document.getElementById("redMtnSoldMedianSoldPrice").innerHTML;
-
-    redMtnSoldMedianSoldPrice = redMtnSoldMedianSoldPrice.split(",");
-    redMtnSoldMedianSoldPrice = Number(redMtnSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var redMtnSaleToOriginalListPriceRatio = document.getElementById("redMtnSaleToOriginalListPriceRatio").innerHTML;
-
-    redMtnSaleToOriginalListPriceRatio = redMtnSaleToOriginalListPriceRatio.split(",");
-
-    var redMtnSaleToListPriceRatio = document.getElementById("redMtnSaleToListPriceRatio").innerHTML;
-
-    redMtnSaleToListPriceRatio = redMtnSaleToListPriceRatio.split(",");
+    redMtnSoldMedianPrice = Number(redMtnSoldMedianPrice[0]) + Number(redMtnSoldMedianPrice[1]) + Number(redMtnSoldMedianPrice[2]) + Number(redMtnSoldMedianPrice[3]) + Number(redMtnSoldMedianPrice[4]) + Number(redMtnSoldMedianPrice[5]) + Number(redMtnSoldMedianPrice[6]) + Number(redMtnSoldMedianPrice[7]) + Number(redMtnSoldMedianPrice[8]) + Number(redMtnSoldMedianPrice[9]) + Number(redMtnSoldMedianPrice[10]) + Number(redMtnSoldMedianPrice[11]);
+    redMtnSoldMedianPrice = Number(redMtnSoldMedianPrice) / Number(12);
+    redMtnSoldMedianPrice = Number(redMtnSoldMedianPrice).toLocaleString();
 
     var redMtnAverageDom = document.getElementById("redMtnAverageDom").innerHTML;
     redMtnAverageDom = redMtnAverageDom.split(",");
-
-    var redMtnAverageCdom = document.getElementById("redMtnAverageCdom").innerHTML;
-    redMtnAverageCdom = redMtnAverageCdom.split(",");
-
-
-    var redMtnActiveListVolume = document.getElementById("redMtnActiveListVolume").innerHTML;
-    redMtnActiveListVolume = redMtnActiveListVolume.split(",");
-
-    var redMtnNewListVolume = document.getElementById("redMtnNewListVolume").innerHTML;
-    redMtnNewListVolume = redMtnNewListVolume.split(",");
-
-    var redMtnPendedListVolume = document.getElementById("redMtnPendedListVolume").innerHTML;
-    redMtnPendedListVolume = redMtnPendedListVolume.split(",");
-
-    var redMtnSoldListVolume = document.getElementById("redMtnSoldListVolume").innerHTML;
-    redMtnSoldListVolume = redMtnSoldListVolume.split(",");
-
-    var redMtnSoldSaleVolume = document.getElementById("redMtnSoldSaleVolume").innerHTML;
-    redMtnSoldSaleVolume = redMtnSoldSaleVolume.split(",");
-
-
-    var westAspenNewListings = document.getElementById("westAspenNewListings").innerHTML;
-
-    westAspenNewListings = westAspenNewListings.split(",");
-
-    var westAspenPendedListings = document.getElementById("westAspenPendedListings").innerHTML;
-
-    westAspenPendedListings = westAspenPendedListings.split(",");
-
-
-    var westAspenSoldListings = document.getElementById("westAspenSoldListings").innerHTML;
-
-    westAspenSoldListings = westAspenSoldListings.split(",");
-
-
-    var westAspenActiveListings = document.getElementById("westAspenActiveListings").innerHTML;
-
-    westAspenActiveListings = westAspenActiveListings.split(",");
+    redMtnAverageDom = Number(redMtnAverageDom[0]) + Number(redMtnAverageDom[1]) + Number(redMtnAverageDom[2]) + Number(redMtnAverageDom[3]) + Number(redMtnAverageDom[4]) + Number(redMtnAverageDom[5]) + Number(redMtnAverageDom[6]) + Number(redMtnAverageDom[7]) + Number(redMtnAverageDom[8]) + Number(redMtnAverageDom[9]) + Number(redMtnAverageDom[10]) + Number(redMtnAverageDom[11]);
+    redMtnAverageDom = Number(redMtnAverageDom) / Number(12);
 
     var westAspenActiveListingsDate = document.getElementById("westAspenActiveListings-dates").innerHTML;
-
     westAspenActiveListingsDate = westAspenActiveListingsDate.split(",");
 
-    var westAspenAbsorbtion = document.getElementById("westAspenAbsorbtion").innerHTML;
+    var westAspenActiveListings = document.getElementById("westAspenActiveListings").innerHTML;
+    westAspenActiveListings = westAspenActiveListings.split(",");
 
-    westAspenAbsorbtion = westAspenAbsorbtion.split(",");
+    var westAspenSoldListings = document.getElementById("westAspenSoldListings").innerHTML;
+    westAspenSoldListings = westAspenSoldListings.split(",");
+    westAspenSoldListings = Number(westAspenSoldListings[0]) + Number(westAspenSoldListings[1]) + Number(westAspenSoldListings[2]) + Number(westAspenSoldListings[3]) + Number(westAspenSoldListings[4]) + Number(westAspenSoldListings[5]) + Number(westAspenSoldListings[6]) + Number(westAspenSoldListings[7]) + Number(westAspenSoldListings[8]) + Number(westAspenSoldListings[9]) + Number(westAspenSoldListings[10]) + Number(westAspenSoldListings[11])
+
 
     var westAspenActiveAvgPrice = document.getElementById("westAspenActiveAvgPrice").innerHTML;
     westAspenActiveAvgPrice = westAspenActiveAvgPrice.split(",");
     westAspenActiveAvgPrice = Number(westAspenActiveAvgPrice[0]).toLocaleString();
 
-
-    var westAspenNewAvgPrice = document.getElementById("westAspenNewAvgPrice").innerHTML;
-
-    westAspenNewAvgPrice = westAspenNewAvgPrice.split(",");
-    westAspenNewAvgPrice = Number(westAspenNewAvgPrice[0]).toLocaleString();
-
-    var westAspenPendedAvgPrice = document.getElementById("westAspenPendedAvgPrice").innerHTML;
-
-    westAspenPendedAvgPrice = westAspenPendedAvgPrice.split(",");
-    westAspenPendedAvgPrice = Number(westAspenPendedAvgPrice[0]).toLocaleString();
-
     var westAspenSoldAvgPrice = document.getElementById("westAspenSoldAvgPrice").innerHTML;
-
     westAspenSoldAvgPrice = westAspenSoldAvgPrice.split(",");
-    westAspenSoldAvgPrice = Number(westAspenSoldAvgPrice[0]).toLocaleString();
+    westAspenSoldAvgPrice = Number(westAspenSoldAvgPrice[0]) + Number(westAspenSoldAvgPrice[1]) + Number(westAspenSoldAvgPrice[2]) + Number(westAspenSoldAvgPrice[3]) + Number(westAspenSoldAvgPrice[4]) + Number(westAspenSoldAvgPrice[5]) + Number(westAspenSoldAvgPrice[6]) + Number(westAspenSoldAvgPrice[7]) + Number(westAspenSoldAvgPrice[8]) + Number(westAspenSoldAvgPrice[9]) + Number(westAspenSoldAvgPrice[10]) + Number(westAspenSoldAvgPrice[11]);
+    westAspenSoldAvgPrice = Number(westAspenSoldAvgPrice) / Number(12);
+    westAspenSoldAvgPrice = Number(westAspenSoldAvgPrice).toLocaleString();
 
-    var westAspenSoldAvgSoldPrice = document.getElementById("westAspenSoldAvgSoldPrice").innerHTML;
 
-    westAspenSoldAvgSoldPrice = westAspenSoldAvgSoldPrice.split(",");
-    westAspenSoldAvgSoldPrice = Number(westAspenSoldAvgSoldPrice[0]).toLocaleString();
-
-    var westAspenActiveMedianPrice = document.getElementById("westAspenActiveMedianPrice").innerHTML;
-    westAspenActiveMedianPrice = westAspenActiveMedianPrice.split(",");
-    westAspenActiveMedianPrice = Number(westAspenActiveMedianPrice[0]).toLocaleString();
-
-    var westAspenNewMedianPrice = document.getElementById("westAspenNewMedianPrice").innerHTML;
-
-    westAspenNewMedianPrice = westAspenNewMedianPrice.split(",");
-    westAspenNewMedianPrice = Number(westAspenNewMedianPrice[0]).toLocaleString();
-
-    var westAspenPendedMedianPrice = document.getElementById("westAspenPendedMedianPrice").innerHTML;
-
-    westAspenPendedMedianPrice = westAspenPendedMedianPrice.split(",");
-    westAspenPendedMedianPrice = Number(westAspenPendedMedianPrice[0]).toLocaleString();
 
     var westAspenSoldMedianPrice = document.getElementById("westAspenSoldMedianPrice").innerHTML;
-
     westAspenSoldMedianPrice = westAspenSoldMedianPrice.split(",");
-    westAspenSoldMedianPrice = Number(westAspenSoldMedianPrice[0]).toLocaleString();
-
-
-    var westAspenSoldMedianSoldPrice = document.getElementById("westAspenSoldMedianSoldPrice").innerHTML;
-
-    westAspenSoldMedianSoldPrice = westAspenSoldMedianSoldPrice.split(",");
-    westAspenSoldMedianSoldPrice = Number(westAspenSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var westAspenSaleToOriginalListPriceRatio = document.getElementById("westAspenSaleToOriginalListPriceRatio").innerHTML;
-
-    westAspenSaleToOriginalListPriceRatio = westAspenSaleToOriginalListPriceRatio.split(",");
-
-    var westAspenSaleToListPriceRatio = document.getElementById("westAspenSaleToListPriceRatio").innerHTML;
-
-    westAspenSaleToListPriceRatio = westAspenSaleToListPriceRatio.split(",");
+    westAspenSoldMedianPrice = Number(westAspenSoldMedianPrice[0]) + Number(westAspenSoldMedianPrice[1]) + Number(westAspenSoldMedianPrice[2]) + Number(westAspenSoldMedianPrice[3]) + Number(westAspenSoldMedianPrice[4]) + Number(westAspenSoldMedianPrice[5]) + Number(westAspenSoldMedianPrice[6]) + Number(westAspenSoldMedianPrice[7]) + Number(westAspenSoldMedianPrice[8]) + Number(westAspenSoldMedianPrice[9]) + Number(westAspenSoldMedianPrice[10]) + Number(westAspenSoldMedianPrice[11]);
+    westAspenSoldMedianPrice = Number(westAspenSoldMedianPrice) / Number(12);
+    westAspenSoldMedianPrice = Number(westAspenSoldMedianPrice).toLocaleString();
 
     var westAspenAverageDom = document.getElementById("westAspenAverageDom").innerHTML;
     westAspenAverageDom = westAspenAverageDom.split(",");
+    westAspenAverageDom = Number(westAspenAverageDom[0]) + Number(westAspenAverageDom[1]) + Number(westAspenAverageDom[2]) + Number(westAspenAverageDom[3]) + Number(westAspenAverageDom[4]) + Number(westAspenAverageDom[5]) + Number(westAspenAverageDom[6]) + Number(westAspenAverageDom[7]) + Number(westAspenAverageDom[8]) + Number(westAspenAverageDom[9]) + Number(westAspenAverageDom[10]) + Number(westAspenAverageDom[11]);
+    westAspenAverageDom = Number(westAspenAverageDom) / Number(12);
 
-    var westAspenAverageCdom = document.getElementById("westAspenAverageCdom").innerHTML;
-    westAspenAverageCdom = westAspenAverageCdom.split(",");
-
-
-    var westAspenActiveListVolume = document.getElementById("westAspenActiveListVolume").innerHTML;
-    westAspenActiveListVolume = westAspenActiveListVolume.split(",");
-
-    var westAspenNewListVolume = document.getElementById("westAspenNewListVolume").innerHTML;
-    westAspenNewListVolume = westAspenNewListVolume.split(",");
-
-    var westAspenPendedListVolume = document.getElementById("westAspenPendedListVolume").innerHTML;
-    westAspenPendedListVolume = westAspenPendedListVolume.split(",");
-
-    var westAspenSoldListVolume = document.getElementById("westAspenSoldListVolume").innerHTML;
-    westAspenSoldListVolume = westAspenSoldListVolume.split(",");
-
-    var westAspenSoldSaleVolume = document.getElementById("westAspenSoldSaleVolume").innerHTML;
-    westAspenSoldSaleVolume = westAspenSoldSaleVolume.split(",");
-
-
-    var mclainFlatsNewListings = document.getElementById("mclainFlatsNewListings").innerHTML;
-
-    mclainFlatsNewListings = mclainFlatsNewListings.split(",");
-
-    var mclainFlatsPendedListings = document.getElementById("mclainFlatsPendedListings").innerHTML;
-
-    mclainFlatsPendedListings = mclainFlatsPendedListings.split(",");
-
-
-    var mclainFlatsSoldListings = document.getElementById("mclainFlatsSoldListings").innerHTML;
-
-    mclainFlatsSoldListings = mclainFlatsSoldListings.split(",");
-
-
-    var mclainFlatsActiveListings = document.getElementById("mclainFlatsActiveListings").innerHTML;
-
-    mclainFlatsActiveListings = mclainFlatsActiveListings.split(",");
 
     var mclainFlatsActiveListingsDate = document.getElementById("mclainFlatsActiveListings-dates").innerHTML;
-
     mclainFlatsActiveListingsDate = mclainFlatsActiveListingsDate.split(",");
 
-    var mclainFlatsAbsorbtion = document.getElementById("mclainFlatsAbsorbtion").innerHTML;
+    var mclainFlatsActiveListings = document.getElementById("mclainFlatsActiveListings").innerHTML;
+    mclainFlatsActiveListings = mclainFlatsActiveListings.split(",");
 
-    mclainFlatsAbsorbtion = mclainFlatsAbsorbtion.split(",");
+    var mclainFlatsSoldListings = document.getElementById("mclainFlatsSoldListings").innerHTML;
+    mclainFlatsSoldListings = mclainFlatsSoldListings.split(",");
+    mclainFlatsSoldListings = Number(mclainFlatsSoldListings[0]) + Number(mclainFlatsSoldListings[1]) + Number(mclainFlatsSoldListings[2]) + Number(mclainFlatsSoldListings[3]) + Number(mclainFlatsSoldListings[4]) + Number(mclainFlatsSoldListings[5]) + Number(mclainFlatsSoldListings[6]) + Number(mclainFlatsSoldListings[7]) + Number(mclainFlatsSoldListings[8]) + Number(mclainFlatsSoldListings[9]) + Number(mclainFlatsSoldListings[10]) + Number(mclainFlatsSoldListings[11])
+
 
     var mclainFlatsActiveAvgPrice = document.getElementById("mclainFlatsActiveAvgPrice").innerHTML;
     mclainFlatsActiveAvgPrice = mclainFlatsActiveAvgPrice.split(",");
     mclainFlatsActiveAvgPrice = Number(mclainFlatsActiveAvgPrice[0]).toLocaleString();
 
-
-    var mclainFlatsNewAvgPrice = document.getElementById("mclainFlatsNewAvgPrice").innerHTML;
-
-    mclainFlatsNewAvgPrice = mclainFlatsNewAvgPrice.split(",");
-    mclainFlatsNewAvgPrice = Number(mclainFlatsNewAvgPrice[0]).toLocaleString();
-
-    var mclainFlatsPendedAvgPrice = document.getElementById("mclainFlatsPendedAvgPrice").innerHTML;
-
-    mclainFlatsPendedAvgPrice = mclainFlatsPendedAvgPrice.split(",");
-    mclainFlatsPendedAvgPrice = Number(mclainFlatsPendedAvgPrice[0]).toLocaleString();
-
     var mclainFlatsSoldAvgPrice = document.getElementById("mclainFlatsSoldAvgPrice").innerHTML;
-
     mclainFlatsSoldAvgPrice = mclainFlatsSoldAvgPrice.split(",");
-    mclainFlatsSoldAvgPrice = Number(mclainFlatsSoldAvgPrice[0]).toLocaleString();
+    mclainFlatsSoldAvgPrice = Number(mclainFlatsSoldAvgPrice[0]) + Number(mclainFlatsSoldAvgPrice[1]) + Number(mclainFlatsSoldAvgPrice[2]) + Number(mclainFlatsSoldAvgPrice[3]) + Number(mclainFlatsSoldAvgPrice[4]) + Number(mclainFlatsSoldAvgPrice[5]) + Number(mclainFlatsSoldAvgPrice[6]) + Number(mclainFlatsSoldAvgPrice[7]) + Number(mclainFlatsSoldAvgPrice[8]) + Number(mclainFlatsSoldAvgPrice[9]) + Number(mclainFlatsSoldAvgPrice[10]) + Number(mclainFlatsSoldAvgPrice[11]);
+    mclainFlatsSoldAvgPrice = Number(mclainFlatsSoldAvgPrice) / Number(12);
+    mclainFlatsSoldAvgPrice = Number(mclainFlatsSoldAvgPrice).toLocaleString();
 
-    var mclainFlatsSoldAvgSoldPrice = document.getElementById("mclainFlatsSoldAvgSoldPrice").innerHTML;
 
-    mclainFlatsSoldAvgSoldPrice = mclainFlatsSoldAvgSoldPrice.split(",");
-    mclainFlatsSoldAvgSoldPrice = Number(mclainFlatsSoldAvgSoldPrice[0]).toLocaleString();
-
-    var mclainFlatsActiveMedianPrice = document.getElementById("mclainFlatsActiveMedianPrice").innerHTML;
-    mclainFlatsActiveMedianPrice = mclainFlatsActiveMedianPrice.split(",");
-    mclainFlatsActiveMedianPrice = Number(mclainFlatsActiveMedianPrice[0]).toLocaleString();
-
-    var mclainFlatsNewMedianPrice = document.getElementById("mclainFlatsNewMedianPrice").innerHTML;
-
-    mclainFlatsNewMedianPrice = mclainFlatsNewMedianPrice.split(",");
-    mclainFlatsNewMedianPrice = Number(mclainFlatsNewMedianPrice[0]).toLocaleString();
-
-    var mclainFlatsPendedMedianPrice = document.getElementById("mclainFlatsPendedMedianPrice").innerHTML;
-
-    mclainFlatsPendedMedianPrice = mclainFlatsPendedMedianPrice.split(",");
-    mclainFlatsPendedMedianPrice = Number(mclainFlatsPendedMedianPrice[0]).toLocaleString();
 
     var mclainFlatsSoldMedianPrice = document.getElementById("mclainFlatsSoldMedianPrice").innerHTML;
-
     mclainFlatsSoldMedianPrice = mclainFlatsSoldMedianPrice.split(",");
-    mclainFlatsSoldMedianPrice = Number(mclainFlatsSoldMedianPrice[0]).toLocaleString();
-
-
-    var mclainFlatsSoldMedianSoldPrice = document.getElementById("mclainFlatsSoldMedianSoldPrice").innerHTML;
-
-    mclainFlatsSoldMedianSoldPrice = mclainFlatsSoldMedianSoldPrice.split(",");
-    mclainFlatsSoldMedianSoldPrice = Number(mclainFlatsSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var mclainFlatsSaleToOriginalListPriceRatio = document.getElementById("mclainFlatsSaleToOriginalListPriceRatio").innerHTML;
-
-    mclainFlatsSaleToOriginalListPriceRatio = mclainFlatsSaleToOriginalListPriceRatio.split(",");
-
-    var mclainFlatsSaleToListPriceRatio = document.getElementById("mclainFlatsSaleToListPriceRatio").innerHTML;
-
-    mclainFlatsSaleToListPriceRatio = mclainFlatsSaleToListPriceRatio.split(",");
+    mclainFlatsSoldMedianPrice = Number(mclainFlatsSoldMedianPrice[0]) + Number(mclainFlatsSoldMedianPrice[1]) + Number(mclainFlatsSoldMedianPrice[2]) + Number(mclainFlatsSoldMedianPrice[3]) + Number(mclainFlatsSoldMedianPrice[4]) + Number(mclainFlatsSoldMedianPrice[5]) + Number(mclainFlatsSoldMedianPrice[6]) + Number(mclainFlatsSoldMedianPrice[7]) + Number(mclainFlatsSoldMedianPrice[8]) + Number(mclainFlatsSoldMedianPrice[9]) + Number(mclainFlatsSoldMedianPrice[10]) + Number(mclainFlatsSoldMedianPrice[11]);
+    mclainFlatsSoldMedianPrice = Number(mclainFlatsSoldMedianPrice) / Number(12);
+    mclainFlatsSoldMedianPrice = Number(mclainFlatsSoldMedianPrice).toLocaleString();
 
     var mclainFlatsAverageDom = document.getElementById("mclainFlatsAverageDom").innerHTML;
     mclainFlatsAverageDom = mclainFlatsAverageDom.split(",");
-
-    var mclainFlatsAverageCdom = document.getElementById("mclainFlatsAverageCdom").innerHTML;
-    mclainFlatsAverageCdom = mclainFlatsAverageCdom.split(",");
-
-
-    var mclainFlatsActiveListVolume = document.getElementById("mclainFlatsActiveListVolume").innerHTML;
-    mclainFlatsActiveListVolume = mclainFlatsActiveListVolume.split(",");
-
-    var mclainFlatsNewListVolume = document.getElementById("mclainFlatsNewListVolume").innerHTML;
-    mclainFlatsNewListVolume = mclainFlatsNewListVolume.split(",");
-
-    var mclainFlatsPendedListVolume = document.getElementById("mclainFlatsPendedListVolume").innerHTML;
-    mclainFlatsPendedListVolume = mclainFlatsPendedListVolume.split(",");
-
-    var mclainFlatsSoldListVolume = document.getElementById("mclainFlatsSoldListVolume").innerHTML;
-    mclainFlatsSoldListVolume = mclainFlatsSoldListVolume.split(",");
-
-    var mclainFlatsSoldSaleVolume = document.getElementById("mclainFlatsSoldSaleVolume").innerHTML;
-    mclainFlatsSoldSaleVolume = mclainFlatsSoldSaleVolume.split(",");
-
-    var snowmassVillageNewListings = document.getElementById("snowmassVillageNewListings").innerHTML;
-
-    snowmassVillageNewListings = snowmassVillageNewListings.split(",");
-
-    var snowmassVillagePendedListings = document.getElementById("snowmassVillagePendedListings").innerHTML;
-
-    snowmassVillagePendedListings = snowmassVillagePendedListings.split(",");
-
-
-    var snowmassVillageSoldListings = document.getElementById("snowmassVillageSoldListings").innerHTML;
-
-    snowmassVillageSoldListings = snowmassVillageSoldListings.split(",");
-
-
-    var snowmassVillageActiveListings = document.getElementById("snowmassVillageActiveListings").innerHTML;
-
-    snowmassVillageActiveListings = snowmassVillageActiveListings.split(",");
+    mclainFlatsAverageDom = Number(mclainFlatsAverageDom[0]) + Number(mclainFlatsAverageDom[1]) + Number(mclainFlatsAverageDom[2]) + Number(mclainFlatsAverageDom[3]) + Number(mclainFlatsAverageDom[4]) + Number(mclainFlatsAverageDom[5]) + Number(mclainFlatsAverageDom[6]) + Number(mclainFlatsAverageDom[7]) + Number(mclainFlatsAverageDom[8]) + Number(mclainFlatsAverageDom[9]) + Number(mclainFlatsAverageDom[10]) + Number(mclainFlatsAverageDom[11]);
+    mclainFlatsAverageDom = Number(mclainFlatsAverageDom) / Number(12);
 
     var snowmassVillageActiveListingsDate = document.getElementById("snowmassVillageActiveListings-dates").innerHTML;
-
     snowmassVillageActiveListingsDate = snowmassVillageActiveListingsDate.split(",");
 
-    var snowmassVillageAbsorbtion = document.getElementById("snowmassVillageAbsorbtion").innerHTML;
+    var snowmassVillageActiveListings = document.getElementById("snowmassVillageActiveListings").innerHTML;
+    snowmassVillageActiveListings = snowmassVillageActiveListings.split(",");
 
-    snowmassVillageAbsorbtion = snowmassVillageAbsorbtion.split(",");
+    var snowmassVillageSoldListings = document.getElementById("snowmassVillageSoldListings").innerHTML;
+    snowmassVillageSoldListings = snowmassVillageSoldListings.split(",");
+    snowmassVillageSoldListings = Number(snowmassVillageSoldListings[0]) + Number(snowmassVillageSoldListings[1]) + Number(snowmassVillageSoldListings[2]) + Number(snowmassVillageSoldListings[3]) + Number(snowmassVillageSoldListings[4]) + Number(snowmassVillageSoldListings[5]) + Number(snowmassVillageSoldListings[6]) + Number(snowmassVillageSoldListings[7]) + Number(snowmassVillageSoldListings[8]) + Number(snowmassVillageSoldListings[9]) + Number(snowmassVillageSoldListings[10]) + Number(snowmassVillageSoldListings[11])
+
 
     var snowmassVillageActiveAvgPrice = document.getElementById("snowmassVillageActiveAvgPrice").innerHTML;
     snowmassVillageActiveAvgPrice = snowmassVillageActiveAvgPrice.split(",");
     snowmassVillageActiveAvgPrice = Number(snowmassVillageActiveAvgPrice[0]).toLocaleString();
 
-
-    var snowmassVillageNewAvgPrice = document.getElementById("snowmassVillageNewAvgPrice").innerHTML;
-
-    snowmassVillageNewAvgPrice = snowmassVillageNewAvgPrice.split(",");
-    snowmassVillageNewAvgPrice = Number(snowmassVillageNewAvgPrice[0]).toLocaleString();
-
-    var snowmassVillagePendedAvgPrice = document.getElementById("snowmassVillagePendedAvgPrice").innerHTML;
-
-    snowmassVillagePendedAvgPrice = snowmassVillagePendedAvgPrice.split(",");
-    snowmassVillagePendedAvgPrice = Number(snowmassVillagePendedAvgPrice[0]).toLocaleString();
-
     var snowmassVillageSoldAvgPrice = document.getElementById("snowmassVillageSoldAvgPrice").innerHTML;
-
     snowmassVillageSoldAvgPrice = snowmassVillageSoldAvgPrice.split(",");
-    snowmassVillageSoldAvgPrice = Number(snowmassVillageSoldAvgPrice[0]).toLocaleString();
+    snowmassVillageSoldAvgPrice = Number(snowmassVillageSoldAvgPrice[0]) + Number(snowmassVillageSoldAvgPrice[1]) + Number(snowmassVillageSoldAvgPrice[2]) + Number(snowmassVillageSoldAvgPrice[3]) + Number(snowmassVillageSoldAvgPrice[4]) + Number(snowmassVillageSoldAvgPrice[5]) + Number(snowmassVillageSoldAvgPrice[6]) + Number(snowmassVillageSoldAvgPrice[7]) + Number(snowmassVillageSoldAvgPrice[8]) + Number(snowmassVillageSoldAvgPrice[9]) + Number(snowmassVillageSoldAvgPrice[10]) + Number(snowmassVillageSoldAvgPrice[11]);
+    snowmassVillageSoldAvgPrice = Number(snowmassVillageSoldAvgPrice) / Number(12);
+    snowmassVillageSoldAvgPrice = Number(snowmassVillageSoldAvgPrice).toLocaleString();
 
-    var snowmassVillageSoldAvgSoldPrice = document.getElementById("snowmassVillageSoldAvgSoldPrice").innerHTML;
 
-    snowmassVillageSoldAvgSoldPrice = snowmassVillageSoldAvgSoldPrice.split(",");
-    snowmassVillageSoldAvgSoldPrice = Number(snowmassVillageSoldAvgSoldPrice[0]).toLocaleString();
-
-    var snowmassVillageActiveMedianPrice = document.getElementById("snowmassVillageActiveMedianPrice").innerHTML;
-    snowmassVillageActiveMedianPrice = snowmassVillageActiveMedianPrice.split(",");
-    snowmassVillageActiveMedianPrice = Number(snowmassVillageActiveMedianPrice[0]).toLocaleString();
-
-    var snowmassVillageNewMedianPrice = document.getElementById("snowmassVillageNewMedianPrice").innerHTML;
-
-    snowmassVillageNewMedianPrice = snowmassVillageNewMedianPrice.split(",");
-    snowmassVillageNewMedianPrice = Number(snowmassVillageNewMedianPrice[0]).toLocaleString();
-
-    var snowmassVillagePendedMedianPrice = document.getElementById("snowmassVillagePendedMedianPrice").innerHTML;
-
-    snowmassVillagePendedMedianPrice = snowmassVillagePendedMedianPrice.split(",");
-    snowmassVillagePendedMedianPrice = Number(snowmassVillagePendedMedianPrice[0]).toLocaleString();
 
     var snowmassVillageSoldMedianPrice = document.getElementById("snowmassVillageSoldMedianPrice").innerHTML;
-
     snowmassVillageSoldMedianPrice = snowmassVillageSoldMedianPrice.split(",");
-    snowmassVillageSoldMedianPrice = Number(snowmassVillageSoldMedianPrice[0]).toLocaleString();
-
-
-    var snowmassVillageSoldMedianSoldPrice = document.getElementById("snowmassVillageSoldMedianSoldPrice").innerHTML;
-
-    snowmassVillageSoldMedianSoldPrice = snowmassVillageSoldMedianSoldPrice.split(",");
-    snowmassVillageSoldMedianSoldPrice = Number(snowmassVillageSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var snowmassVillageSaleToOriginalListPriceRatio = document.getElementById("snowmassVillageSaleToOriginalListPriceRatio").innerHTML;
-
-    snowmassVillageSaleToOriginalListPriceRatio = snowmassVillageSaleToOriginalListPriceRatio.split(",");
-
-    var snowmassVillageSaleToListPriceRatio = document.getElementById("snowmassVillageSaleToListPriceRatio").innerHTML;
-
-    snowmassVillageSaleToListPriceRatio = snowmassVillageSaleToListPriceRatio.split(",");
+    snowmassVillageSoldMedianPrice = Number(snowmassVillageSoldMedianPrice[0]) + Number(snowmassVillageSoldMedianPrice[1]) + Number(snowmassVillageSoldMedianPrice[2]) + Number(snowmassVillageSoldMedianPrice[3]) + Number(snowmassVillageSoldMedianPrice[4]) + Number(snowmassVillageSoldMedianPrice[5]) + Number(snowmassVillageSoldMedianPrice[6]) + Number(snowmassVillageSoldMedianPrice[7]) + Number(snowmassVillageSoldMedianPrice[8]) + Number(snowmassVillageSoldMedianPrice[9]) + Number(snowmassVillageSoldMedianPrice[10]) + Number(snowmassVillageSoldMedianPrice[11]);
+    snowmassVillageSoldMedianPrice = Number(snowmassVillageSoldMedianPrice) / Number(12);
+    snowmassVillageSoldMedianPrice = Number(snowmassVillageSoldMedianPrice).toLocaleString();
 
     var snowmassVillageAverageDom = document.getElementById("snowmassVillageAverageDom").innerHTML;
     snowmassVillageAverageDom = snowmassVillageAverageDom.split(",");
+    snowmassVillageAverageDom = Number(snowmassVillageAverageDom[0]) + Number(snowmassVillageAverageDom[1]) + Number(snowmassVillageAverageDom[2]) + Number(snowmassVillageAverageDom[3]) + Number(snowmassVillageAverageDom[4]) + Number(snowmassVillageAverageDom[5]) + Number(snowmassVillageAverageDom[6]) + Number(snowmassVillageAverageDom[7]) + Number(snowmassVillageAverageDom[8]) + Number(snowmassVillageAverageDom[9]) + Number(snowmassVillageAverageDom[10]) + Number(snowmassVillageAverageDom[11]);
+    snowmassVillageAverageDom = Number(snowmassVillageAverageDom) / Number(12);
 
-    var snowmassVillageAverageCdom = document.getElementById("snowmassVillageAverageCdom").innerHTML;
-    snowmassVillageAverageCdom = snowmassVillageAverageCdom.split(",");
-
-
-    var snowmassVillageActiveListVolume = document.getElementById("snowmassVillageActiveListVolume").innerHTML;
-    snowmassVillageActiveListVolume = snowmassVillageActiveListVolume.split(",");
-
-    var snowmassVillageNewListVolume = document.getElementById("snowmassVillageNewListVolume").innerHTML;
-    snowmassVillageNewListVolume = snowmassVillageNewListVolume.split(",");
-
-    var snowmassVillagePendedListVolume = document.getElementById("snowmassVillagePendedListVolume").innerHTML;
-    snowmassVillagePendedListVolume = snowmassVillagePendedListVolume.split(",");
-
-    var snowmassVillageSoldListVolume = document.getElementById("snowmassVillageSoldListVolume").innerHTML;
-    snowmassVillageSoldListVolume = snowmassVillageSoldListVolume.split(",");
-
-    var snowmassVillageSoldSaleVolume = document.getElementById("snowmassVillageSoldSaleVolume").innerHTML;
-    snowmassVillageSoldSaleVolume = snowmassVillageSoldSaleVolume.split(",");
-    var brushCreekNewListings = document.getElementById("brushCreekNewListings").innerHTML;
-
-    brushCreekNewListings = brushCreekNewListings.split(",");
-
-    var brushCreekPendedListings = document.getElementById("brushCreekPendedListings").innerHTML;
-
-    brushCreekPendedListings = brushCreekPendedListings.split(",");
-
-
-    var brushCreekSoldListings = document.getElementById("brushCreekSoldListings").innerHTML;
-
-    brushCreekSoldListings = brushCreekSoldListings.split(",");
-
-
-    var brushCreekActiveListings = document.getElementById("brushCreekActiveListings").innerHTML;
-
-    brushCreekActiveListings = brushCreekActiveListings.split(",");
 
     var brushCreekActiveListingsDate = document.getElementById("brushCreekActiveListings-dates").innerHTML;
-
     brushCreekActiveListingsDate = brushCreekActiveListingsDate.split(",");
 
-    var brushCreekAbsorbtion = document.getElementById("brushCreekAbsorbtion").innerHTML;
+    var brushCreekActiveListings = document.getElementById("brushCreekActiveListings").innerHTML;
+    brushCreekActiveListings = brushCreekActiveListings.split(",");
 
-    brushCreekAbsorbtion = brushCreekAbsorbtion.split(",");
+    var brushCreekSoldListings = document.getElementById("brushCreekSoldListings").innerHTML;
+    brushCreekSoldListings = brushCreekSoldListings.split(",");
+    brushCreekSoldListings = Number(brushCreekSoldListings[0]) + Number(brushCreekSoldListings[1]) + Number(brushCreekSoldListings[2]) + Number(brushCreekSoldListings[3]) + Number(brushCreekSoldListings[4]) + Number(brushCreekSoldListings[5]) + Number(brushCreekSoldListings[6]) + Number(brushCreekSoldListings[7]) + Number(brushCreekSoldListings[8]) + Number(brushCreekSoldListings[9]) + Number(brushCreekSoldListings[10]) + Number(brushCreekSoldListings[11])
+
 
     var brushCreekActiveAvgPrice = document.getElementById("brushCreekActiveAvgPrice").innerHTML;
     brushCreekActiveAvgPrice = brushCreekActiveAvgPrice.split(",");
     brushCreekActiveAvgPrice = Number(brushCreekActiveAvgPrice[0]).toLocaleString();
 
-
-    var brushCreekNewAvgPrice = document.getElementById("brushCreekNewAvgPrice").innerHTML;
-
-    brushCreekNewAvgPrice = brushCreekNewAvgPrice.split(",");
-    brushCreekNewAvgPrice = Number(brushCreekNewAvgPrice[0]).toLocaleString();
-
-    var brushCreekPendedAvgPrice = document.getElementById("brushCreekPendedAvgPrice").innerHTML;
-
-    brushCreekPendedAvgPrice = brushCreekPendedAvgPrice.split(",");
-    brushCreekPendedAvgPrice = Number(brushCreekPendedAvgPrice[0]).toLocaleString();
-
     var brushCreekSoldAvgPrice = document.getElementById("brushCreekSoldAvgPrice").innerHTML;
-
     brushCreekSoldAvgPrice = brushCreekSoldAvgPrice.split(",");
-    brushCreekSoldAvgPrice = Number(brushCreekSoldAvgPrice[0]).toLocaleString();
+    brushCreekSoldAvgPrice = Number(brushCreekSoldAvgPrice[0]) + Number(brushCreekSoldAvgPrice[1]) + Number(brushCreekSoldAvgPrice[2]) + Number(brushCreekSoldAvgPrice[3]) + Number(brushCreekSoldAvgPrice[4]) + Number(brushCreekSoldAvgPrice[5]) + Number(brushCreekSoldAvgPrice[6]) + Number(brushCreekSoldAvgPrice[7]) + Number(brushCreekSoldAvgPrice[8]) + Number(brushCreekSoldAvgPrice[9]) + Number(brushCreekSoldAvgPrice[10]) + Number(brushCreekSoldAvgPrice[11]);
+    brushCreekSoldAvgPrice = Number(brushCreekSoldAvgPrice) / Number(12);
+    brushCreekSoldAvgPrice = Number(brushCreekSoldAvgPrice).toLocaleString();
 
-    var brushCreekSoldAvgSoldPrice = document.getElementById("brushCreekSoldAvgSoldPrice").innerHTML;
 
-    brushCreekSoldAvgSoldPrice = brushCreekSoldAvgSoldPrice.split(",");
-    brushCreekSoldAvgSoldPrice = Number(brushCreekSoldAvgSoldPrice[0]).toLocaleString();
-
-    var brushCreekActiveMedianPrice = document.getElementById("brushCreekActiveMedianPrice").innerHTML;
-    brushCreekActiveMedianPrice = brushCreekActiveMedianPrice.split(",");
-    brushCreekActiveMedianPrice = Number(brushCreekActiveMedianPrice[0]).toLocaleString();
-
-    var brushCreekNewMedianPrice = document.getElementById("brushCreekNewMedianPrice").innerHTML;
-
-    brushCreekNewMedianPrice = brushCreekNewMedianPrice.split(",");
-    brushCreekNewMedianPrice = Number(brushCreekNewMedianPrice[0]).toLocaleString();
-
-    var brushCreekPendedMedianPrice = document.getElementById("brushCreekPendedMedianPrice").innerHTML;
-
-    brushCreekPendedMedianPrice = brushCreekPendedMedianPrice.split(",");
-    brushCreekPendedMedianPrice = Number(brushCreekPendedMedianPrice[0]).toLocaleString();
 
     var brushCreekSoldMedianPrice = document.getElementById("brushCreekSoldMedianPrice").innerHTML;
-
     brushCreekSoldMedianPrice = brushCreekSoldMedianPrice.split(",");
-    brushCreekSoldMedianPrice = Number(brushCreekSoldMedianPrice[0]).toLocaleString();
-
-
-    var brushCreekSoldMedianSoldPrice = document.getElementById("brushCreekSoldMedianSoldPrice").innerHTML;
-
-    brushCreekSoldMedianSoldPrice = brushCreekSoldMedianSoldPrice.split(",");
-    brushCreekSoldMedianSoldPrice = Number(brushCreekSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var brushCreekSaleToOriginalListPriceRatio = document.getElementById("brushCreekSaleToOriginalListPriceRatio").innerHTML;
-
-    brushCreekSaleToOriginalListPriceRatio = brushCreekSaleToOriginalListPriceRatio.split(",");
-
-    var brushCreekSaleToListPriceRatio = document.getElementById("brushCreekSaleToListPriceRatio").innerHTML;
-
-    brushCreekSaleToListPriceRatio = brushCreekSaleToListPriceRatio.split(",");
+    brushCreekSoldMedianPrice = Number(brushCreekSoldMedianPrice[0]) + Number(brushCreekSoldMedianPrice[1]) + Number(brushCreekSoldMedianPrice[2]) + Number(brushCreekSoldMedianPrice[3]) + Number(brushCreekSoldMedianPrice[4]) + Number(brushCreekSoldMedianPrice[5]) + Number(brushCreekSoldMedianPrice[6]) + Number(brushCreekSoldMedianPrice[7]) + Number(brushCreekSoldMedianPrice[8]) + Number(brushCreekSoldMedianPrice[9]) + Number(brushCreekSoldMedianPrice[10]) + Number(brushCreekSoldMedianPrice[11]);
+    brushCreekSoldMedianPrice = Number(brushCreekSoldMedianPrice) / Number(12);
+    brushCreekSoldMedianPrice = Number(brushCreekSoldMedianPrice).toLocaleString();
 
     var brushCreekAverageDom = document.getElementById("brushCreekAverageDom").innerHTML;
     brushCreekAverageDom = brushCreekAverageDom.split(",");
-
-    var brushCreekAverageCdom = document.getElementById("brushCreekAverageCdom").innerHTML;
-    brushCreekAverageCdom = brushCreekAverageCdom.split(",");
-
-
-    var brushCreekActiveListVolume = document.getElementById("brushCreekActiveListVolume").innerHTML;
-    brushCreekActiveListVolume = brushCreekActiveListVolume.split(",");
-
-    var brushCreekNewListVolume = document.getElementById("brushCreekNewListVolume").innerHTML;
-    brushCreekNewListVolume = brushCreekNewListVolume.split(",");
-
-    var brushCreekPendedListVolume = document.getElementById("brushCreekPendedListVolume").innerHTML;
-    brushCreekPendedListVolume = brushCreekPendedListVolume.split(",");
-
-    var brushCreekSoldListVolume = document.getElementById("brushCreekSoldListVolume").innerHTML;
-    brushCreekSoldListVolume = brushCreekSoldListVolume.split(",");
-
-    var brushCreekSoldSaleVolume = document.getElementById("brushCreekSoldSaleVolume").innerHTML;
-    brushCreekSoldSaleVolume = brushCreekSoldSaleVolume.split(",");
-
-    var woodyCreekNewListings = document.getElementById("woodyCreekNewListings").innerHTML;
-
-    woodyCreekNewListings = woodyCreekNewListings.split(",");
-
-    var woodyCreekPendedListings = document.getElementById("woodyCreekPendedListings").innerHTML;
-
-    woodyCreekPendedListings = woodyCreekPendedListings.split(",");
+    brushCreekAverageDom = Number(brushCreekAverageDom[0]) + Number(brushCreekAverageDom[1]) + Number(brushCreekAverageDom[2]) + Number(brushCreekAverageDom[3]) + Number(brushCreekAverageDom[4]) + Number(brushCreekAverageDom[5]) + Number(brushCreekAverageDom[6]) + Number(brushCreekAverageDom[7]) + Number(brushCreekAverageDom[8]) + Number(brushCreekAverageDom[9]) + Number(brushCreekAverageDom[10]) + Number(brushCreekAverageDom[11]);
+    brushCreekAverageDom = Number(brushCreekAverageDom) / Number(12);
 
 
-    var woodyCreekSoldListings = document.getElementById("woodyCreekSoldListings").innerHTML;
-
-    woodyCreekSoldListings = woodyCreekSoldListings.split(",");
-
-
-    var woodyCreekActiveListings = document.getElementById("woodyCreekActiveListings").innerHTML;
-
-    woodyCreekActiveListings = woodyCreekActiveListings.split(",");
 
     var woodyCreekActiveListingsDate = document.getElementById("woodyCreekActiveListings-dates").innerHTML;
-
     woodyCreekActiveListingsDate = woodyCreekActiveListingsDate.split(",");
 
-    var woodyCreekAbsorbtion = document.getElementById("woodyCreekAbsorbtion").innerHTML;
+    var woodyCreekActiveListings = document.getElementById("woodyCreekActiveListings").innerHTML;
+    woodyCreekActiveListings = woodyCreekActiveListings.split(",");
 
-    woodyCreekAbsorbtion = woodyCreekAbsorbtion.split(",");
+    var woodyCreekSoldListings = document.getElementById("woodyCreekSoldListings").innerHTML;
+    woodyCreekSoldListings = woodyCreekSoldListings.split(",");
+    woodyCreekSoldListings = Number(woodyCreekSoldListings[0]) + Number(woodyCreekSoldListings[1]) + Number(woodyCreekSoldListings[2]) + Number(woodyCreekSoldListings[3]) + Number(woodyCreekSoldListings[4]) + Number(woodyCreekSoldListings[5]) + Number(woodyCreekSoldListings[6]) + Number(woodyCreekSoldListings[7]) + Number(woodyCreekSoldListings[8]) + Number(woodyCreekSoldListings[9]) + Number(woodyCreekSoldListings[10]) + Number(woodyCreekSoldListings[11])
+
 
     var woodyCreekActiveAvgPrice = document.getElementById("woodyCreekActiveAvgPrice").innerHTML;
     woodyCreekActiveAvgPrice = woodyCreekActiveAvgPrice.split(",");
     woodyCreekActiveAvgPrice = Number(woodyCreekActiveAvgPrice[0]).toLocaleString();
 
-
-    var woodyCreekNewAvgPrice = document.getElementById("woodyCreekNewAvgPrice").innerHTML;
-
-    woodyCreekNewAvgPrice = woodyCreekNewAvgPrice.split(",");
-    woodyCreekNewAvgPrice = Number(woodyCreekNewAvgPrice[0]).toLocaleString();
-
-    var woodyCreekPendedAvgPrice = document.getElementById("woodyCreekPendedAvgPrice").innerHTML;
-
-    woodyCreekPendedAvgPrice = woodyCreekPendedAvgPrice.split(",");
-    woodyCreekPendedAvgPrice = Number(woodyCreekPendedAvgPrice[0]).toLocaleString();
-
     var woodyCreekSoldAvgPrice = document.getElementById("woodyCreekSoldAvgPrice").innerHTML;
-
     woodyCreekSoldAvgPrice = woodyCreekSoldAvgPrice.split(",");
-    woodyCreekSoldAvgPrice = Number(woodyCreekSoldAvgPrice[0]).toLocaleString();
+    woodyCreekSoldAvgPrice = Number(woodyCreekSoldAvgPrice[0]) + Number(woodyCreekSoldAvgPrice[1]) + Number(woodyCreekSoldAvgPrice[2]) + Number(woodyCreekSoldAvgPrice[3]) + Number(woodyCreekSoldAvgPrice[4]) + Number(woodyCreekSoldAvgPrice[5]) + Number(woodyCreekSoldAvgPrice[6]) + Number(woodyCreekSoldAvgPrice[7]) + Number(woodyCreekSoldAvgPrice[8]) + Number(woodyCreekSoldAvgPrice[9]) + Number(woodyCreekSoldAvgPrice[10]) + Number(woodyCreekSoldAvgPrice[11]);
+    woodyCreekSoldAvgPrice = Number(woodyCreekSoldAvgPrice) / Number(12);
+    woodyCreekSoldAvgPrice = Number(woodyCreekSoldAvgPrice).toLocaleString();
 
-    var woodyCreekSoldAvgSoldPrice = document.getElementById("woodyCreekSoldAvgSoldPrice").innerHTML;
 
-    woodyCreekSoldAvgSoldPrice = woodyCreekSoldAvgSoldPrice.split(",");
-    woodyCreekSoldAvgSoldPrice = Number(woodyCreekSoldAvgSoldPrice[0]).toLocaleString();
-
-    var woodyCreekActiveMedianPrice = document.getElementById("woodyCreekActiveMedianPrice").innerHTML;
-    woodyCreekActiveMedianPrice = woodyCreekActiveMedianPrice.split(",");
-    woodyCreekActiveMedianPrice = Number(woodyCreekActiveMedianPrice[0]).toLocaleString();
-
-    var woodyCreekNewMedianPrice = document.getElementById("woodyCreekNewMedianPrice").innerHTML;
-
-    woodyCreekNewMedianPrice = woodyCreekNewMedianPrice.split(",");
-    woodyCreekNewMedianPrice = Number(woodyCreekNewMedianPrice[0]).toLocaleString();
-
-    var woodyCreekPendedMedianPrice = document.getElementById("woodyCreekPendedMedianPrice").innerHTML;
-
-    woodyCreekPendedMedianPrice = woodyCreekPendedMedianPrice.split(",");
-    woodyCreekPendedMedianPrice = Number(woodyCreekPendedMedianPrice[0]).toLocaleString();
 
     var woodyCreekSoldMedianPrice = document.getElementById("woodyCreekSoldMedianPrice").innerHTML;
-
     woodyCreekSoldMedianPrice = woodyCreekSoldMedianPrice.split(",");
-    woodyCreekSoldMedianPrice = Number(woodyCreekSoldMedianPrice[0]).toLocaleString();
-
-
-    var woodyCreekSoldMedianSoldPrice = document.getElementById("woodyCreekSoldMedianSoldPrice").innerHTML;
-
-    woodyCreekSoldMedianSoldPrice = woodyCreekSoldMedianSoldPrice.split(",");
-    woodyCreekSoldMedianSoldPrice = Number(woodyCreekSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var woodyCreekSaleToOriginalListPriceRatio = document.getElementById("woodyCreekSaleToOriginalListPriceRatio").innerHTML;
-
-    woodyCreekSaleToOriginalListPriceRatio = woodyCreekSaleToOriginalListPriceRatio.split(",");
-
-    var woodyCreekSaleToListPriceRatio = document.getElementById("woodyCreekSaleToListPriceRatio").innerHTML;
-
-    woodyCreekSaleToListPriceRatio = woodyCreekSaleToListPriceRatio.split(",");
+    woodyCreekSoldMedianPrice = Number(woodyCreekSoldMedianPrice[0]) + Number(woodyCreekSoldMedianPrice[1]) + Number(woodyCreekSoldMedianPrice[2]) + Number(woodyCreekSoldMedianPrice[3]) + Number(woodyCreekSoldMedianPrice[4]) + Number(woodyCreekSoldMedianPrice[5]) + Number(woodyCreekSoldMedianPrice[6]) + Number(woodyCreekSoldMedianPrice[7]) + Number(woodyCreekSoldMedianPrice[8]) + Number(woodyCreekSoldMedianPrice[9]) + Number(woodyCreekSoldMedianPrice[10]) + Number(woodyCreekSoldMedianPrice[11]);
+    woodyCreekSoldMedianPrice = Number(woodyCreekSoldMedianPrice) / Number(12);
+    woodyCreekSoldMedianPrice = Number(woodyCreekSoldMedianPrice).toLocaleString();
 
     var woodyCreekAverageDom = document.getElementById("woodyCreekAverageDom").innerHTML;
     woodyCreekAverageDom = woodyCreekAverageDom.split(",");
-
-    var woodyCreekAverageCdom = document.getElementById("woodyCreekAverageCdom").innerHTML;
-    woodyCreekAverageCdom = woodyCreekAverageCdom.split(",");
-
-
-    var woodyCreekActiveListVolume = document.getElementById("woodyCreekActiveListVolume").innerHTML;
-    woodyCreekActiveListVolume = woodyCreekActiveListVolume.split(",");
-
-    var woodyCreekNewListVolume = document.getElementById("woodyCreekNewListVolume").innerHTML;
-    woodyCreekNewListVolume = woodyCreekNewListVolume.split(",");
-
-    var woodyCreekPendedListVolume = document.getElementById("woodyCreekPendedListVolume").innerHTML;
-    woodyCreekPendedListVolume = woodyCreekPendedListVolume.split(",");
-
-    var woodyCreekSoldListVolume = document.getElementById("woodyCreekSoldListVolume").innerHTML;
-    woodyCreekSoldListVolume = woodyCreekSoldListVolume.split(",");
-
-    var woodyCreekSoldSaleVolume = document.getElementById("woodyCreekSoldSaleVolume").innerHTML;
-    woodyCreekSoldSaleVolume = woodyCreekSoldSaleVolume.split(",");
-
-    var oldSnowmassNewListings = document.getElementById("oldSnowmassNewListings").innerHTML;
-
-    oldSnowmassNewListings = oldSnowmassNewListings.split(",");
-
-    var oldSnowmassPendedListings = document.getElementById("oldSnowmassPendedListings").innerHTML;
-
-    oldSnowmassPendedListings = oldSnowmassPendedListings.split(",");
+    woodyCreekAverageDom = Number(woodyCreekAverageDom[0]) + Number(woodyCreekAverageDom[1]) + Number(woodyCreekAverageDom[2]) + Number(woodyCreekAverageDom[3]) + Number(woodyCreekAverageDom[4]) + Number(woodyCreekAverageDom[5]) + Number(woodyCreekAverageDom[6]) + Number(woodyCreekAverageDom[7]) + Number(woodyCreekAverageDom[8]) + Number(woodyCreekAverageDom[9]) + Number(woodyCreekAverageDom[10]) + Number(woodyCreekAverageDom[11]);
+    woodyCreekAverageDom = Number(woodyCreekAverageDom) / Number(12);
 
 
-    var oldSnowmassSoldListings = document.getElementById("oldSnowmassSoldListings").innerHTML;
-
-    oldSnowmassSoldListings = oldSnowmassSoldListings.split(",");
-
-
-    var oldSnowmassActiveListings = document.getElementById("oldSnowmassActiveListings").innerHTML;
-
-    oldSnowmassActiveListings = oldSnowmassActiveListings.split(",");
 
     var oldSnowmassActiveListingsDate = document.getElementById("oldSnowmassActiveListings-dates").innerHTML;
-
     oldSnowmassActiveListingsDate = oldSnowmassActiveListingsDate.split(",");
 
-    var oldSnowmassAbsorbtion = document.getElementById("oldSnowmassAbsorbtion").innerHTML;
+    var oldSnowmassActiveListings = document.getElementById("oldSnowmassActiveListings").innerHTML;
+    oldSnowmassActiveListings = oldSnowmassActiveListings.split(",");
 
-    oldSnowmassAbsorbtion = oldSnowmassAbsorbtion.split(",");
+    var oldSnowmassSoldListings = document.getElementById("oldSnowmassSoldListings").innerHTML;
+    oldSnowmassSoldListings = oldSnowmassSoldListings.split(",");
+    oldSnowmassSoldListings = Number(oldSnowmassSoldListings[0]) + Number(oldSnowmassSoldListings[1]) + Number(oldSnowmassSoldListings[2]) + Number(oldSnowmassSoldListings[3]) + Number(oldSnowmassSoldListings[4]) + Number(oldSnowmassSoldListings[5]) + Number(oldSnowmassSoldListings[6]) + Number(oldSnowmassSoldListings[7]) + Number(oldSnowmassSoldListings[8]) + Number(oldSnowmassSoldListings[9]) + Number(oldSnowmassSoldListings[10]) + Number(oldSnowmassSoldListings[11])
+
 
     var oldSnowmassActiveAvgPrice = document.getElementById("oldSnowmassActiveAvgPrice").innerHTML;
     oldSnowmassActiveAvgPrice = oldSnowmassActiveAvgPrice.split(",");
     oldSnowmassActiveAvgPrice = Number(oldSnowmassActiveAvgPrice[0]).toLocaleString();
 
-
-    var oldSnowmassNewAvgPrice = document.getElementById("oldSnowmassNewAvgPrice").innerHTML;
-
-    oldSnowmassNewAvgPrice = oldSnowmassNewAvgPrice.split(",");
-    oldSnowmassNewAvgPrice = Number(oldSnowmassNewAvgPrice[0]).toLocaleString();
-
-    var oldSnowmassPendedAvgPrice = document.getElementById("oldSnowmassPendedAvgPrice").innerHTML;
-
-    oldSnowmassPendedAvgPrice = oldSnowmassPendedAvgPrice.split(",");
-    oldSnowmassPendedAvgPrice = Number(oldSnowmassPendedAvgPrice[0]).toLocaleString();
-
     var oldSnowmassSoldAvgPrice = document.getElementById("oldSnowmassSoldAvgPrice").innerHTML;
-
     oldSnowmassSoldAvgPrice = oldSnowmassSoldAvgPrice.split(",");
-    oldSnowmassSoldAvgPrice = Number(oldSnowmassSoldAvgPrice[0]).toLocaleString();
+    oldSnowmassSoldAvgPrice = Number(oldSnowmassSoldAvgPrice[0]) + Number(oldSnowmassSoldAvgPrice[1]) + Number(oldSnowmassSoldAvgPrice[2]) + Number(oldSnowmassSoldAvgPrice[3]) + Number(oldSnowmassSoldAvgPrice[4]) + Number(oldSnowmassSoldAvgPrice[5]) + Number(oldSnowmassSoldAvgPrice[6]) + Number(oldSnowmassSoldAvgPrice[7]) + Number(oldSnowmassSoldAvgPrice[8]) + Number(oldSnowmassSoldAvgPrice[9]) + Number(oldSnowmassSoldAvgPrice[10]) + Number(oldSnowmassSoldAvgPrice[11]);
+    oldSnowmassSoldAvgPrice = Number(oldSnowmassSoldAvgPrice) / Number(12);
+    oldSnowmassSoldAvgPrice = Number(oldSnowmassSoldAvgPrice).toLocaleString();
 
-    var oldSnowmassSoldAvgSoldPrice = document.getElementById("oldSnowmassSoldAvgSoldPrice").innerHTML;
 
-    oldSnowmassSoldAvgSoldPrice = oldSnowmassSoldAvgSoldPrice.split(",");
-    oldSnowmassSoldAvgSoldPrice = Number(oldSnowmassSoldAvgSoldPrice[0]).toLocaleString();
-
-    var oldSnowmassActiveMedianPrice = document.getElementById("oldSnowmassActiveMedianPrice").innerHTML;
-    oldSnowmassActiveMedianPrice = oldSnowmassActiveMedianPrice.split(",");
-    oldSnowmassActiveMedianPrice = Number(oldSnowmassActiveMedianPrice[0]).toLocaleString();
-
-    var oldSnowmassNewMedianPrice = document.getElementById("oldSnowmassNewMedianPrice").innerHTML;
-
-    oldSnowmassNewMedianPrice = oldSnowmassNewMedianPrice.split(",");
-    oldSnowmassNewMedianPrice = Number(oldSnowmassNewMedianPrice[0]).toLocaleString();
-
-    var oldSnowmassPendedMedianPrice = document.getElementById("oldSnowmassPendedMedianPrice").innerHTML;
-
-    oldSnowmassPendedMedianPrice = oldSnowmassPendedMedianPrice.split(",");
-    oldSnowmassPendedMedianPrice = Number(oldSnowmassPendedMedianPrice[0]).toLocaleString();
 
     var oldSnowmassSoldMedianPrice = document.getElementById("oldSnowmassSoldMedianPrice").innerHTML;
-
     oldSnowmassSoldMedianPrice = oldSnowmassSoldMedianPrice.split(",");
-    oldSnowmassSoldMedianPrice = Number(oldSnowmassSoldMedianPrice[0]).toLocaleString();
-
-
-    var oldSnowmassSoldMedianSoldPrice = document.getElementById("oldSnowmassSoldMedianSoldPrice").innerHTML;
-
-    oldSnowmassSoldMedianSoldPrice = oldSnowmassSoldMedianSoldPrice.split(",");
-    oldSnowmassSoldMedianSoldPrice = Number(oldSnowmassSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var oldSnowmassSaleToOriginalListPriceRatio = document.getElementById("oldSnowmassSaleToOriginalListPriceRatio").innerHTML;
-
-    oldSnowmassSaleToOriginalListPriceRatio = oldSnowmassSaleToOriginalListPriceRatio.split(",");
-
-    var oldSnowmassSaleToListPriceRatio = document.getElementById("oldSnowmassSaleToListPriceRatio").innerHTML;
-
-    oldSnowmassSaleToListPriceRatio = oldSnowmassSaleToListPriceRatio.split(",");
+    oldSnowmassSoldMedianPrice = Number(oldSnowmassSoldMedianPrice[0]) + Number(oldSnowmassSoldMedianPrice[1]) + Number(oldSnowmassSoldMedianPrice[2]) + Number(oldSnowmassSoldMedianPrice[3]) + Number(oldSnowmassSoldMedianPrice[4]) + Number(oldSnowmassSoldMedianPrice[5]) + Number(oldSnowmassSoldMedianPrice[6]) + Number(oldSnowmassSoldMedianPrice[7]) + Number(oldSnowmassSoldMedianPrice[8]) + Number(oldSnowmassSoldMedianPrice[9]) + Number(oldSnowmassSoldMedianPrice[10]) + Number(oldSnowmassSoldMedianPrice[11]);
+    oldSnowmassSoldMedianPrice = Number(oldSnowmassSoldMedianPrice) / Number(12);
+    oldSnowmassSoldMedianPrice = Number(oldSnowmassSoldMedianPrice).toLocaleString();
 
     var oldSnowmassAverageDom = document.getElementById("oldSnowmassAverageDom").innerHTML;
     oldSnowmassAverageDom = oldSnowmassAverageDom.split(",");
-
-    var oldSnowmassAverageCdom = document.getElementById("oldSnowmassAverageCdom").innerHTML;
-    oldSnowmassAverageCdom = oldSnowmassAverageCdom.split(",");
-
-
-    var oldSnowmassActiveListVolume = document.getElementById("oldSnowmassActiveListVolume").innerHTML;
-    oldSnowmassActiveListVolume = oldSnowmassActiveListVolume.split(",");
-
-    var oldSnowmassNewListVolume = document.getElementById("oldSnowmassNewListVolume").innerHTML;
-    oldSnowmassNewListVolume = oldSnowmassNewListVolume.split(",");
-
-    var oldSnowmassPendedListVolume = document.getElementById("oldSnowmassPendedListVolume").innerHTML;
-    oldSnowmassPendedListVolume = oldSnowmassPendedListVolume.split(",");
-
-    var oldSnowmassSoldListVolume = document.getElementById("oldSnowmassSoldListVolume").innerHTML;
-    oldSnowmassSoldListVolume = oldSnowmassSoldListVolume.split(",");
-
-    var oldSnowmassSoldSaleVolume = document.getElementById("oldSnowmassSoldSaleVolume").innerHTML;
-    oldSnowmassSoldSaleVolume = oldSnowmassSoldSaleVolume.split(",");
-
-    var basaltProperNewListings = document.getElementById("basaltProperNewListings").innerHTML;
-
-    basaltProperNewListings = basaltProperNewListings.split(",");
-
-    var basaltProperPendedListings = document.getElementById("basaltProperPendedListings").innerHTML;
-
-    basaltProperPendedListings = basaltProperPendedListings.split(",");
+    oldSnowmassAverageDom = Number(oldSnowmassAverageDom[0]) + Number(oldSnowmassAverageDom[1]) + Number(oldSnowmassAverageDom[2]) + Number(oldSnowmassAverageDom[3]) + Number(oldSnowmassAverageDom[4]) + Number(oldSnowmassAverageDom[5]) + Number(oldSnowmassAverageDom[6]) + Number(oldSnowmassAverageDom[7]) + Number(oldSnowmassAverageDom[8]) + Number(oldSnowmassAverageDom[9]) + Number(oldSnowmassAverageDom[10]) + Number(oldSnowmassAverageDom[11]);
+    oldSnowmassAverageDom = Number(oldSnowmassAverageDom) / Number(12);
 
 
-    var basaltProperSoldListings = document.getElementById("basaltProperSoldListings").innerHTML;
-
-    basaltProperSoldListings = basaltProperSoldListings.split(",");
-
-
-    var basaltProperActiveListings = document.getElementById("basaltProperActiveListings").innerHTML;
-
-    basaltProperActiveListings = basaltProperActiveListings.split(",");
 
     var basaltProperActiveListingsDate = document.getElementById("basaltProperActiveListings-dates").innerHTML;
-
     basaltProperActiveListingsDate = basaltProperActiveListingsDate.split(",");
 
-    var basaltProperAbsorbtion = document.getElementById("basaltProperAbsorbtion").innerHTML;
+    var basaltProperActiveListings = document.getElementById("basaltProperActiveListings").innerHTML;
+    basaltProperActiveListings = basaltProperActiveListings.split(",");
 
-    basaltProperAbsorbtion = basaltProperAbsorbtion.split(",");
+    var basaltProperSoldListings = document.getElementById("basaltProperSoldListings").innerHTML;
+    basaltProperSoldListings = basaltProperSoldListings.split(",");
+    basaltProperSoldListings = Number(basaltProperSoldListings[0]) + Number(basaltProperSoldListings[1]) + Number(basaltProperSoldListings[2]) + Number(basaltProperSoldListings[3]) + Number(basaltProperSoldListings[4]) + Number(basaltProperSoldListings[5]) + Number(basaltProperSoldListings[6]) + Number(basaltProperSoldListings[7]) + Number(basaltProperSoldListings[8]) + Number(basaltProperSoldListings[9]) + Number(basaltProperSoldListings[10]) + Number(basaltProperSoldListings[11])
+
 
     var basaltProperActiveAvgPrice = document.getElementById("basaltProperActiveAvgPrice").innerHTML;
     basaltProperActiveAvgPrice = basaltProperActiveAvgPrice.split(",");
     basaltProperActiveAvgPrice = Number(basaltProperActiveAvgPrice[0]).toLocaleString();
 
-
-    var basaltProperNewAvgPrice = document.getElementById("basaltProperNewAvgPrice").innerHTML;
-
-    basaltProperNewAvgPrice = basaltProperNewAvgPrice.split(",");
-    basaltProperNewAvgPrice = Number(basaltProperNewAvgPrice[0]).toLocaleString();
-
-    var basaltProperPendedAvgPrice = document.getElementById("basaltProperPendedAvgPrice").innerHTML;
-
-    basaltProperPendedAvgPrice = basaltProperPendedAvgPrice.split(",");
-    basaltProperPendedAvgPrice = Number(basaltProperPendedAvgPrice[0]).toLocaleString();
-
     var basaltProperSoldAvgPrice = document.getElementById("basaltProperSoldAvgPrice").innerHTML;
-
     basaltProperSoldAvgPrice = basaltProperSoldAvgPrice.split(",");
-    basaltProperSoldAvgPrice = Number(basaltProperSoldAvgPrice[0]).toLocaleString();
+    basaltProperSoldAvgPrice = Number(basaltProperSoldAvgPrice[0]) + Number(basaltProperSoldAvgPrice[1]) + Number(basaltProperSoldAvgPrice[2]) + Number(basaltProperSoldAvgPrice[3]) + Number(basaltProperSoldAvgPrice[4]) + Number(basaltProperSoldAvgPrice[5]) + Number(basaltProperSoldAvgPrice[6]) + Number(basaltProperSoldAvgPrice[7]) + Number(basaltProperSoldAvgPrice[8]) + Number(basaltProperSoldAvgPrice[9]) + Number(basaltProperSoldAvgPrice[10]) + Number(basaltProperSoldAvgPrice[11]);
+    basaltProperSoldAvgPrice = Number(basaltProperSoldAvgPrice) / Number(12);
+    basaltProperSoldAvgPrice = Number(basaltProperSoldAvgPrice).toLocaleString();
 
-    var basaltProperSoldAvgSoldPrice = document.getElementById("basaltProperSoldAvgSoldPrice").innerHTML;
 
-    basaltProperSoldAvgSoldPrice = basaltProperSoldAvgSoldPrice.split(",");
-    basaltProperSoldAvgSoldPrice = Number(basaltProperSoldAvgSoldPrice[0]).toLocaleString();
-
-    var basaltProperActiveMedianPrice = document.getElementById("basaltProperActiveMedianPrice").innerHTML;
-    basaltProperActiveMedianPrice = basaltProperActiveMedianPrice.split(",");
-    basaltProperActiveMedianPrice = Number(basaltProperActiveMedianPrice[0]).toLocaleString();
-
-    var basaltProperNewMedianPrice = document.getElementById("basaltProperNewMedianPrice").innerHTML;
-
-    basaltProperNewMedianPrice = basaltProperNewMedianPrice.split(",");
-    basaltProperNewMedianPrice = Number(basaltProperNewMedianPrice[0]).toLocaleString();
-
-    var basaltProperPendedMedianPrice = document.getElementById("basaltProperPendedMedianPrice").innerHTML;
-
-    basaltProperPendedMedianPrice = basaltProperPendedMedianPrice.split(",");
-    basaltProperPendedMedianPrice = Number(basaltProperPendedMedianPrice[0]).toLocaleString();
 
     var basaltProperSoldMedianPrice = document.getElementById("basaltProperSoldMedianPrice").innerHTML;
-
     basaltProperSoldMedianPrice = basaltProperSoldMedianPrice.split(",");
-    basaltProperSoldMedianPrice = Number(basaltProperSoldMedianPrice[0]).toLocaleString();
-
-
-    var basaltProperSoldMedianSoldPrice = document.getElementById("basaltProperSoldMedianSoldPrice").innerHTML;
-
-    basaltProperSoldMedianSoldPrice = basaltProperSoldMedianSoldPrice.split(",");
-    basaltProperSoldMedianSoldPrice = Number(basaltProperSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var basaltProperSaleToOriginalListPriceRatio = document.getElementById("basaltProperSaleToOriginalListPriceRatio").innerHTML;
-
-    basaltProperSaleToOriginalListPriceRatio = basaltProperSaleToOriginalListPriceRatio.split(",");
-
-    var basaltProperSaleToListPriceRatio = document.getElementById("basaltProperSaleToListPriceRatio").innerHTML;
-
-    basaltProperSaleToListPriceRatio = basaltProperSaleToListPriceRatio.split(",");
+    basaltProperSoldMedianPrice = Number(basaltProperSoldMedianPrice[0]) + Number(basaltProperSoldMedianPrice[1]) + Number(basaltProperSoldMedianPrice[2]) + Number(basaltProperSoldMedianPrice[3]) + Number(basaltProperSoldMedianPrice[4]) + Number(basaltProperSoldMedianPrice[5]) + Number(basaltProperSoldMedianPrice[6]) + Number(basaltProperSoldMedianPrice[7]) + Number(basaltProperSoldMedianPrice[8]) + Number(basaltProperSoldMedianPrice[9]) + Number(basaltProperSoldMedianPrice[10]) + Number(basaltProperSoldMedianPrice[11]);
+    basaltProperSoldMedianPrice = Number(basaltProperSoldMedianPrice) / Number(12);
+    basaltProperSoldMedianPrice = Number(basaltProperSoldMedianPrice).toLocaleString();
 
     var basaltProperAverageDom = document.getElementById("basaltProperAverageDom").innerHTML;
     basaltProperAverageDom = basaltProperAverageDom.split(",");
+    basaltProperAverageDom = Number(basaltProperAverageDom[0]) + Number(basaltProperAverageDom[1]) + Number(basaltProperAverageDom[2]) + Number(basaltProperAverageDom[3]) + Number(basaltProperAverageDom[4]) + Number(basaltProperAverageDom[5]) + Number(basaltProperAverageDom[6]) + Number(basaltProperAverageDom[7]) + Number(basaltProperAverageDom[8]) + Number(basaltProperAverageDom[9]) + Number(basaltProperAverageDom[10]) + Number(basaltProperAverageDom[11]);
+    basaltProperAverageDom = Number(basaltProperAverageDom) / Number(12);
 
-    var basaltProperAverageCdom = document.getElementById("basaltProperAverageCdom").innerHTML;
-    basaltProperAverageCdom = basaltProperAverageCdom.split(",");
-
-
-    var basaltProperActiveListVolume = document.getElementById("basaltProperActiveListVolume").innerHTML;
-    basaltProperActiveListVolume = basaltProperActiveListVolume.split(",");
-
-    var basaltProperNewListVolume = document.getElementById("basaltProperNewListVolume").innerHTML;
-    basaltProperNewListVolume = basaltProperNewListVolume.split(",");
-
-    var basaltProperPendedListVolume = document.getElementById("basaltProperPendedListVolume").innerHTML;
-    basaltProperPendedListVolume = basaltProperPendedListVolume.split(",");
-
-    var basaltProperSoldListVolume = document.getElementById("basaltProperSoldListVolume").innerHTML;
-    basaltProperSoldListVolume = basaltProperSoldListVolume.split(",");
-
-    var basaltProperSoldSaleVolume = document.getElementById("basaltProperSoldSaleVolume").innerHTML;
-    basaltProperSoldSaleVolume = basaltProperSoldSaleVolume.split(",");
-
-
-
-    var elJebelNewListings = document.getElementById("elJebelNewListings").innerHTML;
-
-    elJebelNewListings = elJebelNewListings.split(",");
-
-    var elJebelPendedListings = document.getElementById("elJebelPendedListings").innerHTML;
-
-    elJebelPendedListings = elJebelPendedListings.split(",");
-
-
-    var elJebelSoldListings = document.getElementById("elJebelSoldListings").innerHTML;
-
-    elJebelSoldListings = elJebelSoldListings.split(",");
-
-
-    var elJebelActiveListings = document.getElementById("elJebelActiveListings").innerHTML;
-
-    elJebelActiveListings = elJebelActiveListings.split(",");
 
     var elJebelActiveListingsDate = document.getElementById("elJebelActiveListings-dates").innerHTML;
-
     elJebelActiveListingsDate = elJebelActiveListingsDate.split(",");
 
-    var elJebelAbsorbtion = document.getElementById("elJebelAbsorbtion").innerHTML;
+    var elJebelActiveListings = document.getElementById("elJebelActiveListings").innerHTML;
+    elJebelActiveListings = elJebelActiveListings.split(",");
 
-    elJebelAbsorbtion = elJebelAbsorbtion.split(",");
+    var elJebelSoldListings = document.getElementById("elJebelSoldListings").innerHTML;
+    elJebelSoldListings = elJebelSoldListings.split(",");
+    elJebelSoldListings = Number(elJebelSoldListings[0]) + Number(elJebelSoldListings[1]) + Number(elJebelSoldListings[2]) + Number(elJebelSoldListings[3]) + Number(elJebelSoldListings[4]) + Number(elJebelSoldListings[5]) + Number(elJebelSoldListings[6]) + Number(elJebelSoldListings[7]) + Number(elJebelSoldListings[8]) + Number(elJebelSoldListings[9]) + Number(elJebelSoldListings[10]) + Number(elJebelSoldListings[11])
+
 
     var elJebelActiveAvgPrice = document.getElementById("elJebelActiveAvgPrice").innerHTML;
     elJebelActiveAvgPrice = elJebelActiveAvgPrice.split(",");
     elJebelActiveAvgPrice = Number(elJebelActiveAvgPrice[0]).toLocaleString();
 
-
-    var elJebelNewAvgPrice = document.getElementById("elJebelNewAvgPrice").innerHTML;
-
-    elJebelNewAvgPrice = elJebelNewAvgPrice.split(",");
-    elJebelNewAvgPrice = Number(elJebelNewAvgPrice[0]).toLocaleString();
-
-    var elJebelPendedAvgPrice = document.getElementById("elJebelPendedAvgPrice").innerHTML;
-
-    elJebelPendedAvgPrice = elJebelPendedAvgPrice.split(",");
-    elJebelPendedAvgPrice = Number(elJebelPendedAvgPrice[0]).toLocaleString();
-
     var elJebelSoldAvgPrice = document.getElementById("elJebelSoldAvgPrice").innerHTML;
-
     elJebelSoldAvgPrice = elJebelSoldAvgPrice.split(",");
-    elJebelSoldAvgPrice = Number(elJebelSoldAvgPrice[0]).toLocaleString();
+    elJebelSoldAvgPrice = Number(elJebelSoldAvgPrice[0]) + Number(elJebelSoldAvgPrice[1]) + Number(elJebelSoldAvgPrice[2]) + Number(elJebelSoldAvgPrice[3]) + Number(elJebelSoldAvgPrice[4]) + Number(elJebelSoldAvgPrice[5]) + Number(elJebelSoldAvgPrice[6]) + Number(elJebelSoldAvgPrice[7]) + Number(elJebelSoldAvgPrice[8]) + Number(elJebelSoldAvgPrice[9]) + Number(elJebelSoldAvgPrice[10]) + Number(elJebelSoldAvgPrice[11]);
+    elJebelSoldAvgPrice = Number(elJebelSoldAvgPrice) / Number(12);
+    elJebelSoldAvgPrice = Number(elJebelSoldAvgPrice).toLocaleString();
 
-    var elJebelSoldAvgSoldPrice = document.getElementById("elJebelSoldAvgSoldPrice").innerHTML;
 
-    elJebelSoldAvgSoldPrice = elJebelSoldAvgSoldPrice.split(",");
-    elJebelSoldAvgSoldPrice = Number(elJebelSoldAvgSoldPrice[0]).toLocaleString();
-
-    var elJebelActiveMedianPrice = document.getElementById("elJebelActiveMedianPrice").innerHTML;
-    elJebelActiveMedianPrice = elJebelActiveMedianPrice.split(",");
-    elJebelActiveMedianPrice = Number(elJebelActiveMedianPrice[0]).toLocaleString();
-
-    var elJebelNewMedianPrice = document.getElementById("elJebelNewMedianPrice").innerHTML;
-
-    elJebelNewMedianPrice = elJebelNewMedianPrice.split(",");
-    elJebelNewMedianPrice = Number(elJebelNewMedianPrice[0]).toLocaleString();
-
-    var elJebelPendedMedianPrice = document.getElementById("elJebelPendedMedianPrice").innerHTML;
-
-    elJebelPendedMedianPrice = elJebelPendedMedianPrice.split(",");
-    elJebelPendedMedianPrice = Number(elJebelPendedMedianPrice[0]).toLocaleString();
 
     var elJebelSoldMedianPrice = document.getElementById("elJebelSoldMedianPrice").innerHTML;
-
     elJebelSoldMedianPrice = elJebelSoldMedianPrice.split(",");
-    elJebelSoldMedianPrice = Number(elJebelSoldMedianPrice[0]).toLocaleString();
-
-
-    var elJebelSoldMedianSoldPrice = document.getElementById("elJebelSoldMedianSoldPrice").innerHTML;
-
-    elJebelSoldMedianSoldPrice = elJebelSoldMedianSoldPrice.split(",");
-    elJebelSoldMedianSoldPrice = Number(elJebelSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var elJebelSaleToOriginalListPriceRatio = document.getElementById("elJebelSaleToOriginalListPriceRatio").innerHTML;
-
-    elJebelSaleToOriginalListPriceRatio = elJebelSaleToOriginalListPriceRatio.split(",");
-
-    var elJebelSaleToListPriceRatio = document.getElementById("elJebelSaleToListPriceRatio").innerHTML;
-
-    elJebelSaleToListPriceRatio = elJebelSaleToListPriceRatio.split(",");
+    elJebelSoldMedianPrice = Number(elJebelSoldMedianPrice[0]) + Number(elJebelSoldMedianPrice[1]) + Number(elJebelSoldMedianPrice[2]) + Number(elJebelSoldMedianPrice[3]) + Number(elJebelSoldMedianPrice[4]) + Number(elJebelSoldMedianPrice[5]) + Number(elJebelSoldMedianPrice[6]) + Number(elJebelSoldMedianPrice[7]) + Number(elJebelSoldMedianPrice[8]) + Number(elJebelSoldMedianPrice[9]) + Number(elJebelSoldMedianPrice[10]) + Number(elJebelSoldMedianPrice[11]);
+    elJebelSoldMedianPrice = Number(elJebelSoldMedianPrice) / Number(12);
+    elJebelSoldMedianPrice = Number(elJebelSoldMedianPrice).toLocaleString();
 
     var elJebelAverageDom = document.getElementById("elJebelAverageDom").innerHTML;
     elJebelAverageDom = elJebelAverageDom.split(",");
+    elJebelAverageDom = Number(elJebelAverageDom[0]) + Number(elJebelAverageDom[1]) + Number(elJebelAverageDom[2]) + Number(elJebelAverageDom[3]) + Number(elJebelAverageDom[4]) + Number(elJebelAverageDom[5]) + Number(elJebelAverageDom[6]) + Number(elJebelAverageDom[7]) + Number(elJebelAverageDom[8]) + Number(elJebelAverageDom[9]) + Number(elJebelAverageDom[10]) + Number(elJebelAverageDom[11]);
+    elJebelAverageDom = Number(elJebelAverageDom) / Number(12);
 
-    var elJebelAverageCdom = document.getElementById("elJebelAverageCdom").innerHTML;
-    elJebelAverageCdom = elJebelAverageCdom.split(",");
-
-
-    var elJebelActiveListVolume = document.getElementById("elJebelActiveListVolume").innerHTML;
-    elJebelActiveListVolume = elJebelActiveListVolume.split(",");
-
-    var elJebelNewListVolume = document.getElementById("elJebelNewListVolume").innerHTML;
-    elJebelNewListVolume = elJebelNewListVolume.split(",");
-
-    var elJebelPendedListVolume = document.getElementById("elJebelPendedListVolume").innerHTML;
-    elJebelPendedListVolume = elJebelPendedListVolume.split(",");
-
-    var elJebelSoldListVolume = document.getElementById("elJebelSoldListVolume").innerHTML;
-    elJebelSoldListVolume = elJebelSoldListVolume.split(",");
-
-    var elJebelSoldSaleVolume = document.getElementById("elJebelSoldSaleVolume").innerHTML;
-    elJebelSoldSaleVolume = elJebelSoldSaleVolume.split(",");
-
-
-    var carbondaleProperNewListings = document.getElementById("carbondaleProperNewListings").innerHTML;
-
-    carbondaleProperNewListings = carbondaleProperNewListings.split(",");
-
-    var carbondaleProperPendedListings = document.getElementById("carbondaleProperPendedListings").innerHTML;
-
-    carbondaleProperPendedListings = carbondaleProperPendedListings.split(",");
-
-
-    var carbondaleProperSoldListings = document.getElementById("carbondaleProperSoldListings").innerHTML;
-
-    carbondaleProperSoldListings = carbondaleProperSoldListings.split(",");
-
-
-    var carbondaleProperActiveListings = document.getElementById("carbondaleProperActiveListings").innerHTML;
-
-    carbondaleProperActiveListings = carbondaleProperActiveListings.split(",");
 
     var carbondaleProperActiveListingsDate = document.getElementById("carbondaleProperActiveListings-dates").innerHTML;
-
     carbondaleProperActiveListingsDate = carbondaleProperActiveListingsDate.split(",");
 
-    var carbondaleProperAbsorbtion = document.getElementById("carbondaleProperAbsorbtion").innerHTML;
+    var carbondaleProperActiveListings = document.getElementById("carbondaleProperActiveListings").innerHTML;
+    carbondaleProperActiveListings = carbondaleProperActiveListings.split(",");
 
-    carbondaleProperAbsorbtion = carbondaleProperAbsorbtion.split(",");
+    var carbondaleProperSoldListings = document.getElementById("carbondaleProperSoldListings").innerHTML;
+    carbondaleProperSoldListings = carbondaleProperSoldListings.split(",");
+    carbondaleProperSoldListings = Number(carbondaleProperSoldListings[0]) + Number(carbondaleProperSoldListings[1]) + Number(carbondaleProperSoldListings[2]) + Number(carbondaleProperSoldListings[3]) + Number(carbondaleProperSoldListings[4]) + Number(carbondaleProperSoldListings[5]) + Number(carbondaleProperSoldListings[6]) + Number(carbondaleProperSoldListings[7]) + Number(carbondaleProperSoldListings[8]) + Number(carbondaleProperSoldListings[9]) + Number(carbondaleProperSoldListings[10]) + Number(carbondaleProperSoldListings[11])
+
 
     var carbondaleProperActiveAvgPrice = document.getElementById("carbondaleProperActiveAvgPrice").innerHTML;
     carbondaleProperActiveAvgPrice = carbondaleProperActiveAvgPrice.split(",");
     carbondaleProperActiveAvgPrice = Number(carbondaleProperActiveAvgPrice[0]).toLocaleString();
 
-
-    var carbondaleProperNewAvgPrice = document.getElementById("carbondaleProperNewAvgPrice").innerHTML;
-
-    carbondaleProperNewAvgPrice = carbondaleProperNewAvgPrice.split(",");
-    carbondaleProperNewAvgPrice = Number(carbondaleProperNewAvgPrice[0]).toLocaleString();
-
-    var carbondaleProperPendedAvgPrice = document.getElementById("carbondaleProperPendedAvgPrice").innerHTML;
-
-    carbondaleProperPendedAvgPrice = carbondaleProperPendedAvgPrice.split(",");
-    carbondaleProperPendedAvgPrice = Number(carbondaleProperPendedAvgPrice[0]).toLocaleString();
-
     var carbondaleProperSoldAvgPrice = document.getElementById("carbondaleProperSoldAvgPrice").innerHTML;
-
     carbondaleProperSoldAvgPrice = carbondaleProperSoldAvgPrice.split(",");
-    carbondaleProperSoldAvgPrice = Number(carbondaleProperSoldAvgPrice[0]).toLocaleString();
+    carbondaleProperSoldAvgPrice = Number(carbondaleProperSoldAvgPrice[0]) + Number(carbondaleProperSoldAvgPrice[1]) + Number(carbondaleProperSoldAvgPrice[2]) + Number(carbondaleProperSoldAvgPrice[3]) + Number(carbondaleProperSoldAvgPrice[4]) + Number(carbondaleProperSoldAvgPrice[5]) + Number(carbondaleProperSoldAvgPrice[6]) + Number(carbondaleProperSoldAvgPrice[7]) + Number(carbondaleProperSoldAvgPrice[8]) + Number(carbondaleProperSoldAvgPrice[9]) + Number(carbondaleProperSoldAvgPrice[10]) + Number(carbondaleProperSoldAvgPrice[11]);
+    carbondaleProperSoldAvgPrice = Number(carbondaleProperSoldAvgPrice) / Number(12);
+    carbondaleProperSoldAvgPrice = Number(carbondaleProperSoldAvgPrice).toLocaleString();
 
-    var carbondaleProperSoldAvgSoldPrice = document.getElementById("carbondaleProperSoldAvgSoldPrice").innerHTML;
 
-    carbondaleProperSoldAvgSoldPrice = carbondaleProperSoldAvgSoldPrice.split(",");
-    carbondaleProperSoldAvgSoldPrice = Number(carbondaleProperSoldAvgSoldPrice[0]).toLocaleString();
-
-    var carbondaleProperActiveMedianPrice = document.getElementById("carbondaleProperActiveMedianPrice").innerHTML;
-    carbondaleProperActiveMedianPrice = carbondaleProperActiveMedianPrice.split(",");
-    carbondaleProperActiveMedianPrice = Number(carbondaleProperActiveMedianPrice[0]).toLocaleString();
-
-    var carbondaleProperNewMedianPrice = document.getElementById("carbondaleProperNewMedianPrice").innerHTML;
-
-    carbondaleProperNewMedianPrice = carbondaleProperNewMedianPrice.split(",");
-    carbondaleProperNewMedianPrice = Number(carbondaleProperNewMedianPrice[0]).toLocaleString();
-
-    var carbondaleProperPendedMedianPrice = document.getElementById("carbondaleProperPendedMedianPrice").innerHTML;
-
-    carbondaleProperPendedMedianPrice = carbondaleProperPendedMedianPrice.split(",");
-    carbondaleProperPendedMedianPrice = Number(carbondaleProperPendedMedianPrice[0]).toLocaleString();
 
     var carbondaleProperSoldMedianPrice = document.getElementById("carbondaleProperSoldMedianPrice").innerHTML;
-
     carbondaleProperSoldMedianPrice = carbondaleProperSoldMedianPrice.split(",");
-    carbondaleProperSoldMedianPrice = Number(carbondaleProperSoldMedianPrice[0]).toLocaleString();
-
-
-    var carbondaleProperSoldMedianSoldPrice = document.getElementById("carbondaleProperSoldMedianSoldPrice").innerHTML;
-
-    carbondaleProperSoldMedianSoldPrice = carbondaleProperSoldMedianSoldPrice.split(",");
-    carbondaleProperSoldMedianSoldPrice = Number(carbondaleProperSoldMedianSoldPrice[0]).toLocaleString();
-
-    /*  var smugglerSoldMedianSoldPrice = document.getElementById("smugglerSoldMedianSoldPrice").innerHTML;
-
-      smugglerSoldMedianSoldPrice = smugglerSoldMedianSoldPrice.split(",");
-
-      */
-
-    var carbondaleProperSaleToOriginalListPriceRatio = document.getElementById("carbondaleProperSaleToOriginalListPriceRatio").innerHTML;
-
-    carbondaleProperSaleToOriginalListPriceRatio = carbondaleProperSaleToOriginalListPriceRatio.split(",");
-
-    var carbondaleProperSaleToListPriceRatio = document.getElementById("carbondaleProperSaleToListPriceRatio").innerHTML;
-
-    carbondaleProperSaleToListPriceRatio = carbondaleProperSaleToListPriceRatio.split(",");
+    carbondaleProperSoldMedianPrice = Number(carbondaleProperSoldMedianPrice[0]) + Number(carbondaleProperSoldMedianPrice[1]) + Number(carbondaleProperSoldMedianPrice[2]) + Number(carbondaleProperSoldMedianPrice[3]) + Number(carbondaleProperSoldMedianPrice[4]) + Number(carbondaleProperSoldMedianPrice[5]) + Number(carbondaleProperSoldMedianPrice[6]) + Number(carbondaleProperSoldMedianPrice[7]) + Number(carbondaleProperSoldMedianPrice[8]) + Number(carbondaleProperSoldMedianPrice[9]) + Number(carbondaleProperSoldMedianPrice[10]) + Number(carbondaleProperSoldMedianPrice[11]);
+    carbondaleProperSoldMedianPrice = Number(carbondaleProperSoldMedianPrice) / Number(12);
+    carbondaleProperSoldMedianPrice = Number(carbondaleProperSoldMedianPrice).toLocaleString();
 
     var carbondaleProperAverageDom = document.getElementById("carbondaleProperAverageDom").innerHTML;
     carbondaleProperAverageDom = carbondaleProperAverageDom.split(",");
+    carbondaleProperAverageDom = Number(carbondaleProperAverageDom[0]) + Number(carbondaleProperAverageDom[1]) + Number(carbondaleProperAverageDom[2]) + Number(carbondaleProperAverageDom[3]) + Number(carbondaleProperAverageDom[4]) + Number(carbondaleProperAverageDom[5]) + Number(carbondaleProperAverageDom[6]) + Number(carbondaleProperAverageDom[7]) + Number(carbondaleProperAverageDom[8]) + Number(carbondaleProperAverageDom[9]) + Number(carbondaleProperAverageDom[10]) + Number(carbondaleProperAverageDom[11]);
+    carbondaleProperAverageDom = Number(carbondaleProperAverageDom) / Number(12);
 
-    var carbondaleProperAverageCdom = document.getElementById("carbondaleProperAverageCdom").innerHTML;
-    carbondaleProperAverageCdom = carbondaleProperAverageCdom.split(",");
 
 
-    var carbondaleProperActiveListVolume = document.getElementById("carbondaleProperActiveListVolume").innerHTML;
-    carbondaleProperActiveListVolume = carbondaleProperActiveListVolume.split(",");
-
-    var carbondaleProperNewListVolume = document.getElementById("carbondaleProperNewListVolume").innerHTML;
-    carbondaleProperNewListVolume = carbondaleProperNewListVolume.split(",");
-
-    var carbondaleProperPendedListVolume = document.getElementById("carbondaleProperPendedListVolume").innerHTML;
-    carbondaleProperPendedListVolume = carbondaleProperPendedListVolume.split(",");
-
-    var carbondaleProperSoldListVolume = document.getElementById("carbondaleProperSoldListVolume").innerHTML;
-    carbondaleProperSoldListVolume = carbondaleProperSoldListVolume.split(",");
-
-    var carbondaleProperSoldSaleVolume = document.getElementById("carbondaleProperSoldSaleVolume").innerHTML;
-    carbondaleProperSoldSaleVolume = carbondaleProperSoldSaleVolume.split(",");
     var polygons = [{
-            name: "Smuggler<br>",
-            dates: "<p>Date:" + smugglerActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings: " + smugglerActiveListings[0] + "<br>",
-            newListings: "New Listings: " + smugglerNewListings[0] + "<br>",
-            pendingListings: "Pending Listings: " + smugglerPendedListings[0] + "<br>",
-            soldListings: "Sold Listings: " + smugglerSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + smugglerAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price: $" + smugglerActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + smugglerNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + smugglerPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + smugglerSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + smugglerSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price: $" + smugglerActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + smugglerNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + smugglerPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + smugglerSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + smugglerSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + smugglerSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + sumgglerSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + smugglerAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + smugglerAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + smugglerActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + smugglerNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + smugglerPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + smugglerSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + smugglerSoldSaleVolume[0],
+            name: "Smuggler<hr><br>",
+            dates: "YTD:" + smugglerActiveListingsDate[0] + " - " + smugglerActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + smugglerSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + smugglerActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + smugglerSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + smugglerSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + smugglerAverageDom,
             coordinates: [{
                 lat: 39.19333,
                 lng: -106.79816
@@ -1811,32 +720,14 @@ function initMap() {
             }, ]
         },
         {
-            name: "Central Core<br>",
-            dates: "<p>Date:" + centralCoreActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + centralCoreActiveListings[0] + "<br>",
-            newListings: "New Listings:" + centralCoreNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + centralCorePendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + centralCoreSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + centralCoreAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + centralCoreActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price" + centralCoreNewAvgPrice[0],
-            PendedAvgPrice: "<br>Pended Avg Price" + centralCorePendedAvgPrice[0],
-            SoldAvgPrice: "<br>Avg sold Price" + centralCoreSoldAvgPrice[0],
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price" + centralCoreSoldAvgSoldPrice[0],
-            ActiveMedianPrice: " <br>Active Median Price $" + centralCoreActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price" + centralCoreNewMedianPrice[0],
-            PendedMedianPrice: "<br>PendedMedianPrice" + centralCorePendedMedianPrice[0],
-            SoldMedianPrice: "<br>SoldMedianPrice" + centralCoreSoldMedianPrice[0],
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price" + centralCoreSoldMedianSoldPrice[0],
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + centralCoreSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + centralCoreSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + centralCoreAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + centralCoreAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + centralCoreActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + centralCoreNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + centralCorePendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + centralCoreSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + centralCoreSoldSaleVolume[0],
+            name: "Central Core<hr><br>",
+            dates: "YTD:" + centralCoreActiveListingsDate[0] + " - " + centralCoreActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + centralCoreActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + centralCoreSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + centralCoreActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + centralCoreSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + centralCoreSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + centralCoreAverageDom,
             coordinates: [{
                 lat: 39.18834,
                 lng: -106.81163
@@ -1866,32 +757,14 @@ function initMap() {
                 lng: -106.81553
             }]
         }, {
-            name: "West End<br>",
-            dates: "<p>Date:" + westEndActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + westEndActiveListings[0] + "<br>",
-            newListings: "New Listings:" + westEndNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + westEndPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + westEndSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + westEndAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + westEndActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + westEndNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + westEndPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + westEndSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + westEndSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + westEndActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + westEndNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + westEndPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + westEndSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + westEndSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + westEndSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + westEndSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + westEndAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + westEndAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + westEndActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + westEndNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + westEndPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + westEndSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + westEndSoldSaleVolume[0],
+            name: "West End<hr><br>",
+            dates: "YTD:" + westEndActiveListingsDate[0] + " - " + westEndActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + westEndActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + westEndSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + westEndActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + westEndSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + westEndSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + westEndAverageDom,
             coordinates: [{
                 lat: 39.202447,
                 lng: -106.829973
@@ -1912,32 +785,14 @@ function initMap() {
                 lng: -106.821562
             }]
         }, {
-            name: "East Aspen<br>",
-            dates: "<p>Date:" + eastAspenActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + eastAspenActiveListings[0] + "<br>",
-            newListings: "New Listings:" + eastAspenNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + eastAspenPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + eastAspenSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + eastAspenAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + eastAspenActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + eastAspenNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + eastAspenPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + eastAspenSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + eastAspenSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + eastAspenActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + eastAspenNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + eastAspenPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + eastAspenSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + eastAspenSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + eastAspenSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + eastAspenSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + eastAspenAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + eastAspenAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + eastAspenActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + eastAspenNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + eastAspenPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + eastAspenSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + eastAspenSoldSaleVolume[0],
+            name: "East Aspen<hr><br>",
+            dates: "YTD:" + eastAspenActiveListingsDate[0] + " - " + eastAspenActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + eastAspenActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + eastAspenSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + eastAspenActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + eastAspenSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + eastAspenSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + eastAspenAverageDom,
             coordinates: [{
                 lat: 39.188033,
                 lng: -106.806871
@@ -1955,32 +810,14 @@ function initMap() {
                 lng: -106.811463
             }]
         }, {
-            name: "Red Mtn<br>",
-            dates: "<p>Date:" + redMtnActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + redMtnActiveListings[0] + "<br>",
-            newListings: "New Listings:" + redMtnNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + redMtnPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + redMtnSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + redMtnAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + redMtnActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + redMtnNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + redMtnPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + redMtnSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + redMtnSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + redMtnActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + redMtnNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + redMtnPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + redMtnSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + redMtnSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + redMtnSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + redMtnSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + redMtnAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + redMtnAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + redMtnActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + redMtnNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + redMtnPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + redMtnSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + redMtnSoldSaleVolume[0],
+            name: "Red MTN<hr><br>",
+            dates: "YTD:" + redMtnActiveListingsDate[0] + " - " + redMtnActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + redMtnActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + redMtnSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + redMtnActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + redMtnSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + redMtnSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + redMtnAverageDom,
             coordinates: [{
                 lat: 39.212316,
                 lng: -106.813942
@@ -2010,32 +847,14 @@ function initMap() {
                 lng: -106.822525
             }]
         }, {
-            name: "WestAspen<br>",
-            dates: "<p>Date:" + westAspenActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + westAspenActiveListings[0] + "<br>",
-            newListings: "New Listings:" + westAspenNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + westAspenPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + westAspenSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + westAspenAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + westAspenActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + westAspenNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + westAspenPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + westAspenSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + westAspenSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + westAspenActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + westAspenNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + westAspenPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + westAspenSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + westAspenSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + westAspenSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + westAspenSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + westAspenAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + westAspenAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + westAspenActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + westAspenNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + westAspenPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + westAspenSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + westAspenSoldSaleVolume[0],
+            name: "West Aspen<hr><br>",
+            dates: "YTD:" + westAspenActiveListingsDate[0] + " - " + westAspenActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + westAspenActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + westAspenSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + westAspenActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + westAspenSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + westAspenSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + westAspenAverageDom,
             coordinates: [{
                 lat: 39.213052,
                 lng: -106.854218
@@ -2074,32 +893,14 @@ function initMap() {
                 lng: -106.861428
             }]
         }, {
-            name: "mclainFlats<br>",
-            dates: "<p>Date:" + mclainFlatsActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + mclainFlatsActiveListings[0] + "<br>",
-            newListings: "New Listings:" + mclainFlatsNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + mclainFlatsPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + mclainFlatsSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + mclainFlatsAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + mclainFlatsActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + mclainFlatsNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + mclainFlatsPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + mclainFlatsSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + mclainFlatsSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + mclainFlatsActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + mclainFlatsNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + mclainFlatsPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + mclainFlatsSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + mclainFlatsSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + mclainFlatsSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + mclainFlatsSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + mclainFlatsAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + mclainFlatsAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + mclainFlatsActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + mclainFlatsNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + mclainFlatsPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + mclainFlatsSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + mclainFlatsSoldSaleVolume[0],
+            name: "Mclain Flats<hr><br>",
+            dates: "YTD:" + mclainFlatsActiveListingsDate[0] + " - " + mclainFlatsActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + mclainFlatsActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + mclainFlatsSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + mclainFlatsActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + mclainFlatsSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + mclainFlatsSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + mclainFlatsAverageDom,
             coordinates: [{
                 lat: 39.212004,
                 lng: -106.843254
@@ -2123,32 +924,14 @@ function initMap() {
                 lng: -106.83673
             }]
         }, {
-            name: "snowmassVillage<br>",
-            dates: "<p>Date:" + snowmassVillageActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + snowmassVillageActiveListings[0] + "<br>",
-            newListings: "New Listings:" + snowmassVillageNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + snowmassVillagePendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + snowmassVillageSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + snowmassVillageAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + snowmassVillageActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + snowmassVillageNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + snowmassVillagePendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + snowmassVillageSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + snowmassVillageSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + snowmassVillageActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + snowmassVillageNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + snowmassVillagePendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + snowmassVillageSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + snowmassVillageSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + snowmassVillageSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + snowmassVillageSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + snowmassVillageAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + snowmassVillageAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + snowmassVillageActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + snowmassVillageNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + snowmassVillagePendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + snowmassVillageSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + snowmassVillageSoldSaleVolume[0],
+            name: "Snowmass Village<hr><br>",
+            dates: "YTD:" + snowmassVillageActiveListingsDate[0] + " - " + snowmassVillageActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + snowmassVillageActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + snowmassVillageSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + snowmassVillageActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + snowmassVillageSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + snowmassVillageSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + snowmassVillageAverageDom,
             coordinates: [{
                 lat: 39.231061,
                 lng: -106.927559
@@ -2169,32 +952,14 @@ function initMap() {
                 lng: -106.917946
             }]
         }, {
-            name: "brushCreek<br>",
-            dates: "<p>Date:" + brushCreekActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + brushCreekActiveListings[0] + "<br>",
-            newListings: "New Listings:" + brushCreekNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + brushCreekPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + brushCreekSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + brushCreekAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + brushCreekActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + brushCreekNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + brushCreekPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + brushCreekSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + brushCreekSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + brushCreekActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + brushCreekNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + brushCreekPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + brushCreekSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + brushCreekSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + brushCreekSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + brushCreekSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + brushCreekAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + brushCreekAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + brushCreekActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + brushCreekNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + brushCreekPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + brushCreekSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + brushCreekSoldSaleVolume[0],
+            name: "Brush Creek<hr><br>",
+            dates: "YTD:" + brushCreekActiveListingsDate[0] + " - " + brushCreekActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + brushCreekActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + brushCreekSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + brushCreekActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + brushCreekSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + brushCreekSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + brushCreekAverageDom,
             coordinates: [{
                 lat: 39.231593,
                 lng: -106.922753
@@ -2212,32 +977,14 @@ function initMap() {
                 lng: -106.910393
             }]
         }, {
-            name: "woodyCreek<br>",
-            dates: "<p>Date:" + woodyCreekActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + woodyCreekActiveListings[0] + "<br>",
-            newListings: "New Listings:" + woodyCreekNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + woodyCreekPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + woodyCreekSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + woodyCreekAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + woodyCreekActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + woodyCreekNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + woodyCreekPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + woodyCreekSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + woodyCreekSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + woodyCreekActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + woodyCreekNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + woodyCreekPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + woodyCreekSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + woodyCreekSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + woodyCreekSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + woodyCreekSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + woodyCreekAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + woodyCreekAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + woodyCreekActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + woodyCreekNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + woodyCreekPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + woodyCreekSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + woodyCreekSoldSaleVolume[0],
+            name: "Woody Creek<hr><br>",
+            dates: "YTD:" + woodyCreekActiveListingsDate[0] + " - " + woodyCreekActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + woodyCreekActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + woodyCreekSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + woodyCreekActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + woodyCreekSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + woodyCreekSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + woodyCreekAverageDom,
             coordinates: [{
                 lat: 39.303654,
                 lng: -106.884619
@@ -2279,32 +1026,14 @@ function initMap() {
                 lng: -106.868139
             }]
         }, {
-            name: "oldSnowmass<br>",
-            dates: "<p>Date:" + oldSnowmassActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + oldSnowmassActiveListings[0] + "<br>",
-            newListings: "New Listings:" + oldSnowmassNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + oldSnowmassPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + oldSnowmassSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + oldSnowmassAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + oldSnowmassActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + oldSnowmassNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + oldSnowmassPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + oldSnowmassSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + oldSnowmassSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + oldSnowmassActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + oldSnowmassNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + oldSnowmassPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + oldSnowmassSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + oldSnowmassSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + oldSnowmassSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + oldSnowmassSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + oldSnowmassAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + oldSnowmassAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + oldSnowmassActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + oldSnowmassNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + oldSnowmassPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + oldSnowmassSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + oldSnowmassSoldSaleVolume[0],
+            name: "Old Snowmass<hr><br>",
+            dates: "YTD:" + oldSnowmassActiveListingsDate[0] + " - " + oldSnowmassActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + oldSnowmassActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + oldSnowmassSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + oldSnowmassActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + oldSnowmassSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + oldSnowmassSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + oldSnowmassAverageDom,
             coordinates: [{
                 lat: 39.344491,
                 lng: -106.991661
@@ -2349,32 +1078,14 @@ function initMap() {
                 lng: -106.974495
             }]
         }, {
-            name: "basaltProper<br>",
-            dates: "<p>Date:" + basaltProperActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + basaltProperActiveListings[0] + "<br>",
-            newListings: "New Listings:" + basaltProperNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + basaltProperPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + basaltProperSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + basaltProperAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + basaltProperActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + basaltProperNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + basaltProperPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + basaltProperSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + basaltProperSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + basaltProperActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + basaltProperNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + basaltProperPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + basaltProperSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + basaltProperSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + basaltProperSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + basaltProperSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + basaltProperAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + basaltProperAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + basaltProperActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + basaltProperNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + basaltProperPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + basaltProperSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + basaltProperSoldSaleVolume[0],
+            name: "Basalt Proper<hr><br>",
+            dates: "YTD:" + basaltProperActiveListingsDate[0] + " - " + basaltProperActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + basaltProperActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + basaltProperSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + basaltProperActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + basaltProperSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + basaltProperSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + basaltProperAverageDom,
             coordinates: [{
                 lat: 39.375498,
                 lng: -107.031466
@@ -2433,32 +1144,14 @@ function initMap() {
         }
 
         , {
-            name: "elJebel<br>",
-            dates: "<p>Date:" + elJebelActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + elJebelActiveListings[0] + "<br>",
-            newListings: "New Listings:" + elJebelNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + elJebelPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + elJebelSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + elJebelAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + elJebelActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + elJebelNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + elJebelPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + elJebelSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + elJebelSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + elJebelActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + elJebelNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + elJebelPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + elJebelSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + elJebelSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + elJebelSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + elJebelSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + elJebelAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + elJebelAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + elJebelActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + elJebelNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + elJebelPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + elJebelSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + elJebelSoldSaleVolume[0],
+            name: "El Jebel<hr><br>",
+            dates: "YTD:" + elJebelActiveListingsDate[0] + " - " + elJebelActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + elJebelActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + elJebelSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + elJebelActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + elJebelSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + elJebelSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + elJebelAverageDom,
             coordinates: [{
                 lat: 39.418212,
                 lng: -107.098844
@@ -2485,32 +1178,14 @@ function initMap() {
                 lng: -107.085797
             }]
         }, {
-            name: "carbondaleProper<br>",
-            dates: "<p>Date:" + carbondaleProperActiveListingsDate[0] + "<br/></p>Inventory<hr>",
-            listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br>",
-            newListings: "New Listings:" + carbondaleProperNewListings[0] + "<br>",
-            pendingListings: "Pending Listings:" + carbondaleProperPendedListings[0] + "<br>",
-            soldListings: "Sold Listings:" + carbondaleProperSoldListings[0] + "</p>",
-            absorbtionRate: "Absorbtion Rate<hr>" + carbondaleProperAbsorbtion[0],
-            ActiveAvgPrice: "<br><br>PRICE <hr>Active Average list price $" + carbondaleProperActiveAvgPrice,
-            NewAvgPrice: "<br>New Active Average Price: $" + carbondaleProperNewAvgPrice,
-            PendedAvgPrice: "<br>Pended Avg Price: $" + carbondaleProperPendedAvgPrice,
-            SoldAvgPrice: "<br>Avg sold Price: $" + carbondaleProperSoldAvgPrice,
-            SoldAvgSoldPrice: " <br>Sold Avg Sold Price: $" + carbondaleProperSoldAvgSoldPrice,
-            ActiveMedianPrice: " <br>Active Median Price $" + carbondaleProperActiveMedianPrice,
-            NewMedianPrice: "<br>New Median Price: $" + carbondaleProperNewMedianPrice,
-            PendedMedianPrice: "<br>PendedMedianPrice: $" + carbondaleProperPendedMedianPrice,
-            SoldMedianPrice: "<br>SoldMedianPrice: $" + carbondaleProperSoldMedianPrice,
-            SoldMedianSoldPrice: "<br>Sold Median Sold Price: $" + carbondaleProperSoldMedianSoldPrice,
-            SaleToOriginalListPriceRatio: "<br><br>RATIO <hr> SaleToOriginalListPriceRatio" + carbondaleProperSaleToOriginalListPriceRatio[0],
-            SaleToListPriceRatio: " <br>SaleToListPriceRatio" + carbondaleProperSaleToListPriceRatio[0],
-            AverageDom: "<br><br>Days on Market <hr>Average Day on Market " + carbondaleProperAverageDom[0],
-            AverageCdom: "<br>Average C Day on Market " + carbondaleProperAverageCdom[0],
-            ActiveListVolume: "<br>ActiveListVolume " + carbondaleProperActiveListVolume[0],
-            NewListVolume: "<br><br>VOLUME <hr>NewListVolume " + carbondaleProperNewListVolume[0],
-            PendedListVolume: "<br>PendedListVolume " + carbondaleProperPendedListVolume[0],
-            SoldListVolume: "<br>SoldListVolume " + carbondaleProperSoldListVolume[0],
-            SoldSaleVolume: "<br>SoldSaleVolume " + carbondaleProperSoldSaleVolume[0],
+            name: "Carbondale Proper<hr><br>",
+            dates: "YTD:" + carbondaleProperActiveListingsDate[0] + " - " + carbondaleProperActiveListingsDate[11] + "<br><br>",
+            listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings YTD: " + carbondaleProperSoldListings + "<br><br>",
+            ActiveAvgPrice: "Active Average list price $" + carbondaleProperActiveAvgPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price YTD: $" + carbondaleProperSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice YTD: $" + carbondaleProperSoldMedianPrice + "<br><br>",
+            AverageDom: "Average Day on Market " + carbondaleProperAverageDom,
             coordinates: [{
                 lat: 39.435019,
                 lng: -107.250672
@@ -2550,7 +1225,7 @@ function initMap() {
         var item = polygons[i];
 
         var coors = item["coordinates"];
-        var name = item["name"] + item["dates"] + item["listings"] + item["newListings"] + item["pendingListings"] + item["soldListings"] + item["absorbtionRate"] + item["ActiveAvgPrice"] + item["NewAvgPrice"] + item["PendedAvgPrice"] + item["SoldAvgPrice"] + item["SoldAvgSoldPrice"] + item["ActiveMedianPrice"] + item["NewMedianPrice"] + item["PendedMedianPrice"] + item["SoldMedianPrice"] + item["SoldMedianSoldPrice"] + item["SaleToOriginalListPriceRatio"] + item["SaleToListPriceRatio"] + item["AverageDom"] + item["AverageCdom"] + item["ActiveListVolume"] + item["NewListVolume"] + item["PendedListVolume"] + item["SoldListVolume"] + item["SoldSaleVolume"];
+        var name = item["name"] + item["dates"] + item["listings"] + item["soldListings"] + item["ActiveAvgPrice"] + item["SoldAvgPrice"] + item["SoldMedianPrice"] + item["AverageDom"];
 
 
 

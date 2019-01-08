@@ -115,7 +115,8 @@
                     {{this.TaxLegalDescription}}</h5>
                     <p>{{this.PublicRemarks}}</p>
                     <p style="    margin-bottom: 0px;">Year Built: {{this.YearBuilt}}</p>
-                    <p id="googleCoordinates" style="display: none">{{this.Location.coordinates}}</p>
+                    <p class="google-Coordinates-lng" style="display: none; ">{{this.Longitude}}</p>
+                    <p class="google-Coordinates-lat" style="display: none;">{{this.Latitude}}</p>
 
                     <div id="map" class="boxShadow"></div>
                 </div>
@@ -228,9 +229,10 @@
 
 
     <script>
-        var coordinates = document.getElementById('googleCoordinates').innerHTML.trim().split(',');
-        var long = parseFloat(coordinates[0]);
-        var lat = parseFloat(coordinates[1]);
+        var coordinatesLAT = document.getElementsByClassName('google-Coordinates-lat');
+        var coordinatesLNG = document.getElementsByClassName('google-Coordinates-lng');
+        var long = parseFloat(coordinatesLNG[0].innerHTML);
+        var lat = parseFloat(coordinatesLAT[0].innerHTML);
         // Initialize and add the map
         // Initialize and add the map
         console.log(lat);

@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
             crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-        <link rel="stylesheet" href="css/style-search.css">
+
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:100|Poiret+One" rel="stylesheet">
 
     </head>
@@ -255,7 +255,9 @@
 
                                 </h5>
                             </div>
-                            <p class="google-Coordinates" style="display: none">{{this.Location.coordinates}}</p>
+                            <p class="google-Coordinates-lng" style="display: ">{{this.Longitude}}</p>
+                            <p class="google-Coordinates-lat" style="display:">{{this.Latitude}}</p>
+
                         </div>
                         {{/each}}
                         {{!-- <div class="home-section-2 home-custom">
@@ -600,48 +602,42 @@
 
     </section>
     <script>
-        var coordinates = document.getElementsByClassName('google-Coordinates');
-        var mapPoint1 = coordinates[0].innerHTML.trim().split(',');
-        var mapPoint2 = coordinates[1].innerHTML.trim().split(',');
-        var mapPoint3 = coordinates[2].innerHTML.trim().split(',');
-        var mapPoint4 = coordinates[3].innerHTML.trim().split(',');
-        var mapPoint5 = coordinates[4].innerHTML.trim().split(',');
-        var mapPoint6 = coordinates[5].innerHTML.trim().split(',');
-        var mapPoint7 = coordinates[6].innerHTML.trim().split(',');
-        var mapPoint8 = coordinates[7].innerHTML.trim().split(',');
-        var mapPoint9 = coordinates[8].innerHTML.trim().split(',');
-        var mapPoint10 = coordinates[9].innerHTML.trim().split(',');
-
-        var long1 = parseFloat(mapPoint1[0]);
-        var lat1 = parseFloat(mapPoint1[1]);
-
-        var long2 = parseFloat(mapPoint2[0]);
-        var lat2 = parseFloat(mapPoint2[1]);
-
-        var long3 = parseFloat(mapPoint3[0]);
-        var lat3 = parseFloat(mapPoint3[1]);
-
-        var long4 = parseFloat(mapPoint4[0]);
-        var lat4 = parseFloat(mapPoint4[1]);
+        var coordinatesLAT = document.getElementsByClassName('google-Coordinates-lat');
+        var coordinatesLNG = document.getElementsByClassName('google-Coordinates-lng');
 
 
-        var long5 = parseFloat(mapPoint5[0]);
-        var lat5 = parseFloat(mapPoint5[1]);
+        console.log(coordinatesLAT[1].innerHTML + "hiiiiii");
 
-        var long6 = parseFloat(mapPoint6[0]);
-        var lat6 = parseFloat(mapPoint6[1]);
+        var long1 = parseFloat(coordinatesLNG[0].innerHTML);
+        var lat1 = parseFloat(coordinatesLAT[0].innerHTML);
 
-        var long7 = parseFloat(mapPoint7[0]);
-        var lat7 = parseFloat(mapPoint7[1]);
+        var long2 = parseFloat(coordinatesLNG[1].innerHTML);
+        var lat2 = parseFloat(coordinatesLAT[1].innerHTML);
 
-        var long8 = parseFloat(mapPoint8[0]);
-        var lat8 = parseFloat(mapPoint8[1]);
+        var long3 = parseFloat(coordinatesLNG[2].innerHTML);
+        var lat3 = parseFloat(coordinatesLAT[2].innerHTML);
 
-        var long9 = parseFloat(mapPoint9[0]);
-        var lat9 = parseFloat(mapPoint9[1]);
+        var long4 = parseFloat(coordinatesLNG[3].innerHTML);
+        var lat4 = parseFloat(coordinatesLAT[3].innerHTML);
 
-        var long10 = parseFloat(mapPoint10[0]);
-        var lat10 = parseFloat(mapPoint10[1]);
+
+        var long5 = parseFloat(coordinatesLNG[4].innerHTML);
+        var lat5 = parseFloat(coordinatesLAT[4].innerHTML);
+
+        var long6 = parseFloat(coordinatesLNG[5].innerHTML);
+        var lat6 = parseFloat(coordinatesLAT[5].innerHTML);
+
+        var long7 = parseFloat(coordinatesLNG[6].innerHTML);
+        var lat7 = parseFloat(coordinatesLAT[6].innerHTML);
+
+        var long8 = parseFloat(coordinatesLNG[7].innerHTML);
+        var lat8 = parseFloat(coordinatesLAT[7].innerHTML);
+
+        var long9 = parseFloat(coordinatesLNG[8].innerHTML);
+        var lat9 = parseFloat(coordinatesLAT[8].innerHTML);
+
+        var long10 = parseFloat(coordinatesLNG[9].innerHTML);
+        var lat10 = parseFloat(coordinatesLAT[9].innerHTML);
         // Initialize and add the map
         // Initialize and add the map
 
@@ -1050,4 +1046,3 @@
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/js/listing.js"></script>

@@ -1949,6 +1949,19 @@ input::-moz-focus-inner {
 
 .home-content h3 {
     font-family: "montserrat-medium", sans-serif;
+    font-size: 4.6rem;
+    color: rgba(54, 188, 209, 0.62);
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    /* margin-left: 6px; */
+    margin-bottom: 0px;
+}
+
+/* .home-content h3 {
+    font-family: "montserrat-medium", sans-serif;
     font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
@@ -1957,11 +1970,13 @@ input::-moz-focus-inner {
     margin-top: 0;
     margin-bottom: 1.2rem;
     margin-left: 6px;
-}
+} */
+
+
 
 .home-content h1 {
     font-family: "montserrat-medium", sans-serif;
-    font-size: 6.3rem;
+    font-size: 3.3rem;
     line-height: 1.333;
     margin-top: 0;
     color: #FFFFFF;
@@ -2216,7 +2231,7 @@ html.no-csstransitions .home-content__main {
  * ------------------------------------------------------------------- */
 @media only screen and (max-width: 1500px) {
     .home-content h1 {
-        font-size: 6rem;
+        font-size: 3rem;
     }
 
     .home-content__main {
@@ -3362,7 +3377,7 @@ html.no-csstransitions .home-content__main {
 }
 
 .contact-social li {
-    margin-right: 15px;
+    margin-right: 6rem;
     padding-left: 0;
     display: inline-block;
 }
@@ -3589,7 +3604,7 @@ html.no-csstransitions .home-content__main {
  *
  * ------------------------------------------------------------------- */
 footer {
-    padding: 9rem 0 6rem;
+    padding: 0 0 6rem;
     font-family: "montserrat-light", sans-serif;
     font-size: 15px;
     line-height: 2;
@@ -3629,6 +3644,9 @@ footer .row {
 
 .footer-main .left {
     padding-right: 40px;
+    padding-left: 90px;
+    margin-top: 90px;
+
 }
 
 .footer-main .right {
@@ -3642,10 +3660,10 @@ footer .row {
     padding: 0;
     outline: 0;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     background: url("../images/headshot.jpg") no-repeat center;
-    background-size: 150px;
+    background-size: 250px;
     font: 0/0 a;
     text-shadow: none;
     color: transparent;
@@ -3868,10 +3886,19 @@ footer .row {
 @media only screen and (max-width: 400px) {
     .footer-main .left {
         padding-right: 0;
+        padding-left: 85px;
     }
 
     .footer-main .right {
         padding-left: 0;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .contact-social li {
+        margin-right: 5rem;
+        padding-left: 0;
+        display: inline-block;
     }
 }
 

@@ -213,7 +213,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/inventory',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-Smuggler',
             Options: 'ActiveListings,NewListings,PendedListings,SoldListings',
             '': ''
         },
@@ -239,7 +239,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/absorption',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-Smuggler',
             Options: 'AbsorptionRate',
             '': ''
         },
@@ -265,7 +265,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/price',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-Smuggler',
             Options: 'ActiveAverageListPrice,NewAverageListPrice,PendedAverageListPrice,SoldAverageListPrice,SoldAverageSoldPrice,ActiveMedianListPrice,NewMedianListPrice,PendedMedianListPrice,SoldMedianListPrice,SoldMedianSoldPrice',
             '': ''
         },
@@ -291,7 +291,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/ratio',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-Smuggler',
             Options: 'SaleToOriginalListPriceRatio,SaleToListPriceRatio'
         },
         headers: {
@@ -317,7 +317,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/dom',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-Smuggler',
             Options: 'AverageDom,AverageCdom'
         },
         headers: {
@@ -343,7 +343,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/volume',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-Smuggler',
             Options: 'ActiveListVolume,NewListVolume,PendedListVolume,SoldListVolume,SoldSaleVolume'
         },
         headers: {
@@ -528,7 +528,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/inventory',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-West End',
             Options: 'ActiveListings,NewListings,PendedListings,SoldListings',
             '': ''
         },
@@ -554,7 +554,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/absorption',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-West End',
             Options: 'AbsorptionRate',
             '': ''
         },
@@ -580,7 +580,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/price',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-West End',
             Options: 'ActiveAverageListPrice,NewAverageListPrice,PendedAverageListPrice,SoldAverageListPrice,SoldAverageSoldPrice,ActiveMedianListPrice,NewMedianListPrice,PendedMedianListPrice,SoldMedianListPrice,SoldMedianSoldPrice',
             '': ''
         },
@@ -606,7 +606,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/ratio',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-West End',
             Options: 'SaleToOriginalListPriceRatio,SaleToListPriceRatio'
         },
         headers: {
@@ -632,7 +632,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/dom',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-West End',
             Options: 'AverageDom,AverageCdom'
         },
         headers: {
@@ -658,7 +658,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/volume',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: 'Smuggler',
+            LocationValue: '01-West End',
             Options: 'ActiveListVolume,NewListVolume,PendedListVolume,SoldListVolume,SoldSaleVolume'
         },
         headers: {
@@ -1152,7 +1152,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/inventory',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '01-West Aspen',
+            LocationValue: '01-McLain Flats',
             Options: 'ActiveListings,NewListings,PendedListings,SoldListings',
             '': ''
         },
@@ -1179,7 +1179,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/absorption',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '01-West Aspen',
+            LocationValue: '01-McLain Flats',
             Options: 'AbsorptionRate',
             '': ''
         },
@@ -1205,7 +1205,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/price',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '01-West Aspen',
+            LocationValue: '01-McLain Flats',
             Options: 'ActiveAverageListPrice,NewAverageListPrice,PendedAverageListPrice,SoldAverageListPrice,SoldAverageSoldPrice,ActiveMedianListPrice,NewMedianListPrice,PendedMedianListPrice,SoldMedianListPrice,SoldMedianSoldPrice',
             '': ''
         },
@@ -1232,7 +1232,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/ratio',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '01-West Aspen',
+            LocationValue: '01-McLain Flats',
             Options: 'SaleToOriginalListPriceRatio,SaleToListPriceRatio'
         },
         headers: {
@@ -1258,7 +1258,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/dom',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '01-West Aspen',
+            LocationValue: '01-McLain Flats',
             Options: 'AverageDom,AverageCdom'
         },
         headers: {
@@ -1284,7 +1284,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/volume',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '01-West Aspen',
+            LocationValue: '01-McLain Flats',
             Options: 'ActiveListVolume,NewListVolume,PendedListVolume,SoldListVolume,SoldSaleVolume'
         },
         headers: {
@@ -2244,7 +2244,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/inventory',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '05-El Jebel',
+            LocationValue: '07-Carbondale Proper',
             Options: 'ActiveListings,NewListings,PendedListings,SoldListings',
             '': ''
         },
@@ -2271,7 +2271,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/absorption',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '05-El Jebel',
+            LocationValue: '07-Carbondale Proper',
             Options: 'AbsorptionRate',
             '': ''
         },
@@ -2297,7 +2297,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/price',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '05-El Jebel',
+            LocationValue: '07-Carbondale Proper',
             Options: 'ActiveAverageListPrice,NewAverageListPrice,PendedAverageListPrice,SoldAverageListPrice,SoldAverageSoldPrice,ActiveMedianListPrice,NewMedianListPrice,PendedMedianListPrice,SoldMedianListPrice,SoldMedianSoldPrice',
             '': ''
         },
@@ -2324,7 +2324,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/ratio',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '05-El Jebel',
+            LocationValue: '07-Carbondale Proper',
             Options: 'SaleToOriginalListPriceRatio,SaleToListPriceRatio'
         },
         headers: {
@@ -2350,7 +2350,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/dom',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '05-El Jebel',
+            LocationValue: '07-Carbondale Proper',
             Options: 'AverageDom,AverageCdom'
         },
         headers: {
@@ -2376,7 +2376,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/volume',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '05-El Jebel',
+            LocationValue: '07-Carbondale Proper',
             Options: 'ActiveListVolume,NewListVolume,PendedListVolume,SoldListVolume,SoldSaleVolume'
         },
         headers: {

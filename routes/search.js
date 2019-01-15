@@ -480,13 +480,13 @@ router.post('/', function (req, res, poop) {
     }
 
 
-    request(options, function (data) {
+    request(options, function (error, response, body) {
+        var data = JSON.parse(body);
 
         console.log(data + " this is data from back end");
-        console.log(JSON.stringify(options.qs) + "these are the url options");
+
         console.log(data.value + " this is data.value from back end");
-        console.log(response.neighborhood + "neighborhood");
-        console.log(response.city + "city");
+
         console.log(data["@odata.nextLink"]);
         var propertyData = data;
 

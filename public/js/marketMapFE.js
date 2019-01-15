@@ -1,9 +1,10 @@
 window.onload = function () {
-    initMap();
+
     if (!localStorage.justOnce) {
         localStorage.setItem("justOnce", "true");
         window.location.reload();
     }
+    initMap();
 };
 
 

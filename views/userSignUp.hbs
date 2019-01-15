@@ -1,11 +1,13 @@
-<h2>Login</h2>
-<div class="message">
-    {{#if message}}
-    <h5>{{this}}</h5>
+<h2>Signup</h2>
+<div>
+    {{#if message }}
+    <h5>{{this.message}}</h5>
     {{/if}}
 </div>
 
-<form method="post" action="/login">
+
+
+<form method="post" action="/user-signup">
     <div class="form-group">
         <label for="email">Email</label>
         <input class="form-control" type="text" name="email" id="email">

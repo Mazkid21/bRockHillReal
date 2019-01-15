@@ -2278,6 +2278,10 @@ html.no-csstransitions .home-content__main {
         padding-right: 70px;
         max-width: 550px;
     }
+
+    .home-content__main hr {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -2306,6 +2310,10 @@ html.no-csstransitions .home-content__main {
 
     .home-content__line {
         right: 5.5rem;
+    }
+
+    .home-content__main hr {
+        display: none;
     }
 }
 
@@ -2338,6 +2346,10 @@ html.no-csstransitions .home-content__main {
     .home-content__line {
         height: 7.2rem;
     }
+
+    .home-content__main hr {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -2367,6 +2379,10 @@ html.no-csstransitions .home-content__main {
     }
 
     .home-social {
+        display: none;
+    }
+
+    .home-content__main hr {
         display: none;
     }
 }

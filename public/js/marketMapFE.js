@@ -1,9 +1,9 @@
 window.onload = function () {
-    if (!window.location.hash) {
-        window.location = window.location + '#loaded';
+    initMap();
+    if (!localStorage.justOnce) {
+        localStorage.setItem("justOnce", "true");
         window.location.reload();
     }
-    initMap();
 };
 
 

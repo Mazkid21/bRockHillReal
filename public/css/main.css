@@ -2267,7 +2267,7 @@ html.no-csstransitions .home-content__main {
 
 @media only screen and (max-width: 800px) {
     .home-content h3 {
-        font-size: 1.5rem;
+        font-size: 5rem;
     }
 
     .home-content h1 {
@@ -2389,6 +2389,10 @@ html.no-csstransitions .home-content__main {
     .home-content__main {
         padding-top: 16.2rem;
         width: auto;
+    }
+
+    .home-content__main hr {
+        display: none;
     }
 }
 

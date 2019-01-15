@@ -29,7 +29,7 @@ router.post('/', function (req, res, poop) {
         headers: {
             'x-sparkapi-user-agent': 'BrittanieRockhill',
             accept: 'application/json',
-            authorization: process.env.API_KEY
+            authorization: 'Bearer zimfezqowbh4att7tby8gn5g'
         }
     };
 

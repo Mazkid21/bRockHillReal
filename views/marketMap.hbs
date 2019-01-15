@@ -17,8 +17,23 @@
         width: 100vw;
         /* margin-top: 3em; */
         border-radius: 4px;
+        animation: 2s fadeIn;
+        animation-fill-mode: forwards;
+
+        visibility: hidden;
 
 
+    }
+
+
+    @keyframes fadeIn {
+        99% {
+            visibility: hidden;
+        }
+
+        100% {
+            visibility: visible;
+        }
     }
 
     /*style the INFO WINDOW */
@@ -1205,7 +1220,7 @@
     * The key parameter will contain your own API key (which is not needed for this tutorial)
     * The callback parameter executes the initMap() function
     -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFXJkYOxxDT3jU1jb5DorpO5rWrPrD-o&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYFXJkYOxxDT3jU1jb5DorpO5rWrPrD-o&callback=initMap">
     </script>
 </section> <!-- end s-works -->
 

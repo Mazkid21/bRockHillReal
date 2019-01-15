@@ -480,7 +480,7 @@ router.post('/', function (req, res, poop) {
     }
 
 
-    requests(options, function (data) {
+    request(options, function (data) {
 
         console.log(data + " this is data from back end");
         console.log(JSON.stringify(options.qs) + "these are the url options");

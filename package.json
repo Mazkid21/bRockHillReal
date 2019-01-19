@@ -31,6 +31,6 @@
     "passport-local-roles": "^1.0.1",
     "req-flash": "0.0.3",
     "request": "^2.88.0",
-"unirest": "^0.5.1"
+    "unirest": "^0.5.1"
   }
 }

@@ -669,7 +669,7 @@ function initMap() {
 
     var polygons = [{
             name: "Smuggler<hr><br>",
-            dates: "YTD:" + smugglerActiveListingsDate[0] + " - " + smugglerActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + smugglerActiveListingsDate[11] + " - " + smugglerActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + smugglerSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + smugglerActiveAvgPrice + "<br><br>",
@@ -722,7 +722,7 @@ function initMap() {
         },
         {
             name: "Central Core<hr><br>",
-            dates: "YTD:" + centralCoreActiveListingsDate[0] + " - " + centralCoreActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + centralCoreActiveListingsDate[11] + " - " + centralCoreActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + centralCoreActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + centralCoreSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + centralCoreActiveAvgPrice + "<br><br>",
@@ -759,7 +759,7 @@ function initMap() {
             }]
         }, {
             name: "West End<hr><br>",
-            dates: "YTD:" + westEndActiveListingsDate[0] + " - " + westEndActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + westEndActiveListingsDate[11] + " - " + westEndActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + westEndActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + westEndSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + westEndActiveAvgPrice + "<br><br>",
@@ -787,7 +787,7 @@ function initMap() {
             }]
         }, {
             name: "East Aspen<hr><br>",
-            dates: "YTD:" + eastAspenActiveListingsDate[0] + " - " + eastAspenActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + eastAspenActiveListingsDate[11] + " - " + eastAspenActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + eastAspenActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + eastAspenSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + eastAspenActiveAvgPrice + "<br><br>",
@@ -812,7 +812,7 @@ function initMap() {
             }]
         }, {
             name: "Red MTN<hr><br>",
-            dates: "YTD:" + redMtnActiveListingsDate[0] + " - " + redMtnActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + redMtnActiveListingsDate[11] + " - " + redMtnActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + redMtnActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + redMtnSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + redMtnActiveAvgPrice + "<br><br>",
@@ -849,7 +849,7 @@ function initMap() {
             }]
         }, {
             name: "West Aspen<hr><br>",
-            dates: "YTD:" + westAspenActiveListingsDate[0] + " - " + westAspenActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + westAspenActiveListingsDate[11] + " - " + westAspenActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + westAspenActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + westAspenSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + westAspenActiveAvgPrice + "<br><br>",
@@ -895,7 +895,7 @@ function initMap() {
             }]
         }, {
             name: "Mclain Flats<hr><br>",
-            dates: "YTD:" + mclainFlatsActiveListingsDate[0] + " - " + mclainFlatsActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + mclainFlatsActiveListingsDate[11] + " - " + mclainFlatsActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + mclainFlatsActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + mclainFlatsSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + mclainFlatsActiveAvgPrice + "<br><br>",
@@ -926,7 +926,7 @@ function initMap() {
             }]
         }, {
             name: "Snowmass Village<hr><br>",
-            dates: "YTD:" + snowmassVillageActiveListingsDate[0] + " - " + snowmassVillageActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + snowmassVillageActiveListingsDate[11] + " - " + snowmassVillageActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + snowmassVillageActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + snowmassVillageSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + snowmassVillageActiveAvgPrice + "<br><br>",
@@ -954,7 +954,7 @@ function initMap() {
             }]
         }, {
             name: "Brush Creek<hr><br>",
-            dates: "YTD:" + brushCreekActiveListingsDate[0] + " - " + brushCreekActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + brushCreekActiveListingsDate[11] + " - " + brushCreekActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + brushCreekActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + brushCreekSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + brushCreekActiveAvgPrice + "<br><br>",
@@ -979,7 +979,7 @@ function initMap() {
             }]
         }, {
             name: "Woody Creek<hr><br>",
-            dates: "YTD:" + woodyCreekActiveListingsDate[0] + " - " + woodyCreekActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + woodyCreekActiveListingsDate[11] + " - " + woodyCreekActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + woodyCreekActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + woodyCreekSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + woodyCreekActiveAvgPrice + "<br><br>",
@@ -1028,7 +1028,7 @@ function initMap() {
             }]
         }, {
             name: "Old Snowmass<hr><br>",
-            dates: "YTD:" + oldSnowmassActiveListingsDate[0] + " - " + oldSnowmassActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + oldSnowmassActiveListingsDate[11] + " - " + oldSnowmassActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + oldSnowmassActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + oldSnowmassSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + oldSnowmassActiveAvgPrice + "<br><br>",
@@ -1080,7 +1080,7 @@ function initMap() {
             }]
         }, {
             name: "Basalt Proper<hr><br>",
-            dates: "YTD:" + basaltProperActiveListingsDate[0] + " - " + basaltProperActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + basaltProperActiveListingsDate[11] + " - " + basaltProperActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + basaltProperActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + basaltProperSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + basaltProperActiveAvgPrice + "<br><br>",
@@ -1146,7 +1146,7 @@ function initMap() {
 
         , {
             name: "El Jebel<hr><br>",
-            dates: "YTD:" + elJebelActiveListingsDate[0] + " - " + elJebelActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + elJebelActiveListingsDate[11] + " - " + elJebelActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + elJebelActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + elJebelSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + elJebelActiveAvgPrice + "<br><br>",
@@ -1180,7 +1180,7 @@ function initMap() {
             }]
         }, {
             name: "Carbondale Proper<hr><br>",
-            dates: "YTD:" + carbondaleProperActiveListingsDate[0] + " - " + carbondaleProperActiveListingsDate[11] + "<br><br>",
+            dates: "YTD:" + carbondaleProperActiveListingsDate[11] + " - " + carbondaleProperActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br><br>",
             soldListings: "Sold Listings YTD: " + carbondaleProperSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + carbondaleProperActiveAvgPrice + "<br><br>",

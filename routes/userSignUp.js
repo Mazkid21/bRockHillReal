@@ -8,7 +8,7 @@ var flash = require('connect-flash');
 // GET /signup
 router.get('/', (request, response, next) => {
 
-    response.render('userSignup');
+    response.render('userSignUp');
 });
 
 // POST /signup

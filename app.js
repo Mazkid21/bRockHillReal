@@ -17,6 +17,8 @@ var assert = require('assert');
 
 
 //Routes....dont forget to add to app.use() below
+var smuggler = require('./routes/smuggler');
+var rentOrBuy = require('./routes/rentOrBuy');
 var homeRoute = require('./routes/index');
 var listingRoute = require('./routes/listing');
 var adminSignUpRoute = require('./routes/adminSignup');
@@ -119,6 +121,8 @@ app.use('/admin-video', vidAdmin);
 app.use('/market-map', marketMap);
 app.use('/bio', bio);
 app.use('/users', users);
+app.use('/first-step', rentOrBuy);
+app.use('/smuggler', smuggler);
 
 
 

@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/css/hover.css">
         <link rel="stylesheet" href="/css/card.css">
         <script src="/js/card.js"></script>
-        <script src="/js/dropdownForm.js"></script>
+
         <link rel="stylesheet" href="/css/slider.css">
         <script src="/js/slider.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
@@ -96,8 +96,20 @@
     margin: 0 auto;">
             <div class="search-filter-nav">
                 <div class="search-container" style="flex: 1;">
-                    <input type="text" id="search-bar" placeholder="Search Cities..">
-                    <div class="search-icon-div"><i class="fas fa-search"></i></div>
+                    <div class="dropdown">
+                        <select name="propertyType" id="type" style="border: 1px solid #D0CFCE;">
+                            <option value="">Property Type</option>
+                            <option value="b__5245532077496d70726f766d656e7473">Residential</option>
+                            <option value="b__52455320566163616e74204c616e64">Residential Land</option>
+                            <option value="b__436f6d6d65726369616c204c616e64">Commercial Land</option>
+                            <option value="b__436f6d6d65726369616c20496e64757374726961">Commercial Industrial</option>
+                            <option value="Fractional">Fractional</option>
+
+
+                        </select>
+
+
+                    </div>
                 </div>
 
                 <section class="range-slider">
@@ -141,7 +153,7 @@
     border-right-width: 0px;">
                     <div class="dropdown">
                         <select name="numBed" id="type" style="border: 1px solid #D0CFCE;">
-                            <option value="city0">Bedrooms</option>
+                            <option value="">Bedrooms</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -165,7 +177,7 @@
     border-right-width: 0px;">
                     <div class="dropdown">
                         <select name="numBath" id="type" style="border: 1px solid #D0CFCE;">
-                            <option value="city0">Bathrooms</option>
+                            <option value="">Bathrooms</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -1046,3 +1058,4 @@
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/dropdownForm.js"></script>

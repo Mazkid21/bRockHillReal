@@ -1,74 +1,146 @@
-{{!-- {{#each property}}
-
-<p>{{@index}}. {{this.Directions}}</p>
-{{/each}}
-
-<h1>{{property.1.Directions}}</h1> --}}
-
-
-
-<!-- works
-    ================================================== -->
-
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/hover.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/slider.css">
+    <script src="js/slider.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/hover.css">
     <link rel="stylesheet" href="/css/card.css">
     <script src="/js/card.js"></script>
-    <link rel="stylesheet" href="css/slider.css">
-    <script src="js/slider.js"></script>
+
+    <link rel="stylesheet" href="/css/slider.css">
+    <script src="/js/slider.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:100|Poiret+One" rel="stylesheet">
 </head>
 
 <section id='works' class="s-works">
+
+    <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up"></div>
+    <form action="/rentals-search" method="post" style="padding-bottom: 18em;
+    padding-left: 11em;
+    margin: 0 auto;">
+        <div class="search-filter-nav">
+            <div class="search-container" style="flex: 1;">
+                <div class="dropdown">
+                    <select name="propertyType" id="type" style="border: 1px solid #D0CFCE;">
+                        <option value="">Property Type</option>
+                        <option value="b__5245532077496d70726f766d656e7473">RES wImprovments</option>
+                        <option value="b__52455320566163616e74204c616e64">RES Vacant Land</option>
+                        <option value="b__436f6d6d65726369616c204c616e64">Commercial Land</option>
+                        <option value="b__436f6d6d65726369616c20496e64757374726961">Commercial Industria</option>
+                        <option value="b__436f6d6d65726369616c204c65617365">Commercial Lease</option>
+                        <option value="b__5265736964656e7469616c204c65617365">Residential Lease</option>
+                        <option value="Fractional">Fractional</option>
+
+
+                    </select>
+
+
+                </div>
+            </div>
+
+            <section class="range-slider">
+                <div>
+                    <label class="rangeValues"></label>
+                    <input id="sliderMin" value="100000" min="100000" max="9500000" name="minPrice" step="100" type="range">
+                    <input id="sliderMax" value="100000000" min="10000000" max="100000000" name="maxPrice" step="100"
+                        type="range">
+                </div>
+            </section>
+            <div class="anyPrice-div box-size-nav-u custom-test dropdown dropbutton" style="flex: 1;list-style-type: none;padding-left: 0px;padding-right: 0px;margin-right: 50px;border-top-width: 0px;border-bottom-width: 0px;border-left-width: 0px;border-right-width: 0px;">
+                <div class="dropdown">
+
+
+                    <select name="city" id="type" style="border: 1px solid #D0CFCE;">
+                        <option value="city0">--Select an City--</option>
+                        <option value="Aspen">Aspen</option>
+                        <option value="b__536e6f776d6173732056696c6c616765">Snowmass Village</option>
+                        <option value="b__576f6f647920437265656b">Woody Creek</option>
+                        <option value="b__4f6c6420536e6f776d617373">Old Snowmass</option>
+                        <option value="Basalt">Basalt</option>
+                        <option value="Carbondale">Carbondale</option>
+                        <option value="Glenwood">Glenwood</option>
+                        <option value="Redstone">Redstone</option>
+                        <option value="b__4372797374616c2056616c6c6579">Crystal Valley</option>
+
+                    </select>
+
+                    <select name="neighborhood" id="citySub" style="display: none; border: 1px solid #D0CFCE;">
+                        <option value="">-- select neighborhood -- </option>
+                    </select>
+
+
+                </div>
+            </div>
+
+            <div class="allBeds-div box-size-nav-u custom-test dropdown dropbutton" style=" margin-left: -5px; flex: 1;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;">
+                <div class="dropdown">
+                    <select name="numBed" id="type" style="border: 1px solid #D0CFCE;">
+                        <option value="">Bedrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9+</option>
+
+                    </select>
+
+
+                </div>
+            </div>
+
+            <div class="allhomes-div box-size-nav-uon custom-test" style=" margin-left: -5px; flex: 1;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;">
+                <div class="dropdown">
+                    <select name="numBath" id="type" style="border: 1px solid #D0CFCE;">
+                        <option value="">Bathrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9+</option>
+
+                    </select>
+
+
+                </div>
+            </div>
+            {{!-- <div class="more-div box-size-nav-uon custom-test" style="flex: 1; margin-left: -5px;">
+                More
+                <i class="fas fa-caret-down" style="margin: 0px 4px;"></i>
+            </div> --}}
+
+            <div class="saveSearch-div box-size-nav-uon " style="flex: 3; margin: 2px 0px;">
+                <button type="submit">
+                    SEARCH</button>
+            </div>
+    </form>
+    </div>
     <div class="row works-content">
         <div class="col-full masonry-wrap">
-            <form class="filter-form-rendered" action="/rentals-search" method="post">
-                <div class="">
-
-                    <section class="range-slider">
-                        <label> Price: </label>
-
-                        <div>
-                            <label class="rangeValues"></label>
-                            <input id="sliderMin" value="1000" min="1000" max="100000" name="minPrice" step="100" type="range">
-                            <input id="sliderMax" value="100000000" min="100000" max="100000000" name="maxPrice" step="100"
-                                type="range">
-                        </div>
-                    </section>
-
-                    {{!-- <input id="minPrice" type="range" class="col-sm-2" min="100" max="30000" step="50"
-                        placeholder="MIN PRICE"></input>
-                    <input id="maxPrice" type="range" class="col-sm-2" min="100" max="30000" step="50" placeholder="Max PRICE"></input>
-                    --}}
-                </div>
-                <div class="">
-                    <label>Bedrooms:</label>
-                    <div class="input-number">
-                        <input id="numBed" type="number" name="numBed" placeholder="" value="{{numBed}}" min="1" max="10" />
-
-                    </div>
-                </div>
-                <div class="">
-                    <label>Bathrooms:</label>
-                    <div class="input-number">
-                        <input id="numBath" type="number" name="numBath" placeholder="" value="{{numBath}}" min="1" max="5" />
-
-                    </div>
-                </div>
-                {{!-- <select name="neighborhood">
-                    <option disabled selected value> -- Select a Neighborhood -- </option>
-                    <option value="b__30312d43656e7472616c20436f7265">Central Core</option>
-                    <option value="b__30312d4561737420417370656e">East Aspen</option>
-                    <option value="b__30312d4d634c61696e20466c617473">Mclain Flats</option>
-                    <option value="b__30312d526564204d6f756e7461696e">Red Mounain</option>
-                    <option value="b__30312d536d7567676c6572">Smuggler</option>
-                    <option value="b__30312d5765737420417370656e">West Aspen</option>
-                    <option value="b__30312d5765737420456e64">West End</option>
-                </select>--}}<input class="filter-form-button" type="submit" value="SEARCH" />
-
-
-            </form>
             <div class="masonry">
                 {{#if error}}
                 <h1>ERRRORRR</h1>
@@ -87,14 +159,15 @@
                                     <figcaption>
                                         <div class="fig-left">
                                             <div class="fig-left-top">
-                                                <p>{{this.customURL}}</p>
+                                                <p>{{this.title}}</p>
                                             </div>
                                             <div class="fig-left-bottom">
                                                 <hr>
                                                 <p> {{this.numBeds}} Bedrooms |
                                                     Bathroooms | SF
                                                 </p>
-                                                <a href="/custom/{{this.customURL}}" role="button" class="btn btn-outline light tiny white-hover">Details</a>
+                                                {{!-- <a href="/custom/{{this.customURL}}" role="button" class="btn btn-outline light tiny white-hover">Details</a>
+                                                --}}
                                             </div>
                                         </div>
                                         <div class="fig-right">
@@ -123,7 +196,7 @@
                                     <figcaption>
                                         <div class="fig-left">
                                             <div class="fig-left-top">
-                                                <p>{{this.StreetNumber}},
+                                                <p>{{this.StreetNumber}}
                                                     {{this.StreetName}}
                                                     {{this.StreetSuffix}}</p>
                                             </div>
@@ -163,15 +236,12 @@
             </div> <!-- end masonry -->
         </div> <!-- end col-full -->
     </div> <!-- end works-content -->
-    <!-- end works-content -->
-    <div class="nextPage-container">
-        <h5>{{propertyCount}}</h5>
-        <form action="/rentals-search/next" method="post">
-            <input name="nextLink" value={{nextLink}} style="display:none;" type="hidden" />
-            <input type="submit" value="Next Page">
-        </form>
-    </div>
+
 </section> <!-- end s-works -->
+
+
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -46,8 +46,9 @@ router.get('/', (req, res) => {
     method: 'GET',
     url: 'https://sparkapi.com/Reso/OData/Property',
     qs: {
-      '$filter': 'City eq \'Aspen\' and MlsStatus eq \'Active\' and Zoning eq \'Residential\' and PropertyType ne \'b__5265736964656e7469616c204c65617365\' and PropertyType ne \'Fractional\'',
+      '$filter': 'City eq \'Aspen\' and MlsStatus eq \'Active\' and MLSAreaMinor eq \'b__30312d43656e7472616c20436f7265\'',
       '$expand': 'CustomFields,Media',
+      '$orderby': 'ListPrice desc',
       '$count': 'true'
     },
     headers: {

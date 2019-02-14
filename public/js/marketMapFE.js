@@ -1,10 +1,13 @@
 window.onload = function () {
-
-    if (!localStorage.justOnce) {
-        localStorage.setItem("justOnce", "true");
-        window.location.reload();
+    if (!window.location.hash) {
+        setTimeout(function () {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }, 3000);
+    } else {
+        initMap();
     }
-    initMap();
+
 };
 
 
@@ -664,17 +667,20 @@ function initMap() {
     carbondaleProperAverageDom = carbondaleProperAverageDom.split(",");
     carbondaleProperAverageDom = Number(carbondaleProperAverageDom[0]) + Number(carbondaleProperAverageDom[1]) + Number(carbondaleProperAverageDom[2]) + Number(carbondaleProperAverageDom[3]) + Number(carbondaleProperAverageDom[4]) + Number(carbondaleProperAverageDom[5]) + Number(carbondaleProperAverageDom[6]) + Number(carbondaleProperAverageDom[7]) + Number(carbondaleProperAverageDom[8]) + Number(carbondaleProperAverageDom[9]) + Number(carbondaleProperAverageDom[10]) + Number(carbondaleProperAverageDom[11]);
     carbondaleProperAverageDom = Number(carbondaleProperAverageDom) / Number(12);
+    carbondaleProperAverageDom = Number(carbondaleProperAverageDom).toFixed(0);
+
+
 
 
 
     var polygons = [{
             name: "Smuggler<hr><br>",
-            dates: "YTD:" + smugglerActiveListingsDate[11] + " - " + smugglerActiveListingsDate[0] + "<br><br>",
-            listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + smugglerSoldListings + "<br><br>",
+            dates: smugglerActiveListingsDate[11] + " - " + smugglerActiveListingsDate[0] + "<br><br>",
+            listings: "<a href=/smuggler>Active Listings:</a>" + smugglerActiveListings[0] + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + smugglerSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + smugglerActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + smugglerSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + smugglerSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + smugglerSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + smugglerSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + smugglerAverageDom,
             coordinates: [{
                 lat: 39.19333,
@@ -722,12 +728,12 @@ function initMap() {
         },
         {
             name: "Central Core<hr><br>",
-            dates: "YTD:" + centralCoreActiveListingsDate[11] + " - " + centralCoreActiveListingsDate[0] + "<br><br>",
+            dates: centralCoreActiveListingsDate[11] + " - " + centralCoreActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + centralCoreActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + centralCoreSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + centralCoreSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + centralCoreActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + centralCoreSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + centralCoreSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + centralCoreSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + centralCoreSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + centralCoreAverageDom,
             coordinates: [{
                 lat: 39.18834,
@@ -759,12 +765,12 @@ function initMap() {
             }]
         }, {
             name: "West End<hr><br>",
-            dates: "YTD:" + westEndActiveListingsDate[11] + " - " + westEndActiveListingsDate[0] + "<br><br>",
+            dates: westEndActiveListingsDate[11] + " - " + westEndActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + westEndActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + westEndSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + westEndSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + westEndActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + westEndSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + westEndSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + westEndSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + westEndSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + westEndAverageDom,
             coordinates: [{
                 lat: 39.202447,
@@ -787,12 +793,12 @@ function initMap() {
             }]
         }, {
             name: "East Aspen<hr><br>",
-            dates: "YTD:" + eastAspenActiveListingsDate[11] + " - " + eastAspenActiveListingsDate[0] + "<br><br>",
+            dates: eastAspenActiveListingsDate[11] + " - " + eastAspenActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + eastAspenActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + eastAspenSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + eastAspenSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + eastAspenActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + eastAspenSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + eastAspenSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + eastAspenSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + eastAspenSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + eastAspenAverageDom,
             coordinates: [{
                 lat: 39.188033,
@@ -812,12 +818,12 @@ function initMap() {
             }]
         }, {
             name: "Red MTN<hr><br>",
-            dates: "YTD:" + redMtnActiveListingsDate[11] + " - " + redMtnActiveListingsDate[0] + "<br><br>",
+            dates: redMtnActiveListingsDate[11] + " - " + redMtnActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + redMtnActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + redMtnSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + redMtnSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + redMtnActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + redMtnSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + redMtnSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + redMtnSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + redMtnSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + redMtnAverageDom,
             coordinates: [{
                 lat: 39.212316,
@@ -849,12 +855,12 @@ function initMap() {
             }]
         }, {
             name: "West Aspen<hr><br>",
-            dates: "YTD:" + westAspenActiveListingsDate[11] + " - " + westAspenActiveListingsDate[0] + "<br><br>",
+            dates: westAspenActiveListingsDate[11] + " - " + westAspenActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + westAspenActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + westAspenSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + westAspenSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + westAspenActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + westAspenSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + westAspenSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + westAspenSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + westAspenSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + westAspenAverageDom,
             coordinates: [{
                 lat: 39.213052,
@@ -895,12 +901,12 @@ function initMap() {
             }]
         }, {
             name: "Mclain Flats<hr><br>",
-            dates: "YTD:" + mclainFlatsActiveListingsDate[11] + " - " + mclainFlatsActiveListingsDate[0] + "<br><br>",
+            dates: mclainFlatsActiveListingsDate[11] + " - " + mclainFlatsActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + mclainFlatsActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + mclainFlatsSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + mclainFlatsSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + mclainFlatsActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + mclainFlatsSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + mclainFlatsSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + mclainFlatsSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + mclainFlatsSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + mclainFlatsAverageDom,
             coordinates: [{
                 lat: 39.212004,
@@ -926,12 +932,12 @@ function initMap() {
             }]
         }, {
             name: "Snowmass Village<hr><br>",
-            dates: "YTD:" + snowmassVillageActiveListingsDate[11] + " - " + snowmassVillageActiveListingsDate[0] + "<br><br>",
+            dates: snowmassVillageActiveListingsDate[11] + " - " + snowmassVillageActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + snowmassVillageActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + snowmassVillageSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + snowmassVillageSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + snowmassVillageActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + snowmassVillageSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + snowmassVillageSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + snowmassVillageSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + snowmassVillageSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + snowmassVillageAverageDom,
             coordinates: [{
                 lat: 39.231061,
@@ -954,12 +960,12 @@ function initMap() {
             }]
         }, {
             name: "Brush Creek<hr><br>",
-            dates: "YTD:" + brushCreekActiveListingsDate[11] + " - " + brushCreekActiveListingsDate[0] + "<br><br>",
+            dates: brushCreekActiveListingsDate[11] + " - " + brushCreekActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + brushCreekActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + brushCreekSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + brushCreekSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + brushCreekActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + brushCreekSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + brushCreekSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + brushCreekSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + brushCreekSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + brushCreekAverageDom,
             coordinates: [{
                 lat: 39.231593,
@@ -979,12 +985,12 @@ function initMap() {
             }]
         }, {
             name: "Woody Creek<hr><br>",
-            dates: "YTD:" + woodyCreekActiveListingsDate[11] + " - " + woodyCreekActiveListingsDate[0] + "<br><br>",
+            dates: woodyCreekActiveListingsDate[11] + " - " + woodyCreekActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + woodyCreekActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + woodyCreekSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + woodyCreekSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + woodyCreekActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + woodyCreekSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + woodyCreekSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + woodyCreekSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + woodyCreekSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + woodyCreekAverageDom,
             coordinates: [{
                 lat: 39.303654,
@@ -1028,12 +1034,12 @@ function initMap() {
             }]
         }, {
             name: "Old Snowmass<hr><br>",
-            dates: "YTD:" + oldSnowmassActiveListingsDate[11] + " - " + oldSnowmassActiveListingsDate[0] + "<br><br>",
+            dates: oldSnowmassActiveListingsDate[11] + " - " + oldSnowmassActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + oldSnowmassActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + oldSnowmassSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + oldSnowmassSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + oldSnowmassActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + oldSnowmassSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + oldSnowmassSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + oldSnowmassSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + oldSnowmassSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + oldSnowmassAverageDom,
             coordinates: [{
                 lat: 39.344491,
@@ -1080,12 +1086,12 @@ function initMap() {
             }]
         }, {
             name: "Basalt Proper<hr><br>",
-            dates: "YTD:" + basaltProperActiveListingsDate[11] + " - " + basaltProperActiveListingsDate[0] + "<br><br>",
+            dates: basaltProperActiveListingsDate[11] + " - " + basaltProperActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + basaltProperActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + basaltProperSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + basaltProperSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + basaltProperActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + basaltProperSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + basaltProperSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + basaltProperSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + basaltProperSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + basaltProperAverageDom,
             coordinates: [{
                 lat: 39.375498,
@@ -1146,12 +1152,12 @@ function initMap() {
 
         , {
             name: "El Jebel<hr><br>",
-            dates: "YTD:" + elJebelActiveListingsDate[11] + " - " + elJebelActiveListingsDate[0] + "<br><br>",
+            dates: elJebelActiveListingsDate[11] + " - " + elJebelActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + elJebelActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + elJebelSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + elJebelSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + elJebelActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + elJebelSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + elJebelSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + elJebelSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + elJebelSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + elJebelAverageDom,
             coordinates: [{
                 lat: 39.418212,
@@ -1180,12 +1186,12 @@ function initMap() {
             }]
         }, {
             name: "Carbondale Proper<hr><br>",
-            dates: "YTD:" + carbondaleProperActiveListingsDate[11] + " - " + carbondaleProperActiveListingsDate[0] + "<br><br>",
+            dates: carbondaleProperActiveListingsDate[11] + " - " + carbondaleProperActiveListingsDate[0] + "<br><br>",
             listings: "Active Listings:" + carbondaleProperActiveListings[0] + "<br><br>",
-            soldListings: "Sold Listings YTD: " + carbondaleProperSoldListings + "<br><br>",
+            soldListings: "Sold Listings In previous 11 months: " + carbondaleProperSoldListings + "<br><br>",
             ActiveAvgPrice: "Active Average list price $" + carbondaleProperActiveAvgPrice + "<br><br>",
-            SoldAvgPrice: "Avg sold Price YTD: $" + carbondaleProperSoldAvgPrice + "<br><br>",
-            SoldMedianPrice: "SoldMedianPrice YTD: $" + carbondaleProperSoldMedianPrice + "<br><br>",
+            SoldAvgPrice: "Avg sold Price In previous 11 months: $" + carbondaleProperSoldAvgPrice + "<br><br>",
+            SoldMedianPrice: "SoldMedianPrice In previous 11 months: $" + carbondaleProperSoldMedianPrice + "<br><br>",
             AverageDom: "Average Day on Market " + carbondaleProperAverageDom,
             coordinates: [{
                 lat: 39.435019,
@@ -1295,10 +1301,15 @@ function attachPolygonInfoWindow(polygon, coors, html) {
 
     google.maps.event.addListener(polygon, 'mouseover', function () {
         polygon.infoWindow.open(map, polygon);
+
+        event.preventDefault();
     });
     google.maps.event.addListener(polygon, 'mouseout', function () {
         polygon.infoWindow.close();
+
+        event.preventDefault();
     });
+
 }
 
 // function to get highest position of polygon to show window nice on top

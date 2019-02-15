@@ -17,6 +17,19 @@ var assert = require('assert');
 
 
 //Routes....dont forget to add to app.use() below
+var basaltProper = require('./routes/basalt-proper');
+var brushCreek = require('./routes/brush-creek');
+var carbondaleProper = require('./routes/carbondale-proper');
+var centralCore = require('./routes/central-core');
+var eastAspen = require('./routes/east-aspen');
+var elJebel = require('./routes/el-jebel');
+var mclainFlats = require('./routes/mclain-flats');
+var oldSnowmass = require('./routes/old-snowmass');
+var redMtn = require('./routes/red-mtn');
+var snowmassVillage = require('./routes/snowmass-village');
+var westAspen = require('./routes/west-aspen');
+var westEnd = require('./routes/west-end');
+var woodyCreek = require('./routes/woody-creek');
 var smuggler = require('./routes/smuggler');
 var rentOrBuy = require('./routes/rentOrBuy');
 var homeRoute = require('./routes/index');
@@ -123,6 +136,19 @@ app.use('/bio', bio);
 app.use('/users', users);
 app.use('/first-step', rentOrBuy);
 app.use('/smuggler', smuggler);
+app.use('/woody-creek', woodyCreek);
+app.use('/west-end', westEnd);
+app.use('/west-aspen', westAspen);
+app.use('/snowmass-village', snowmassVillage);
+app.use('/red-mtn', redMtn);
+app.use('/old-snowmass', oldSnowmass);
+app.use('/mclain-flats', mclainFlats);
+app.use('/el-jebel', elJebel);
+app.use('/east-aspen', eastAspen);
+app.use('/central-core', centralCore);
+app.use('/carbondale-proper', carbondaleProper);
+app.use('/brush-creek', brushCreek);
+app.use('/basalt-proper', basaltProper);
 
 
 

@@ -13,29 +13,45 @@ var router = express.Router();
 
 router.post('/insert', (req, res, next) => {
 
-  var id = req.user._id;
-  console.log(id);
-  var description = req.body.description;
 
-  MongoClient.connect(url, (err, db) => {
 
-    db.collection('users').findOneAndUpdate({
-      "_id": id
-    }, {
-      $push: {
-        userInfo: {
-          "description": description
+  if (req.isAuthenticated()) {
+    if (req.session.passport.user.userGroup === 'user') {
+      //route for admin
+      var id = req.user._id;
+      console.log(id);
+      var description = req.body.description;
+      MongoClient.connect(url, (err, db) => {
 
-        } //inserted data is the object to be inserted
-      }
-    }, {
-      upsert: true
-    }, (err, result) => {
-      console.log(JSON.stringify(description) + ': item updated');
-      db.close();
-    });
-  });
-  res.redirect('/users');
+        db.collection('users').findOneAndUpdate({
+          "_id": id
+        }, {
+          $push: {
+            userInfo: {
+              "description": description
+
+            } //inserted data is the object to be inserted
+          }
+        }, {
+          upsert: true
+        }, (err, result) => {
+          console.log(JSON.stringify(description) + ': item updated');
+          db.close();
+        });
+      });
+      res.redirect('/users');
+
+
+
+    } else {
+      //rote for non-admin
+      res.redirect('/user-login');
+    }
+  } else {
+    res.redirect('/user-login');
+  }
+
+
 
 
 });

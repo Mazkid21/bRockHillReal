@@ -311,6 +311,22 @@ router.post('/', function (req, res, poop) {
                 authorization: process.env.API_KEY
             }
         };
+    } else if (!response.minPrice && !response.maxPrice && !response.numBath && response.numBed && response.neighborhood && response.city && !response.propertyType) {
+        options = {
+            method: 'GET',
+            url: 'https://sparkapi.com/Reso/OData/Property',
+            qs: {
+                '$filter': 'MlsStatus eq \'Active\' and City eq ' + '\'' + response.city + '\'',
+                '$expand': 'CustomFields,Media',
+                '$orderby': 'ListPrice desc',
+                '$count': 'true'
+            },
+            headers: {
+                'x-sparkapi-user-agent': 'BrittanieRockhill',
+                accept: 'application/json',
+                authorization: process.env.API_KEY
+            }
+        };
     } else {
         options;
     }

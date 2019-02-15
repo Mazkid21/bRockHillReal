@@ -856,7 +856,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/inventory',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '02-Brush Creek Village',
+            LocationValue: 'b__30332d427275736820437265656b2056696c6c616765',
             Options: 'ActiveListings,SoldListings',
             '': ''
         },
@@ -906,7 +906,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/price',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '02-Brush Creek Village',
+            LocationValue: 'b__30332d427275736820437265656b2056696c6c616765',
             Options: 'ActiveAverageListPrice,SoldAverageListPrice,SoldMedianListPrice',
             '': ''
         },
@@ -932,7 +932,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/ratio',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '02-Brush Creek Village',
+            LocationValue: 'b__30332d427275736820437265656b2056696c6c616765',
             Options: 'SaleToOriginalListPriceRatio,SaleToListPriceRatio'
         },
         headers: {
@@ -957,7 +957,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/dom',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '02-Brush Creek Village',
+            LocationValue: 'b__30332d427275736820437265656b2056696c6c616765',
             Options: 'AverageDom,'
         },
         headers: {
@@ -982,7 +982,7 @@ function APICalls(callback1, callback2, callback3, callback4, callback5) {
         url: 'https://sparkapi.com/v1/marketstatistics/volume',
         qs: {
             LocationField: 'MLSAreaMinor',
-            LocationValue: '02-Brush Creek Village',
+            LocationValue: 'b__30332d427275736820437265656b2056696c6c616765',
             Options: 'ActiveListVolume,NewListVolume,PendedListVolume,SoldListVolume,SoldSaleVolume'
         },
         headers: {

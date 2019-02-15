@@ -11,34 +11,6 @@ var router = express.Router();
 
 
 
-router.post('/insert', (req, res, next) => {
-
-    var id = req.user._id;
-    console.log(id);
-    var description = req.body.description;
-
-    MongoClient.connect(url, (err, db) => {
-
-        db.collection('users').findOneAndUpdate({
-            "_id": id
-        }, {
-            $push: {
-                userInfo: {
-                    "description": description
-
-                } //inserted data is the object to be inserted
-            }
-        }, {
-            upsert: true
-        }, (err, result) => {
-            console.log(JSON.stringify(description) + ': item updated');
-            db.close();
-        });
-    });
-    res.redirect('/users');
-
-
-});
 
 router.get('/', (req, res) => {
     // API HEAD INFO WITH KEY AND SUCH
@@ -46,7 +18,7 @@ router.get('/', (req, res) => {
         method: 'GET',
         url: 'https://sparkapi.com/Reso/OData/Property',
         qs: {
-            '$filter': 'City eq \'Aspen\' and MlsStatus eq \'Active\' and Zoning eq \'Residential\' and MLSAreaMinor eq \'b__30312d536d7567676c6572\'',
+            '$filter': 'MlsStatus eq \'Active\' and MLSAreaMinor eq \'b__30312d536d7567676c6572\'',
             '$expand': 'CustomFields,Media',
             '$count': 'true'
         },
